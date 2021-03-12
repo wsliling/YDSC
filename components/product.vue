@@ -8,7 +8,7 @@
 			<view class="txtbox">
 				<view class="uni-product-title">{{datajson.Name}}</view>
 				<view class="uni-product-price">
-					<text class="uni-product-price-original">￥{{datajson.Price}}</text>
+					<text class="uni-product-price-original"><text class="fz12">￥</text>{{datajson.Price}}</text>
 					<text class="uni-product-price-favour" style="display: none;">￥{{datajson.MarketPrice}}</text>
 					<text class="uni-product-sale">已售{{datajson.SalesVolume}}</text>
 				</view>

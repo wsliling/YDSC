@@ -380,33 +380,9 @@ function strLength(str) {
      }    
     return len;    
 }    
-function voiceTip(str){
-	const userId = uni.getStorageSync('userId');
-	const token = uni.getStorageSync('token');
-	const isShop = uni.getStorageSync('IsShop');
-	if (userId && token && isShop){
-		post("Order/GetDealerOrder", {
-			UserId: userId,
-			Token: token,
-		},1).then(res=>{
-			if(res.code==0){
-				if(res.data.length){
-					console.log(res.data)
-					post("Order/HaveRemind",{
-						UserId: userId,
-						Token: token,
-					}).then(_res=>{
-						console.log(_res)
-						Voice(str);
-					})
-				}
-			}
-		});
-	}
-}
+
 import {toast,debounce,throttle,navigateBack,navigate,switchTab,redirect,call,previewImage} from './ans-utils'
 import {get,post,requestHideLoading} from './request.js'
-import Voice from '@/QS-baiduyy/QS-baiduyy.js';
 import sj_show_modal from '@/components/G_show_modal/index.js';
 import permision from './permission.js';
 export {
@@ -443,7 +419,6 @@ export {
 	call,
 	previewImage,
 	strLength,
-	voiceTip,
 	toLogin_nvue,
 	permision
 }
