@@ -1,0 +1,155 @@
+.index-swiper-tab{
+	width: 100%;
+	padding-bottom: 1px;
+	position: fixed;
+	top: 0;
+	/* #ifdef H5 */
+	top: 44px;
+	/* #endif */
+	left: 0;
+	z-index: 99;
+}
+
+.selectvideo{
+	.bd{
+		padding: 0 30rpx 30rpx;
+		.imgbox{
+			width: 160rpx;
+			height: 160rpx;
+			border-radius: 12rpx;
+			overflow: hidden;
+			image{
+				width: 100%;
+				height: 100%;
+			}
+			margin-right: 30rpx;
+		}
+		.name{
+			font-size: 30rpx;
+		}
+		text{ margin-right: 20rpx;}
+	}
+}
+.selectTime{
+	padding: 30rpx;
+	text-align: center;
+	.daybox{
+		height: 72rpx;
+		overflow: hidden;
+	}
+	.tabday{
+		white-space: nowrap;
+		height: 88rpx;
+		.item{
+			display: inline-block;
+			vertical-align: middle;
+			text-align: center;
+			width: 180rpx;
+			text{
+				color: #999;
+				display: block;
+				line-height: 1.3;
+			}
+			.str{
+				font-size: 32rpx;
+				font-weight: bold;
+			}
+			.dayno{ font-size: 26rpx;}
+			&.active{
+				text{
+					color: $primary;
+				}
+			}
+		}
+		
+	}
+	.timelist{
+		margin-top: 20rpx;
+		.item{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 70rpx;
+			color: #666;
+			font-size: 26rpx;
+			border: 1px solid #D8D8D8;
+			width: 30%;
+			margin: 1.53%;
+			border-radius: 6rpx;
+			&.active{
+				color: #fff;
+				background: $primary;
+				border-color: $primary;
+			}
+		}
+	}
+}
+.ftpay{
+	padding: 20rpx 30rpx;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 999;
+	.price{
+		font-size: 36rpx;
+	}
+	.btn{
+		background: $primary;
+		color: #fff;
+		height: 60rpx;
+		line-height: 60rpx;
+		padding: 0 30rpx;
+		border-radius: 10rpx;
+	}
+}
+.uni-modal-video{
+	background: #fff;
+	border-radius: 20rpx 20rpx 0 0;
+	.bottom-title{
+		padding-top: 20rpx;
+	}
+	.bottom-content{
+		max-height: 80vh;
+		overflow: auto;
+	}
+	.bottom-btn{
+		border-radius: 0;
+		height: 90rpx;
+		line-height: 90rpx;
+		background-color: $primary;
+	}
+	.close{
+		position: absolute;
+		right: 0;
+		top: 0;
+		padding: 20rpx;
+		color: #999;
+	}
+	.videolist{
+		padding: 30rpx 30rpx 10rpx;
+		.item{
+			width: 33.33%;
+			text-align: center;
+			margin-bottom: 20rpx;
+			.imgbox{
+				width: 200rpx;
+				height: 200rpx;
+				margin: 0 auto;
+				border-radius: 12rpx;
+				overflow: hidden;
+				image{
+					width: 100%;
+					height: 100%;
+				}
+			}
+			.desc{margin: 0 auto; width: 200rpx; font-size: 26rpx;}
+			&.active{
+				.imgbox{
+					border: 2px solid #F0370B;
+				}
+				.desc{ color: $primary;}
+			}
+		}
+	}
+}

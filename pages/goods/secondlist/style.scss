@@ -1,0 +1,79 @@
+.secondPage{
+	.classifytab{
+		padding: 0 20upx;
+		position: fixed;
+		width: 100%;
+		z-index: 99;
+		background: #fff;
+	}
+	.swiper-tab{
+		width: 100%;
+		white-space: nowrap;
+		height: 180upx;
+		position: relative;
+		box-sizing: border-box;
+		.item{
+			display: inline-block;
+			vertical-align: middle;
+			text-align: center;
+			.img{
+				width: 110upx;
+				height: 110upx;
+				border: 1px solid #eee;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+			.txt{
+				font-size: 24upx;
+				color: #666;
+			}
+			&.active{
+				.img{
+					border-color: $primary;
+				}
+				.txt{
+					color: $primary;
+				}
+			}
+		}
+	}
+}
+.uni-popup-type{
+	// padding: 64px 60upx 20upx;
+	width: 630upx;
+	margin: 64px auto 0;
+	/* #ifdef APP-PLUS */
+	margin: 74px auto 0;
+	/* #endif */
+	.inner{
+		background: #fff;
+		padding: 30upx 0 0 30upx;
+		border-radius: 20upx;
+		position: relative;
+		&::before{
+			display: block;
+			content: "";
+			border-left: 20upx solid transparent;
+			border-right: 20upx solid transparent;
+			border-bottom: 24upx solid #fff;
+			position: absolute;
+			left: 50%;
+			top: -20upx;
+			margin-left: -10upx;
+		}
+	}
+	.item{
+		width: 170upx;
+		text-align: center;
+		border: 1px solid #eee;
+		margin: 0 30upx 30upx 0;
+		padding: 6upx 18upx;
+		border-radius: 4px;
+		&.active{
+			color: $primary;
+			border-color: $primary;
+		}
+	}
+}

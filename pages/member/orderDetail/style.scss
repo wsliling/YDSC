@@ -1,0 +1,101 @@
+.ticket{
+    padding-bottom:300upx;
+  }
+.back_col{
+  background-color: #f00!important;
+}
+.or_list{
+  position: relative;top:180upx;left:0;
+  .shop_logo{
+    width:40upx;height:36upx;
+  }
+  .shop{
+    width:161upx;height:161upx;
+  }
+  .or_item{
+    margin-top:20upx;
+    &:first-child{
+      margin-top:0;
+    }
+  }
+}
+  .bor_tit{
+      border-bottom:1upx solid #f5f5f5;
+    }
+.btnbox{
+	.btn{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width:145upx;
+		height:60upx;
+		font-size:24upx;
+		border-radius:10upx;
+		margin:20upx 30upx 20upx 0;
+	}
+	.btn_gray{
+		border:1upx solid #ccc;
+		color: #858585;
+	}
+	.btn_red{
+		background: #ff3333;color:#ffffff;
+	}
+}
+  .order_title{
+   border-left:4upx solid #f00;padding-left:20upx;
+ }
+ .order_info{
+	 .txt{
+	   padding:5upx 0;
+	   display: flex;
+	   justify-content: space-between;
+	 }
+ }
+ .copy{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding:0 20upx;
+   border:1upx solid red;
+   color:#f00;
+   font-size:24upx;
+   border-radius: 6upx;
+ }
+
+ .bg_statu{
+   width:750upx;background: #ff3333;
+   height:245upx;position: absolute;top:0;left:0;
+   color:#ffffff;
+ }
+ .icon_lc{
+   width:60upx;height:61upx;margin-right:20upx;
+   margin-bottom:6upx;
+ }
+ .kc_icon{
+   width:43upx;height:33upx;margin-right:20upx;
+   margin-bottom:6upx;
+ }
+  .btn_menu{
+    height:80upx;
+    width:50%;border-left:1px solid #f5f5f5;
+    &:first-child{
+      border-left:0;
+    }
+  }
+  .tui_pill{
+	  min-width: 80upx;
+    font-size:22upx;padding:5upx 10upx;text-align: center;
+    border:1upx solid #ddd;color:#999999;border-radius: 10upx;
+  }
+  .bb_fix{
+    position: fixed;width:100%;bottom:0;left:0;
+  }
+  .order_statu{
+    font-size:38upx;
+  }
+  .order_posi{
+    position: relative;top:180upx;left:0;
+  }
+  button::after{
+  		border:none;
+  }

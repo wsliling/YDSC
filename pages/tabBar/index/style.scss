@@ -1,0 +1,182 @@
+.nav {
+	width: 100%;
+	padding: 0 20upx;
+	position: fixed;
+	top: 0;
+	z-index: 12;
+	background: #ffffff;
+   .redact{
+		height: 88upx;
+		line-height: 88upx;
+		view{
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 50upx;
+			padding: 0 10upx;
+			margin-left: 20upx;
+		}
+		image{
+			width: 50upx;
+			height: 50upx;
+		}
+	}
+	.nav-left{
+		display: flex;
+		align-items: center;
+		height: 88upx;
+		view{
+			font-family: PingFangSC-Regular, sans-serif;
+			width: 110upx;
+			color: #999999;
+			font-size: 30upx;
+			height: 100%;
+			line-height: 88upx;
+			text-align: center;
+			&.active{
+				font-size: 38upx;
+				color: #000;
+				font-weight: 600;
+				position: relative;
+			}
+			&.active::before{
+				content: '';
+				width: 50upx;
+				height: 4upx;
+				position: absolute;
+				left: 50%;
+				bottom: 0;
+				transform: translate(-50%,50%);
+				border-radius: 20upx;
+				background-color: #000;
+			}
+		}
+	}
+}
+.playList{
+	padding: 30upx 	25upx;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	swiper{
+		margin-bottom: 30upx;
+		width: 100%;
+		height: 300upx;
+		image{
+			width: 100%;
+		}
+	}
+	.left-list,.right-list{
+		width: 50%;
+	}
+	.play{
+		width: 100%;
+		margin-bottom: 20upx;
+		border-radius: 10upx;
+		overflow: hidden;
+		.playVideo{
+			position: relative;
+			min-height: 110rpx;
+			background-color: #E2E2E2;
+			border-radius: 20upx;
+			overflow: hidden;
+		}
+		.playVideo1{
+			position: relative;
+			min-height: 110rpx;
+			background-color: #E2E2E2;
+		}
+		.lookNum{
+			position: absolute;
+			right: 20upx;
+			top:20upx;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			// width: 180upx;
+			height: 40upx;
+			font-size: 22upx;
+			color: #fff;
+			border-radius: 40upx;
+			background-color: rgba($color: #000000, $alpha: .2);
+			image{
+				width: 30upx;
+				height: 30upx;
+				background-color: rgba($color: #ff3333, $alpha: 1);
+				border-radius: 50%;
+				padding: 5upx;
+				box-sizing: content-box;
+			}
+			text{
+				padding: 0 10upx;
+			}
+		}
+		.like{
+			position: absolute;
+			right: 15upx;
+			bottom: 20upx;
+			width: 60upx;
+			text-align: center;
+			image{
+				display: inline-block;
+				margin: 0 auto;
+				width: 50upx;
+				height: 50upx;
+			}
+			text{
+				display: block;
+				color: #f1f1f1;
+				font-size: 20upx;
+			}
+		}
+		.distance{
+			width: 100%;
+			font-size: 24rpx;
+			color: #999;
+			padding: 0 10rpx 10rpx;
+		}
+		
+		.txtbox{
+			border-radius: 0 0 10upx 10upx;
+		}
+		.playTitle{
+			padding: 20upx 10upx 0;
+			font-size: 28upx;
+			line-height: 1.4;
+		}
+		.player{
+			display: flex;
+			align-items: center;
+			padding: 20upx 10upx 20upx;
+			font-size: 24upx;
+			color: #999;
+			image{
+				width: 40upx;
+				height: 40upx;
+				border-radius: 100%;
+				margin-right: 10upx;
+			}
+			text{
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+			}
+			.text{
+				flex: 1;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+			}
+			view{
+				margin-left: auto;
+				font-size: 24upx;
+				width: 175rpx;
+			}
+			&.follow{
+				background-color: transparent;
+				padding: 20upx 10upx 10upx;
+			}
+		}
+	}
+}

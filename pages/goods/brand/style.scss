@@ -1,0 +1,58 @@
+.index_swiper{
+	padding: 20upx 0;
+	overflow: hidden;
+	.boxradius{
+		width: 120%;
+		border-bottom-left-radius: 100%;
+		border-bottom-right-radius: 100%;
+		background-color: #4f25ab;
+		height: 160upx;
+		position: absolute;
+		left: -10%;
+		top: 0;
+	}
+	.dots{
+		.dot{
+			background: rgba(0,0,0,.4);
+		}
+		.dot.active{
+			background: $primary;
+		}
+	}
+}
+.brand-item{
+	image{
+		width: 100%;
+		height: 100%;
+	}
+	.brandimg{
+		height: 300upx;
+	}
+	.probox{
+		padding: 20upx 0 20upx 20upx;
+		.proitem{
+			width: 33.33%;
+			padding-right: 20upx;
+			.imgbox{
+				width: 100%;
+				height: 204upx;
+				background-color: #eee;
+				border-radius: 12upx;
+				overflow: hidden;
+			}
+			.txtbox{
+				.price{
+					font-size: 30upx;
+					font-weight: bold;
+					color: $primary;
+				}
+				.oldprice{
+					color: #999;
+					font-size: 24upx;
+					text-decoration: line-through;
+					margin-left: 10upx;
+				}
+			}
+		}
+	}
+}

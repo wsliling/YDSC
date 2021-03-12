@@ -1,0 +1,19 @@
+.index_swiper{
+	padding: 20upx 0;
+	overflow: hidden;
+	.dots{
+		.dot{
+			background: rgba(0,0,0,.4);
+		}
+		.dot.active{
+			background: $primary;
+		}
+	}
+}
+.filterMenu{ padding: 0 20upx; margin-bottom: 20upx;}
+.filterMenu.scroll{
+	top: 44px;
+	/* #ifndef H5 */
+	top: 0;
+	/* #endif */
+}

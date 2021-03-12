@@ -1,0 +1,209 @@
+.index_swiper{
+	background: #83c7db;
+	padding: 20upx 0;
+	overflow: hidden;
+	.boxradius{
+		width: 120%;
+		border-top-left-radius: 100%;
+		border-top-right-radius: 100%;
+		background-color: #fff;
+		height: 150upx;
+		position: absolute;
+		left: -10%;
+		bottom: 0;
+	}
+}
+.Severs{
+	padding-bottom: 30upx;
+	.item{
+		color: #b93440;
+		font-size: 26upx;
+		display: flex;
+		align-items: center;
+		.iconfont{
+			font-size: 44upx;
+			margin-right: 6upx;
+			line-height: 1;
+		}
+	}
+}
+.icon-menu{
+	padding-bottom: 30upx;
+	.item{
+		display: inline-block;
+	}
+}
+.page-section{
+	margin-left: 30upx;
+	margin-right: 30upx;
+	border-radius: 20upx;
+}
+.scroll-view_H {
+	white-space: nowrap;
+	width: 100%;
+}
+.scroll-view-item_H {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.HotsellList .uni-bd {
+	margin-right: -20upx;
+	padding-bottom: 20upx;
+}
+
+.Hotsell-list .itembox {
+	width: 180upx;
+	margin-right: 20upx;
+	overflow: hidden;
+}
+
+.Hotsell-list .image-view {
+	width: 180upx;
+	height: 180upx;
+	margin: 0;
+}
+
+.Hotsell-list .image-view .img {
+	width: 100%;
+	height: 100%;
+}
+
+.Hotsell-list .uni-product-price {
+	margin-top: 0;
+}
+
+.Hotsell-list .uni-product-price .uni-product-price-favour {
+	font-size: 24upx;
+}
+.porductname{
+	margin-top: 10upx;
+	display: -webkit-box !important;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	font-size: 24upx;
+	line-height: 1.4;
+	white-space : normal!important;
+}
+
+.live_item{
+	width: 50%;
+	box-sizing: border-box;
+	padding: 20upx;
+	border-right: #F5F5F5 1px solid;
+	border-bottom: #F5F5F5 1px solid;
+	.titbox{
+		display: flex;
+		align-items: center;
+		text{
+			font-size: 32upx;
+			font-weight: bold;
+		}
+		image{
+			height: 32upx;
+			width: 152upx;
+			margin-left: 20upx;
+		}
+	}
+	.imgbox{
+		margin-top: 10upx;
+		image{
+			width: 150upx;
+			height: 150upx;
+		}
+	}
+}
+.pinList{
+	.outside{
+		display: flex;
+		padding-bottom: 30upx;
+		.pictrue{
+			width: 180upx;
+			height: 180upx;
+			image{
+				width: 100%;
+				height:100%;
+				border-radius: 12upx;
+			}
+		}
+		.txtBox{
+			display: flex;
+			justify-content: space-between;
+			flex-direction: column;
+			flex: 1;
+			width: 100%;
+			padding: 0 0 0 20upx;
+			.title{
+				font-size: 30upx;
+				color: #333;
+				margin-bottom: 10upx;
+			}
+		}
+		.pronumber{
+			.price{
+				color: $primary;
+				font-size: 30upx;
+				font-weight: bold;
+			}
+			.oldprice{
+				color: #999;
+				font-size: 24upx;
+				text-decoration:line-through;
+				margin-left: 20upx;
+			}
+			.opentuan{
+				width: 160upx;
+				height: 56upx;
+				line-height: 56upx;
+				text-align: center;
+				color: #fff;
+				border-radius: 28upx;
+				background-color: #ffaa00;
+			}
+		}
+	}
+}
+.tabbox{
+	display: flex;
+	.tab-item{
+		width: 20%;
+		text-align: center;
+		font-size: 24upx;
+		color: #666666;
+		margin: 20upx 0 10upx;
+		position: relative;
+		view{line-height: 1.6;}
+		.tabtitle{
+			font-size: 30upx;
+			color: #333;
+			font-weight: bold;
+		}
+		.tabtips{ font-size: 24upx;}
+		&.active{
+			color: #ea3425;
+			.tabtitle{color: #ea3425;}
+			.bb{background-color: #ea3425}
+		}
+	}
+	.bb{
+		height: 6upx;
+		width: 52upx;
+		margin: 20upx auto;
+		border-radius: 100px;
+		background-color: transparent
+	}
+	.br{
+		border-right: #e4e4e4 2upx solid;
+		height: 36upx;
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	.tab-item:last-child .br{
+		border: none;
+	}
+}

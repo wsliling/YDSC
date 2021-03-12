@@ -1,0 +1,187 @@
+{
+    "name" : "亿喜",
+    "appid" : "__UNI__89310A8",
+    "description" : "亿喜",
+    "versionName" : "1.2.4",
+    "versionCode" : 124,
+    "transformPx" : false,
+    "networkTimeout" : {
+        "uploadFile" : 600000
+    },
+    /* 5+App特有相关 */
+    "app-plus" : {
+        "usingComponents" : true,
+        "nvueCompiler" : "uni-app",
+        "compilerVersion" : 3,
+        "splashscreen" : {
+            "alwaysShowBeforeRender" : true,
+            "waiting" : true,
+            "autoclose" : true,
+            "delay" : 0
+        },
+        "safearea" : {
+            "bottom" : {
+                // 底部安全区域配置  
+                "offset" : "none" // 底部安全区域偏移，"none"表示不空出安全区域，"auto"自动计算空出安全区域，默认值为"none"  
+            }
+        },
+        /* 模块配置 */
+        "modules" : {
+            "Payment" : {},
+            "Geolocation" : {},
+            "Share" : {},
+            "VideoPlayer" : {}
+        },
+        /* 应用发布信息 */
+        "distribute" : {
+            /* android打包配置 */
+            "android" : {
+                "permissionPhoneState" : {
+                    "request" : "once",
+                    "prompt" : "为保证您正常、安全地使用，需要获取设备识别码（部分手机提示为获取手机号码）使用权限，请允许。"
+                },
+                "permissionExternalStorage" : {
+                    "request" : "once",
+                    "prompt" : "应用保存运行状态等信息，需要获取读写手机存储（系统提示为访问设备上的照片、媒体内容和文件）权限，请允许。"
+                },
+                "autoSdkPermissions" : true,
+                "schemes" : [ "yixijiu" ],
+                "permissions" : [
+                    "<uses-feature android:name=\"android.hardware.camera\"/>",
+                    "<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
+                    "<uses-permission android:name=\"android.permission.CAMERA\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
+                    "<uses-permission android:name=\"android.permission.INTERNET\"/>",
+                    "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
+                    "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
+                    "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
+                ]
+            },
+            /* ios打包配置 */
+            "ios" : {
+                "idfa" : false,
+                "privacyDescription" : {
+                    "NSPhotoLibraryUsageDescription" : "修改用户修改头像和上传产品评价从用户相册选取照片",
+                    "NSPhotoLibraryAddUsageDescription" : "保存用户喜欢的图片到自己的相册",
+                    "NSCameraUsageDescription" : "用户修改头像时使用摄像头拍摄图片",
+                    "NSMicrophoneUsageDescription" : "用户开启直播时录入音频",
+                    "NSLocationAlwaysAndWhenInUseUsageDescription" : "获取当前位置为用户优先展示附近的商品和用户"
+                }
+            },
+            /* SDK配置 */
+            "sdkConfigs" : {
+                "share" : {
+                    "weixin" : {
+                        "appid" : "wxd33d3c014a168ec6",
+                        "UniversalLinks" : "https://api.yixijiu19.com/apps/"
+                    }
+                },
+                "ad" : {},
+                "maps" : {},
+                "payment" : {
+                    "weixin" : {
+                        "__platform__" : [ "ios", "android" ],
+                        "appid" : "wxd33d3c014a168ec6",
+                        "UniversalLinks" : "https://api.yixijiu19.com/apps/"
+                    },
+                    "alipay" : {
+                        "__platform__" : [ "ios", "android" ]
+                    }
+                },
+                "geolocation" : {
+                    "amap" : {
+                        "__platform__" : [ "ios", "android" ],
+                        "appkey_ios" : "cd3963e357ec5322fed8ded6777e08f7",
+                        "appkey_android" : "c8e49029357f6ceaa31c955f4529ce02"
+                    }
+                },
+                "push" : {}
+            },
+            "icons" : {
+                "android" : {
+                    "hdpi" : "E:/liu项目/A亿喜/logo/android/72x72.png",
+                    "xhdpi" : "E:/liu项目/A亿喜/logo/android/96x96.png",
+                    "xxhdpi" : "E:/liu项目/A亿喜/logo/android/144x144.png",
+                    "xxxhdpi" : "E:/liu项目/A亿喜/logo/android/192x192.png"
+                },
+                "ios" : {
+                    "iphone" : {
+                        "app@2x" : "E:/liu项目/A亿喜/logo/ios/Icon-App-120x120.png",
+                        "app@3x" : "E:/liu项目/A亿喜/logo/ios/Icon-App-180x180.png",
+                        "spotlight@2x" : "E:/liu项目/A亿喜/logo/ios/Icon-App-80x80.png",
+                        "spotlight@3x" : "E:/liu项目/A亿喜/logo/ios/Icon-App-120x120.png",
+                        "settings@2x" : "E:/liu项目/A亿喜/logo/ios/Icon-App-58x58.png",
+                        "settings@3x" : "E:/liu项目/A亿喜/logo/ios/Icon-App-87x87.png",
+                        "notification@2x" : "E:/liu项目/A亿喜/logo/ios/Icon-App-40x40.png",
+                        "notification@3x" : "E:/liu项目/A亿喜/logo/ios/Icon-App-60x60.png"
+                    },
+                    "appstore" : "E:/liu项目/A亿喜/logo/ios/1024x1024.png"
+                }
+            }
+        },
+        "nativePlugins" : {
+            "tx-push" : {
+                "__plugin_info__" : {
+                    "name" : "腾讯云直播，欢迎使用，qq群:933785472",
+                    "description" : "推流插件 插件永久维护，欢迎提需求",
+                    "platforms" : "Android,iOS",
+                    "url" : "https://ext.dcloud.net.cn/plugin?id=1008",
+                    "android_package_name" : "uni.UNI89310A8",
+                    "ios_bundle_id" : "",
+                    "isCloud" : true,
+                    "bought" : 1,
+                    "pid" : "1008",
+                    "parameters" : {}
+                }
+            }
+        }
+    },
+    /* 快应用特有相关 */
+    "quickapp" : {},
+    /* 小程序特有相关 */
+    "mp-weixin" : {
+        "appid" : "wx5d781fe313b6eb72",
+        "setting" : {
+            "urlCheck" : false,
+            "es6" : true,
+            "minified" : true,
+            "postcss" : true
+        },
+        "usingComponents" : true,
+        "permission" : {
+            "scope.userLocation" : {
+                "desc" : "你的位置信息将用于小程序位置接口的效果展示" // 高速公路行驶持续后台定位
+            }
+        }
+    },
+    "mp-alipay" : {
+        "usingComponents" : true
+    },
+    "mp-baidu" : {
+        "usingComponents" : true
+    },
+    "mp-toutiao" : {
+        "usingComponents" : true
+    },
+    "uniStatistics" : {
+        "enable" : false
+    },
+    "h5" : {
+        "title" : "亿喜",
+        "domain" : ""
+    }
+}
