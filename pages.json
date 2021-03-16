@@ -3,11 +3,11 @@
 		{
 			"path": "pages/tabBar/index/index",
 			"style": {
-				"navigationBarTitleText": "首页",
+				"navigationBarTitleText": "健康",
 				"enablePullDownRefresh" : true,
 				//#ifdef MP-WEIXIN
-				"navigationBarBackgroundColor":"#83c7db",
-				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor":"#FFFFFF",
+				"navigationBarTextStyle":"black",
 				//#endif
 				"app-plus": {
 					"pullToRefresh": {

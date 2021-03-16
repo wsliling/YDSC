@@ -5,10 +5,10 @@
 	top: 0;
 	z-index: 12;
 	background: #ffffff;
-   .redact{
+	.redact {
 		height: 88upx;
 		line-height: 88upx;
-		view{
+		view {
 			height: 100%;
 			display: flex;
 			align-items: center;
@@ -17,16 +17,16 @@
 			padding: 0 10upx;
 			margin-left: 20upx;
 		}
-		image{
+		image {
 			width: 50upx;
 			height: 50upx;
 		}
 	}
-	.nav-left{
+	.nav-left {
 		display: flex;
 		align-items: center;
 		height: 88upx;
-		view{
+		view {
 			font-family: PingFangSC-Regular, sans-serif;
 			width: 110upx;
 			color: #999999;
@@ -34,63 +34,111 @@
 			height: 100%;
 			line-height: 88upx;
 			text-align: center;
-			&.active{
+			&.active {
 				font-size: 38upx;
 				color: #000;
 				font-weight: 600;
 				position: relative;
 			}
-			&.active::before{
+			&.active::before {
 				content: '';
 				width: 50upx;
 				height: 4upx;
 				position: absolute;
 				left: 50%;
 				bottom: 0;
-				transform: translate(-50%,50%);
+				transform: translate(-50%, 50%);
 				border-radius: 20upx;
 				background-color: #000;
 			}
 		}
 	}
 }
-.playList{
-	padding: 30upx 	25upx;
+.top image {
+	height: 400upx;
+}
+.cen {
+	border-radius: 8%;
+	background-color: $white;
+	margin: 3%;
+	padding: 2%;
+	.cardTitle {
+		color: #a7aab9;
+		border-bottom: 1upx solid #f8f8f8;
+		padding: 5upx 0;
+	}
+	.card {
+		display: flex;
+		align-items: center;
+		padding-top: 10upx;
+		view:nth-of-type(1) {
+			flex: 0.5;
+			image {
+				width: 80upx;
+				height: 80upx;
+			}
+		}
+		view:nth-of-type(2) {
+			flex: 2;
+			color: #a7aab9;
+			view:nth-of-type(1) {
+				color: black;
+				font-size: 30upx;
+				font-weight: bold;
+			}
+			text{
+				font-size: 50upx;
+			}
+		}
+		view:nth-of-type(3) {
+			flex: 1;
+			color: #fd8b36;
+			background-color: #fdf5ee;
+			text-align: center;
+			border-radius: 30%;
+			width: 80%;
+			height: 80%;
+		}
+	}
+}
+.playList {
+	padding: 30upx 25upx;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	swiper{
+	swiper {
 		margin-bottom: 30upx;
 		width: 100%;
 		height: 300upx;
-		image{
+		image {
 			width: 100%;
 		}
 	}
-	.left-list,.right-list{
+	.left-list,
+	.right-list {
 		width: 50%;
 	}
-	.play{
+	.play {
 		width: 100%;
 		margin-bottom: 20upx;
 		border-radius: 10upx;
 		overflow: hidden;
-		.playVideo{
+		.playVideo {
 			position: relative;
 			min-height: 110rpx;
-			background-color: #E2E2E2;
+			background-color: #e2e2e2;
 			border-radius: 20upx;
 			overflow: hidden;
 		}
-		.playVideo1{
+		.playVideo1 {
 			position: relative;
 			min-height: 110rpx;
-			background-color: #E2E2E2;
+			background-color: #e2e2e2;
 		}
-		.lookNum{
+		.lookNum {
 			position: absolute;
 			right: 20upx;
-			top:20upx;
+			top: 20upx;
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
@@ -99,8 +147,8 @@
 			font-size: 22upx;
 			color: #fff;
 			border-radius: 40upx;
-			background-color: rgba($color: #000000, $alpha: .2);
-			image{
+			background-color: rgba($color: #000000, $alpha: 0.2);
+			image {
 				width: 30upx;
 				height: 30upx;
 				background-color: rgba($color: #ff3333, $alpha: 1);
@@ -108,72 +156,72 @@
 				padding: 5upx;
 				box-sizing: content-box;
 			}
-			text{
+			text {
 				padding: 0 10upx;
 			}
 		}
-		.like{
+		.like {
 			position: absolute;
 			right: 15upx;
 			bottom: 20upx;
 			width: 60upx;
 			text-align: center;
-			image{
+			image {
 				display: inline-block;
 				margin: 0 auto;
 				width: 50upx;
 				height: 50upx;
 			}
-			text{
+			text {
 				display: block;
 				color: #f1f1f1;
 				font-size: 20upx;
 			}
 		}
-		.distance{
+		.distance {
 			width: 100%;
 			font-size: 24rpx;
 			color: #999;
 			padding: 0 10rpx 10rpx;
 		}
-		
-		.txtbox{
+
+		.txtbox {
 			border-radius: 0 0 10upx 10upx;
 		}
-		.playTitle{
+		.playTitle {
 			padding: 20upx 10upx 0;
 			font-size: 28upx;
 			line-height: 1.4;
 		}
-		.player{
+		.player {
 			display: flex;
 			align-items: center;
 			padding: 20upx 10upx 20upx;
 			font-size: 24upx;
 			color: #999;
-			image{
+			image {
 				width: 40upx;
 				height: 40upx;
 				border-radius: 100%;
 				margin-right: 10upx;
 			}
-			text{
+			text {
 				overflow: hidden;
 				text-overflow: ellipsis;
 				display: -webkit-box;
 			}
-			.text{
+			.text {
 				flex: 1;
 				overflow: hidden;
 				text-overflow: ellipsis;
 				display: -webkit-box;
 			}
-			view{
+			view {
 				margin-left: auto;
 				font-size: 24upx;
 				width: 175rpx;
 			}
-			&.follow{
+			&.follow {
 				background-color: transparent;
 				padding: 20upx 10upx 10upx;
 			}

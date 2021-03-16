@@ -1,70 +1,202 @@
-.story {
-		align-items: start;
-		padding: 30upx;
-		.left-list,.right-list {
-			width: 50%;
+.course {
+	background-color: white;
+	.top {
+		display: flex;
+		align-items: center;
+		.top_left {
+			flex: 1;
+			text-align: center;
 		}
-		.story-item {
-			font-size: 30upx;
-			position: relative;
-			margin-bottom: 16upx;
-			background: #fff;
-			border-radius: 10upx;
-			.storyimg {
-				width: 100%;
-				border-radius: 10upx;
-				min-height: 360upx;
-				max-height: 800upx;
-			}
-			.story-mark {
-				position: absolute;
-				width: 100%;
-				bottom: 0;
-				color: #fff;
-				padding: 0 20upx 12upx;
-				border-radius: 0 0 10upx 10upx;
-				text-overflow: ellipsis;
-				background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0, #000 240%);
-				background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0, #000 240%);
-				background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, #000 240%);
-				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#000000', GradientType=0);
-				.tag{
-					border-radius: 100px;
-					display: inline-block;
-					font-size: 24upx;
-					line-height: 2;
-					padding: 0 16upx 0 48upx;
-					background:rgba(0,0,0,.3) url(http://xcx.yixijiu19.com/static/buy.png) 10upx center no-repeat;
-					background-size: 34upx;
-				}
-				.info {
-					display: flex;
-					justify-content: space-between;
-					align-items: center;
-				
-					.info_l {
-						align-items: center;
-					}
-				
-					.homeimg {
-						width: 56upx;
-						height: 56upx;
-						border-radius: 50%;
-						margin-right: 10upx;
-					}
-					.text {
-						font-size: 24upx;
-						color: rgba(102, 102, 102, 1);
-						line-height: 34upx;
-						margin-left: 10upx;
-					}
-				}
-				.fw {
-					max-width: 140upx;
-					font-weight: 400;
-					font-size: 24upx;
-				}
-			}
+		.search {
+			flex: 4;
+			padding: 10px 0px !important;
 		}
-
 	}
+	.sec {
+		display: flex;
+		margin: 10upx;
+		padding-bottom: 10upx;
+		> view {
+			flex: 1;
+			image {
+				height: 170px;
+			}
+		}
+		> view:nth-of-type(2) {
+			image {
+				height: 50%;
+			}
+		}
+	}
+	.line {
+		height: 10px;
+		background-color: #f3f3f3;
+	}
+	.sec1 {
+		margin: 5px 5px 10px;
+		.sec1_title {
+			font-size: 15px;
+			font-weight: bold;
+			margin: 0 0 8px 8px;
+		}
+		.sec1_1 {
+			image {
+				height: 130px;
+			}
+		}
+		.sec1_2 {
+			display: flex;
+			image {
+				flex: 1;
+				height: 100px;
+			}
+		}
+	}
+	.sec2 {
+		height: 545px;
+		margin-top: 5px;
+		.sec2_tab {
+			// position: absolute;
+			background-color: white;
+			left: 0;
+			height: 100%;
+		}
+		.xxx {
+			font-size: 42rpx;
+			font-weight: bold;
+			padding: 60rpx 0;
+			text-align: center;
+		}
+		.sec1_title {
+			font-size: 15px;
+			font-weight: bold;
+			margin-left: 8px;
+		}
+		.sec2_1 {
+			image {
+				height: 130px;
+				width: 98%;
+			}
+		}
+		.more {
+			text-align: center;
+			background: #f3f3f3;
+			border-radius: 30px;
+			margin: 20upx auto;
+			height: 35px;
+			width: 50%;
+			line-height: 35px;
+		}
+	}
+	.sec3 {
+		margin: 20upx;
+		.sec1_title {
+			font-size: 15px;
+			font-weight: bold;
+			margin: 0 0 8px 8px;
+		}
+	}
+	.sec4 {
+		margin: 10upx;
+		.sec4_1 {
+			display: flex;
+			height: 120px;
+			line-height: 120px;
+			> view:nth-of-type(1) {
+				flex: 1;
+				image {
+					height: 100%;
+				}
+			}
+			> view:nth-of-type(2) {
+				flex: 1.5;
+				height: 120px;
+				line-height: 40px;
+			}
+			.sec4_title {
+				font-weight: bold;
+				font-size: 15px;
+			}
+			.sec4_title1 {
+				color: gray;
+			}
+			.sec4_title2 {
+				color: #c5c5c5;
+				.sec4_img {
+					width: 60upx;
+					height: 60upx;
+				}
+			}
+		}
+	}
+}
+.story {
+	align-items: start;
+	padding: 30upx;
+	.left-list,
+	.right-list {
+		width: 50%;
+	}
+	.story-item {
+		font-size: 30upx;
+		position: relative;
+		margin-bottom: 16upx;
+		background: #fff;
+		border-radius: 10upx;
+		.storyimg {
+			width: 100%;
+			border-radius: 10upx;
+			min-height: 360upx;
+			max-height: 800upx;
+		}
+		.story-mark {
+			position: absolute;
+			width: 100%;
+			bottom: 0;
+			color: #fff;
+			padding: 0 20upx 12upx;
+			border-radius: 0 0 10upx 10upx;
+			text-overflow: ellipsis;
+			background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0, #000 240%);
+			background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0, #000 240%);
+			background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, #000 240%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#000000', GradientType=0);
+			.tag {
+				border-radius: 100px;
+				display: inline-block;
+				font-size: 24upx;
+				line-height: 2;
+				padding: 0 16upx 0 48upx;
+				background: rgba(0, 0, 0, 0.3) url(http://xcx.yixijiu19.com/static/buy.png) 10upx center no-repeat;
+				background-size: 34upx;
+			}
+			.info {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				.info_l {
+					align-items: center;
+				}
+
+				.homeimg {
+					width: 56upx;
+					height: 56upx;
+					border-radius: 50%;
+					margin-right: 10upx;
+				}
+				.text {
+					font-size: 24upx;
+					color: rgba(102, 102, 102, 1);
+					line-height: 34upx;
+					margin-left: 10upx;
+				}
+			}
+			.fw {
+				max-width: 140upx;
+				font-weight: 400;
+				font-size: 24upx;
+			}
+		}
+	}
+}
