@@ -1,5 +1,5 @@
 <script>
-	import {voiceTip,host,dowmappURLios} from '@/common/util.js';
+	import {host,dowmappURLios} from '@/common/util.js';
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
@@ -43,9 +43,6 @@
 			s2.src ='http://xcx.yixijiu19.com/static/TcPlayer-2.3.2.js';
 			document.body.appendChild(s2);
 			// #endif
-			setInterval(function(){
-				voiceTip('您有新的订单')
-			},5000)
 		},
 		onShow: function() {
 			console.log('App Show')

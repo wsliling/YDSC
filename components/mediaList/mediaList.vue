@@ -10,7 +10,7 @@
 				<view class="author-name uni-ellipsis" @click="gotoPensonal">
 					<block v-if="dataitem.NickName">{{dataitem.NickName}}</block>
 					<block v-else-if="dataitem.FindType==1">店铺动态</block>
-					<block v-else-if="dataitem.FindType==2">壹舞</block>
+					<block v-else-if="dataitem.FindType==2">英达思创</block>
 				</view>
 				<block v-if="dataitem.IsMy==0&&dataitem.FindType!=2&&isBtn==true">
 					<view :class="['flow-btn',dataitem.IsFollow==0?'':'flowed']" @click="flow(dataitem.FindType,dataitem.ShopId,dataitem.MemberId)">{{dataitem.IsFollow==0?'关注':'已关注'}}</view>
@@ -312,18 +312,16 @@
 	.media-hd .flow-btn {
 		float: right;
 		margin-top: 10upx;
-		color: #fff;
-		background: #fff;
+		color: $primary;
 		border-radius: 100px;
 		width: 120upx;
 		text-align: center;
-		background: #FF3333;
+		background: #fff2ea;
 	}
 
 	.media-hd .flow-btn.flowed {
-		background: #fff;
-		color: #FF3333;
-		border: 1px solid #FF3333;
+		background: #F2F2F2;
+		color: #999;
 	}
 
 	.media-title {

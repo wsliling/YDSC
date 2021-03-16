@@ -43,15 +43,12 @@
             "style" : {
 				"navigationBarTitleText": "商城",
 				"enablePullDownRefresh" : true,
-				"navigationBarBackgroundColor":"#83c7db",
-				"navigationBarTextStyle":"white",
 				"app-plus": {
 					"pullToRefresh": {
 						"support": true,
 						"color": "#FF3737", //小圈圈的颜色
 						"style":"circle" //小圈圈的样式
 					},
-					"titleNView": false, //首页去除原生导航
 					"bounce": "none",
 					"scrollIndicator": "none" //不显示滚动条
 				}
@@ -78,11 +75,8 @@
             "path" : "pages/tabBar/my/my",
             "style" : {
 				"navigationBarTitleText": "我的",
-				"app-plus": {
-					"titleNView": false, //首页去除原生导航
-					"bounce": "none",
-					"scrollIndicator": "none" //不显示滚动条
-				}
+				"navigationBarBackgroundColor":"#2c2d2d",
+				"navigationBarTextStyle": "white"
 			}
         }
         ,{
@@ -705,8 +699,8 @@
 		"backgroundColor": "#F5F5F5"
 	},
 	"tabBar": {
-		"color": "#333333",
-		"selectedColor": "#ff3333",
+		"color": "#8a8a8a",
+		"selectedColor": "#fa6008",
 		"borderStyle": "black",
 		"backgroundColor": "#ffffff",
 		"list": [{

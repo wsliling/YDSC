@@ -1,13 +1,11 @@
 <template>
 	<view>
-		
 		<view class="nav flex-between" :style="{ 'padding-top': barHeight + 'px' }">
 			<view class="nav-left">
-				<view :class="[tabNav==2?'active':'']" @click="tapNav(2)">推荐</view>
-				<view :class="[tabNav==4?'active':'']" @click="tapNav(4)">此刻</view>
-			</view>
-			<view class="redact flex-end" @click="tolink('/pages/personal/artPost/artPost','login')">
-				<view class="uni-icon uni-icon-plus" style="font-weight: 400; color: #666;"></view>
+				<view :class="[tabNav==2?'active':'']" @click="tapNav(2)">最新</view>
+				<view :class="[tabNav==4?'active':'']" @click="tapNav(4)">推荐</view>
+				<view :class="[tabNav==1?'active':'']" @click="tapNav(1)">关注</view>
+				<view :class="[tabNav==3?'active':'']" @click="tapNav(3)">附近</view>
 			</view>
 		</view>
 		<view :style="{ height: barHeight + 44 + 'px' }"></view>
@@ -20,6 +18,7 @@
 			<uni-load-more :loadingType="loadingType"></uni-load-more>
 		</view>
 		<noData :isShow="noDataIsShow"></noData>
+		<view @click="tolink('/pages/personal/artPost/artPost','login')" class="uploadbtn flex-column"><text class="uni-icon uni-icon-plusempty"></text></view>
 	</view>
 </template>
 
@@ -210,6 +209,34 @@
 				background-color: #000;
 			}
 		}
+	}
+}
+.uploadbtn{
+	position: fixed;
+	right: 20upx;
+	bottom: 20upx;
+	/* #ifdef H5 */
+	bottom: 160upx;
+	/* #endif */
+	width: 100upx;
+	height: 100upx;
+	line-height:1;
+	color: #fff;
+	font-size: 22upx;
+	background: $primary;
+	border-radius: 50%;
+	box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+	z-index: 9;
+	.uni-icon{
+		font-weight: bold;
+		font-size: 64upx;
+		line-height: .8;
+	}
+	.icon{
+		display: block;
+		height: 40upx;
+		width: 40upx;
+		margin-bottom: 8upx;
 	}
 }
 </style>

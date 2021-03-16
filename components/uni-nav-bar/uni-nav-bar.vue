@@ -5,7 +5,7 @@
 			<uni-status-bar v-if="statusBar" />
 			<!-- #endif -->
 			<view :style="{ color: color,backgroundColor: backgroundColor }" class="uni-navbar__header uni-navbar__content_view">
-				<view @tap="onClickLeft" class="uni-navbar__header-btns uni-navbar__header-btns-left uni-navbar__content_view">
+				<view v-if="leftIcon||leftText" @tap="onClickLeft" class="uni-navbar__header-btns uni-navbar__header-btns-left uni-navbar__content_view">
 					<view class="uni-navbar__content_view" v-if="leftIcon.length">
 						<uni-icons :color="color" :type="leftIcon" size="24" />
 					</view>
@@ -181,12 +181,11 @@
 		display: flex;
 		/* #endif */
 		flex-wrap: nowrap;
-		width: 90rpx;
+		min-width: 90rpx;
 		padding: 0 6px;
 		justify-content: center;
 		align-items: center;
 	}
-
 	.uni-navbar__header-btns-left {
 		/* #ifndef APP-NVUE */
 		display: flex;
