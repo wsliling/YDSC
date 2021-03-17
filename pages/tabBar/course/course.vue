@@ -33,7 +33,7 @@
 		</view>
 		<view class="line"></view>
 		<view class="sec2">
-			<view class="sec1_title">推荐课程 你</view>
+			<view class="sec1_title">推荐课程</view>
 			<view class="sec2_tab">
 				<aloys-tab :tabs="tabs">
 					<view slot="content0" class="xxx">
