@@ -11,7 +11,6 @@
 				<view v-for="(item, index) in bannerList.length" :key="index" :class="['dot', currentSwiper == index ? 'active' : '']"></view>
 			</view>
 		</view>
-		<!-- <view class="top"><image src="../../../static/health/change/lun_1.png"></image></view> -->
 		<view class="cen">
 			<view class="cardTitle">健康生活</view>
 			<view class="card">
