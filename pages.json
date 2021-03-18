@@ -600,19 +600,71 @@
                     "style" : {
 						"navigationBarTitleText": "我的关注"
 					}
-                }
-                ,{
-                    "path" : "setHOt/setHOt",
-                    "style" :{
-						"navigationBarTitleText": "上热门"
+                },
+				{
+				    "path" : "question/question",
+				    "style" :                                                                                    
+					{
+						"navigationBarTitleText": "帮助中心",
+						"enablePullDownRefresh": false
 					}
-                }
+				}
                 ,{
-                    "path" : "setHOt/setSuccess",
-                    "style" : {
-						"navigationBarTitleText": "上热门"
+                    "path" : "set/set",
+                    "style" :                                                                                    
+					{
+						"navigationBarTitleText": "设置",
+						"enablePullDownRefresh": false
 					}
-                }
+                },
+				{
+				    "path" : "accountSafe/accountSafe",
+				    "style" :                                                                                    
+					{
+						"navigationBarTitleText": "账号安全",
+						"enablePullDownRefresh": false
+					}
+				},
+				{
+				    "path" : "about/about",
+				    "style" :                                                                                    
+					{
+						"navigationBarTitleText": "关于我们",
+						"enablePullDownRefresh": false
+					}
+				},
+				{
+				    "path" : "modifyTel/modifyTel",
+				    "style" :                                                                                    
+					{
+						"navigationBarTitleText": "关于我们",
+						"enablePullDownRefresh": false
+					}
+				},
+				{
+				    "path" : "modifyPad/modifyPad",
+				    "style" :                                                                                    
+					{
+						"navigationBarTitleText": "修改登录密码",
+						"enablePullDownRefresh": false
+					}
+				},
+				{
+				    "path" : "ChangepayPwd/ChangepayPwd",
+				    "style" :                                                                                    
+					{
+						"navigationBarTitleText": "修改支付密码",
+						"enablePullDownRefresh": false
+					}
+				},
+				{
+				    "path" : "kefu/kefu",
+				    "style" :                                                                                    
+					{
+						"navigationBarTitleText": "在线客服",
+						"enablePullDownRefresh": false
+					}
+				}
             ]
 		},
 		{

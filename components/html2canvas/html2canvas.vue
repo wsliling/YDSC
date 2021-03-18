@@ -42,7 +42,7 @@
 </script>
 
 <script module="html2canvas" lang="renderjs">
-//import html2canvas from 'html2canvas';
+// import html2canvas from 'html2canvas';
 export default {
 	methods: {
 		async create(domId) {
