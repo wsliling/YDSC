@@ -709,6 +709,58 @@
 						"navigationBarTitleText": "消息列表"
 					}
                 }
+                ,{
+                    "path" : "VenueDetail/VenueDetail",
+                    "style" :      
+						{
+							"navigationBarTitleText": "场馆详情",
+							"enablePullDownRefresh": false
+						}
+                }
+                ,{
+                    "path" : "topic/topic",
+                    "style" : {
+                    	"navigationBarTitleText": "话题排行榜",
+                    	"enablePullDownRefresh" : true,
+                    	"app-plus": {
+                    		"pullToRefresh": {
+                    			"support": true,
+                    			"color": "#fa6008", //小圈圈的颜色
+                    			"style":"circle" //小圈圈的样式
+                    		},
+                    		"scrollIndicator": "none" //不显示滚动条
+                    	}
+                    }
+                
+                }
+                ,{
+                    "path" : "topicDetail/topicDetail",
+                    "style" : {
+					   "navigationBarTitleText": "话题详情",
+					   "enablePullDownRefresh" : false,
+					   "app-plus": {
+						"titleNView": {
+							"type": "transparent"
+						}
+					   }
+					}
+                
+                },
+				{
+					"path" : "artPost/topicPost",
+					"style" : {
+						"navigationBarTitleText": "发布话题"
+					}
+				}
+                ,{
+                    "path" : "addtopic/addtopic",
+                    "style" :                                                                                    
+					{
+						"navigationBarTitleText": "添加话题",
+						"enablePullDownRefresh": false
+					}
+                
+                }
             ]
 		},
 		{

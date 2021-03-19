@@ -34,8 +34,9 @@ a {
     color:#ffffff;
   }
 }
-.c_theme{color: #FF3333 !important;}
+.c_theme{color: $primary !important;}
 .c_fff{ color: #fff !important;}
+.c_666{ color: #666 !important;}
 /*标题*/
 .Yi-hd{
 	padding: 20upx 0;
