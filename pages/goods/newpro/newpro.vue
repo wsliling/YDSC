@@ -15,9 +15,9 @@
 			</view>
 		</view>
 		<view>
-			<!-- 今日上新 -->
+			<!-- 上新精选 -->
 			<view class="todaynew pd15" v-if="newprolist.length">
-				<view class="c-hd flex-center uni-mb10">今日上新</view>
+				<view class="c-hd uni-mb10">上新精选<text class="text">精选新品 闭眼放心买</text></view>
 				<view class="product-list-level">
 					<block v-for="(item,index) in newprolist" :key="index">
 					<view class="outside uni-mb10 uni-bg-white b_radius" @click="tolink('/pages/goods/productDetail/productDetail?proId='+item.Id)">
@@ -33,7 +33,7 @@
 							</view>
 							<view class="pronumber flex-between">
 								<view><text class="price"><text class="fz12">￥</text>{{item.Price}}</text></view>
-								<view class="opentuan" >立即查看</view>
+								<!-- <view class="opentuan" >立即查看</view> -->
 							</view>
 						</view>
 					</view>

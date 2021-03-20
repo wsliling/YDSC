@@ -23,12 +23,12 @@
 					<!-- <text class="iconfont icon-arrow_r"></text> -->
 				</view>
 			</view>
-			<view class="editItem" v-if="data.AreaSite">
+			<!-- <view class="editItem" v-if="data.AreaSite">
 				<view class="editTitle">经销商所属区域</view>
 				<view class="editBox">
 					<view>{{data.AreaSite}}</view>
 				</view>
-			</view>
+			</view> -->
 			<view class="editItem"  @click="getSex">
 				<view class="editTitle">性别</view>
 				<view class="editBox">

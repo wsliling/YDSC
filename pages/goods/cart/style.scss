@@ -7,7 +7,7 @@
 	.content::before{
 		display: block; 
 	    content: '';
-	    background: $primary;
+	    // background: $primary;
 	    width: 150vw;
 		/* #ifndef MP-WEIXIN */
 	    height: 680upx;
@@ -61,17 +61,22 @@
 	.btnPay:after{
 		display: none;
 	}
+	.right {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
 	.right .deletbox{
 		height: 74upx;
-		
+		display: flex;
 	}
 	.right .deletbox .delet{
-		padding: 0 20upx;
+		padding: 0 40upx;
 		height: 60upx;
 		min-width: 120upx;
 		text-align: center;
 		line-height: 60upx;
-		border-radius: 10upx;
+		border-radius: 30upx;
 		border: #999 1upx solid;
 		color: #999;
 		font-size: 27upx;
@@ -80,10 +85,10 @@
 		margin-left: 30upx;
 	}
 	.right .deletbox .delet2{
-		padding: 0 20upx;
+		padding: 0 30upx;
 		height: 60upx;
 		line-height: 60upx;
-		border-radius: 10upx;
+		border-radius: 30upx;
 		border: $primary 1upx solid;
 		color: $primary;
 		font-size: 27upx;
@@ -258,7 +263,7 @@
 		}
 	}
 	.cartGroupList .item__hd {
-		background-color: #ffefef;
+		background-color: #fff3ec;
 		padding: 20upx;
 		margin-top: 20upx;
 		border-radius: 12upx 12upx 0 0;
@@ -271,6 +276,7 @@
 
 	.selNumRow .uni-numbox__value {
 		width: 72upx;
+		
 	}
 	.column {
 		display: flex;
@@ -460,13 +466,14 @@
 		bottom: 0;
 	}
 	.cartFoot .inner .btnPay {
-		padding: 0 10px;
+		padding: 0 20px;
 		height: 30px;
 		line-height: 30px;
 		margin-left: 10upx;
 		color: #fff;
 		background: $primary;
-		border-radius: 10upx;
+		border-radius: 30upx;
+		margin-top: 10upx;
 	}
 	
 	.cartFoot .inner .inner1 {
@@ -487,6 +494,20 @@
 	.cartFoot .flexAlignCneter{
 		box-sizing: border-box;
 	}
-
-	
-	
+// 全选
+.row{
+	display: flex;
+	justify-content: space-between;
+	padding: 0 40upx;
+	padding-bottom: 18upx;
+	background-color: #ffffff;
+}
+// 数量
+.selNumRow{
+	height: 60rpx;
+	display: flex;
+	align-items: center;
+	border: solid 1upx #9a9a9a;
+	border-radius: 40upx;
+	overflow: hidden;
+}

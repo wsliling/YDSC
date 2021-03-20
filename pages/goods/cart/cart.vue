@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<!--  #ifndef  MP-WEIXIN -->
-		<uni-nav-bar fixed="true" color="#ffffff" background-color="#ff3333" left-icon="arrowleft" title="购物车" @clickLeft="back" :border="false" :rightText="isEdittxt" @clickRight="ManageCart">
+		<uni-nav-bar fixed="true" color="#000000" background-color="#FFFFFF" left-icon="arrowleft" title="购物车" @clickLeft="back" :border="false">
 		</uni-nav-bar>
 		<!--  #endif -->
 		<!--  #ifdef  MP-WEIXIN -->
@@ -11,6 +11,13 @@
 		<view  :style="{'height':barHeight+40+'px'}"></view>
 		<!--  #endif --> 
 		<view class="hasContentPage" v-if="hascartlist">
+			<!-- 全选 -->
+			<view class="row">
+				<view class="left">
+					<view :class="['IconsCK IconsCK-radio',allSelect?'checked':'']" @click="Allcheck"></view>全选
+				</view>
+				<view @click="ManageCart">{{isEdittxt}}</view>
+			</view>
 			<view class="cartGroupList">
 				<view class="item" v-for="(item,index) in cartlist" :key="index">
 					<view class="item__hd flex-between">
@@ -19,7 +26,7 @@
 							<view class="shopName uni-ellipsis mr1">{{item.ShopName}}</view>
 							<view class="iconfont icon-arrow_r fz12"></view>
 						</view>
-						<view class="btn_receive" @click="showCoupon(item.ShopId)">领券</view>
+						<!-- <view class="btn_receive" @click="showCoupon(item.ShopId)">领券</view> -->
 					</view>
 					<view class="column levelPanel">
 						<view class="item" v-for="(item2,index2) in item.ProData" :key="index2">
@@ -63,20 +70,17 @@
 			</view>
 			<view class="cartFoot">
 				<view class="inner flex flexAlignCneter">
-					<view class="left">
-						<view :class="['IconsCK IconsCK-radio',allSelect?'checked':'']" @click="Allcheck"></view>全选
-					</view>
 					<view class="right flex1 text_r">
-						<view class="inner1 flex-end" v-if="!isEdit">
+						<view class="inner1 flex-end">
 							<view>
 								<view class="hj">总计:<text class="allPrice"><text class="fz12">￥</text>{{allPrice}}</text></view>
 								<!-- <view class="red fz12">返2万</view> -->
 							</view>
-							<view class="btnPay" @click="settle">结算({{selectlen}})</view>
 						</view>
-						<view class="deletbox" v-else>
-							<!-- <view class="delet2" @click="golink('/pages/tabBar/my/collect')">我的收藏</view> -->
-							<view class="delet" @click="DelCartBtn">删除</view>
+						<view class="deletbox">
+							<view class="delet2" v-if="isEdit" @click="golink('/pages/tabBar/my/collect')">我的收藏</view>
+							<view  v-if="!isEdit" class="btnPay" @click="settle">结算({{selectlen}})</view>
+							<view  v-if="isEdit" class="delet" @click="DelCartBtn">删除</view>
 						</view>
 					</view>
 				</view>
@@ -160,7 +164,7 @@
 				hascartlist:true, //购物车有商品
 				noDataIsShow: false,
 				isEdit:false,//是否编辑购物车
-				isEdittxt:"管理",//是否编辑购物车按钮文字
+				isEdittxt:"编辑",//是否编辑购物车按钮文字
 				allSelect:false,//判断是否全选
 				cartlen:0,//全部购物车数量
 				checklen:0,//有效产品数量
@@ -188,7 +192,7 @@
 			this.cartlist=[];
 			this.getCartList();
 			this.isEdit=false;
-			this.isEdittxt="管理";
+			this.isEdittxt="编辑";
 		},
 		methods: {
 			back() {
@@ -529,7 +533,7 @@
 				this.isEdit=!this.isEdit;
 				let _this=this;
 				if(this.isEdit==false){
-					this.isEdittxt="管理";
+					this.isEdittxt="编辑";
 					_this.cartlist.forEach(function(item) {
 						item.ProData.forEach(function(item2){
 							if(item2.Isinvalid!=0){

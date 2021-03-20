@@ -30,7 +30,7 @@
 						<view class="num">68</view>
 						<view class="txt">获赞</view>
 					</view>
-					<view class="item">
+					<view class="item" @click="golink('/pages/member/collect/collect?type=3')">
 						<view class="num">8</view>
 						<view class="txt">收藏</view>
 					</view>
@@ -47,7 +47,7 @@
 							</view>
 							<view class="txt">我的数据</view>
 						</view>
-						<view class="item">
+						<view class="item" @click="golink('/pages/member/myplan/myplan')">
 							<view class="iconImg">
 								<image class="icon" src="/static/my_plan.png" mode="widthFix"></image>
 							</view>
@@ -59,7 +59,7 @@
 							</view>
 							<view class="txt">我的预约</view>
 						</view>
-						<view class="item">
+						<view class="item" @click="golink('/pages/member/mycourse/mycourse')">
 							<view class="iconImg">
 								<image class="icon" src="/static/my_kc.png" mode="widthFix"></image>
 							</view>

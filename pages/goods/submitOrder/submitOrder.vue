@@ -3,9 +3,9 @@
 		<view class="uni-pd10 p_re">
 			<view class="addrbox uni-bg-white b_radius uni-mb10" v-if="(info.IsAloneBuy==0&&info.IsSalesOffice==0&&orderSType==0) || orderSType==1">
 				<view class="address flex flex-between" v-if="isAddress" @click="golink('/pages/member/address/address?pagetype=confirm&checkId='+addrInfo.Id)">
-					<view class="local">
+					<!-- <view class="local">
 						<view class="iconfont icon-dizhi"></view>
-					</view>
+					</view> -->
 					<view class="addrdetail">
 						<view class="receiver">
 							<text>{{addrInfo.Consignee}}</text><text>{{addrInfo.Mobile}}</text>
@@ -13,7 +13,7 @@
 						<view class="addr">
 							{{addrInfo.Address}}
 						</view>
-						<view class="addresstips">(温馨提示：请核对收货地址是否正确)</view>
+						<!-- <view class="addresstips">(温馨提示：请核对收货地址是否正确)</view> -->
 					</view>
 					<view class="next">
 						<view class="uni-icon uni-icon-arrowright"></view>

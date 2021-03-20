@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<scroll-view id="tab-bar" class="index-swiper-tab" scroll-x>
-			<view style="width: 50%;" v-for="(tab,index) in tabnav" :key="index" :class="['item',tabIndex==index ? 'active' : '']" :id="'tabNum'+index" :data-current="index" @click="tapTab(index,tab.Id)">{{tab.TypeName}}</view>
+			<view style="width: 25%;" v-for="(tab,index) in tabnav" :key="index" :class="['item',tabIndex==index ? 'active' : '']" :id="'tabNum'+index" :data-current="index" @click="tapTab(index,tab.Id)">{{tab.TypeName}}</view>
 			<view class="bb_line" :style="'left:'+tabStyle+'rpx'"></view>
 		</scroll-view>
 		<view style="height:45px"></view>
@@ -54,11 +54,19 @@
 				tabnav:[
 					{
 						Id:0,
-						TypeName:"已关注"
+						TypeName:"全部"
 					},
 					{
 						Id:1,
-						TypeName:"我的粉丝"
+						TypeName:"用户"
+					},
+					{
+						Id:2,
+						TypeName:"教练"
+					},
+					{
+						Id:3,
+						TypeName:"店铺"
 					}
 				],
 				page:1,

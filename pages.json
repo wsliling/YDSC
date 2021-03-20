@@ -120,7 +120,7 @@
 		    "path" : "pages/pay/pay",
 		    "style" : {
 				"navigationBarTitleText": "支付订单",
-				"navigationBarBackgroundColor":"#FF3333",
+				"navigationBarBackgroundColor":"#fa6008",
 				"navigationBarTextStyle": "white"
 			}
 		}
@@ -164,10 +164,10 @@
 				{
 					"path": "newpro/newpro",
 					"style": {
-						"navigationBarTitleText": "每日上新",
+						"navigationBarTitleText": "上新精选",
 						"enablePullDownRefresh" : true,
-						"navigationBarBackgroundColor":"#00c3b2",
-						"navigationBarTextStyle":"white",
+						"navigationBarBackgroundColor":"#ffffff",
+						"navigationBarTextStyle":"black",
 						"app-plus":{
 							"pullToRefresh": {
 								"support": true,
@@ -400,8 +400,8 @@
                     "path" : "cart/cart",
                     "style" : {
 						"navigationBarTitleText": "购物车",
-						"navigationBarBackgroundColor":"#FF3333",
-						"navigationBarTextStyle":"white",
+						"navigationBarBackgroundColor":"#FFFFFF",
+						"navigationBarTextStyle":"black",
 						"app-plus": {
 							"titleNView": false, 
 							"bounce": "none",
@@ -413,8 +413,8 @@
                     "path" : "submitOrder/submitOrder",
                     "style" : {
 						"navigationBarTitleText":"确认订单",
-						"navigationBarBackgroundColor":"#FF3333",
-						"navigationBarTextStyle":"white"
+						"navigationBarBackgroundColor":"#FFFFFF",
+						"navigationBarTextStyle":"black"
 					}
                 }
                 ,{
@@ -477,7 +477,7 @@
 				{
 				    "path" : "editinfo/editinfo",
 				    "style" : {
-						"navigationBarTitleText":"个人信息"
+						"navigationBarTitleText":"编辑资料"
 					}
 				},
 				{
@@ -599,6 +599,26 @@
                     "path" : "follow/follow",
                     "style" : {
 						"navigationBarTitleText": "我的关注"
+					}
+                },{
+                    "path" : "mycourse/mycourse",
+                    "style" : {
+						"navigationBarTitleText": "我的课程"
+					}
+                },{
+                    "path" : "myplan/myplan",
+                    "style" : {
+						"navigationBarTitleText": "我的计划"
+					}
+                },{
+                    "path" : "amendplan/amendplan",
+                    "style" : {
+						"navigationBarTitleText": "修改计划"
+					}
+                },{
+                    "path" : "endTime/endTime",
+                    "style" : {
+						"navigationBarTitleText": "完成时间"
 					}
                 },
 				{

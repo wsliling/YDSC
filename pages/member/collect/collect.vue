@@ -82,11 +82,11 @@ export default {
 			tabnav:[
 				{
 					Id:0,
-					TypeName:"产品"
+					TypeName:"课程"
 				},
 				{
 					Id:1,
-					TypeName:"店铺"
+					TypeName:"商品"
 				}
 			],
 			page:1,
