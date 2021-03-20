@@ -12,6 +12,18 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.icon-ziyuan131:before {
+  content: "\e785";
+}
+
+.icon-pinglun2:before {
+  content: "\e809";
+}
+
+.icon-yanjing:before {
+  content: "\e825";
+}
+
 .icon-tianchongxing-:before {
   content: "\e641";
 }

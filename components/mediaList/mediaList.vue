@@ -38,9 +38,9 @@
 						<view v-if="imgArr.length>3" class="count">{{imgArr.length}}</view>
 					</view>
 				</block>
-			<!-- <view class="media-location" v-if="dataitem.Location">
-				<text class="info-text iconfont icon-shouhuodizhi">{{dataitem.Location}}</text>
-			</view> -->
+			<view class="media-location" v-if="dataitem.Location">
+				<text class="info-text iconfont icon-dizhi1">{{dataitem.Location}}</text>
+			</view>
 			<view class="media-foot">
 				<view class="media-info">
 					<text class="info-text">{{dataitem.Addtime}}</text>
@@ -261,6 +261,8 @@
 	.list-cell {
 		width: 750upx;
 		padding: 0 20upx;
+		margin-bottom: 16upx !important;
+		background: #fff;
 	}
 
 	.uni-list-cell-hover {
@@ -270,9 +272,6 @@
 	.media-list {
 		flex: 1;
 		flex-direction: column;
-		border-bottom-width: 1upx;
-		border-bottom-style: solid;
-		border-bottom-color: #eee;
 		padding: 20upx 0;
 	}
 	/* #ifndef MP-WEIXIN */
@@ -397,6 +396,7 @@
 		flex-direction: row;
 		margin-top: 20upx;
 		justify-content: space-between;
+		line-height: 1.2;
 	}
 	.media-info {
 		display: flex;
@@ -407,15 +407,16 @@
 		display: flex;
 		color: #999999;
 		font-size: 24upx;
+		align-items: center;
 	}
 	.media-location{ margin-top: 20upx;}
-	.media-location .icon-shouhuodizhi{
+	.media-location .icon-dizhi1{
 		display: flex;
 		flex-direction: row;
 		justify-content: flex-start;
 		align-items: center;
 	}
-	.media-location .icon-shouhuodizhi:before{ color: #bbb; font-size: 28upx; line-height: 1; margin-right: 8upx; }
+	.media-location .icon-dizhi1:before{ color: #999; font-size: 32upx; line-height: 1; margin-right: 8upx; }
 	.media-info-r{
 		display: flex;
 		flex-direction: row;
@@ -457,7 +458,7 @@
 		display: block;
 	}
 	.Grid3.image-section.image-section-one .image-list{
-		width: 100%;
+		width: 60%;
 		height: auto;
 		display: block;
 	}
