@@ -611,6 +611,13 @@
 						"navigationBarTitleText": "我的计划"
 					}
                 },{
+					"path":"information/information",
+					"style": {
+						"navigationBarTitleText": "我的数据",
+						"navigationBarTextStyle":"white",
+						"navigationBarBackgroundColor": "#2c2d2d"
+					}
+				},{
                     "path" : "amendplan/amendplan",
                     "style" : {
 						"navigationBarTitleText": "修改计划"
