@@ -627,6 +627,25 @@
                     "style" : {
 						"navigationBarTitleText": "完成时间"
 					}
+                },{
+                    "path" : "myappointment/myappointment",
+                    "style" : {
+						"navigationBarTitleText": "我要预约"
+					}
+                },{
+                    "path" : "myappointment/coach",
+                    "style" : {
+						"navigationBarTitleText": "",
+						"navigationBarBackgroundColor": "#f96115",
+						"navigationBarTextStyle":"white"
+					}
+                },{
+                    "path" : "myappointment/coachinfo",
+                    "style" : {
+						"navigationBarTitleText": "",
+						"navigationBarBackgroundColor": "#f96115",
+						"navigationBarTextStyle":"white"
+					}
                 },
 				{
 				    "path" : "question/question",

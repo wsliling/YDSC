@@ -53,7 +53,7 @@
 							</view>
 							<view class="txt">我的计划</view>
 						</view>
-						<view class="item">
+						<view class="item" @click="golink('/pages/member/myappointment/myappointment')">
 							<view class="iconImg">
 								<image class="icon" src="/static/my_yuyue.png" mode="widthFix"></image>
 							</view>
