@@ -114,7 +114,7 @@
 			"path": "pages/pay/pay",
 			"style": {
 				"navigationBarTitleText": "支付订单",
-				"navigationBarBackgroundColor":"#fa6008",
+				"navigationBarBackgroundColor": "#fa6008",
 				"navigationBarTextStyle": "white"
 			}
 		}, {
@@ -155,17 +155,26 @@
 			}
 
 		}
-	],
+	    ,{
+            "path" : "components/linzq-imgUpload2/linzq-imgUpload2",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"subPackages": [{
 			"root": "pages/goods",
 			"pages": [{
 					"path": "newpro/newpro",
 					"style": {
 						"navigationBarTitleText": "上新精选",
-						"enablePullDownRefresh" : true,
-						"navigationBarBackgroundColor":"#ffffff",
-						"navigationBarTextStyle":"black",
-						"app-plus":{
+						"enablePullDownRefresh": true,
+						"navigationBarBackgroundColor": "#ffffff",
+						"navigationBarTextStyle": "black",
+						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
 								"color": "#FF3737", //小圈圈的颜色
@@ -383,8 +392,8 @@
 					"path": "cart/cart",
 					"style": {
 						"navigationBarTitleText": "购物车",
-						"navigationBarBackgroundColor":"#FFFFFF",
-						"navigationBarTextStyle":"black",
+						"navigationBarBackgroundColor": "#FFFFFF",
+						"navigationBarTextStyle": "black",
 						"app-plus": {
 							"titleNView": false,
 							"bounce": "none",
@@ -392,22 +401,20 @@
 						}
 					}
 
-                }
-                ,{
-                    "path" : "submitOrder/submitOrder",
-                    "style" : {
-						"navigationBarTitleText":"确认订单",
-						"navigationBarBackgroundColor":"#FFFFFF",
-						"navigationBarTextStyle":"black"
+				}, {
+					"path": "submitOrder/submitOrder",
+					"style": {
+						"navigationBarTitleText": "确认订单",
+						"navigationBarBackgroundColor": "#FFFFFF",
+						"navigationBarTextStyle": "black"
 					}
-                }
-                ,{
-                    "path" : "evaluation/evaluation",
-                    "style" : {
-						"navigationBarTitleText":"全部评价"
+				}, {
+					"path": "evaluation/evaluation",
+					"style": {
+						"navigationBarTitleText": "全部评价"
 					}
-                }
-            ]
+				}
+			]
 		},
 		{
 			"root": "pages/member",
@@ -459,9 +466,9 @@
 				},
 				{
 
-				    "path" : "editinfo/editinfo",
-				    "style" : {
-						"navigationBarTitleText":"编辑资料"
+					"path": "editinfo/editinfo",
+					"style": {
+						"navigationBarTitleText": "编辑资料"
 					}
 				},
 				{
@@ -582,92 +589,103 @@
 					"style": {
 						"navigationBarTitleText": "我的关注"
 					}
-                },{
-                    "path" : "mycourse/mycourse",
-                    "style" : {
+				}, {
+					"path": "mycourse/mycourse",
+					"style": {
 						"navigationBarTitleText": "我的课程"
 					}
-                },{
-                    "path" : "myplan/myplan",
-                    "style" : {
+				}, {
+					"path": "myplan/myplan",
+					"style": {
 						"navigationBarTitleText": "我的计划"
 					}
-                },{
-                    "path" : "amendplan/amendplan",
-                    "style" : {
+				}, {
+					"path": "amendplan/amendplan",
+					"style": {
 						"navigationBarTitleText": "修改计划"
 					}
-                },{
-                    "path" : "endTime/endTime",
-                    "style" : {
+				}, {
+					"path": "endTime/endTime",
+					"style": {
 						"navigationBarTitleText": "完成时间"
 					}
-                },
+				},
 				{
-				    "path" : "question/question",
-				    "style" :                                                                                    
-					{
+					"path": "question/question",
+					"style": {
 						"navigationBarTitleText": "帮助中心",
 						"enablePullDownRefresh": false
 					}
-				}
-                ,{
-                    "path" : "set/set",
-                    "style" :                                                                                    
-					{
+				}, {
+					"path": "set/set",
+					"style": {
 						"navigationBarTitleText": "设置",
 						"enablePullDownRefresh": false
 					}
-                },
+				},
 				{
-				    "path" : "accountSafe/accountSafe",
-				    "style" :                                                                                    
-					{
+					"path": "accountSafe/accountSafe",
+					"style": {
 						"navigationBarTitleText": "账号安全",
 						"enablePullDownRefresh": false
 					}
 				},
 				{
-				    "path" : "about/about",
-				    "style" :                                                                                    
-					{
+					"path": "about/about",
+					"style": {
 						"navigationBarTitleText": "关于我们",
 						"enablePullDownRefresh": false
 					}
 				},
 				{
-				    "path" : "modifyTel/modifyTel",
-				    "style" :                                                                                    
-					{
+					"path": "modifyTel/modifyTel",
+					"style": {
 						"navigationBarTitleText": "关于我们",
 						"enablePullDownRefresh": false
 					}
 				},
 				{
-				    "path" : "modifyPad/modifyPad",
-				    "style" :                                                                                    
-					{
+					"path": "modifyPad/modifyPad",
+					"style": {
 						"navigationBarTitleText": "修改登录密码",
 						"enablePullDownRefresh": false
 					}
 				},
 				{
-				    "path" : "ChangepayPwd/ChangepayPwd",
-				    "style" :                                                                                    
-					{
+					"path": "ChangepayPwd/ChangepayPwd",
+					"style": {
 						"navigationBarTitleText": "修改支付密码",
 						"enablePullDownRefresh": false
 					}
 				},
 				{
-				    "path" : "kefu/kefu",
-				    "style" :                                                                                    
-					{
+					"path": "kefu/kefu",
+					"style": {
 						"navigationBarTitleText": "在线客服",
 						"enablePullDownRefresh": false
 					}
+				}, {
+					"path": "partner/partner",
+					"style": {
+						"navigationBarTitleText": "合伙人",
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "notPartner/notPartner",
+					"style": {
+						"navigationBarTitleText": "合伙人",
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "applyPartner/applyPartner",
+					"style": {
+						"navigationBarTitleText": "申请成为合伙人",
+						"enablePullDownRefresh": false
+					}
 				}
-            ]
+			]
 		},
 		{
 			"root": "pages/personal",
@@ -706,94 +724,93 @@
 					"style": {
 						"navigationBarTitleText": "消息列表"
 					}
-                }
-                ,{
-                    "path" : "VenueDetail/VenueDetail",
-                    "style" :      
-						{
-							"navigationBarTitleText": "场馆详情",
-							"enablePullDownRefresh": false
-						}
-                }
-                ,{
-                    "path" : "topic/topic",
-                    "style" : {
-                    	"navigationBarTitleText": "话题排行榜",
-                    	"enablePullDownRefresh" : true,
-                    	"app-plus": {
-                    		"pullToRefresh": {
-                    			"support": true,
-                    			"color": "#fa6008", //小圈圈的颜色
-                    			"style":"circle" //小圈圈的样式
-                    		},
-                    		"scrollIndicator": "none" //不显示滚动条
-                    	}
-                    }
-                
-                }
-                ,{
-                    "path" : "topicDetail/topicDetail",
-                    "style" : {
-					   "navigationBarTitleText": "话题详情",
-					   "enablePullDownRefresh" : false,
-					   "app-plus": {
-						"titleNView": {
-							"type": "transparent"
-						}
-					   }
+				}, {
+					"path": "VenueDetail/VenueDetail",
+					"style": {
+						"navigationBarTitleText": "场馆详情",
+						"enablePullDownRefresh": false
 					}
-                
-                },
+				}, {
+					"path": "topic/topic",
+					"style": {
+						"navigationBarTitleText": "话题排行榜",
+						"enablePullDownRefresh": true,
+						"app-plus": {
+							"pullToRefresh": {
+								"support": true,
+								"color": "#fa6008", //小圈圈的颜色
+								"style": "circle" //小圈圈的样式
+							},
+							"scrollIndicator": "none" //不显示滚动条
+						}
+					}
+
+				}, {
+					"path": "topicDetail/topicDetail",
+					"style": {
+						"navigationBarTitleText": "话题详情",
+						"enablePullDownRefresh": false,
+						"app-plus": {
+							"titleNView": {
+								"type": "transparent"
+							}
+						}
+					}
+
+				},
 				{
-					"path" : "artPost/topicPost",
-					"style" : {
+					"path": "artPost/topicPost",
+					"style": {
 						"navigationBarTitleText": "发布话题"
 					}
-				}
-                ,{
-                    "path" : "addtopic/addtopic",
-                    "style" :                                                                                    
-					{
+				}, {
+					"path": "addtopic/addtopic",
+					"style": {
 						"navigationBarTitleText": "添加话题",
 						"enablePullDownRefresh": false
 					}
-                
-                }
-            ]
+
+				}
+			]
 		},
 		{
 			"root": "pages/message",
 			"pages": [{
-					"path": "messageClass/messageClass",
-					"style": {
-						"navigationBarTitleText": "消息中心"
-					}
-				}, {
-					"path": "messageList/messageList",
-					"style": {}
-				}, {
-					"path": "msgDetail/msgDetail",
-					"style": {
-						"navigationBarTitleText": "详情"
-					}
-				},
-				{
-					"path": "agreement/agreement",
-					"style": {
-						"navigationBarTitleText": "用户协议"
-					}
-				}, {
-					"path": "agreement2/agreement2",
-					"style": {
-						"navigationBarTitleText": "隐私政策"
-					}
+				"path": "messageClass/messageClass",
+				"style": {
+					"navigationBarTitleText": "消息中心"
 				}
-			]
+			}, {
+				"path": "messageList/messageList",
+				"style": {}
+			}, {
+				"path": "msgDetail/msgDetail",
+				"style": {
+					"navigationBarTitleText": "详情"
+				}
+			}, {
+				"path": "agreement/agreement",
+				"style": {
+					"navigationBarTitleText": "用户协议"
+				}
+			}, {
+				"path": "agreement2/agreement2",
+				"style": {
+					"navigationBarTitleText": "隐私政策"
+				}
+			}]
 		},
 		{
 			"root": "pages/course",
 			"pages": [{
 				"path": "stadium/stadium",
+				"style": {
+					"navigationBarTitleText": "场馆详情",
+					"navigationBarBackgroundColor": "#FFFFFF",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "gym/gym",
 				"style": {
 					"navigationBarTitleText": "场馆详情",
 					"navigationBarBackgroundColor": "#FFFFFF",
@@ -831,7 +848,6 @@
 						}
 					}
 				}
-
 			}, {
 				"path": "now/now",
 				"style": {
@@ -846,7 +862,6 @@
 					"navigationBarBackgroundColor": "#FFFFFF",
 					"navigationBarTextStyle": "black"
 				}
-
 			}, {
 				"path": "orderClassDetails/orderClassDetails",
 				"style": {
@@ -865,7 +880,6 @@
 					"navigationBarBackgroundColor": "#FFFFFF",
 					"navigationBarTextStyle": "black"
 				}
-
 			}, {
 				"path": "classDetails/classDetails",
 				"style": {

@@ -23,7 +23,6 @@
 				<view class="stadium_1_2">龙华区恒福路98号淘金花园商业中心</view>
 			</view>
 		</view>
-		<view class="line" @click="show"></view>
 		<view class="time"><times @change="getTime"></times></view>
 	</view>
 </template>

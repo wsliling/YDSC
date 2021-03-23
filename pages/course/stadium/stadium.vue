@@ -17,6 +17,10 @@
 				<view><image src="/static/course/course_7.png" mode=""></image></view>
 				<view><image src="/static/course/course_8.png" mode=""></image></view>
 				<view><image src="/static/course/course_9.png" mode=""></image></view>
+				<view><image src="/static/course/course_6.png" mode=""></image></view>
+				<view><image src="/static/course/course_7.png" mode=""></image></view>
+				<view><image src="/static/course/course_8.png" mode=""></image></view>
+				<view><image src="/static/course/course_9.png" mode=""></image></view>
 			</view>
 		</view>
 		<view class="con_1">
@@ -32,6 +36,10 @@
 				</view>
 			</view>
 			<view class="sec">
+				<view><image src="/static/course/course_10.png" mode=""></image></view>
+				<view><image src="/static/course/course_11.png" mode=""></image></view>
+				<view><image src="/static/course/course_13.png" mode=""></image></view>
+				<view><image src="/static/course/course_14.png" mode=""></image></view>
 				<view><image src="/static/course/course_10.png" mode=""></image></view>
 				<view><image src="/static/course/course_11.png" mode=""></image></view>
 				<view><image src="/static/course/course_13.png" mode=""></image></view>
@@ -53,9 +61,10 @@
 			<view class="sec">
 				<view><image src="/static/course/course_15.png" mode=""></image></view>
 				<view><image src="/static/course/course_16.png" mode=""></image></view>
-
 				<view><image src="/static/course/course_17.png" mode=""></image></view>
-				<view></view>
+				<view><image src="/static/course/course_15.png" mode=""></image></view>
+				<view><image src="/static/course/course_16.png" mode=""></image></view>
+				<view><image src="/static/course/course_17.png" mode=""></image></view>
 			</view>
 		</view>
 		<view class="con_1">
@@ -71,6 +80,10 @@
 				</view>
 			</view>
 			<view class="sec">
+				<view><image src="/static/course/course_18.png" mode=""></image></view>
+				<view><image src="/static/course/course_19.png" mode=""></image></view>
+				<view><image src="/static/course/course_20.png" mode=""></image></view>
+				<view><image src="/static/course/course_21.png" mode=""></image></view>
 				<view><image src="/static/course/course_18.png" mode=""></image></view>
 				<view><image src="/static/course/course_19.png" mode=""></image></view>
 				<view><image src="/static/course/course_20.png" mode=""></image></view>
@@ -92,8 +105,8 @@
 			<view class="sec">
 				<view><image src="/static/course/course_22.png" mode=""></image></view>
 				<view><image src="/static/course/course_23.png" mode=""></image></view>
-				<view></view>
-				<view></view>
+				<view><image src="/static/course/course_22.png" mode=""></image></view>
+				<view><image src="/static/course/course_23.png" mode=""></image></view>
 			</view>
 		</view>
 	</view>

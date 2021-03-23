@@ -41,10 +41,12 @@
 		.sec {
 			display: flex;
 			padding-bottom: 20upx;
+			overflow: scroll;
 			> view {
 				flex: 1;
 				padding: 20upx 0 0 20upx;
 				image {
+					width: 200upx;
 					height: 160upx;
 				}
 			}

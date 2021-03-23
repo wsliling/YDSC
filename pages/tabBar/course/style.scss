@@ -8,13 +8,13 @@
 			flex: 1;
 			text-align: center;
 			text {
-				font-size: 12px;
-				padding-left: 5px;
+				font-size: 22upx;
+				padding-left: 10upx;
 			}
 		}
 		.search {
 			flex: 4;
-			padding: 12px 0px !important;
+			padding: 25upx 0px !important;
 		}
 	}
 	.sec {
@@ -135,12 +135,12 @@
 			}
 			.sec4_title1 {
 				color: gray;
-				font-size: 12px;
+				font-size: 22upx;
 			}
 			.sec4_title2 {
 				color: #c5c5c5;
 				transform: scale(0.9);
-				margin-left: -12px;
+				margin-left: -25upx;
 				.sec4_img {
 					width: 60upx;
 					height: 60upx;

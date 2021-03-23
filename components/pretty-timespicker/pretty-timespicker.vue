@@ -223,52 +223,52 @@ page {
 
 .buybtn {
 	width: 90%;
-	height: 38px;
-	line-height: 38px;
-	border-radius: 30px;
-	font-size: 14px;
+	height: 80upx;
+	line-height: 80upx;
+	border-radius: 70upx;
+	font-size: 28upx;
 	color: white;
 	background-color: #fa6008;
 	text-align: center;
-	margin: 0 auto 20px;
+	margin: 0 auto 40upx;
 }
 .class {
-	padding: 10px 0 0 15px;
+	padding: 20upx 0 0 30upx;
 	text-align: left;
 	font-weight: bold;
-	font-size: 15px;
+	font-size: 30upx;
 }
 .title {
-	font-size: 15px;
+	font-size: 30upx;
 	font-weight: bold;
-	padding: 15px;
+	padding: 30upx;
 }
 .popup-content {
 	.name {
 		margin: 0 auto;
 		width: 80%;
 		border: 1px solid #f6f6f6;
-		border-radius: 2px;
+		border-radius: 4upx;
 		text-align: left;
-		padding: 3px 8px;
+		padding: 8upx 18upx;
 	}
 	.phone {
-		margin: 20px auto;
+		margin: 40upx auto;
 		width: 80%;
 		border: 1px solid #f6f6f6;
-		border-radius: 3px;
+		border-radius: 6upx;
 		text-align: left;
-		padding: 3px 8px;
+		padding: 8upx 18upx;
 	}
 	.now {
 		width: 80%;
-		height: 35px;
-		line-height: 35px;
-		border-radius: 30px;
+		height: 80upx;
+		line-height: 80upx;
+		border-radius: 70upx;
 		color: white;
 		background-color: #fa6008;
 		text-align: center;
-		margin: 0 auto 20px;
+		margin: 0 auto 40upx;
 	}
 }
 </style>

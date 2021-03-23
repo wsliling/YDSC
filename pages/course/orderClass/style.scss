@@ -11,32 +11,33 @@
 				flex: 1;
 				padding: 0 10px;
 				image {
-					height: 85px;
+					height: 80px;
 				}
 			}
 			.con_2 {
 				flex: 1.5;
 				line-height: 26px;
 				.title {
-					font-size: 14px;
-					font-weight: bold;
+					font-size: 14.5px;
 				}
 				.title_1 {
 					color: #8a8a8a;
+					font-size: 14px;
 				}
 				.title_2 {
 					display: flex;
 					align-items: center;
 					.title2_1 {
 						flex: 1;
+						font-size: 13px;
 						text {
 							display: inline-block;
 							transform: scale(0.8);
 							color: #c1c1c1;
 						}
 						image {
-							width: 50upx;
-							height: 50upx;
+							width: 22px;
+							height: 22px;
 						}
 					}
 					.title2_2 {
@@ -45,8 +46,8 @@
 						color: white;
 						border-radius: 30px;
 						text-align: center;
-						height: 28px;
-						line-height: 28px;
+						height: 32px;
+						line-height: 32px;
 						transform: scale(0.8);
 					}
 				}

@@ -17,19 +17,19 @@
 			.name {
 				flex: 1;
 				font-weight: bolder;
-				font-size: 18px;
+				font-size: 36upx;
 			}
 			.detail {
 				flex: 2.5;
 				color: #7e7e7e;
-				font-size: 14px;
+				font-size: 28upx;
 			}
 			.person {
 				flex: 1;
 				color: #adadad;
-				font-size: 12px;
+				font-size: 25upx;
 				text{
-					font-size: 12px;
+					font-size: 25upx;
 					padding-left: 5upx;
 				}
 			}
@@ -48,7 +48,7 @@
 			.info1_2 {
 				flex: 1;
 				color: #adadad;
-				font-size: 12px;
+				font-size: 25upx;
 			}
 		}
 	}
@@ -59,18 +59,18 @@
 		.stadium {
 			flex: 1;
 			image {
-				width: 130upx;
-				height: 130upx;
+				width: 120upx;
+				height: 120upx;
 			}
 		}
 		.stadium_1 {
 			flex: 3.5;
 			.stadium_1_1 {
 				font-weight: bold;
-				font-size: 14px;
+				font-size: 28upx;
 			}
 			.stadium_1_2 {
-				font-size: 12px;
+				font-size: 28upx;
 			}
 		}
 	}

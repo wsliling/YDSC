@@ -67,7 +67,7 @@
 			</view>
 		</view>
 		<view class="swiper uni-mb10">
-			<swiper3D  :imgList="imgList" :currentIndexParameter="currentpic"></swiper3D>
+			<swiper3D  :imgList="imgList" :currentIndexParameter="currentpic" wx:key="index"></swiper3D>
 		</view>
 	</view>
 </template>
@@ -78,6 +78,7 @@ var myAmapFun = new amapFile.AMapWX({ key: '2cf130b84fa23acfd8b04e82bc4af283' })
 import { post, toLogin, navigate } from '@/common/util.js';
 import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
 import noData from '@/components/noData.vue'; //暂无数据
+import swiper3D from '@/components/swiper3D/swiper3D.vue';
 export default {
 	data() {
 		return {
@@ -126,7 +127,7 @@ export default {
 	components: {
 		uniLoadMore,
 		noData,
-		// swiper3D
+		swiper3D
 	},
 	onLoad(e) {
 		this.userId = uni.getStorageSync('userId');

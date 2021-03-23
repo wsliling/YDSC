@@ -7,10 +7,10 @@
 	scroll-view {
 		width: 100%;
 		white-space: nowrap;
-		height: 75px;
+		height: 130upx;
 		background-color: #fff;
 		position: relative;
-		padding-top: 5px;
+		padding-top: 10upx;
 
 		// margin-top:10px;
 		&::after {
@@ -26,7 +26,7 @@
 		}
 		.flex-box {
 			display: inline-block;
-			height: 60px;
+			height: 120upx;
 			width: 14%;
 			box-sizing: border-box;
 
@@ -44,27 +44,27 @@
 						font-size: 30upx;
 						background-color: #fa6008;
 						border-radius: 50%;
-						padding: 2px 6px;
+						padding: 5upx 12upx;
 					}
 				}
 			}
 			.date-box {
 				border: none;
 				display: flex;
-				height: 58px;
+				height: 110upx;
 				flex-direction: column;
 				align-items: center;
 				justify-content: space-around;
 				font-size: 30upx;
 				color: black;
 				.date {
-					font-size: 13px;
+					font-size: 26upx;
 					&.active {
 						color: white !important;
 						// font-size: 30upx;
 						background-color: #fa6008;
 						border-radius: 50%;
-						padding: 2px 6px;
+						padding: 5upx 13upx;
 					}
 				}
 			}
@@ -74,20 +74,20 @@
 		background-color: #f3f3f3;
 		.begin {
 			text-align: left;
-			padding: 5px 0 2px 15px;
+			padding: 10upx 0 5upx 28upx;
 			color: gray;
 		}
 		.time-box {
 			display: flex;
 			flex-wrap: wrap;
-			padding: 0 10px 10px;
+			padding: 0 20upx 20upx;
 			.item {
 				width: 20%;
-				padding: 5px 3px;
+				padding: 10upx 6upx;
 				position: relative;
 				&-box {
-					height: 35px;
-					line-height: 35px;
+					height: 70upx;
+					line-height: 70upx;
 					background: #fff;
 					color: #333;
 					border: 1px solid #eeeeee;
@@ -99,8 +99,9 @@
 					&.disable {
 						background: #e5e5e5 !important;
 						color: #999 !important;
-						height: 35px;
-						line-height: 15px;
+
+						height: 70upx;
+						line-height: 70upx;
 					}
 					&.active {
 						background-color: #fa6008;
@@ -108,15 +109,15 @@
 					}
 					.all {
 						font-size: 22upx;
-						padding-top: 5px;
+						padding-top: 10upx;
 					}
 					.full {
 						position: absolute;
-						bottom: 6px;
-						right: 4px;
+						bottom: 2upx;
+						right: 8upx;
 						image {
-							width: 20px;
-							height: 20px;
+							width: 40upx;
+							height: 40upx;
 						}
 					}
 				}

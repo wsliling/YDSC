@@ -1,6 +1,6 @@
 .order {
 	.title {
-		font-size: 14px;
+		font-size: 28upx;
 		font-weight: bold;
 		margin: 20upx;
 	}
@@ -22,7 +22,7 @@
 				height: 150upx;
 			}
 			.name {
-				font-size: 14px;
+				font-size: 28upx;
 				font-weight: bold;
 			}
 			.num {
@@ -47,7 +47,7 @@
 		.list1_2 {
 			flex: 3.5;
 			.name {
-				font-size: 14px;
+				font-size: 28upx;
 				font-weight: bold;
 			}
 			.num {
@@ -58,20 +58,20 @@
 			flex: 1.6;
 			background-color: #fa6008;
 			color: white;
-			border-radius: 30px;
+			border-radius: 80upx;
 			text-align: center;
-			height: 25px;
-			line-height: 25px;
+			height: 60upx;
+			line-height: 60upx;
 		}
 		.list1_3_1 {
 			flex: 1.6;
 			background-color: white;
 			border: 1px solid #dddddd;
 			color: #e2e2e2;
-			border-radius: 30px;
+			border-radius: 80upx;
 			text-align: center;
-			height: 26px;
-			line-height: 25px;
+			height: 62upx;
+			line-height: 60upx;
 		}
 	}
 }

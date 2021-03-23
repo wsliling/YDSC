@@ -102,7 +102,7 @@
 							</view>
 							<view class="txt">店铺申请</view>
 						</view>
-						<view class="item">
+						<view class="item" @click="golink('/pages/member/partner/partner')">
 							<view class="iconImg">
 								<image class="icon" src="/static/u_5.png" mode="widthFix"></image>
 							</view>

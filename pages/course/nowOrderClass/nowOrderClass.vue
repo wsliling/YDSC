@@ -41,45 +41,46 @@ export default {
 		text-align: center;
 		.success_1 {
 			color: #fa6008;
-			font-size: 60px;
-			margin-top: 30px;
+			font-size: 120upx;
+			margin-top: 60upx;
 		}
 		.success_3 {
-			margin-top: -20px;
+			margin-top: -40upx;
 			color: #fa6008;
-			font-size: 16px;
+			font-size: 32upx;
 		}
 		.time {
 			color: #4c4c4c;
-			font-size: 13px;
+			font-size: 28upx;
 		}
 		.success_2 {
 			color: #b0b0b0;
 			width: 55%;
 			margin-left: 22%;
-			margin-top: 10px;
+			margin-top: 20upx;
+			font-size: 25upx;
 		}
 		.btn {
 			display: flex;
 			.btn_1 {
 				flex: 1;
-				height: 35px;
-				line-height: 35px;
-				border-radius: 30px;
+				height: 80upx;
+				line-height: 80upx;
+				border-radius: 60upx;
 				color: #fa6008;
 				border: 1px solid #fa6008;
 				text-align: center;
-				margin: 20px;
+				margin: 40upx;
 			}
 			.btn_2 {
 				flex: 1;
-				height: 35px;
-				line-height: 35px;
-				border-radius: 30px;
+				height: 80upx;
+				line-height: 80upx;
+				border-radius: 60upx;
 				color: white;
 				background-color: #fa6008;
 				text-align: center;
-				margin: 20px;
+				margin: 40upx;
 			}
 		}
 	}

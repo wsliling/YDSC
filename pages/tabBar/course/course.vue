@@ -22,7 +22,7 @@
 			<view class="sec_1"><image src="/static/health/change/class_2.png" @click="order"></image></view>
 			<view class="sec_2">
 				<view class=""><image src="/static/health/change/class_3.png" @click="orderClass"></image></view>
-				<view class=""><image src="/static/health/change/class_4.png" @click="stadium"></image></view>
+				<view class=""><image src="/static/health/change/class_4.png" @click="gym"></image></view>
 			</view>
 		</view>
 		<view class="line"></view>
@@ -176,9 +176,9 @@ export default {
 		}
 	},
 	methods: {
-		stadium() {
+		gym() {
 			uni.navigateTo({
-				url: '/pages/course/stadium/stadium'
+				url: '/pages/course/gym/gym'
 			});
 		},
 		moreCourse() {
