@@ -1,0 +1,96 @@
+.orderClassDetails {
+	background-color: white;
+	.line {
+		height: 20upx;
+		background-color: #f3f3f3;
+	}
+	.top {
+		.photo {
+			image {
+				height: 520upx;
+			}
+		}
+		.info {
+			display: flex;
+			align-items: center;
+			padding: 20upx 30upx 0;
+			.name {
+				flex: 1;
+				font-weight: bolder;
+				font-size: 18px;
+			}
+		}
+		.detail {
+			flex: 2.5;
+			color: #8f8f8f;
+			font-size: 13px;
+			padding: 20upx 30upx;
+		}
+		.info1 {
+			display: flex;
+			align-items: center;
+			padding: 10upx 20upx 30upx 30upx;
+			.info1_3 {
+				flex: 0.8;
+				image {
+					height: 70upx;
+					width: 75upx;
+				}
+			}
+			.info1_4 {
+				flex: 1;
+				font-weight: bold;
+			}
+			.info1_1 {
+				flex: 3;
+				image {
+					height: 60upx;
+					width: 300upx;
+				}
+			}
+			.info1_2 {
+				flex: 1.8;
+				color: #adadad;
+				font-size: 12px;
+			}
+		}
+	}
+	.cen {
+		padding: 30upx;
+		display: flex;
+		align-items: center;
+		.stadium {
+			flex: 1;
+			image {
+				width: 130upx;
+				height: 130upx;
+			}
+		}
+		.stadium_1 {
+			flex: 3.5;
+			.stadium_1_1 {
+				font-weight: bold;
+				font-size: 14px;
+			}
+			.stadium_1_2 {
+				font-size: 12px;
+			}
+		}
+	}
+	.con {
+		.title {
+			font-size: 15px;
+			font-weight: bold;
+			padding: 15px 0 0 15px;
+		}
+		.con1_1 {
+			padding: 0 15px 15px 15px;
+			color: #6c6c6c;
+			text {
+				color: #fa6611;
+				padding-left: 15px;
+				font-weight: bold;
+			}
+		}
+	}
+}

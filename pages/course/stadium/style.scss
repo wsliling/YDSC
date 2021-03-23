@@ -1,0 +1,53 @@
+.content {
+	background-color: white;
+
+	.line {
+		height: 22upx;
+		background-color: #f3f3f3;
+	}
+	.line1 {
+		margin-top: 18upx;
+		height: 22upx;
+		background-color: #f3f3f3;
+	}
+	.con_1 {
+		.name {
+			display: flex;
+			align-items: center;
+			padding: 26upx;
+			.name_1 {
+				flex: 1;
+				image {
+					width: 100upx;
+					height: 100upx;
+				}
+			}
+			.name_2 {
+				flex: 5;
+				.name_2_1 {
+					font-size: 14px;
+					font-weight: bold;
+					text {
+						font-size: 12px;
+						padding-left: 5upx;
+					}
+				}
+				.name_2_2 {
+					color: gray;
+					font-size: 12px;
+				}
+			}
+		}
+		.sec {
+			display: flex;
+			padding-bottom: 20upx;
+			> view {
+				flex: 1;
+				padding: 20upx 0 0 20upx;
+				image {
+					height: 160upx;
+				}
+			}
+		}
+	}
+}

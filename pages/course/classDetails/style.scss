@@ -1,0 +1,134 @@
+.classDetails {
+	background-color: white;
+	.line {
+		height: 20upx;
+		background-color: #f3f3f3;
+	}
+	.last_line{
+		padding-bottom: 58px;
+	}
+	.top {
+		.photo {
+			image {
+				height: 520upx;
+			}
+		}
+		.info {
+			display: flex;
+			align-items: center;
+			padding: 20upx 30upx 0;
+			.name {
+				flex: 1;
+				font-weight: bolder;
+				font-size: 18px;
+			}
+		}
+		.detail {
+			display: flex;
+			align-items: center;
+			.detail_1 {
+				flex: 2.8;
+				color: #8f8f8f;
+				font-size: 13px;
+				padding: 20upx 30upx;
+			}
+			.detail_2 {
+				flex: 1;
+				color: #8f8f8f;
+				font-size: 12px;
+				padding: 20upx 0 0 30upx;
+				transform: scale(0.9);
+			}
+		}
+		.info1 {
+			display: flex;
+			align-items: center;
+			padding: 10upx 30upx 30upx 30upx;
+			.info1_3 {
+				flex: 1;
+				image {
+					height: 70upx;
+					width: 75upx;
+				}
+			}
+			.info1_4 {
+				flex: 5;
+				font-weight: bold;
+			}
+			.info1_2 {
+				flex: 1.5;
+				height: 25px;
+				line-height: 25px;
+				color: white;
+				font-size: 12px;
+				background-color: #fa6008;
+				border-radius: 30px;
+				text-align: center;
+			}
+		}
+	}
+	.con {
+		.title {
+			font-size: 15px;
+			font-weight: bold;
+			padding: 15px 0 0 15px;
+		}
+		.con1_1 {
+			padding: 0 15px 15px 15px;
+			color: #6c6c6c;
+			text {
+				color: #fa6611;
+				padding-left: 15px;
+				font-weight: bold;
+			}
+		}
+	}
+	.foot {
+		display: flex;
+		align-items: center;
+		text-align: center;
+		position: fixed;
+		width: 100%;
+		bottom: 0;
+		background-color: white;
+		.foot_1 {
+			flex: 1;
+			line-height: 18px;
+			color: gray;
+			margin-left: 10px;
+			view {
+				font-size: 15px;
+			}
+		}
+		.foot_2 {
+			flex: 1;
+			line-height: 18px;
+			color: gray;
+			margin-right: 20px;
+			view {
+				font-size: 15px;
+			}
+		}
+		.foot_3 {
+			width: 100%;
+			flex: 2;
+			background-color: #fa6611;
+			border-radius: 30px;
+			font-size: 13px;
+			color: white;
+			height: 30px;
+			line-height: 30px;
+			margin: 10px;
+		}
+		.foot_4 {
+			flex: 2;
+			background-color: #ff3333;
+			border-radius: 30px;
+			font-size: 13px;
+			color: white;
+			height: 30px;
+			line-height: 30px;
+			margin-right: 10px;
+		}
+	}
+}

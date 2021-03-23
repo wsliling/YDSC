@@ -1,0 +1,77 @@
+.details {
+	background-color: white;
+	.line {
+		height: 20upx;
+		background-color: #f3f3f3;
+	}
+	.top {
+		.photo {
+			image {
+				height: 600upx;
+			}
+		}
+		.info {
+			display: flex;
+			align-items: center;
+			padding: 20upx 30upx;
+			.name {
+				flex: 1;
+				font-weight: bolder;
+				font-size: 18px;
+			}
+			.detail {
+				flex: 2.5;
+				color: #7e7e7e;
+				font-size: 14px;
+			}
+			.person {
+				flex: 1;
+				color: #adadad;
+				font-size: 12px;
+				text{
+					font-size: 12px;
+					padding-left: 5upx;
+				}
+			}
+		}
+		.info1 {
+			display: flex;
+			align-items: center;
+			padding: 10upx 20upx 30upx 30upx;
+			.info1_1 {
+				flex: 0.9;
+				image {
+					height: 70upx;
+					width: 300upx;
+				}
+			}
+			.info1_2 {
+				flex: 1;
+				color: #adadad;
+				font-size: 12px;
+			}
+		}
+	}
+	.cen {
+		padding: 30upx;
+		display: flex;
+		align-items: center;
+		.stadium {
+			flex: 1;
+			image {
+				width: 130upx;
+				height: 130upx;
+			}
+		}
+		.stadium_1 {
+			flex: 3.5;
+			.stadium_1_1 {
+				font-weight: bold;
+				font-size: 14px;
+			}
+			.stadium_1_2 {
+				font-size: 12px;
+			}
+		}
+	}
+}

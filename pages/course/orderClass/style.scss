@@ -1,0 +1,60 @@
+.orderClass {
+	.tab {
+		position: absolute;
+		height: 100%;
+		background-color: white;
+		.con {
+			display: flex;
+			align-items: center;
+			margin: 5px 10px 10px 0;
+			.con_1 {
+				flex: 1;
+				padding: 0 10px;
+				image {
+					height: 85px;
+				}
+			}
+			.con_2 {
+				flex: 1.5;
+				line-height: 26px;
+				.title {
+					font-size: 14px;
+					font-weight: bold;
+				}
+				.title_1 {
+					color: #8a8a8a;
+				}
+				.title_2 {
+					display: flex;
+					align-items: center;
+					.title2_1 {
+						flex: 1;
+						text {
+							display: inline-block;
+							transform: scale(0.8);
+							color: #c1c1c1;
+						}
+						image {
+							width: 50upx;
+							height: 50upx;
+						}
+					}
+					.title2_2 {
+						flex: 1;
+						background-color: #fa6008;
+						color: white;
+						border-radius: 30px;
+						text-align: center;
+						height: 28px;
+						line-height: 28px;
+						transform: scale(0.8);
+					}
+				}
+			}
+		}
+		.xxx {
+			font-size: 42rpx;
+			padding: 20rpx 0;
+		}
+	}
+}

@@ -1,0 +1,126 @@
+.container {
+	view,
+	text,
+	image {
+		box-sizing: border-box;
+	}
+	scroll-view {
+		width: 100%;
+		white-space: nowrap;
+		height: 75px;
+		background-color: #fff;
+		position: relative;
+		padding-top: 5px;
+
+		// margin-top:10px;
+		&::after {
+			background: #e5e5e5;
+			content: '';
+			display: block;
+			width: 100%;
+			height: 1px;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			transform: scaleY(0.5);
+		}
+		.flex-box {
+			display: inline-block;
+			height: 60px;
+			width: 14%;
+			box-sizing: border-box;
+
+			&.active {
+				.date-box {
+					border: none;
+					.days {
+						font-weight: bold;
+						color: #818181;
+					}
+					.date {
+						font-weight: bold;
+						// color: #818181;
+						color: white;
+						font-size: 30upx;
+						background-color: #fa6008;
+						border-radius: 50%;
+						padding: 2px 6px;
+					}
+				}
+			}
+			.date-box {
+				border: none;
+				display: flex;
+				height: 58px;
+				flex-direction: column;
+				align-items: center;
+				justify-content: space-around;
+				font-size: 30upx;
+				color: black;
+				.date {
+					font-size: 13px;
+					&.active {
+						color: white !important;
+						// font-size: 30upx;
+						background-color: #fa6008;
+						border-radius: 50%;
+						padding: 2px 6px;
+					}
+				}
+			}
+		}
+	}
+	.time-box_1 {
+		background-color: #f3f3f3;
+		.begin {
+			text-align: left;
+			padding: 5px 0 2px 15px;
+			color: gray;
+		}
+		.time-box {
+			display: flex;
+			flex-wrap: wrap;
+			padding: 0 10px 10px;
+			.item {
+				width: 20%;
+				padding: 5px 3px;
+				position: relative;
+				&-box {
+					height: 35px;
+					line-height: 35px;
+					background: #fff;
+					color: #333;
+					border: 1px solid #eeeeee;
+					font-size: 28upx;
+					border-radius: 10upx;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					&.disable {
+						background: #e5e5e5 !important;
+						color: #999 !important;
+						height: 35px;
+						line-height: 15px;
+					}
+					&.active {
+						background-color: #fa6008;
+						color: white !important;
+					}
+					.all {
+						font-size: 22upx;
+						padding-top: 5px;
+					}
+					.full {
+						position: absolute;
+						bottom: 6px;
+						right: 4px;
+						image {
+							width: 20px;
+							height: 20px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
