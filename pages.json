@@ -114,11 +114,7 @@
 			"path": "pages/pay/pay",
 			"style": {
 				"navigationBarTitleText": "支付订单",
-<<<<<<< HEAD
-				"navigationBarBackgroundColor": "#FF3333",
-=======
 				"navigationBarBackgroundColor":"#fa6008",
->>>>>>> remotes/origin/master
 				"navigationBarTextStyle": "white"
 			}
 		}, {
@@ -165,19 +161,11 @@
 			"pages": [{
 					"path": "newpro/newpro",
 					"style": {
-<<<<<<< HEAD
-						"navigationBarTitleText": "每日上新",
-						"enablePullDownRefresh": true,
-						"navigationBarBackgroundColor": "#00c3b2",
-						"navigationBarTextStyle": "white",
-						"app-plus": {
-=======
 						"navigationBarTitleText": "上新精选",
 						"enablePullDownRefresh" : true,
 						"navigationBarBackgroundColor":"#ffffff",
 						"navigationBarTextStyle":"black",
 						"app-plus":{
->>>>>>> remotes/origin/master
 							"pullToRefresh": {
 								"support": true,
 								"color": "#FF3737", //小圈圈的颜色
@@ -395,35 +383,15 @@
 					"path": "cart/cart",
 					"style": {
 						"navigationBarTitleText": "购物车",
-<<<<<<< HEAD
-						"navigationBarBackgroundColor": "#FF3333",
-						"navigationBarTextStyle": "white",
-=======
 						"navigationBarBackgroundColor":"#FFFFFF",
 						"navigationBarTextStyle":"black",
->>>>>>> remotes/origin/master
 						"app-plus": {
 							"titleNView": false,
 							"bounce": "none",
 							"scrollIndicator": "none" //不显示滚动条
 						}
 					}
-<<<<<<< HEAD
-				}, {
-					"path": "submitOrder/submitOrder",
-					"style": {
-						"navigationBarTitleText": "确认订单",
-						"navigationBarBackgroundColor": "#FF3333",
-						"navigationBarTextStyle": "white"
-					}
-				}, {
-					"path": "evaluation/evaluation",
-					"style": {
-						"navigationBarTitleText": "全部评价"
-					}
-				}
-			]
-=======
+
                 }
                 ,{
                     "path" : "submitOrder/submitOrder",
@@ -440,7 +408,6 @@
 					}
                 }
             ]
->>>>>>> remotes/origin/master
 		},
 		{
 			"root": "pages/member",
@@ -491,15 +458,10 @@
 					}
 				},
 				{
-<<<<<<< HEAD
-					"path": "editinfo/editinfo",
-					"style": {
-						"navigationBarTitleText": "个人信息"
-=======
+
 				    "path" : "editinfo/editinfo",
 				    "style" : {
 						"navigationBarTitleText":"编辑资料"
->>>>>>> remotes/origin/master
 					}
 				},
 				{
@@ -620,20 +582,6 @@
 					"style": {
 						"navigationBarTitleText": "我的关注"
 					}
-<<<<<<< HEAD
-				}, {
-					"path": "setHOt/setHOt",
-					"style": {
-						"navigationBarTitleText": "上热门"
-					}
-				}, {
-					"path": "setHOt/setSuccess",
-					"style": {
-						"navigationBarTitleText": "上热门"
-					}
-				}
-			]
-=======
                 },{
                     "path" : "mycourse/mycourse",
                     "style" : {
@@ -720,7 +668,6 @@
 					}
 				}
             ]
->>>>>>> remotes/origin/master
 		},
 		{
 			"root": "pages/personal",
@@ -759,10 +706,6 @@
 					"style": {
 						"navigationBarTitleText": "消息列表"
 					}
-<<<<<<< HEAD
-				}
-			]
-=======
                 }
                 ,{
                     "path" : "VenueDetail/VenueDetail",
@@ -817,7 +760,6 @@
                 
                 }
             ]
->>>>>>> remotes/origin/master
 		},
 		{
 			"root": "pages/message",
