@@ -2,8 +2,7 @@
 	<view class="search_input_wrapper">
 		<view :class="{ search_input: !isFocus, search_input_foucs: isFocus }" id="search_input_id" @mouseleave="mouseout">
 			<view class="search_bar" @click="focus()">
-				<text class="iconfont icon-sousuo icon">
-				</text>
+				<text class="iconfont icon-sousuo icon"></text>
 				<view class="input_content">
 					<input type="text" placeholder="请输入课程名称" ref="search" @input="search" v-model="search_content" @confirm="finish_input" auto-focus="false" />
 				</view>
@@ -201,15 +200,16 @@ export default {
 <style lang="less" scoped>
 .search_input_wrapper {
 	font-size: 16px;
+	width: 96%;
 	.search_input {
 		background: #f3f3f3;
-		border: 1upx solid #e0e0e0;
-		border-radius: 10upx;
+		border-radius: 15upx;
+		padding: 1.5px;
 	}
 	.search_input_foucs {
 		background: #f3f3f3;
-		border: 1upx solid #e0e0e0;
-		border-radius: 10upx;
+		border-radius: 15upx;
+		padding: 1.5px;
 	}
 	.search_bar {
 		display: flex;
@@ -284,7 +284,7 @@ export default {
 	}
 
 	.icon {
-		margin: 0 10upx;
+		margin: 0 16upx;
 	}
 }
 </style>

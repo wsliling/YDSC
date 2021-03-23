@@ -59,45 +59,69 @@
 }
 .cen {
 	border-radius: 8%;
-	background-color: $white;
+	background-color: white;
 	margin: 3%;
 	padding: 2%;
 	.cardTitle {
 		color: #a7aab9;
 		border-bottom: 1upx solid #f8f8f8;
-		padding: 5upx 0;
+		padding: 5px;
 	}
-	.card {
+	.cardAll {
 		display: flex;
+		padding: 5px 5px 0 5px;
 		align-items: center;
-		padding-top: 10upx;
-		view:nth-of-type(1) {
-			flex: 0.5;
-			image {
-				width: 80upx;
-				height: 80upx;
+		.card_1 {
+			padding-top: 10upx;
+			flex: 3;
+			display: flex;
+			> view:nth-of-type(1) {
+				flex: 1;
+				image {
+					width: 80upx;
+					height: 80upx;
+				}
+			}
+			.card_1_2 {
+				position: relative;
+				top: 9px;
+				padding-bottom: 9px;
+			}
+			> view:nth-of-type(2) {
+				flex: 4;
+				.card_1_1 {
+					color: #a7aab9;
+					font-size: 138%;
+					font-weight: bold;
+				}
+				text {
+					font-size: 200%;
+					font-weight: bold;
+				}
+				view {
+					color: #a7aab9;
+				}
 			}
 		}
-		view:nth-of-type(2) {
-			flex: 2;
-			color: #a7aab9;
-			view:nth-of-type(1) {
-				color: black;
-				font-size: 30upx;
-				font-weight: bold;
-			}
-			text{
-				font-size: 50upx;
-			}
+		.card_2 {
+			flex: 0.7;
+			color: #fd8b36;
+			background-color: #fdf5ee;
+			text-align: center;
+			border-radius: 30px;
+			padding: 2px 3px;
 		}
-		view:nth-of-type(3) {
+		.card_2_2 {
 			flex: 1;
 			color: #fd8b36;
 			background-color: #fdf5ee;
 			text-align: center;
 			border-radius: 30px;
-			width: 80%;
-			height: 80%;
+			padding: 2px 3px;
+		}
+		.card_2_1 {
+			flex: 1;
+			justify-content: end;
 		}
 	}
 }

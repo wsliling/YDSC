@@ -124,7 +124,7 @@
 		.box-item {
 			width: 100%;
 			height: 100%;
-			padding: 0 0upx;
+			padding: 0 5px;
 			overflow: hidden;
 		}
 	

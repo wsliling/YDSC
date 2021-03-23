@@ -13,55 +13,57 @@
 		</view>
 		<view class="cen">
 			<view class="cardTitle">健康生活</view>
-			<view class="card">
-				<view class="card_1"><image src="../../../static/health/jian_1.png"></image></view>
-				<view class="card_2">
+			<view class="cardAll">
+				<view class="card_1">
+					<view><image src="/static/health/jian_1.png"></image></view>
 					<view>
 						<text>2</text>
 						/4
+						<view>2021年03月10日 10:30</view>
 					</view>
-					<view>2021年03月10日 10:30</view>
 				</view>
-				<view class="card_3">目标达成</view>
+				<view class="card_2_2">目标达成</view>
 			</view>
 		</view>
 		<view class="cen">
 			<view class="cardTitle">运动记录</view>
-			<view class="card">
-				<view class="card_1"><image src="../../../static/health/jian_2.png"></image></view>
-				<view class="card_2">
-					<view>暂无数据</view>
-					<view>生命在于运动 运动贵在坚持</view>
+			<view class="cardAll">
+				<view class="card_1">
+					<view><image src="/static/health/jian_2.png"></image></view>
+					<view class="card_1_2">
+						<text class="card_1_1">暂无数据</text>
+						<view>生命在于运动 运动贵在坚持</view>
+					</view>
 				</view>
-				<view class="card_3"></view>
+				<view class="card_2_1"></view>
 			</view>
 		</view>
 		<view class="cen">
 			<view class="cardTitle">体脂</view>
-			<view class="card">
-				<view class="card_1"><image src="../../../static/health/jian_3.png"></image></view>
-				<view class="card_2">
+			<view class="cardAll">
+				<view class="card_1">
+					<view><image src="/static/health/jian_3.png"></image></view>
 					<view>
 						<text>31.4</text>
 						%
+						<view>2021年03月10日 10:30</view>
 					</view>
-					<view>2021年03月10日 10:30</view>
 				</view>
-				<view class="card_3">正常</view>
+				<view class="card_2">正常</view>
 			</view>
 		</view>
 		<view class="cen">
-			<view class="cardTitle">心率</view>
-			<view class="card">
-				<view class="card_1"><image src="../../../static/health/jian_4.png"></image></view>
-				<view class="card_2">
+			<view class="cardTitle">健康生活</view>
+			<view class="cardAll">
+				<view class="card_1">
+					<view><image src="/static/health/jian_4.png"></image></view>
 					<view>
 						<text>92次</text>
 						/min
+						<view>2021年03月10日 10:30</view>
 					</view>
-					<view>2021年03月10日 10:30</view>
 				</view>
-				<view class="card_3">正常</view>
+				<view class="card_2">正常</view>
 			</view>
 		</view>
 		<view class="swiper"><carousel :img-list="imgList" url-key="url" @selected="selectedBanner" /></view>
@@ -74,7 +76,7 @@ var myAmapFun = new amapFile.AMapWX({ key: '2cf130b84fa23acfd8b04e82bc4af283' })
 import { post, toLogin, navigate } from '@/common/util.js';
 import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
 import noData from '@/components/noData.vue'; //暂无数据
-import carousel from '../../../components/vear-carousel/vear-carousel.vue';
+import carousel from '@/components/vear-carousel/vear-carousel.vue';
 export default {
 	data() {
 		return {

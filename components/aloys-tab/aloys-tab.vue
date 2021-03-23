@@ -5,7 +5,8 @@
 		</view>
 		<swiper :current="current" class="swiper-box" @change="onChange">
 			<swiper-item v-for="(item, index) in tabs" :key="index">
-				<scroll-view scroll-y="true" style="height: 100%;" @scrolltolower="scrolltolower">
+				<!-- <scroll-view scroll-y="true" style="height: 100%;" @scrolltolower="scrolltolower"> -->
+				<scroll-view style="height: 100%;" @scrolltolower="scrolltolower">
 					<!-- #ifdef MP -->
 					<slot name="{{'content' + index}}"></slot>
 					<!-- #endif -->
@@ -57,8 +58,7 @@ swiper-tab {
 </style>
 <style lang="scss" scoped>
 .tabs {
-	width: 750rpx;
-	height: 75rpx;
+	width: 73%;
 	display: flex;
 	.tab-item {
 		flex: 1;
@@ -66,11 +66,9 @@ swiper-tab {
 		color: grey;
 		background: #f3f3f3;
 		border-radius: 30px;
-		margin: 16px;
-		line-height: 30px;
-		font-size: 16px;
-		font-weight: 500;
-		height: 30px;
+		margin: 6px -5px 6px 15px;
+		line-height: 230%;
+		height: 80%;
 		box-sizing: border-box;
 		&.active {
 			color: #f57609;
@@ -81,7 +79,7 @@ swiper-tab {
 }
 .swiper-box {
 	width: 100%;
-	height: calc(100% - 75rpx);
+	height: 1040upx;
 	overflow: auto;
 }
 </style>
