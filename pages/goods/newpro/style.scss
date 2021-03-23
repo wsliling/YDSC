@@ -5,12 +5,26 @@
 		width: 120%;
 		border-bottom-left-radius: 100%;
 		border-bottom-right-radius: 100%;
-		background-color: #00c3b2;
+		// background-color: #00c3b2;
 		height: 160upx;
 		position: absolute;
 		left: -10%;
 		top: 0;
 	}
+	// .swiper{
+	// 	width: 750upx;
+	// 	border-radius:0;
+	// 	margin-bottom: 10upx;
+	// 	.swiper-item{
+	// 		width: 750upx;
+	// 		border-radius:0;
+	// 		margin: 0 !important;
+	// 		padding: 0 !important;
+	// 		.img{
+	// 			border-radius:0;
+	// 		}
+	// 	}
+	// }
 	.dots{
 		.dot{
 			background: rgba(0,0,0,.4);
@@ -21,17 +35,25 @@
 	}
 }
 .c-hd{
-	font-size: 32upx;
+	font-size: 34upx;
 	font-weight:bold;
-	&::before,&::after{
-		content: "";
-		display: block;
-		height: 36upx;
-		width: 36upx;
-		background: url(http://xcx.yixijiu19.com/static/title_icon.png) center center no-repeat;
-		background-size: 100% auto;
-		margin: 0 20upx;
-	}
+	display: flex;
+	align-items: center;
+	// &::before,&::after{
+	// 	content: "";
+	// 	display: block;
+	// 	height: 36upx;
+	// 	width: 36upx;
+	// 	// background: url(http://xcx.yixijiu19.com/static/title_icon.png) center center no-repeat;
+	// 	background-size: 100% auto;
+	// 	margin: 0 20upx;
+	// }
+}
+.text{
+	color: #9a9a9a;
+	font-size: 26upx;
+	font-weight: normal;
+	margin-left: 20upx;
 }
 .filterMenu.scroll{
 	top: 44px;

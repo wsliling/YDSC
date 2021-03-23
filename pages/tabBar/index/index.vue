@@ -66,7 +66,9 @@
 				<view class="card_2">正常</view>
 			</view>
 		</view>
-		<view class="swiper"><carousel :img-list="imgList" url-key="url" @selected="selectedBanner" /></view>
+		<view class="swiper uni-mb10">
+			<swiper3D  :imgList="imgList" :currentIndexParameter="currentpic"></swiper3D>
+		</view>
 	</view>
 </template>
 
@@ -76,7 +78,10 @@ var myAmapFun = new amapFile.AMapWX({ key: '2cf130b84fa23acfd8b04e82bc4af283' })
 import { post, toLogin, navigate } from '@/common/util.js';
 import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
 import noData from '@/components/noData.vue'; //暂无数据
+<<<<<<< HEAD
 import carousel from '@/components/vear-carousel/vear-carousel.vue';
+=======
+>>>>>>> remotes/origin/master
 export default {
 	data() {
 		return {
@@ -101,24 +106,23 @@ export default {
 			showXY: 'none', //"none":不显示 "block"显示
 			pageCon: 0,
 			NoticeInfo: {}, //首页公告
-			// cardList: ['https://mock.jpg', 'https://mock.jpg', 'https://mock.jpg'],
-			// cardIndex: 0 // 默认先展示的图片下标
+			currentpic: 1, // 默认先展示的图片下标
 			imgList: [
 				{
-					url: 'https://img9.51tietu.net/pic/2019-091200/vgkpidei2tjvgkpidei2tj.jpg',
-					id: 1
+					src: 'https://img9.51tietu.net/pic/2019-091200/vgkpidei2tjvgkpidei2tj.jpg',
+					url: ''
 				},
 				{
-					url: 'https://img9.51tietu.net/pic/2019-091200/euzekmi5m23euzekmi5m23.jpg',
-					id: 2
+					src: 'https://img9.51tietu.net/pic/2019-091200/euzekmi5m23euzekmi5m23.jpg',
+					url: ''
 				},
 				{
-					url: 'https://img9.51tietu.net/pic/2019-091200/143tt0ta4sr143tt0ta4sr.jpg',
-					id: 3
+					src: 'https://img9.51tietu.net/pic/2019-091200/143tt0ta4sr143tt0ta4sr.jpg',
+					url: ''
 				},
 				{
-					url: 'https://img9.51tietu.net/pic/2019-091200/ff1vqwm3q33ff1vqwm3q33.jpg',
-					id: 4
+					src: 'https://img9.51tietu.net/pic/2019-091200/ff1vqwm3q33ff1vqwm3q33.jpg',
+					url: ''
 				}
 			]
 		};
@@ -126,7 +130,7 @@ export default {
 	components: {
 		uniLoadMore,
 		noData,
-		carousel
+		// swiper3D
 	},
 	onLoad(e) {
 		this.userId = uni.getStorageSync('userId');
