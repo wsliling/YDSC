@@ -78,10 +78,6 @@ var myAmapFun = new amapFile.AMapWX({ key: '2cf130b84fa23acfd8b04e82bc4af283' })
 import { post, toLogin, navigate } from '@/common/util.js';
 import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
 import noData from '@/components/noData.vue'; //暂无数据
-<<<<<<< HEAD
-import carousel from '@/components/vear-carousel/vear-carousel.vue';
-=======
->>>>>>> remotes/origin/master
 export default {
 	data() {
 		return {
