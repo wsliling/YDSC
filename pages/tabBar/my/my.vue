@@ -41,7 +41,7 @@
 			<view class="memberIndex_section uni-bg-white b_radius uni-mb10">
 				<view class="section_bd">
 					<view class="li_20 center flex flexWrap">
-						<view class="item">
+						<view class="item" @click="golink('/pages/member/information/information')">
 							<view class="iconImg">
 								<image class="icon" src="/static/my_data.png" mode="widthFix"></image>
 							</view>
@@ -53,7 +53,7 @@
 							</view>
 							<view class="txt">我的计划</view>
 						</view>
-						<view class="item">
+						<view class="item" @click="golink('/pages/member/myappointment/myappointment')">
 							<view class="iconImg">
 								<image class="icon" src="/static/my_yuyue.png" mode="widthFix"></image>
 							</view>
