@@ -2,10 +2,13 @@
 	<view class="pagehome">
 		<view class="homeBackground p_re">
 			<image :src="HomeCover || 'http://xcx.yixijiu19.com/static/homeBg.png'" mode="aspectFill"></image>
-			<view class="btn flex-center" v-if="myType == 1" @click="changebanner">
-				<text class="iconfont icon-fabu mr1 fz16"></text>
-				设置封面
+			<view class="btn flex-center" v-if="myType == 1" @click="changebanner" style="z-index: 2;">
+				<text class="iconfont icon-fabu fz16"></text>
+				<!-- 设置封面 -->
 			</view>
+			<!-- <view v-if="myType != 0" class="btn flex-center">
+				<image class="mesg" src="../../static/message.png"></image>
+			</view> -->
 		</view>
 		<view class="userInfo">
 			<view class="headerInfo">
@@ -16,6 +19,18 @@
 						编辑资料
 					</view>
 				</view>
+				<block v-if="myType == 0">
+					<view class="followBtn flex-center" v-if="Info.IsFollow == 0" @click="flowbtn">
+						<!-- <text class="iconfont icon-jia"></text> -->
+						关注
+					</view>
+					<view class="fansBtn" v-else>
+						<view class="position" @click="tolink('/pages/personal/chat/chat?id=' + memberId + '&nick=' + Info.NickName, 'login')">
+							<image style="width: 72upx; height: 72upx;" src="../../static/message.png"></image>
+						</view>
+						<view class="btn" @click="flowbtn">取消关注</view>
+					</view>
+				</block>
 			</view>
 			<view class="user">
 				<view class="username-flex">
@@ -38,7 +53,7 @@
 					{{ myType ? '填写个人介绍更容易获得关注，点击此处添加' : '这个人很懒，什么都没留下~' }}
 				</view>
 				
-				<view class="flex" v-if="Info.FanGroup">
+				<!-- <view class="flex" v-if="Info.FanGroup">
 					<view class="fansCard">
 						<image :src="Info.Avatar || 'http://xcx.yixijiu19.com/static/default.png'"></image>
 						<view class="fansName">
@@ -46,19 +61,9 @@
 							<view class="p2">粉丝 | {{ Info.FanGroup }}人</view>
 						</view>
 					</view>
-				</view>
+				</view> -->
 			</view>
-			<block v-if="myType == 0">
-				<view class="followBtn flex-center" v-if="Info.IsFollow == 0" @click="flowbtn">
-					<text class="iconfont icon-jia"></text>
-					关注
-				</view>
-				<view class="fansBtn" v-else>
-					<view class="btn" @click="tolink('/pages/personal/chat/chat?id=' + memberId + '&nick=' + Info.NickName, 'login')">发私信</view>
-					<view class="btn" @click="flowbtn">取消关注</view>
-				</view>
-			</block>
-
+			
 			<view class="fans">
 				<view class="fansNum">
 					<view class="item-num" @click="toMylink('/pages/member/follow/follow?type=1')">
@@ -69,19 +74,27 @@
 						<view class="num">{{ Info.Follow }}</view>
 						<view>关注</view>
 					</view>
+					<view class="item-num" @click="toMylink('/pages/member/follow/follow?type=2')">
+						<view class="num">{{ Info.Follow }}</view>
+						<view>获赞</view>
+					</view>
 				</view>
 			</view>
 		</view>
 		
 		<view style="overflow-x: hidden;">
-			<view class="tabdiv flex-between" v-if="pageCon == 1">
-				<view :class="['item', tabIndex == 1 ? 'active' : '']" @click="tapTab(1)">
+			<view class="tabdiv" v-if="pageCon == 1">
+				<view :class="['item', tabIndex == 1 ? 'active' : '']" @click="tapTab(1)" v-show="false">
 					<text class="num">{{ Info.VideoNum }}</text>
 					<text class="txt">视频</text>
 				</view>
 				<view :class="['item', tabIndex == 2 ? 'active' : '']" @click="tapTab(2)">
 					<text class="num">{{ Info.TrendsNum }}</text>
 					<text class="txt">动态</text>
+				</view>
+				<view :class="['item', tabIndex == 3 ? 'active' : '']" @click="tapTab(3)">
+					<text class="num">{{ Info.TrendsNum }}</text>
+					<text class="txt">课程</text>
 				</view>
 				<view :class="['item', tabIndex == 0 ? 'active' : '']" @click="tapTab(0)" v-show="false">
 					<text class="num">{{ Info.LiveNum }}</text>
@@ -135,6 +148,13 @@
 					</view>
 				</block>
 			</view>
+			<!-- 课程 -->
+			<view class="course" v-if="tabIndex == 3">
+				<view class="listcourse" v-for="(item,index) in 3" :key="index">
+					<image src="../../static/health/change/class_10.png"></image>
+				</view>
+			</view>
+			
 			<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
 			<noData :isShow="noDataIsShow"></noData>
 		</view>
@@ -160,7 +180,7 @@ export default {
 			pageCon: 0,
 			userId: '',
 			token: '',
-			tabIndex: 1,
+			tabIndex: 2,
 			memberId: '',
 			myType: 0, //0TA人主页，1我的主页
 			Info: {},
