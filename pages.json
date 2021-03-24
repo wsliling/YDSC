@@ -154,17 +154,15 @@
 				"enablePullDownRefresh": false
 			}
 
+		}, {
+			"path": "components/linzq-imgUpload2/linzq-imgUpload2",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
 		}
-	    ,{
-            "path" : "components/linzq-imgUpload2/linzq-imgUpload2",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+	],
 	"subPackages": [{
 			"root": "pages/goods",
 			"pages": [{
@@ -684,6 +682,34 @@
 						"navigationBarTitleText": "申请成为合伙人",
 						"enablePullDownRefresh": false
 					}
+				}, {
+					"path": "applyPartnerSuc/applyPartnerSuc",
+					"style": {
+						"navigationBarTitleText": "申请",
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "applyPartnerReview/applyPartnerReview",
+					"style": {
+						"navigationBarTitleText": "申请",
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "applyPartnerFail/applyPartnerFail",
+					"style": {
+						"navigationBarTitleText": "申请",
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "myTeam/myTeam",
+					"style": {
+						"navigationBarTitleText": "我的团队",
+						"enablePullDownRefresh": false
+					}
+
 				}
 			]
 		},

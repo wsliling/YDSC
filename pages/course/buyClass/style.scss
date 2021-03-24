@@ -5,21 +5,21 @@
 	}
 	.con {
 		display: flex;
-		padding: 20px 5px;
+		padding: 40upx 10upx;
 		background-color: white;
 		.con_1 {
 			flex: 1;
-			padding: 0 10px;
+			padding: 0 20upx;
 			image {
-				height: 90px;
-				width: 95px;
+				height: 200upx;
+				width: 200upx;
 			}
 		}
 		.con_2 {
 			flex: 2;
-			line-height: 28px;
+			line-height: 60upx;
 			.title {
-				font-size: 14px;
+				font-size: 32upx;
 				font-weight: bold;
 			}
 			.title_1 {
@@ -29,32 +29,32 @@
 	}
 	.priceAll {
 		background-color: white;
-		padding: 10px;
+		padding: 20upx;
 		.price_1 {
 			display: flex;
 			align-items: center;
-			padding: 5px;
+			padding: 10upx;
 			.price_1_1 {
 				flex: 5;
-				font-size: 13px;
+				font-size: 26upx;
 			}
 			.price_1_2 {
 				flex: 1;
-				font-size: 13px;
+				font-size: 26upx;
 				text-align: right;
 			}
 		}
 		.price_2 {
 			display: flex;
 			align-items: center;
-			padding: 5px;
+			padding: 10upx;
 			.price_1_1 {
 				flex: 4;
-				font-size: 13px;
+				font-size: 26upx;
 			}
 			.price_1_2 {
 				flex: 1;
-				font-size: 13px;
+				font-size: 26upx;
 				text-align: right;
 			}
 		}
@@ -64,21 +64,21 @@
 		display: flex;
 		align-items: center;
 		text-align: center;
-		line-height: 42px;
+		line-height: 85upx;
 		.payPic {
 			flex: 1;
-			font-size: 22px;
+			font-size: 25upx;
 			.wx {
 				color: #4bd964;
-				font-size: 22px;
+				font-size: 36upx;
 			}
 			.zfb {
 				color: #15a9f1;
-				font-size: 22px;
+				font-size: 36upx;
 			}
 			.qb {
 				color: #fa6008;
-				font-size: 22px;
+				font-size: 36upx;
 			}
 		}
 		.payWay {
@@ -97,26 +97,26 @@
 	.foot {
 		display: flex;
 		align-items: center;
-		padding: 8px 13px;
+		padding: 16upx 26upx;
 		position: fixed;
 		width: 100%;
 		bottom: 0;
 		background-color: white;
-		font-size: 15px;
+		font-size: 30upx;
 		.score {
 			flex: 3;
 			color: #ff3b3b;
-			font-size: 15px;
+			font-size: 30upx;
 		}
 		.payfor {
 			flex: 1.5;
-			font-size: 15px;
-			height: 30px;
-			line-height: 30px;
+			font-size: 30upx;
+			height: 70upx;
+			line-height: 70upx;
 			text-align: center;
 			color: white;
 			background-color: #fa6008;
-			border-radius: 30px;
+			border-radius: 70upx;
 		}
 	}
 }

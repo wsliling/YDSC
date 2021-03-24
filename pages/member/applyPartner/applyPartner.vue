@@ -18,7 +18,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="upBtn">提交</view>
+		<view class="upBtn" @click="applyPartnerSuc">提交</view>
 	</view>
 </template>
 
@@ -45,7 +45,13 @@ export default {
 			}
 		};
 	},
-	methods: {}
+	methods: {
+		applyPartnerSuc() {
+			uni.navigateTo({
+				url: '../applyPartnerSuc/applyPartnerSuc'
+			});
+		}
+	}
 };
 </script>
 

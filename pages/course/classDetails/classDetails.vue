@@ -49,7 +49,7 @@
 			</view>
 			<view class="foot_2">
 				<view class="iconfont icon-share"></view>
-				收藏
+				分享
 			</view>
 			<view class="foot_3" @click="scoreExchane">99Y币兑换</view>
 			<view class="foot_4" @click="buyClass">￥29购买</view>

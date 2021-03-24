@@ -5,7 +5,7 @@
 		background-color: #f3f3f3;
 	}
 	.last_line{
-		padding-bottom: 58px;
+		padding-bottom: 126upx;
 	}
 	.top {
 		.photo {
@@ -20,7 +20,7 @@
 			.name {
 				flex: 1;
 				font-weight: bolder;
-				font-size: 18px;
+				font-size: 36upx;
 			}
 		}
 		.detail {
@@ -29,13 +29,13 @@
 			.detail_1 {
 				flex: 2.8;
 				color: #8f8f8f;
-				font-size: 13px;
+				font-size: 26upx;
 				padding: 20upx 30upx;
 			}
 			.detail_2 {
 				flex: 1;
 				color: #8f8f8f;
-				font-size: 12px;
+				font-size: 25upx;
 				padding: 20upx 0 0 30upx;
 				transform: scale(0.9);
 			}
@@ -57,28 +57,29 @@
 			}
 			.info1_2 {
 				flex: 1.5;
-				height: 25px;
-				line-height: 25px;
+				height: 60upx;
+				line-height: 60upx;
 				color: white;
-				font-size: 12px;
+				font-size: 25upx;
 				background-color: #fa6008;
-				border-radius: 30px;
+				border-radius: 60upx;
 				text-align: center;
 			}
 		}
 	}
 	.con {
 		.title {
-			font-size: 15px;
+			font-size: 30upx;
 			font-weight: bold;
-			padding: 15px 0 0 15px;
+			padding: 30upx 0 0 30upx;
 		}
 		.con1_1 {
-			padding: 0 15px 15px 15px;
+			padding: 0 30upx 30upx 30upx;
 			color: #6c6c6c;
+			font-size: 28upx;
 			text {
 				color: #fa6611;
-				padding-left: 15px;
+				padding-left: 30upx;
 				font-weight: bold;
 			}
 		}
@@ -91,44 +92,46 @@
 		width: 100%;
 		bottom: 0;
 		background-color: white;
+		padding-bottom: -20upx;
 		.foot_1 {
 			flex: 1;
-			line-height: 18px;
+			line-height: 36upx;
 			color: gray;
-			margin-left: 10px;
+			margin-left: 20upx;
 			view {
-				font-size: 15px;
+				font-size: 30upx;
 			}
 		}
 		.foot_2 {
 			flex: 1;
-			line-height: 18px;
+			line-height: 36upx;
 			color: gray;
-			margin-right: 20px;
+			margin-right: 20upx;
 			view {
-				font-size: 15px;
+				font-size: 30upx;
 			}
 		}
 		.foot_3 {
 			width: 100%;
 			flex: 2;
 			background-color: #fa6611;
-			border-radius: 30px;
-			font-size: 13px;
+			border-radius: 60upx;
+			font-size: 26upx;
 			color: white;
-			height: 30px;
-			line-height: 30px;
-			margin: 10px;
+			height:70upx;
+			line-height: 70upx;
+			margin: 20upx;
 		}
 		.foot_4 {
+			width: 100%;
 			flex: 2;
 			background-color: #ff3333;
-			border-radius: 30px;
-			font-size: 13px;
+			border-radius: 60upx;
+			font-size: 26upx;
 			color: white;
-			height: 30px;
-			line-height: 30px;
-			margin-right: 10px;
+			height:70upx;
+			line-height: 70upx;
+			margin: 20upx;
 		}
 	}
 }

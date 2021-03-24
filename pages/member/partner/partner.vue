@@ -7,7 +7,7 @@
 				<view class="sec1_2">我的团队</view>
 				<view class="iconfont icon-arrow_r sec1_3"></view>
 			</view>
-			<view class="sec_2">
+			<view class="sec_2" @click="myTeam">
 				<view class="sec1_1"><image src="/static/my/partner_2.png" mode=""></image></view>
 				<view class="sec1_2">我的团队</view>
 				<view class="iconfont icon-arrow_r sec1_3"></view>
@@ -25,6 +25,11 @@ export default {
 		notPartner() {
 			uni.navigateTo({
 				url: '/pages/member/notPartner/notPartner'
+			});
+		},
+		myTeam() {
+			uni.navigateTo({
+				url: '/pages/member/myTeam/myTeam'
 			});
 		}
 	}
