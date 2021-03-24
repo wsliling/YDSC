@@ -23,13 +23,61 @@
 				</view>
 			</view>
 		</view>
+		<view class="tab">
+			<aloys-tab :tabs="tabs">
+				<view slot="content0" class="xxx">
+					<view class="con">
+						<view class="con_1"><image src="/static/my/myTeam_2.png"></image></view>
+						<view class="con_2">
+							<view class="title">AIYO</view>
+							<view class="title_1">135****3928</view>
+						</view>
+						<view class="con_3">2020.08.18 14:30</view>
+					</view>
+					<view class="con">
+						<view class="con_1"><image src="/static/my/myTeam_3.png"></image></view>
+						<view class="con_2">
+							<view class="title">AIYO</view>
+							<view class="title_1">135****3928</view>
+						</view>
+						<view class="con_3">2020.08.18 14:30</view>
+					</view>
+					<view class="con">
+						<view class="con_1"><image src="/static/my/myTeam_4.png"></image></view>
+						<view class="con_2">
+							<view class="title">AIYO</view>
+							<view class="title_1">135****3928</view>
+						</view>
+						<view class="con_3">2020.08.18 14:30</view>
+					</view>
+				</view>
+				<view slot="content1" class="xxx">B</view>
+				<view slot="content2" class="xxx">C</view>
+			</aloys-tab>
+		</view>
 	</view>
 </template>
 
 <script>
+import aloysTab from '@/components/aloys-tab4/aloys-tab.vue';
 export default {
+	components: {
+		aloysTab
+	},
 	data() {
-		return {};
+		return {
+			tabs: [
+				{
+					title: '金牌合伙人'
+				},
+				{
+					title: '银牌合伙人'
+				},
+				{
+					title: '铜牌合伙人'
+				}
+			]
+		};
 	},
 	methods: {}
 };
@@ -95,6 +143,52 @@ export default {
 					color: #fccfc6;
 				}
 			}
+		}
+	}
+	.tab {
+		position: absolute;
+		height: 80%;
+		background-color: white;
+		margin: 0;
+		margin-top: 20upx;
+		margin-left: -20upx;
+		.con {
+			display: flex;
+			align-items: center;
+			padding: 25upx 15upx 30upx 5upx;
+			border-bottom: 1px solid #f6f6f6;
+			.con_1 {
+				flex: 1;
+				padding: 0 20upx;
+				image {
+					height: 80upx;
+					width: 80upx;
+				}
+			}
+			.con_2 {
+				flex: 2;
+				line-height: 38upx;
+				.title {
+					font-size: 32upx;
+				}
+				.title_1 {
+					color: #8a8a8a;
+					font-size: 28upx;
+					transform: scale(0.95);
+					margin-left: -12upx;
+				}
+			}
+			.con_3 {
+				text-align: right;
+				flex: 5;
+				color: #8a8a8a;
+				font-size: 28upx;
+				transform: scale(0.95);
+			}
+		}
+		.xxx {
+			font-size: 42rpx;
+			padding: 20rpx 0;
 		}
 	}
 }

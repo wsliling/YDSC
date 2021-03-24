@@ -96,7 +96,7 @@
 							</view>
 							<view class="txt">Y币</view>
 						</view>
-						<view class="item">
+						<view class="item" @click="golink('/pages/member/applyShop/applyShop')">
 							<view class="iconImg">
 								<image class="icon" src="/static/u_4.png" mode="widthFix"></image>
 							</view>

@@ -96,7 +96,7 @@
 </template>
 
 <script>
-import aloysTab from '@/components/aloys-tab3/aloys-tab3.vue';
+import aloysTab from '@/components/aloys-tab3/aloys-tab.vue';
 export default {
 	components: {
 		aloysTab

@@ -4,8 +4,8 @@
 			<view class="item" @click="change(0)" :class="{ active: btnnum == 0 }">课程</view>
 			<view class="item" @click="change(1)" :class="{ active: btnnum == 1 }">教练</view>
 		</view>
-		<block v-if="btnnum==0">
-			<view class="list" v-for="(item, index) in 3" :key="index"  @click="tolink(btnnum)">
+		<block v-if="btnnum == 0">
+			<view class="list" v-for="(item, index) in 3" :key="index" @click="tolink(btnnum)">
 				<view class="leftImg"><image class="img" src="../../../static/health/change/class_11.png"></image></view>
 				<view class="rightContent">
 					<view class="titledetail">帕梅拉10分钟全身燃脂新燃脂分钟全身燃脂新燃脂</view>
@@ -19,7 +19,7 @@
 				</view>
 			</view>
 		</block>
-		<block v-if="btnnum==1">
+		<block v-if="btnnum == 1">
 			<view class="list" v-for="(item, index) in 3" :key="index" @click="tolink(btnnum)">
 				<view class="jl-leftImg"><image class="img" src="../../../static/health/change/class_2.png" mode="widthFix"></image></view>
 				<view class="rightContent">
@@ -42,26 +42,25 @@ export default {
 		change(e) {
 			this.btnnum = e;
 		},
-		tolink(e){
-			if(e==0){
+		tolink(e) {
+			if (e == 0) {
 				uni.navigateTo({
-					url:'/pages/member/myappointment/coach'
-				})
-			}else{
+					url: '/pages/member/myappointment/coach'
+				});
+			} else {
 				uni.navigateTo({
-					url:'/pages/member/myappointment/coachinfo'
-				})
+					url: '/pages/member/myappointment/coachinfo'
+				});
 			}
-			
 		}
 	}
 };
 </script>
 
 <style lang="scss" scoped>
-	page{
-		background-color: #FFFFFF;
-	}
+page {
+	background-color: #ffffff;
+}
 .titleTab {
 	display: flex;
 	line-height: 80upx;
@@ -77,7 +76,7 @@ export default {
 		}
 	}
 }
-.jl-leftImg{
+.jl-leftImg {
 	width: 120upx;
 	height: 120upx;
 	overflow: hidden;

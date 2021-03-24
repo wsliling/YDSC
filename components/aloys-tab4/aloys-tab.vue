@@ -56,10 +56,6 @@ swiper-tab {
 }
 </style>
 <style lang="scss" scoped>
-.line {
-	height: 22upx;
-	background-color: #f3f3f3;
-}
 .tabs {
 	width: 750rpx;
 	height: 75rpx;
@@ -70,7 +66,6 @@ swiper-tab {
 		color: grey;
 		line-height: 73rpx;
 		font-size: 32rpx;
-		font-weight: 500;
 		height: 100%;
 		box-sizing: border-box;
 		margin: 0 12px;
@@ -81,6 +76,10 @@ swiper-tab {
 			margin: 0 12px;
 		}
 	}
+}
+.line {
+	background-color: #f6f6f6;
+	height: 22upx;
 }
 .swiper-box {
 	width: 100%;

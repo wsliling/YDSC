@@ -593,6 +593,31 @@
 						"navigationBarTitleText": "我的课程"
 					}
 				}, {
+					"path": "myappointment/myappointment",
+					"style": {
+						"navigationBarTitleText": "我的预约"
+					}
+				}, {
+					"path": "myappointment/coach",
+					"style": {
+						"app-plus": {
+							"titleNView": {
+								"type": "transparent",
+								"autoBackButton": true
+							}
+						}
+					}
+				}, {
+					"path": "myappointment/coachinfo",
+					"style": {
+						"app-plus": {
+							"titleNView": {
+								"type": "transparent",
+								"autoBackButton": true
+							}
+						}
+					}
+				}, {
 					"path": "myplan/myplan",
 					"style": {
 						"navigationBarTitleText": "我的计划"
@@ -707,6 +732,13 @@
 					"path": "myTeam/myTeam",
 					"style": {
 						"navigationBarTitleText": "我的团队",
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "applyShop/applyShop",
+					"style": {
+						"navigationBarTitleText": "店铺申请",
 						"enablePullDownRefresh": false
 					}
 

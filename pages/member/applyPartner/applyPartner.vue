@@ -68,10 +68,11 @@ export default {
 			align-items: center;
 			border-bottom: 1px solid #f3f3f3;
 			padding: 20upx 0;
-			margin: 0 30upx;
+			margin: 0 30upx;.name_1{
+				flex: 1;
+			}
 			.name_2 {
-				padding-left: 60upx;
-				margin-left: 30upx;
+				flex: 3;
 			}
 		}
 		.upImg {
