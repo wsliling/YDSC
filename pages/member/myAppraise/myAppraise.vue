@@ -231,6 +231,7 @@ export default {
 	background: none;
 	border: none;
 	color: #bebebe !important;
+	width: 180upx !important;
 }
 .comment-content {
 	background-color: white;

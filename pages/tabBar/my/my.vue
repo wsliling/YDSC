@@ -84,7 +84,7 @@
 							</view>
 							<view class="txt">我的手环</view>
 						</view>
-						<view class="item">
+						<view class="item" @click="golink('/pages/tabBar/my/wallet')">
 							<view class="iconImg">
 								<image class="icon" src="/static/u_2.png" mode="widthFix"></image>
 							</view>
