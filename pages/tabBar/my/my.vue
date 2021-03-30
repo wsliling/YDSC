@@ -90,7 +90,7 @@
 							</view>
 							<view class="txt">我的钱包</view>
 						</view>
-						<view class="item">
+						<view class="item" @click="golink('/pages/member/score/score')">
 							<view class="iconImg">
 								<image class="icon" src="/static/u_3.png" mode="widthFix"></image>
 							</view>

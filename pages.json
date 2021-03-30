@@ -206,7 +206,7 @@
 			}
 
 		}
-    ],
+	],
 	"subPackages": [{
 			"root": "pages/goods",
 			"pages": [{
@@ -875,6 +875,48 @@
 					"path": "applyShop/applyShop",
 					"style": {
 						"navigationBarTitleText": "店铺申请",
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "score/score",
+					"style": {
+						"navigationBarTitleText": "积分",
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "register/register",
+					"style": {
+						"navigationBarTitleText": "每日签到",
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "scoreList/scoreList",
+					"style": {
+						"navigationBarTitleText": "Y币明细",
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "scoreArea/scoreArea",
+					"style": {
+						"navigationBarTitleText": "兑换专区",
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "scoreRecord/scoreRecord",
+					"style": {
+						"navigationBarTitleText": "兑换记录",
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "rule/rule",
+					"style": {
+						"navigationBarTitleText": "签到规则",
 						"enablePullDownRefresh": false
 					}
 

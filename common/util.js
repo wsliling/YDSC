@@ -1,15 +1,15 @@
 
 
 
-// const host = 'http://yxapi.wtvxin.com/api/';  //测试接口地址
-// const webUrl = 'http://yx.wtvxin.com';
-// const wssPath = 'wss://yxapi.wtvxin.com/WebSocketServer.ashx';  //wss接口地址
-// const wssHost = 'ws://yxapi.wtvxin.com';  //wss接口地址
+const host = 'http://yxapi.wtvxin.com/api/';  //测试接口地址
+const webUrl = 'http://yx.wtvxin.com';
+const wssPath = 'wss://yxapi.wtvxin.com/WebSocketServer.ashx';  //wss接口地址
+const wssHost = 'ws://yxapi.wtvxin.com';  //wss接口地址
 
-const host = 'https://api.yixijiu19.com/api/';  //正试接口地址
-const webUrl = 'http://xcx.yixijiu19.com';
-const wssPath = 'wss://api.yixijiu19.com/WebSocketServer.ashx';  //wss接口地址
-const wssHost = 'ws://api.yixijiu19.com';  //wss接口地址
+// const host = 'https://api.yixijiu19.com/api/';  //正试接口地址
+// const webUrl = 'http://xcx.yixijiu19.com';
+// const wssPath = 'wss://api.yixijiu19.com/WebSocketServer.ashx';  //wss接口地址
+// const wssHost = 'ws://api.yixijiu19.com';  //wss接口地址
 const dowmappURL='http://xcx.yixijiu19.com/down/android116.apk';//app下载地址安卓
 const dowmappURLios='';//app下载地址ios
 function formatNumber(n) {
