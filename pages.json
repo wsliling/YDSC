@@ -860,13 +860,15 @@
 						"enablePullDownRefresh": false
 					}
 
-				}, {
+				}, 
+				{
 					"path": "applyPartner/applyPartner",
 					"style": {
 						"navigationBarTitleText": "申请成为合伙人",
 						"enablePullDownRefresh": false
 					}
-				}, {
+				}, 
+				{
 					"path": "applyPartnerSuc/applyPartnerSuc",
 					"style": {
 						"navigationBarTitleText": "申请",
@@ -900,14 +902,16 @@
 						"navigationBarTitleText": "我的团队",
 						"enablePullDownRefresh": false
 					}
-				}, {
+				}, 
+				{
 					"path": "applyShop/applyShop",
 					"style": {
 						"navigationBarTitleText": "店铺申请",
 						"enablePullDownRefresh": false
 					}
 
-				}, {
+				}, 
+				{
 					"path": "score/score",
 					"style": {
 						"navigationBarTitleText": "积分",

@@ -171,7 +171,6 @@ export default {
 					});
 				}
 				this.count = result.count;
-				console.log(result.data);
 				if (this.count == 0) {
 					this.noDataIsShow = true;
 				}

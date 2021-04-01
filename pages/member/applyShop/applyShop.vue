@@ -28,7 +28,9 @@
 			</view>
 			<view class="upImg">
 				<view class="upImg_1">合法资质证明</view>
-				<view class="upImg_2"><hlUploadImg ref="hlUploadImg" :imgStyle="imgStyle" :selectBtn="upStyle"></hlUploadImg></view>
+				<view class="upImg_2">
+					<hlUploadImg ref="hlUploadImg" :imgStyle="imgStyle" :selectBtn="upStyle"></hlUploadImg>
+					</view>
 			</view>
 		</view>
 		<view class="upBtn">提交</view>

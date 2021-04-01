@@ -140,7 +140,7 @@
 				type: Object,
 				default: function() {
 					return {
-						text: '添加证明',
+						text: '上传身份证正面照',
 						textSty:null,
 						icon: 'icon-add',
 						iconSty:null,

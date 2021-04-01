@@ -14,7 +14,7 @@
 				<view class="upImg_1">身份证</view>
 				<view class="upImg_2">
 					<hlUploadImg ref="hlUploadImg" :imgStyle="imgStyle" :selectBtn="upStyle"></hlUploadImg>
-					<hlUploadImg ref="hlUploadImg" :imgStyle="imgStyle" :selectBtn="upStyle"></hlUploadImg>
+					<hlUploadImg ref="hlUploadImg" :imgStyle="imgStyle" :selectBtn="upStyle1"></hlUploadImg>
 				</view>
 			</view>
 		</view>
@@ -42,6 +42,10 @@ export default {
 			upStyle: {
 				icon: 'icon-camerafill', //图标，空字符串不需要图标
 				text: '上传身份证正面照' //文本  空字符串不需要要文字
+			},
+			upStyle1: {
+				icon: 'icon-camerafill', //图标，空字符串不需要图标
+				text: '上传身份证反面照' //文本  空字符串不需要要文字
 			}
 		};
 	},
