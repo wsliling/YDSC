@@ -1,13 +1,13 @@
 <template>
 	<view class="content commet">
-		<view class="comment-head weui-cell mb10">
+		<!-- <view class="comment-head weui-cell mb10">
 			<view class="weui-cell__bd">
 				<image class="tx" v-if="Userinfo.Avatar" :src="Userinfo.Avatar" mode="aspectFill"></image>
 				<image class="tx" v-else src="http://xcx.yixijiu19.com/static/default.png" mode="aspectFill"></image>
 				<text class="name uni-ellipsis">{{ Userinfo.NickName }}</text>
 			</view>
-			<view class="weui-cell__ft"><button type="primary" size="middle" plain="true" class="radius100 btn" @click="gotoOrder">2020-05-08</button></view>
-		</view>
+			<view class="weui-cell__ft"><button type="primary" size="middle" plain="true" class="radius100 btn" @click="gotoOrder"></button></view>
+		</view> -->
 		<view class="comment-content">
 			<!-- <view class="comment-content__hd">全部评价</view> -->
 			<!-- 			<view class="flex justifyContentBetween bg_fff bb_tba">
@@ -16,6 +16,13 @@
 			</view> -->
 			<view class="commentList" v-if="hasData">
 				<block v-for="(item, index) in Commentlist" :key="index">
+					<view class="comment-head weui-cell mb10">
+						<view class="weui-cell__bd">
+							<image class="tx" v-if="Userinfo.Avatar" :src="Userinfo.Avatar" mode="aspectFill"></image>
+							<image class="tx" v-else src="http://xcx.yixijiu19.com/static/default.png" mode="aspectFill"></image>
+							<text class="name uni-ellipsis">{{ Userinfo.NickName }}</text>
+						</view>
+					</view>
 					<view class="item" @click="commentDetail(item.Id)">
 						<view class="time">{{ item.AddTime }}</view>
 						<view class="con">{{ item.ContentText }}</view>
@@ -51,7 +58,7 @@
 								</view>
 							</view>
 						</view>
-						<view class="item__ft weui-cell">
+						<!-- 		<view class="item__ft weui-cell">
 							<view class="weui-cell__bd">
 								<text class="txt">浏览&nbsp;{{ item.ViewingCount }}次</text>
 								<text class="txt">点赞&nbsp;{{ item.LikesCount }}次</text>
@@ -60,8 +67,9 @@
 							<view class="weui-cell__ft">
 								<button type="primary" size="middle" plain="true" class="radius100 btn" @click.stop="gotoDetail(item.ProductId)">再次购买</button>
 							</view>
-						</view>
+						</view> -->
 					</view>
+					<view class="line"></view>
 				</block>
 				<view class="uni-tab-bar-loading"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
 			</view>
@@ -163,6 +171,7 @@ export default {
 					});
 				}
 				this.count = result.count;
+				console.log(result.data);
 				if (this.count == 0) {
 					this.noDataIsShow = true;
 				}
@@ -233,6 +242,15 @@ export default {
 	color: #bebebe !important;
 	width: 180upx !important;
 }
+.commet .time {
+	float: right;
+	margin-top: -47px;
+}
+.commet .line {
+	background-color: #f5f5f5;
+	height: 22upx;
+	margin-top: 40upx;
+}
 .comment-content {
 	background-color: white;
 	margin-top: -20upx;
@@ -250,6 +268,9 @@ export default {
 }
 .levelPanel .item .outside {
 	background-color: #f6f6f6;
+}
+.levelPanel .item .outside .pictrueAll {
+	width: 27%;
 }
 .image-section {
 	margin-right: -12upx;

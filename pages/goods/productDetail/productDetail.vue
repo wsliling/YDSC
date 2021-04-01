@@ -234,12 +234,12 @@
 				<view class="foot-item" style="position: relative;">
 					<!-- #ifndef MP-WEIXIN -->
 					<view class="bd" @click="tolink('/pages/other/kefu/kefu?qqnum=996889692')">
-						<view class="iconfont icon-kf"></view>
+						<view class="iconfont icon-kefu"></view>
 					客服</view>
 					<!-- #endif -->
 					<!-- #ifdef MP-WEIXIN --> 
 					<button class="bd" open-type="contact" style="border:0!important;padding:0;background: #ffffff;line-height:1.9">
-						<view class="iconfont icon-kf"></view>
+						<view class="iconfont icon-kefu"></view>
 					客服</button>
 					<!-- #endif -->
 				</view>
@@ -247,7 +247,7 @@
 					<view class="bd"><view class="iconfont" :class="[IsCollect ? 'icon-collect' : 'icon-collect1']" @click="collect"></view>收藏</view>
 				</view>
 				<view class="foot-item" style="margin-right: 20upx;" @click="tolink('/pages/goods/cart/cart')">
-					<view class="bd"><view class="iconfont icon-cart1 p_re"><text class="uni-badge" v-if="CartNum>0">{{CartNum>99?'99+':CartNum}}</text></view>购物车</view>
+					<view class="bd"><view class="iconfont icon-tianchongxing- p_re"><text class="uni-badge" v-if="CartNum>0">{{CartNum>99?'99+':CartNum}}</text></view>购物车</view>
 				</view>
 				<!-- 有拼团样式 -->
 				<view class="foot-item foot-item-btns" v-if="proInfo.IsAloneBuy==0">

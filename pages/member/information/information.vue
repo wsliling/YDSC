@@ -70,7 +70,7 @@ page{
 }
 .m-topbox {
 	width: 750upx;
-	height: 400upx;
+	height: 500upx;
 	padding: 0 50upx;
 	padding-bottom: 20upx;
 	background: #2c2d2d;
@@ -79,6 +79,7 @@ page{
 	justify-content: space-around;
 	.exercise {
 		font-size: 32upx;
+		margin-top: 70upx;
 		font-weight: bold;
 		color: #ffffff;
 	}

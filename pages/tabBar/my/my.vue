@@ -133,14 +133,14 @@
 					</view>
 					<view class="arrowr uni-icon uni-icon-arrowright"></view>
 				</view>
-				<view class="line-item" @click="golink('/pages/member/invite/invite')">
+				<view class="line-item" @click="golink('/pages/member/inviteTwo/inviteTwo')">
 					<view class="item-left">
 						<text class="iconfont icon-fenxiang"></text>
 						<view>邀请好友</view>
 					</view>
 					<view class="arrowr uni-icon uni-icon-arrowright"></view>
 				</view>
-				<view class="line-item" @click="golink('/pages/member/kefu/kefu')">
+				<view class="line-item" @click="golink('/pages/member/chat/chat')">
 					<view class="item-left">
 						<text class="iconfont icon-kefu"></text>
 						<view>联系客服</view>

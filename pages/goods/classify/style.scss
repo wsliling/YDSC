@@ -1,0 +1,72 @@
+.uni-navbar__header-container {
+	width: 100%;
+	.input-view {
+		width: 100%;
+		border-radius: 40rpx;
+		display: flex;
+		align-items: center;
+		height: 60rpx;
+		padding: 0 20rpx;
+		background-color: #f1f2f6;
+	}
+}
+.classify {
+	display: flex;
+	.classify-left {
+		width: 180rpx;
+		background-color: #fff;
+		overflow-y: auto;
+		height: 100%;
+		view {
+			height: 70rpx;
+			text-align: center;
+			line-height: 70rpx;
+			color: #333;
+			font-size: 28rpx;
+			margin: 40upx 10upx;
+			&.active {
+				background-color: #fa5f08;
+				color: white;
+				border-radius: 60upx;
+				height: 70upx;
+				line-height: 70upx;
+				position: relative;
+			}
+			&.active::before {
+				content: ' ';
+				position: absolute;
+				left: 0;
+				top: 30rpx;
+				width: 8rpx;
+				// background-color: #fa6008;
+			}
+		}
+	}
+	.classify-right {
+		padding: 0 30rpx 0 20rpx;
+		.title {
+			padding-top: 20upx;
+			font-size: 24rpx;
+			line-height: 50upx;
+			color: #333;
+		}
+		.goodsBox {
+			background-color: #ffffff;
+			border-radius: 20rpx;
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			.goods {
+				width: 33.33%;
+				padding: 0 20upx;
+				margin: 30rpx 0;
+				text-align: center;
+				.icon {
+					width: 120rpx;
+					height: 120rpx;
+					margin: 0 auto 10upx;
+				}
+			}
+		}
+	}
+}

@@ -139,7 +139,7 @@
 }
 
 .mb10 {
-	margin-bottom: 20upx !important;
+	/* margin-bottom: 20upx !important; */
 }
 .mb20{
 	margin-bottom: 40upx !important;
@@ -1884,7 +1884,7 @@ button.fill {
 
 /* 我的评价 */
 .comment-head {
-	background-color: #fff;
+	/* background-color: #fff; */
 }
 .comment-head .tx{
 	width: 80upx;
