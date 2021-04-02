@@ -26,7 +26,7 @@
 						<view class="num">14</view>
 						<view class="txt">粉丝</view>
 					</view>
-					<view class="item">
+					<view class="item" @click="golink('/pages/message/messageClass/messageClass?type=2')">
 						<view class="num">68</view>
 						<view class="txt">获赞</view>
 					</view>

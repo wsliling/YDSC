@@ -131,7 +131,6 @@
 				newprolist:[],//新品
 				Groupprolist:[],//拼团产品
 				TypeId:0,
-				
 				prolist:[],
 				page:1,
 				pageSize:8,

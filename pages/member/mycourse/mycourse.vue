@@ -4,7 +4,21 @@
 			<view class="item" @click="change(0)" :class="{ active: btnnum == 0 }">课程</view>
 			<view class="item" @click="change(1)" :class="{ active: btnnum == 1 }">已购买</view>
 		</view>
-		<view class="list" v-for="(item, index) in 3" :key="index">
+		<view class="list" v-if="btnnum == 0" v-for="(item, index) in 3" :key="index">
+			<view class="leftImg"><image class="img" src="../../../static/health/change/class_11.png"></image></view>
+			<view class="rightContent">
+				<view class="titledetail">帕梅拉10分钟全身燃脂新燃脂分钟全身燃脂新燃脂</view>
+				<view class="time">极速燃脂.10分钟</view>
+				<view class="userinfo">
+					<view class="user">
+						<view class="header"><image class="headerImg" src="../../../static/health/change/class_11.png"></image></view>
+						<view class="name">零碎记忆</view>
+					</view>
+					<view class="price">￥21.98</view>
+				</view>
+			</view>
+		</view>
+		<view class="list" v-if="btnnum == 1" v-for="(item, index) in 3" :key="index">
 			<view class="leftImg"><image class="img" src="../../../static/health/change/class_11.png"></image></view>
 			<view class="rightContent">
 				<view class="titledetail">帕梅拉10分钟全身燃脂新燃脂分钟全身燃脂新燃脂</view>
@@ -37,9 +51,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	page{
-		background-color: #FFFFFF;
-	}
+page {
+	background-color: #ffffff;
+}
 .titleTab {
 	display: flex;
 	line-height: 80upx;
