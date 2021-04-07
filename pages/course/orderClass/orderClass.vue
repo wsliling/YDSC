@@ -96,6 +96,7 @@
 </template>
 
 <script>
+import { post } from '@/common/util.js';
 import aloysTab from '@/components/aloys-tab3/aloys-tab.vue';
 export default {
 	components: {
@@ -103,6 +104,13 @@ export default {
 	},
 	data() {
 		return {
+			userId: '',
+			token: '',
+			Page: 1,
+			PageSize: 10,
+			IsLike: 0,
+			IsRec: 0,
+			data: {},
 			tabs: [
 				{
 					title: '推荐'
@@ -125,6 +133,11 @@ export default {
 			]
 		};
 	},
+	onShow() {
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
+		this.getClassList();
+	},
 	methods: {
 		orderClassDetails() {
 			uni.navigateTo({
@@ -135,6 +148,16 @@ export default {
 			uni.navigateTo({
 				url: '/pages/course/classDetails/classDetails'
 			});
+		},
+		async getClassList() {
+			let result = await post('Course/GetCourseOutlineList', {
+				UserId: this.userId,
+				Token: this.token
+			});
+			if (result.code === 0) {
+				this.data = result.data;
+				console.log(result.data)
+			}
 		}
 	}
 };

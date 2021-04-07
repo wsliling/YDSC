@@ -18,14 +18,18 @@
 					<view class="goodsBox">
 						<block v-for="(item, index) in tab.data" :key="index">
 							<!-- <view class="goods" @click="tolink('/pages/ProductList/ProductList?cid=' + item.Id + '&keyname=' + item.ClassName)"> -->
-								<view class="goods" @click="tolink('/pages/goods/ProductList/ProductList?cid=' + item.Id + '&keyname=' + item.ClassName)">
-									<view class="icon flex-center"><image :src="item.PicUrl || 'http://via.placeholder.com/100x100'" mode="widthFix"></image></view>
+							<view class="goods"  @click="tolink('/pages/goods/secondlist/secondlist?id='+item.Id+'&keystr='+item.ClassName)">
+								<view class="icon flex-center"><image :src="item.PicUrl || 'http://via.placeholder.com/100x100'" mode="widthFix"></image></view>
 								<view class="uni-ellipsis">{{ item.ClassName }}</view>
 							</view>
 						</block>
 					</view>
 				</block>
-				<!-- <block v-if="hasProData" class="uni-product-list level__product-list uni-mt10" style="padding-left: 20upx;"> -->
+				<!-- <view v-if="hasProData" class="uni-product-list level__product-list uni-mt10" style="padding-left: 20upx;">
+					<block v-for="(item,index) in prolist" :key="index">
+						<product :datajson="item" v-on:goDetail="goDetail"></product>
+					</block>
+				</view> -->
 				<block v-if="hasProData">
 					<view class="title">{{ prolist.FatherName }}</view>
 					<view class="goodsBox">
@@ -34,7 +38,6 @@
 								<view class="icon flex-center"><image :src="item.PicNo || 'http://via.placeholder.com/100x100'" mode="widthFix"></image></view>
 								<view class="uni-ellipsis">{{ item.Name }}</view>
 							</view>
-							<!-- <product :datajson="item" v-on:goDetail="goDetail"></product> -->
 						</block>
 					</view>
 				</block>

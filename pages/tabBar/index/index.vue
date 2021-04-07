@@ -66,9 +66,7 @@
 				<view class="card_2">正常</view>
 			</view>
 		</view>
-		<view class="swiper uni-mb10">
-			<swiper3D  :imgList="imgList" :currentIndexParameter="currentpic" wx:key="index"></swiper3D>
-		</view>
+		<view class="swiper uni-mb10"><swiper3D :imgList="imgList" :currentIndexParameter="currentpic" wx:key="index"></swiper3D></view>
 	</view>
 </template>
 
@@ -106,20 +104,16 @@ export default {
 			currentpic: 1, // 默认先展示的图片下标
 			imgList: [
 				{
-					src: 'https://img9.51tietu.net/pic/2019-091200/vgkpidei2tjvgkpidei2tj.jpg',
-					url: ''
+					src: 'https://img9.51tietu.net/pic/2019-091200/vgkpidei2tjvgkpidei2tj.jpg'
 				},
 				{
-					src: 'https://img9.51tietu.net/pic/2019-091200/euzekmi5m23euzekmi5m23.jpg',
-					url: ''
+					src: 'https://img9.51tietu.net/pic/2019-091200/euzekmi5m23euzekmi5m23.jpg'
 				},
 				{
-					src: 'https://img9.51tietu.net/pic/2019-091200/143tt0ta4sr143tt0ta4sr.jpg',
-					url: ''
+					src: 'https://img9.51tietu.net/pic/2019-091200/143tt0ta4sr143tt0ta4sr.jpg'
 				},
 				{
-					src: 'https://img9.51tietu.net/pic/2019-091200/ff1vqwm3q33ff1vqwm3q33.jpg',
-					url: ''
+					src: 'https://img9.51tietu.net/pic/2019-091200/ff1vqwm3q33ff1vqwm3q33.jpg'
 				}
 			]
 		};
