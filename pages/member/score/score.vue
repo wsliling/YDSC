@@ -21,9 +21,22 @@
 </template>
 
 <script>
+import { post } from '@/common/util.js';
 export default {
 	data() {
-		return {};
+		return {
+			userId: '',
+			token: '',
+			msg: '',
+			data: {}
+		};
+	},
+	onLoad() {
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
+	},
+	onShow() {
+		this.signIn();
 	},
 	methods: {
 		scoreList() {
@@ -40,6 +53,16 @@ export default {
 			uni.navigateTo({
 				url: '/pages/member/register/register'
 			});
+		},
+		async signIn() {
+			let result = await post('Bean/GetSignInData', {
+				UserId: this.userId,
+				Token: this.token
+			});
+			if (result.code == 0) {
+				this.data = result.data;
+				console.log(this.data);
+			}
 		}
 	}
 };

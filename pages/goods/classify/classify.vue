@@ -17,17 +17,28 @@
 					<view class="title">{{ tab.FatherName }}</view>
 					<view class="goodsBox">
 						<block v-for="(item, index) in tab.data" :key="index">
-							<view class="goods" @click="tolink('/pages/ProductList/ProductList?cid=' + item.Id + '&keyname=' + item.ClassName)">
-								<view class="icon flex-center"><image :src="item.PicUrl || 'http://via.placeholder.com/100x100'" mode="widthFix"></image></view>
+							<!-- <view class="goods" @click="tolink('/pages/ProductList/ProductList?cid=' + item.Id + '&keyname=' + item.ClassName)"> -->
+								<view class="goods" @click="tolink('/pages/goods/ProductList/ProductList?cid=' + item.Id + '&keyname=' + item.ClassName)">
+									<view class="icon flex-center"><image :src="item.PicUrl || 'http://via.placeholder.com/100x100'" mode="widthFix"></image></view>
 								<view class="uni-ellipsis">{{ item.ClassName }}</view>
 							</view>
 						</block>
 					</view>
 				</block>
-				<view v-if="hasProData" class="uni-product-list level__product-list uni-mt10" style="padding-left: 20upx;">
-					<block v-for="(item, index) in prolist" :key="index"><product :datajson="item" v-on:goDetail="goDetail"></product></block>
-				</view>
-				<view class="center c_theme uni-mt10" v-if="showMore" @click="tolink('/pages/ProductList/ProductList?cid=' + cid)">查看更多→</view>
+				<!-- <block v-if="hasProData" class="uni-product-list level__product-list uni-mt10" style="padding-left: 20upx;"> -->
+				<block v-if="hasProData">
+					<view class="title">{{ prolist.FatherName }}</view>
+					<view class="goodsBox">
+						<block v-for="(item, index) in prolist" :key="index">
+							<view class="goods" @click="tolink('/pages/goods/ProductList/ProductList?cid=' + item.Id + '&keyname=' + item.ClassName)">
+								<view class="icon flex-center"><image :src="item.PicNo || 'http://via.placeholder.com/100x100'" mode="widthFix"></image></view>
+								<view class="uni-ellipsis">{{ item.Name }}</view>
+							</view>
+							<!-- <product :datajson="item" v-on:goDetail="goDetail"></product> -->
+						</block>
+					</view>
+				</block>
+				<!-- <view class="center c_theme uni-mt10" v-if="showMore" @click="tolink('/pages/ProductList/ProductList?cid=' + cid)">查看更多→</view> -->
 				<noData :isShow="noDataIsShow"></noData>
 			</scroll-view>
 		</view>
@@ -154,6 +165,7 @@ export default {
 					this.hasProData = true;
 					this.noDataIsShow = false;
 					this.prolist = result.data;
+					console.log(this.prolist);
 					if (len > 12) {
 						this.showMore = true;
 					}

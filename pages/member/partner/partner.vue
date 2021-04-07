@@ -2,14 +2,14 @@
 	<view class="partner">
 		<view class="line"></view>
 		<view class="sec">
-			<view class="sec_1" @click="notPartner">
+			<view class="sec_1" @click="myTeam">
 				<view class="sec1_1"><image src="/static/my/partner_1.png" mode=""></image></view>
 				<view class="sec1_2">我的团队</view>
 				<view class="iconfont icon-arrow_r sec1_3"></view>
 			</view>
-			<view class="sec_2" @click="myTeam">
+			<view class="sec_2" @click="notPartner">
 				<view class="sec1_1"><image src="/static/my/partner_2.png" mode=""></image></view>
-				<view class="sec1_2">我的团队</view>
+				<view class="sec1_2">我的收益</view>
 				<view class="iconfont icon-arrow_r sec1_3"></view>
 			</view>
 		</view>

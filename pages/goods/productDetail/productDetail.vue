@@ -536,12 +536,12 @@
 		},
 		onHide() {
 			if(!this.ispause){
-				this.videoContext.pause();
+				// this.videoContext.pause();
 			}
 		},
 		onUnload() {
 			if(!this.ispause){
-				this.videoContext.pause();
+				// this.videoContext.pause();
 			}
 		},
 		//分享

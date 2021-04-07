@@ -19,7 +19,7 @@
 				</view>
 				<view class="u_data flex center">
 					<view class="item" @click="golink('/pages/member/follow/follow?type=0')">
-						<view class="num">2</view>
+						<view class="num">8</view>
 						<view class="txt">关注</view>
 					</view>
 					<view class="item" @click="golink('/pages/member/follow/follow?type=1')">
