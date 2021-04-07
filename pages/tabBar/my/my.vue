@@ -2,17 +2,17 @@
 	<view class="content">
 		<view class="memberTop uni-mb10">
 			<view class="conBox">
-				<view class="tx_info flex" @click="golink('/pages/homepage/homepage?id='+userId)">
-					<view>
-						<image class="tx" :src="memberInfo.Avatar||'http://xcx.yixijiu19.com/static/default.png'"
-							mode="aspectFill"></image>
-					</view>
+				<view class="tx_info flex" @click="golink('/pages/homepage/homepage?id=' + userId)">
+					<view><image class="tx" :src="memberInfo.Avatar || 'http://xcx.yixijiu19.com/static/default.png'" mode="aspectFill"></image></view>
 					<view class="info flex flex1">
 						<view class="info-item" style="width: 100%;">
 							<view class="name">
-								<text class="txt" style="max-width: 100%;">{{memberInfo.NickName||'立即登录'}}</text>
+								<text class="txt" style="max-width: 100%;">{{ memberInfo.NickName || '立即登录' }}</text>
 							</view>
-							<view class="perId c_999">ID:<text id="MemberID">{{memberInfo.Id||"00000"}}</text></view>
+							<view class="perId c_999">
+								ID:
+								<text id="MemberID">{{ memberInfo.Id || '00000' }}</text>
+							</view>
 						</view>
 					</view>
 					<text class="uni-icon uni-icon-arrowright fz12"></text>
@@ -26,7 +26,8 @@
 						<view class="num">14</view>
 						<view class="txt">粉丝</view>
 					</view>
-					<view class="item" @click="golink('/pages/message/messageClass/messageClass?type=2')">
+					<view class="item">
+						<!-- <view class="item" @click="golink('/pages/message/messageClass/messageClass?type=2')"> -->
 						<view class="num">68</view>
 						<view class="txt">获赞</view>
 					</view>
@@ -42,27 +43,19 @@
 				<view class="section_bd">
 					<view class="li_20 center flex flexWrap">
 						<view class="item" @click="golink('/pages/member/information/information')">
-							<view class="iconImg">
-								<image class="icon" src="/static/my_data.png" mode="widthFix"></image>
-							</view>
+							<view class="iconImg"><image class="icon" src="/static/my_data.png" mode="widthFix"></image></view>
 							<view class="txt">我的数据</view>
 						</view>
 						<view class="item" @click="golink('/pages/member/myplan/myplan')">
-							<view class="iconImg">
-								<image class="icon" src="/static/my_plan.png" mode="widthFix"></image>
-							</view>
+							<view class="iconImg"><image class="icon" src="/static/my_plan.png" mode="widthFix"></image></view>
 							<view class="txt">我的计划</view>
 						</view>
 						<view class="item" @click="golink('/pages/member/myappointment/myappointment')">
-							<view class="iconImg">
-								<image class="icon" src="/static/my_yuyue.png" mode="widthFix"></image>
-							</view>
+							<view class="iconImg"><image class="icon" src="/static/my_yuyue.png" mode="widthFix"></image></view>
 							<view class="txt">我的预约</view>
 						</view>
 						<view class="item" @click="golink('/pages/member/mycourse/mycourse')">
-							<view class="iconImg">
-								<image class="icon" src="/static/my_kc.png" mode="widthFix"></image>
-							</view>
+							<view class="iconImg"><image class="icon" src="/static/my_kc.png" mode="widthFix"></image></view>
 							<view class="txt">我的课程</view>
 						</view>
 						<view class="item" @click="golink('/pages/member/order/order')">
@@ -79,33 +72,23 @@
 				<view class="section_bd">
 					<view class="li_20 center flex flexWrap">
 						<view class="item">
-							<view class="iconImg">
-								<image class="icon" src="/static/u_1.png" mode="widthFix"></image>
-							</view>
+							<view class="iconImg"><image class="icon" src="/static/u_1.png" mode="widthFix"></image></view>
 							<view class="txt">我的手环</view>
 						</view>
 						<view class="item" @click="golink('/pages/tabBar/my/wallet')">
-							<view class="iconImg">
-								<image class="icon" src="/static/u_2.png" mode="widthFix"></image>
-							</view>
+							<view class="iconImg"><image class="icon" src="/static/u_2.png" mode="widthFix"></image></view>
 							<view class="txt">我的钱包</view>
 						</view>
 						<view class="item" @click="golink('/pages/member/score/score')">
-							<view class="iconImg">
-								<image class="icon" src="/static/u_3.png" mode="widthFix"></image>
-							</view>
+							<view class="iconImg"><image class="icon" src="/static/u_3.png" mode="widthFix"></image></view>
 							<view class="txt">Y币</view>
 						</view>
 						<view class="item" @click="golink('/pages/member/applyShop/applyShop')">
-							<view class="iconImg">
-								<image class="icon" src="/static/u_4.png" mode="widthFix"></image>
-							</view>
+							<view class="iconImg"><image class="icon" src="/static/u_4.png" mode="widthFix"></image></view>
 							<view class="txt">店铺申请</view>
 						</view>
 						<view class="item" @click="golink('/pages/member/partner/partner')">
-							<view class="iconImg">
-								<image class="icon" src="/static/u_5.png" mode="widthFix"></image>
-							</view>
+							<view class="iconImg"><image class="icon" src="/static/u_5.png" mode="widthFix"></image></view>
 							<view class="txt">合伙人</view>
 						</view>
 					</view>
@@ -167,257 +150,250 @@
 </template>
 
 <script>
-	import {
-		host,
-		post,
-		get,
-		toLogin
-	} from '@/common/util.js';
-	export default {
-		data() {
-			return {
-				userId: "",
-				token: "",
-				memberInfo: {},
-				OrderInfo: {},
-				newscount: 0,
-			}
-		},
-		onLoad() {
-
-		},
-		onShow() {
-			this.userId = uni.getStorageSync("userId");
-			this.token = uni.getStorageSync("token");
-			if (toLogin()) {
-				this.getMemberInfo();
-			}
-		},
-		methods: {
-			// 跳转
-			golink(url) {
-				if (this.userId && this.token) {
-					uni.navigateTo({
-						url: url
-					})
-				} else {
-					uni.navigateTo({
-						url: "/pages/login/login"
-					})
-				}
-			},
-			async getMemberInfo() {
-				let result = await post("User/GetCenterInfo", {
-					"UserId": this.userId,
-					"Token": this.token
-				})
-				if (result.code === 0) {
-					this.memberInfo = result.data;
-					uni.setStorageSync('name', this.memberInfo.NickName)
-					uni.setStorageSync('Avatar', this.memberInfo.Avatar)
-					// uni.setStorageSync('ReferralCode',result.data.ReferralCode)
-					// this.$store.commit("update", {
-					//   Wallet:result.data.Wallet
-					// });  
-					this.NewsCount();
-				} else if (result.code === 2) {
-					this.memberInfo = {}
-					toLogin();
-				}
-			},
-
-			async NewsCount() {
-				let result = await post("News/NewsCount", {
-					"UserId": this.userId,
-					"Token": this.token
+import { host, post, get, toLogin } from '@/common/util.js';
+export default {
+	data() {
+		return {
+			userId: '',
+			token: '',
+			memberInfo: {},
+			OrderInfo: {},
+			newscount: 0
+		};
+	},
+	onLoad() {},
+	onShow() {
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
+		if (toLogin()) {
+			this.getMemberInfo();
+		}
+	},
+	methods: {
+		// 跳转
+		golink(url) {
+			if (this.userId && this.token) {
+				uni.navigateTo({
+					url: url
 				});
-				if (result.code === 0) {
-					this.newscount = result.count;
-				}
+			} else {
+				uni.navigateTo({
+					url: '/pages/login/login'
+				});
+			}
+		},
+		async getMemberInfo() {
+			let result = await post('User/GetCenterInfo', {
+				UserId: this.userId,
+				Token: this.token
+			});
+			if (result.code === 0) {
+				this.memberInfo = result.data;
+				uni.setStorageSync('name', this.memberInfo.NickName);
+				uni.setStorageSync('Avatar', this.memberInfo.Avatar);
+				// uni.setStorageSync('ReferralCode',result.data.ReferralCode)
+				// this.$store.commit("update", {
+				//   Wallet:result.data.Wallet
+				// });
+				this.NewsCount();
+			} else if (result.code === 2) {
+				this.memberInfo = {};
+				toLogin();
+			}
+		},
+
+		async NewsCount() {
+			let result = await post('News/NewsCount', {
+				UserId: this.userId,
+				Token: this.token
+			});
+			if (result.code === 0) {
+				this.newscount = result.count;
 			}
 		}
 	}
+};
 </script>
 
 <style scoped lang="scss">
-	.memberTop {
-		position: relative;
-		padding: 20upx 30upx 40upx;
-		color: #fff;
-		background: #2c2d2d;
+.memberTop {
+	position: relative;
+	padding: 20upx 30upx 40upx;
+	color: #fff;
+	background: #2c2d2d;
 
-		.conBox {
-			.tx_info * {
-				line-height: 1.5;
-			}
+	.conBox {
+		.tx_info * {
+			line-height: 1.5;
+		}
 
-			.tx_info {
-				align-items: center;
-				font-size: 28upx;
+		.tx_info {
+			align-items: center;
+			font-size: 28upx;
 
-				.tx {
-					margin-right: 20upx;
-					border: 1upx solid #fff;
-					background-color: #eee;
-					width: 130upx;
-					height: 130upx;
-					border-radius: 50%;
-					overflow: hidden;
+			.tx {
+				margin-right: 20upx;
+				border: 1upx solid #fff;
+				background-color: #eee;
+				width: 130upx;
+				height: 130upx;
+				border-radius: 50%;
+				overflow: hidden;
 
-					image {
-						width: 100%;
-						height: 100%;
-					}
-				}
-
-				.info {
-					flex: 1;
-					overflow: hidden;
-					position: relative;
-					padding: 0 30px 0 0;
-
-					.info-item {
-						width: 140upx;
-						display: flex;
-						flex-direction: column;
-						justify-content: center;
-					}
-
-					.name {
-						font-size: 0;
-						display: flex;
-						align-items: center;
-
-						.txt {
-							display: inline-block;
-							vertical-align: middle;
-							font-size: 34upx;
-							color: #fff;
-							max-width: 148upx;
-							overflow: hidden;
-							white-space: nowrap;
-							-o-text-overflow: ellipsis;
-							text-overflow: ellipsis;
-						}
-					}
-
-					.attest1 {
-						margin-left: 10rpx;
-						height: 40rpx;
-						line-height: 1.1;
-						background-color: #feed00;
-						color: #FF3333;
-						font-size: 20rpx;
-						border-radius: 40rpx;
-						padding-right: 10upx;
-
-						image {
-							width: 40rpx;
-							height: 40rpx;
-							border-radius: 100%;
-						}
-					}
-				}
-
-				.attest {
-					padding: 5rpx 30rpx;
-					background-color: rgba(#ffffff, .4);
-					color: #fff;
-					z-index: 2;
-					border-radius: 30rpx;
+				image {
+					width: 100%;
+					height: 100%;
 				}
 			}
 
-			.u_data {
-				margin-top: 40upx;
+			.info {
+				flex: 1;
+				overflow: hidden;
+				position: relative;
+				padding: 0 30px 0 0;
 
-				.item {
-					width: 25%;
+				.info-item {
+					width: 140upx;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+				}
 
-					.num {
-						font-size: 40upx;
-						line-height: 1.5;
-					}
+				.name {
+					font-size: 0;
+					display: flex;
+					align-items: center;
 
 					.txt {
-						color: #999;
+						display: inline-block;
+						vertical-align: middle;
+						font-size: 34upx;
+						color: #fff;
+						max-width: 148upx;
+						overflow: hidden;
+						white-space: nowrap;
+						-o-text-overflow: ellipsis;
+						text-overflow: ellipsis;
 					}
+				}
+
+				.attest1 {
+					margin-left: 10rpx;
+					height: 40rpx;
+					line-height: 1.1;
+					background-color: #feed00;
+					color: #ff3333;
+					font-size: 20rpx;
+					border-radius: 40rpx;
+					padding-right: 10upx;
+
+					image {
+						width: 40rpx;
+						height: 40rpx;
+						border-radius: 100%;
+					}
+				}
+			}
+
+			.attest {
+				padding: 5rpx 30rpx;
+				background-color: rgba(#ffffff, 0.4);
+				color: #fff;
+				z-index: 2;
+				border-radius: 30rpx;
+			}
+		}
+
+		.u_data {
+			margin-top: 40upx;
+
+			.item {
+				width: 25%;
+
+				.num {
+					font-size: 40upx;
+					line-height: 1.5;
+				}
+
+				.txt {
+					color: #999;
 				}
 			}
 		}
 	}
+}
 
-	.circleNum {
-		position: absolute;
-		content: "";
-		top: -10upx;
-		right: -16upx;
-		font-size: 20upx;
-		color: #ff3333;
-		border: 1upx solid #ff3333;
-		background-color: #fff;
-		min-width: 36upx;
-		height: 36upx;
-		line-height: 36upx;
-		border-radius: 100%;
-		text-align: center;
-		text-overflow: ellipsis;
-		overflow: hidden;
-		white-space: nowrap;
+.circleNum {
+	position: absolute;
+	content: '';
+	top: -10upx;
+	right: -16upx;
+	font-size: 20upx;
+	color: #ff3333;
+	border: 1upx solid #ff3333;
+	background-color: #fff;
+	min-width: 36upx;
+	height: 36upx;
+	line-height: 36upx;
+	border-radius: 100%;
+	text-align: center;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.memberIndex_section {
+	.section_bd {
+		padding: 30upx 20upx 0;
 	}
 
-	.memberIndex_section {
-		.section_bd {
-			padding: 30upx 20upx 0;
+	.item {
+		margin-bottom: 30upx;
+
+		.iconImg {
+			width: 60upx;
+			height: 60upx;
+			margin: 0 auto 6upx;
 		}
 
-		.item {
-			margin-bottom: 30upx;
+		.txt {
+			font-size: 22upx;
+		}
+	}
+}
 
-			.iconImg {
-				width: 60upx;
-				height: 60upx;
-				margin: 0 auto 6upx;
-			}
-
-			.txt {
-				font-size: 22upx;
-			}
+.memberIndex_list {
+	.item-left {
+		display: flex;
+		align-items: center;
+		image {
+			width: 44upx;
+			height: 44upx;
+			margin-right: 20upx;
+		}
+		.iconfont {
+			font-size: 44upx;
+			line-height: 1;
+			margin-right: 20upx;
+		}
+		view {
+			font-size: 30upx;
 		}
 	}
 
-	.memberIndex_list {
-		.item-left {
-			display: flex;
-			align-items: center;
-			image {
-				width: 44upx;
-				height: 44upx;
-				margin-right: 20upx;
-			}
-			.iconfont{
-				font-size: 44upx;
-				line-height: 1;
-				margin-right: 20upx;
-			}
-			view {
-				font-size: 30upx;
-			}
-		}
-
-		.arrowr {
-			color: #ccc;
-			font-size: 36upx;
-			line-height: 1.2;
-			.rag {
-				background: $primary;
-				color: #fff;
-				border-radius: 100px;
-				font-size: 24upx;
-				padding: 0 8upx;
-				float: left;
-				margin: 6upx 0;
-			}
+	.arrowr {
+		color: #ccc;
+		font-size: 36upx;
+		line-height: 1.2;
+		.rag {
+			background: $primary;
+			color: #fff;
+			border-radius: 100px;
+			font-size: 24upx;
+			padding: 0 8upx;
+			float: left;
+			margin: 6upx 0;
 		}
 	}
+}
 </style>

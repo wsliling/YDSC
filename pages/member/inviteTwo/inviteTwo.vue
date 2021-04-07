@@ -342,12 +342,13 @@ export default {
 .inn_bg {
 	width: 750upx;
 	/* height:644upx; */
-	height: 1246upx;
+	height: 1210upx;
 	position: relative;
 	.invite {
 		width: 750upx;
 		top: 0;
-		height: auto;
+		// height: auto;
+		height: 100vh;
 		position: absolute;
 		bottom: 0;
 		left: 0;
@@ -411,7 +412,7 @@ export default {
 }
 .joinImg {
 	/* width: 100%; */
-	margin: 580upx 30upx;
+	margin: 570upx 30upx;
 	color: #fff;
 	text-align: center;
 	height: 88upx;

@@ -105,9 +105,9 @@
 		onShow() {	
 			this.userId = uni.getStorageSync("userId");
 			this.token = uni.getStorageSync("token");
-			// #ifndef APP-PLUS
-			this.tabIndex = this.$mp.query.tabIndex
-			// #endif
+			// // #ifndef APP-PLUS
+			// this.tabIndex = this.$mp.query.tabIndex
+			// // #endif
 			this.list = []
 			this.page = 1
 			this.noDataIsShow = false;

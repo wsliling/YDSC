@@ -17,7 +17,7 @@
 				></bm-search-input>
 			</view>
 		</view>
-		<view><banner :list="bannerList" @toDetailPage="toDetailPage" :height="300" :padding="10" :borderRadius="20"></banner></view>
+		<view><banner :list="bannerList" :height="300" :padding="10" :borderRadius="20"></banner></view>
 		<view class="sec">
 			<view class="sec_1"><image src="/static/health/change/class_2.png" @click="order"></image></view>
 			<view class="sec_2">
