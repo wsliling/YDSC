@@ -9,7 +9,7 @@
 				:style="{ zIndex: index == currentIndex ? 4 : item.issecond ? 3 : item.ishide ? 1 : 2 }"
 				@tap="toPage(item)"
 			>
-				<image :src="item.src" mode="aspectFill"></image>
+				<image :src="item.Pic" mode="aspectFill"></image>
 			</view>
 		</view>
 	</view>

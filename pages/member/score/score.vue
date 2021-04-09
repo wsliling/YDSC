@@ -3,7 +3,7 @@
 		<view class="sec">
 			<view class="sec1">
 				<view class="sec_1">积分</view>
-				<view class="sec_2">426</view>
+				<view class="sec_2">{{score.SumScore}}</view>
 			</view>
 			<view class="sec2" @click="register">每日签到</view>
 		</view>
@@ -27,15 +27,12 @@ export default {
 		return {
 			userId: '',
 			token: '',
-			msg: '',
-			data: {}
+			score: []
 		};
 	},
 	onLoad() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
-	},
-	onShow() {
 		this.signIn();
 	},
 	methods: {
@@ -55,13 +52,13 @@ export default {
 			});
 		},
 		async signIn() {
-			let result = await post('Bean/GetSignInData', {
+			let result = await post('User/GetSignInData', {
 				UserId: this.userId,
 				Token: this.token
 			});
 			if (result.code == 0) {
-				this.data = result.data;
-				console.log(this.data);
+				this.score = result.data;
+				console.log(this.score);
 			}
 		}
 	}

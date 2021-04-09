@@ -18,7 +18,7 @@
 					<view class="goodsBox">
 						<block v-for="(item, index) in tab.data" :key="index">
 							<!-- <view class="goods" @click="tolink('/pages/ProductList/ProductList?cid=' + item.Id + '&keyname=' + item.ClassName)"> -->
-							<view class="goods"  @click="tolink('/pages/goods/secondlist/secondlist?id='+item.Id+'&keystr='+item.ClassName)">
+							<view class="goods"  @click="tolink('/pages/goods/ProductList/ProductList?id='+item.Id+'&keystr='+item.ClassName)">
 								<view class="icon flex-center"><image :src="item.PicUrl || 'http://via.placeholder.com/100x100'" mode="widthFix"></image></view>
 								<view class="uni-ellipsis">{{ item.ClassName }}</view>
 							</view>

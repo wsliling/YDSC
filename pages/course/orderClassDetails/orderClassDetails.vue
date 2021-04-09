@@ -33,15 +33,40 @@
 </template>
 
 <script>
+import { post } from '@/common/util.js';
 import times from '@/components/pretty-timespicker2/pretty-timespicker2.vue';
 export default {
 	components: {
 		times
 	},
 	data() {
-		return {};
+		return {
+			userId: '',
+			token: '',
+			orderdetail: []
+		};
 	},
-	methods: {}
+	onLoad() {
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
+		this.getOrderDetail();
+	},
+	methods: {
+		async getOrderDetail() {
+			let result = await post('Course/GetCourseOffline_xq', {
+				page: this.page,
+				pageSize: this.pageSize
+			});
+			if (result.code == 0) {
+				console.log(result.data);
+				this.orderdetail = result.data;
+				// if (result.data.length > 0) {
+				// 	this.hasData = true;
+				// 	this.noDataIsShow = false;
+				// }
+			}
+		}
+	}
 };
 </script>
 

@@ -260,7 +260,7 @@ export default {
 				this.NickName = res.data.NickName;
 				var _this = this;
 				uni.getImageInfo({
-					src: '../../../static/invite.png', //服务器返回的图片地址
+					src: '/static/invite.png', //服务器返回的图片地址
 					success: function(res) {
 						console.log(res.path, 'res');
 						//res.path是网络图片的本地地址

@@ -29,7 +29,7 @@
 						</view>
 					</view>
 				</view>
-				<view class="uni-list-cell location" v-if="false">
+				<view class="uni-list-cell location">
 					<view class="uni-list-cell-navigate uni-navigate-right" @tap="chooseLocation">
 						<view class="list-cell-l">
 							<text class="iconfont icon-dizhi"></text>

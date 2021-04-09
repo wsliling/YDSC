@@ -1,56 +1,45 @@
 <template>
 	<view class="scoreList">
-		<view class="sec">
-			<view class="sec_2">
-				<view class="title">每日签到</view>
-				<view class="title_2">2019-11-25 11:20</view>
-			</view>
-			<view class="sec_3">+5</view>
-		</view>
-		<view class="sec">
-			<view class="sec_2">
-				<view class="title">每日签到</view>
-				<view class="title_2">2019-11-25 11:20</view>
-			</view>
-			<view class="sec_3">+5</view>
-		</view>
-		<view class="sec">
-			<view class="sec_2">
-				<view class="title">每日签到</view>
-				<view class="title_2">2019-11-25 11:20</view>
-			</view>
-			<view class="sec_3">+5</view>
-		</view>
-		<view class="sec">
-			<view class="sec_2">
-				<view class="title">商品兑换</view>
-				<view class="title_2">2019-11-25 11:20</view>
-			</view>
-			<view class="sec_1">-120</view>
-		</view>
-		<view class="sec">
-			<view class="sec_2">
-				<view class="title">商品兑换</view>
-				<view class="title_2">2019-11-25 11:20</view>
-			</view>
-			<view class="sec_1">-120</view>
-		</view>
-		<view class="sec">
-			<view class="sec_2">
-				<view class="title">商品兑换</view>
-				<view class="title_2">2019-11-25 11:20</view>
-			</view>
-			<view class="sec_1">-120</view>
+		<view class="sec" v-for="(item, index) in time" :key="index">
+			<block v-if="(time.IsSign = 1)">
+				<view class="sec_2">
+					<view class="title">每日签到</view>
+					<view class="title_2">{{ item.SignTime }}</view>
+				</view>
+				<view class="sec_3">+{{ item.Score }}</view>
+			</block>
 		</view>
 	</view>
 </template>
 
 <script>
+import { post } from '@/common/util.js';
 export default {
 	data() {
-		return {};
+		return {
+			userId: '',
+			token: '',
+			time: []
+		};
 	},
-	methods: {}
+	onLoad() {
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
+		this.signIn();
+	},
+	methods: {
+		// 签到详情
+		async signIn() {
+			let result = await post('User/GetSignInData', {
+				UserId: this.userId,
+				Token: this.token
+			});
+			if (result.code == 0) {
+				this.time = result.data.SignData;
+				console.log(this.time);
+			}
+		}
+	}
 };
 </script>
 

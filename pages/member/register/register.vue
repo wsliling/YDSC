@@ -1,7 +1,7 @@
 <template>
 	<view class="register">
 		<view class="top">
-			<view class="score">12</view>
+			<view class="score">{{ score.SumScore }}</view>
 			<view class="haveScore">已累计获得积分</view>
 			<view class="rule" @click="rule">签到规则</view>
 		</view>
@@ -11,45 +11,23 @@
 				<view class="total_1">
 					<view class="total_1_1">0</view>
 					<view class="total_1_1">0</view>
-					<view class="total_1_1">0</view>
+					<view class="total_1_1">{{ score.SignDayNum }}</view>
 					<view class="total_1_2">天</view>
 				</view>
 			</view>
 			<view class="day">
-				<view class="one">
-					<view class="one_1">第1天</view>
-					<view class="one_2">+5</view>
-				</view>
-				<view class="one">
-					<view class="one_1">第2天</view>
-					<view class="one_2">+5</view>
-				</view>
-				<view class="one">
-					<view class="one_1">第3天</view>
-					<view class="one_2">+5</view>
-				</view>
-				<view class="one2">
-					<view class="one_1">第4天</view>
-					<view class="one_2">+5</view>
-				</view>
-				<view class="one2">
-					<view class="one_1">第5天</view>
-					<view class="one_2">+5</view>
-				</view>
-				<view class="one2">
-					<view class="one_1">第6天</view>
-					<view class="one_2">+5</view>
-				</view>
-				<view class="one2">
-					<view class="one_1">第7天</view>
-					<view class="one_2">+20</view>
+				<view class="one" v-for="(item, index) in scoreAdd" :key="index" :class="item.IsSign == 1 ? 'one' : 'one2'">
+					<view class="one_1">{{ item.Name }}</view>
+					<view class="one_2">+{{ item.Score }}</view>
 				</view>
 			</view>
-			<view class="rig" @click="rig">签到</view>
+			<view class="rig1" v-if="(score.IsSign = 1)">已签到</view>
+			<view class="rig" @click="rig" v-else>签到</view>
+			<!-- <view class="rig" @click="rig">签到</view> -->
 			<wyb-popup ref="popup" type="center" height="490" width="600" radius="6" :showCloseIcon="true">
 				<view class="popup-content">
 					<view class="title">获得积分</view>
-					<view class="con">+5</view>
+					<view class="con" v-for="(item, index) in scoreAdd" :key="index">+{{ item.Score }}</view>
 					<view class="con_1">连签天数越多得Y币越多</view>
 				</view>
 			</wyb-popup>
@@ -58,13 +36,26 @@
 </template>
 
 <script>
+import { post } from '@/common/util.js';
 import wybPopup from '@/components/wyb-popup2/wyb-popup.vue';
 export default {
 	components: {
 		wybPopup
 	},
 	data() {
-		return {};
+		return {
+			userId: '',
+			token: '',
+			IsSign: 0,
+			score: [],
+			scoreAdd: [],
+			createSign: []
+		};
+	},
+	onLoad() {
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
+		this.signIn();
 	},
 	methods: {
 		rule() {
@@ -73,7 +64,32 @@ export default {
 			});
 		},
 		rig() {
-			this.$refs.popup.show(); // 显示
+			// this.$refs.popup.show(); // 显示
+			this.getsignIn();
+			this.isLoad = true;
+			this.loadingType = 0;
+		},
+		// 签到
+		async getsignIn() {
+			let result = await post('User/CreateSign', {
+				UserId: this.userId,
+				Token: this.token
+			});
+			if (result.code == 0) {
+				this.createSign = result.data;
+				console.log(this.createSign);
+			}
+		},
+		// 签到详情
+		async signIn() {
+			let result = await post('User/GetSignInData', {
+				UserId: this.userId,
+				Token: this.token
+			});
+			if (result.code == 0) {
+				this.score = result.data;
+				this.scoreAdd = result.data.SignData;
+			}
 		}
 	}
 };
@@ -180,6 +196,17 @@ export default {
 		}
 		.rig {
 			background-color: #fe7c32;
+			border-radius: 60upx;
+			text-align: center;
+			width: 80%;
+			margin: 60upx auto 80upx auto;
+			font-size: 30upx;
+			color: white;
+			height: 95upx;
+			line-height: 95upx;
+		}
+		.rig1 {
+			background-color: #cccccc;
 			border-radius: 60upx;
 			text-align: center;
 			width: 80%;
