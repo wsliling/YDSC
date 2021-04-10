@@ -21,9 +21,9 @@
 					<view class="one_2">+{{ item.Score }}</view>
 				</view>
 			</view>
-			<view class="rig1" v-if="(score.IsSign = 1)">已签到</view>
-			<view class="rig" @click="rig" v-else>签到</view>
-			<!-- <view class="rig" @click="rig">签到</view> -->
+			<!-- 	<view class="rig" @click="rig" v-show="(score.IsSign = 0)">签到</view>
+			<view class="rig1" v-show="(score.IsSign = 1)">已签到</view> -->
+			<view class="rig" @click="rig">签到</view>
 			<wyb-popup ref="popup" type="center" height="490" width="600" radius="6" :showCloseIcon="true">
 				<view class="popup-content">
 					<view class="title">获得积分</view>
@@ -46,6 +46,8 @@ export default {
 		return {
 			userId: '',
 			token: '',
+			loadingType: 0, //0加载前，1加载中，2没有更多了
+			isLoad: false,
 			IsSign: 0,
 			score: [],
 			scoreAdd: [],
@@ -77,7 +79,6 @@ export default {
 			});
 			if (result.code == 0) {
 				this.createSign = result.data;
-				console.log(this.createSign);
 			}
 		},
 		// 签到详情

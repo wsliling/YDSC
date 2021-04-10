@@ -19,16 +19,16 @@
 				</view>
 				<view class="u_data flex center">
 					<view class="item" @click="golink('/pages/member/follow/follow?type=0')">
-						<view class="num">8</view>
+						<view class="num">{{ Info.Follow }}</view>
 						<view class="txt">关注</view>
 					</view>
 					<view class="item" @click="golink('/pages/member/follow/follow?type=1')">
-						<view class="num">14</view>
+						<view class="num">{{ Info.Fans > 9999 ? (Info.Fans / 9999).toFixed(1) + 'W' : Info.Fans }}</view>
 						<view class="txt">粉丝</view>
 					</view>
 					<view class="item">
 						<!-- <view class="item" @click="golink('/pages/message/messageClass/messageClass?type=2')"> -->
-						<view class="num">68</view>
+						<view class="num">{{ Info.Follow }}</view>
 						<view class="txt">获赞</view>
 					</view>
 					<view class="item" @click="golink('/pages/member/collect/collect?type=3')">
@@ -36,6 +36,22 @@
 						<view class="txt">收藏</view>
 					</view>
 				</view>
+		<!-- 	<view class="fans">
+				<view class="fansNum">
+					<view class="item-num" @click="toMylink('/pages/member/follow/follow?type=1')">
+						<view class="num">{{ Info.Fans > 9999 ? (Info.Fans / 9999).toFixed(1) + 'W' : Info.Fans }}</view>
+						<view>粉丝</view>
+					</view>
+					<view class="item-num" @click="toMylink('/pages/member/follow/follow?type=0')">
+						<view class="num">{{ Info.Follow }}</view>
+						<view>关注</view>
+					</view>
+					<view class="item-num" @click="toMylink('/pages/member/follow/follow?type=2')">
+						<view class="num">{{ Info.Follow }}</view>
+						<view>获赞</view>
+					</view>
+				</view>
+			</view> -->
 			</view>
 		</view>
 		<view class="pd15">
@@ -158,7 +174,8 @@ export default {
 			token: '',
 			memberInfo: {},
 			OrderInfo: {},
-			newscount: 0
+			newscount: 0,
+			Info: {}
 		};
 	},
 	onLoad() {},
@@ -168,6 +185,7 @@ export default {
 		if (toLogin()) {
 			this.getMemberInfo();
 		}
+		this.UserHomePageInfo();
 	},
 	methods: {
 		// 跳转
@@ -180,6 +198,24 @@ export default {
 				uni.navigateTo({
 					url: '/pages/login/login'
 				});
+			}
+		},
+		//获取个人主页信息
+		async UserHomePageInfo() {
+			let result = await post('User/OtherHomePage', {
+				UserId: this.userId,
+				Token: this.token,
+				MemberId: this.memberId
+			});
+			if (result.code === 0) {
+				this.Info = result.data;
+				this.myType = result.data.IsMy;
+				this.HomeCover = result.data.HomeCover;
+				uni.setNavigationBarTitle({
+					title: this.myType ? '我的主页' : 'TA的主页'
+				});
+			} else if (result.code == 2) {
+				uni.hideToast();
 			}
 		},
 		async getMemberInfo() {
