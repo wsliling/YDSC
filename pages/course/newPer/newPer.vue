@@ -1,18 +1,91 @@
 <template>
 	<view class="newPer">
-		<view class="con"><image src="/static/course/course4_1.png"></image></view>
-		<view class="con"><image src="/static/course/course4_2.png"></image></view>
-		<view class="con"><image src="/static/course/course4_3.png"></image></view>
-		<view class="con"><image src="/static/course/course4_1.png"></image></view>
+		<view v-for="(item, index) in classlist" :key="index">
+			<view class="con"><image :src="item.PicImg"></image></view>
+		</view>
+		<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
+		<noData :isShow="noDataIsShow"></noData>
 	</view>
 </template>
 
 <script>
+import { post } from '@/common/util.js';
+import noData from '@/components/noData.vue'; //暂无数据
+import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
 export default {
-	data() {
-		return {};
+	components: {
+		noData,
+		uniLoadMore
 	},
-	methods: {}
+	data() {
+		return {
+			userId: '',
+			token: '',
+			page: 1,
+			pageSize: 8,
+			loadingType: 0, //0加载前，1加载中，2没有更多了
+			isLoad: false,
+			hasData: false,
+			noDataIsShow: false,
+			classlist: []
+		};
+	},
+	onLoad() {
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
+		this.getClassList();
+	},
+	methods: {
+		async getClassList() {
+			let result = await post('Course/GetCourseOutlineList', {
+				page: this.page,
+				pageSize: this.pageSize,
+				UserId: this.userId,
+				Token: this.token,
+				SearchKey: '',
+				IsNewPeopleVip: 0,
+				IsLike: 0,
+				IsRic: 0
+			});
+			if (result.code == 0) {
+				if (result.data.length > 0) {
+					this.hasData = true;
+					this.noDataIsShow = false;
+				}
+			}
+			if (result.data.length == 0 && this.page == 1) {
+				this.noDataIsShow = true;
+				this.hasData = false;
+			}
+			if (this.page === 1) {
+				this.classlist = result.data;
+				console.log(this.classlist);
+			}
+			if (this.page > 1) {
+				this.classlist.push(...result.data);
+			}
+			if (result.data.length < this.pageSize) {
+				this.isLoad = false;
+				this.loadingType = 2;
+			} else {
+				this.isLoad = true;
+				this.loadingType = 0;
+			}
+		},
+		onPullDownRefresh() {
+			this.page = 1;
+			uni.stopPullDownRefresh();
+		},
+		// 上拉加载
+		onReachBottom: function() {
+			if (this.isLoad) {
+				this.loadingType = 1;
+				this.page++;
+			} else {
+				this.loadingType = 2;
+			}
+		}
+	}
 };
 </script>
 

@@ -58,10 +58,22 @@
 </template>
 
 <script>
+import { post } from '@/common/util.js';
 export default {
 	components: {},
 	data() {
-		return {};
+		return {
+			userId: '',
+			token: '',
+			Id: '',
+			classdetail: []
+		};
+	},
+	onLoad(e) {
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
+		this.Id = e.detailId;
+		this.getClassDetail();
 	},
 	methods: {
 		scoreExchane() {
@@ -73,6 +85,16 @@ export default {
 			uni.navigateTo({
 				url: '/pages/course/buyClass/buyClass'
 			});
+		},
+		async getClassDetail() {
+			let result = await post('Course/GetCourse_Outline_xq', {
+				OutlineId: this.Id,
+				UserId: this.userId,
+				Token: this.token
+			});
+			if (result.code == 0) {
+				this.classdetail = result.data;
+			}
 		}
 	}
 };

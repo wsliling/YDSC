@@ -1,63 +1,81 @@
 .orderClass {
 	.tab {
-		position: absolute;
-		height: 100%;
 		background-color: white;
-		.con {
+		height: 100vh;
+		.tabList {
+			width: 100%;
 			display: flex;
-			align-items: center;
-			margin: 10upx 20upx 20upx 0;
-			.con_1 {
+			.item {
 				flex: 1;
-				padding: 0 20upx;
-				image {
-					height: 180upx;
-				}
-			}
-			.con_2 {
-				flex: 1.5;
-				line-height: 52upx;
-				.title {
-					font-size: 32upx;
-				}
-				.title_1 {
-					color: #8a8a8a;
-					font-size: 28upx;
-					transform: scale(0.95);
-					margin-left: -12upx;
-				}
-				.title_2 {
-					display: flex;
-					align-items: center;
-					.title2_1 {
-						flex: 1;
-						font-size: 28upx;
-						text {
-							display: inline-block;
-							transform: scale(0.8);
-							color: #c1c1c1;
-						}
-						image {
-							width: 44upx;
-							height: 44upx;
-						}
-					}
-					.title2_2 {
-						flex: 1;
-						background-color: #fa6008;
-						color: white;
-						border-radius: 60upx;
-						text-align: center;
-						height: 70upx;
-						line-height: 70upx;
-						transform: scale(0.8);
-					}
+				text-align: center;
+				color: grey;
+				line-height: 73rpx;
+				font-size: 32rpx;
+				font-weight: 500;
+				height: 100%;
+				box-sizing: border-box;
+				margin: 0 12px;
+				&.active {
+					color: #f57609;
+					border-bottom: 5rpx solid #f57609;
+					font-weight: bold;
+					margin: 0 12px;
 				}
 			}
 		}
-		.xxx {
-			font-size: 42rpx;
-			padding: 20rpx 0;
+		.list {
+			.con {
+				display: flex;
+				align-items: center;
+				margin: 10upx 20upx 20upx 0;
+				.con_1 {
+					flex: 1;
+					padding: 0 20upx;
+					image {
+						height: 180upx;
+					}
+				}
+				.con_2 {
+					flex: 1.5;
+					line-height: 52upx;
+					.title {
+						font-size: 32upx;
+					}
+					.title_1 {
+						color: #8a8a8a;
+						font-size: 28upx;
+						transform: scale(0.95);
+						margin-left: -12upx;
+					}
+					.title_2 {
+						display: flex;
+						align-items: center;
+						.title2_1 {
+							flex: 1;
+							font-size: 28upx;
+							text {
+								display: inline-block;
+								transform: scale(0.8);
+								color: #c1c1c1;
+							}
+							image {
+								width: 44upx;
+								height: 44upx;
+							}
+						}
+						.title2_2 {
+							flex: 1;
+							background-color: #fa6008;
+							color: white;
+							border-radius: 60upx;
+							text-align: center;
+							height: 70upx;
+							line-height: 70upx;
+							transform: scale(0.8);
+						}
+					}
+				}
+			}
 		}
 	}
 }

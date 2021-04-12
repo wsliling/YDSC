@@ -3,10 +3,10 @@
 		<view class="tabs">
 			<view v-for="(tab, index) in tabs" class="tab-item" :class="current == index && 'active'" @click="current = index">{{ tab.title }}</view>
 		</view>
+		<view class="line"></view>
 		<swiper :current="current" class="swiper-box" @change="onChange">
 			<swiper-item v-for="(item, index) in tabs" :key="index">
-				<!-- <scroll-view scroll-y="true" style="height: 100%;" @scrolltolower="scrolltolower"> -->
-				<scroll-view style="height: 100%;" @scrolltolower="scrolltolower">
+				<scroll-view scroll-y="true" style="height: 100%;" @scrolltolower="scrolltolower">
 					<!-- #ifdef MP -->
 					<slot name="{{'content' + index}}"></slot>
 					<!-- #endif -->
@@ -52,34 +52,38 @@ export default {
 <style>
 swiper-tab {
 	display: block;
-	/* height: 100%; */
-	background-color: white;
+	height: 100%;
 }
 </style>
 <style lang="scss" scoped>
 .tabs {
-	width: 73%;
+	width: 750rpx;
+	height: 75rpx;
 	display: flex;
 	.tab-item {
 		flex: 1;
 		text-align: center;
 		color: grey;
-		background: #f3f3f3;
-		border-radius: 30px;
-		margin: 6px -5px 6px 15px;
-		line-height: 230%;
-		height: 80%;
+		line-height: 73rpx;
+		font-size: 32rpx;
+		height: 100%;
 		box-sizing: border-box;
+		margin: 0 12px;
 		&.active {
 			color: #f57609;
-			background: #f17e083d;
-			border-radius: 30px;
+			border-bottom: 5rpx solid #f57609;
+			font-weight: bold;
+			margin: 0 12px;
 		}
 	}
 }
+.line {
+	background-color: #f6f6f6;
+	height: 22upx;
+}
 .swiper-box {
 	width: 100%;
-	height: 1040upx;
+	height: calc(100% - 75rpx);
 	overflow: auto;
 }
 </style>

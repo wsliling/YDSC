@@ -1,17 +1,16 @@
 <template>
 	<view class="moreCourse">
 		<view class="tab">
-			<aloys-tab :tabs="tabs">
-				<view slot="content0" class="xxx">
-					<view class="tab1" v-for="(item, index) in classlist" :key="index">
-						<view class="con"><image :src="item.PicImg"></image></view>
-					</view>
-					<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
-					<noData :isShow="noDataIsShow"></noData>
+			<view class="bg_fff tabList flex">
+				<view class="item" v-for="(item, index) in tabs" :key="index" :class="{ active: item.Id == tabIndex }" @click="cliTab(item.Id)">{{ item.Name }}</view>
+			</view>
+			<view class="list" v-if="hasData">
+				<view class="tab1" v-for="(item, index) in classlist" :key="index">
+					<view class="sec2_1"><image :src="item.PicImg"></image></view>
 				</view>
-				<view slot="content1" class="xxx">B</view>
-				<view slot="content2" class="xxx">C</view>
-			</aloys-tab>
+			</view>
+			<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
+			<noData :isShow="noDataIsShow"></noData>
 		</view>
 	</view>
 </template>
@@ -20,10 +19,8 @@
 import { post } from '@/common/util.js';
 import noData from '@/components/noData.vue'; //暂无数据
 import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
-import aloysTab from '@/components/aloys-tab2/aloys-tab2.vue';
 export default {
 	components: {
-		aloysTab,
 		noData,
 		uniLoadMore
 	},
@@ -37,46 +34,47 @@ export default {
 			isLoad: false,
 			hasData: false,
 			noDataIsShow: false,
-			Ctype: 0,
-			IsLike: 0,
-			IsRec: 0,
 			classlist: [],
-			tabs: [
-				{
-					title: '推荐'
-				},
-				{
-					title: '减脂'
-				},
-				{
-					title: '塑形'
-				},
-				{
-					title: '增肌'
-				},
-				{
-					title: '体态'
-				},
-				{
-					title: '热身'
-				}
-			]
+			tabs: [],
+			tabIndex: 45
 		};
 	},
 	onLoad() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
 		this.getClassList();
+		this.getClassType();
 	},
 	methods: {
+		cliTab(index) {
+			this.tabIndex = index;
+			this.page = 1;
+			this.classlist = [];
+			this.noDataIsShow = false;
+			this.hasData = false;
+			this.getClassList();
+		},
+		//所有课程类型
+		async getClassType() {
+			let result = await post('Course/GetCourseTypeList', {});
+			if (result.code == 0) {
+				this.tabs = result.data;
+			}
+		},
+		//课程列表
 		async getClassList() {
 			let result = await post('Course/GetCourseOutlineList', {
 				page: this.page,
 				pageSize: this.pageSize,
-				IsRec: 1
+				UserId: this.userId,
+				Token: this.token,
+				SearchKey: '',
+				IsNewPeopleVip: 0,
+				Ctype: this.tabIndex,
+				IsLike: 0,
+				IsRic: 0
 			});
 			if (result.code == 0) {
-				// console.log(result.data);
 				if (result.data.length > 0) {
 					this.hasData = true;
 					this.noDataIsShow = false;
@@ -88,7 +86,6 @@ export default {
 			}
 			if (this.page === 1) {
 				this.classlist = result.data;
-				console.log(this.classlist);
 			}
 			if (this.page > 1) {
 				this.classlist = this.classlist.concat(result.data);
@@ -99,6 +96,19 @@ export default {
 			} else {
 				this.isLoad = true;
 				this.loadingType = 0;
+			}
+		},
+		onPullDownRefresh() {
+			this.page = 1;
+			uni.stopPullDownRefresh();
+		},
+		// 上拉加载
+		onReachBottom: function() {
+			if (this.isLoad) {
+				this.loadingType = 1;
+				this.page++;
+			} else {
+				this.loadingType = 2;
 			}
 		}
 	}

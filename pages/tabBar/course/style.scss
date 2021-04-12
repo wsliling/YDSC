@@ -28,14 +28,12 @@
 		}
 		.sec_1 {
 			padding: 20upx 20upx 0 20upx;
-			// padding: 20upx 0 20upx 20upx;
 		}
 		.sec_2 {
 			view {
 				padding: 20upx 20upx 0 0;
 			}
 			image {
-				// height: 50%;
 				height: 162upx;
 			}
 		}
@@ -67,7 +65,6 @@
 		}
 	}
 	.sec2 {
-		// height: 600px;
 		height: 100% !important;
 		margin-top: 12upx;
 		.sec1_title {
@@ -79,27 +76,44 @@
 			background-color: white;
 			left: 0;
 			height: 100%;
-			// height: 550px;
-			.sec2_1 {
-				padding: 12upx;
-				image {
-					height: 280upx;
-					width: 98%;
+			.tabList {
+				width: 96%;
+				display: flex;
+				.item {
+					flex: 1;
+					text-align: center;
+					color: grey;
+					background: #f3f3f3;
+					border-radius: 30px;
+					margin: 6px -5px 6px 10px;
+					line-height: 230%;
+					height: 80%;
+					box-sizing: border-box;
+					&.active {
+						color: #f57609;
+						background: #f17e083d;
+						border-radius: 30px;
+					}
 				}
 			}
-			.xxx {
-				font-size: 42rpx;
-				font-weight: bold;
-				text-align: center;
-			}
-			.more {
-				text-align: center;
-				background: #f3f3f3;
-				border-radius: 62upx;
-				margin: 22upx auto;
-				height: 76upx;
-				line-height: 76upx;
-				width: 50%;
+
+			.list {
+				padding: 12upx 0;
+				.sec2_1 {
+					padding: 12upx 20upx;
+					image {
+						height: 280upx;
+					}
+				}
+				.more {
+					text-align: center;
+					background: #f3f3f3;
+					border-radius: 62upx;
+					margin: 22upx auto;
+					height: 76upx;
+					line-height: 76upx;
+					width: 50%;
+				}
 			}
 		}
 	}
@@ -145,76 +159,6 @@
 					width: 60upx;
 					height: 60upx;
 				}
-			}
-		}
-	}
-}
-.story {
-	align-items: start;
-	padding: 30upx;
-	.left-list,
-	.right-list {
-		width: 50%;
-	}
-	.story-item {
-		font-size: 30upx;
-		position: relative;
-		margin-bottom: 16upx;
-		background: #fff;
-		border-radius: 10upx;
-		.storyimg {
-			width: 100%;
-			border-radius: 10upx;
-			min-height: 360upx;
-			max-height: 800upx;
-		}
-		.story-mark {
-			position: absolute;
-			width: 100%;
-			bottom: 0;
-			color: #fff;
-			padding: 0 20upx 12upx;
-			border-radius: 0 0 10upx 10upx;
-			text-overflow: ellipsis;
-			background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0, #000 240%);
-			background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0, #000 240%);
-			background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, #000 240%);
-			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#000000', GradientType=0);
-			.tag {
-				border-radius: 100px;
-				display: inline-block;
-				font-size: 24upx;
-				line-height: 2;
-				padding: 0 16upx 0 48upx;
-				background: rgba(0, 0, 0, 0.3) url(http://xcx.yixijiu19.com/static/buy.png) 10upx center no-repeat;
-				background-size: 34upx;
-			}
-			.info {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-
-				.info_l {
-					align-items: center;
-				}
-
-				.homeimg {
-					width: 56upx;
-					height: 56upx;
-					border-radius: 50%;
-					margin-right: 10upx;
-				}
-				.text {
-					font-size: 24upx;
-					color: rgba(102, 102, 102, 1);
-					line-height: 34upx;
-					margin-left: 10upx;
-				}
-			}
-			.fw {
-				max-width: 140upx;
-				font-weight: 400;
-				font-size: 24upx;
 			}
 		}
 	}

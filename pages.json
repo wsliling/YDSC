@@ -192,19 +192,11 @@
 				}
 			}
 		}, {
-			"path": "components/aloys-tab2/aloys-tab2",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-
-		}, {
 			"path": "components/linzq-imgUpload2/linzq-imgUpload2",
 			"style": {
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
-
 		}
 	],
 	"subPackages": [{

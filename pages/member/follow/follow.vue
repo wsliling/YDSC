@@ -127,7 +127,6 @@
 					"myType": this.Type
 				});
 				if (result.code === 0) {
-						console.log(this.datalist)
 					if (result.data.length > 0) {
 						this.hasData = true;
 						this.noDataIsShow = false;

@@ -16,7 +16,7 @@
 				</view>
 			</view>
 			<view class="day">
-				<view class="one" v-for="(item, index) in scoreAdd" :key="index" :class="item.IsSign == 1 ? 'one' : 'one2'">
+				<view v-for="(item, index) in scoreAdd" :key="index" :class="item.IsSign == 1 ? 'one' : 'one2'">
 					<view class="one_1">{{ item.Name }}</view>
 					<view class="one_2">+{{ item.Score }}</view>
 				</view>
@@ -68,8 +68,6 @@ export default {
 		rig() {
 			// this.$refs.popup.show(); // 显示
 			this.getsignIn();
-			this.isLoad = true;
-			this.loadingType = 0;
 		},
 		// 签到
 		async getsignIn() {
@@ -80,6 +78,7 @@ export default {
 			if (result.code == 0) {
 				this.createSign = result.data;
 			}
+			location.reload();
 		},
 		// 签到详情
 		async signIn() {
@@ -89,6 +88,7 @@ export default {
 			});
 			if (result.code == 0) {
 				this.score = result.data;
+				console.log(result.data);
 				this.scoreAdd = result.data.SignData;
 			}
 		}

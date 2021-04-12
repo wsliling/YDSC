@@ -1,99 +1,27 @@
 <template>
 	<view class="orderClass">
 		<view class="tab">
-			<aloys-tab :tabs="tabs">
-				<view slot="content0" class="xxx" v-for="(item, index) in orderclass" :key="index">
-					<view class="con">
-						<view class="con_1">
-							<!-- <image src="/statidc/course/course6_1.png" @click="classDetails"></image> -->
-							<image :src="item.PicImg" @click="classDetails"></image>
+			<view class="bg_fff tabList flex">
+				<view class="item" v-for="(item, index) in tabs" :key="index" :class="{ active: item.Id == tabIndex }" @click="cliTab(item.Id)">{{ item.Name }}</view>
+			</view>
+			<view class="list" v-if="hasData">
+				<view class="con" v-for="(item, index) in orderclass" :key="index">
+					<view class="con_1"><image :src="item.PicImg" @click="classDetails(item.Id)"></image></view>
+					<view class="con_2">
+						<view class="title">{{ item.Title }}</view>
+						<view class="title_1">{{ item.TargetName }} | {{ item.DifficultyName }} | {{ item.CourseDuration }}分钟</view>
+						<view class="title_2">
+							<view class="title2_1">
+								<image :src="item.CoachAvatar"></image>
+								<text>{{ item.CoachNick }}</text>
 							</view>
-						<view class="con_2">
-							<view class="title">{{ item.Title }}</view>
-							<view class="title_1">极速燃脂 低强度 {{ item.CourseDuration }}分钟</view>
-							<view class="title_2">
-								<view class="title2_1">
-									<image src="/static/course/course6_7.png" mode=""></image>
-									<text>{{ item.CoachNick }}</text>
-								</view>
-								<view class="title2_2" @click="orderClassDetails">立即预约</view>
-							</view>
+							<view class="title2_2" @click="orderClassDetails(item.Id)">立即预约</view>
 						</view>
 					</view>
-					<!-- 		<view class="con">
-						<view class="con_1"><image src="/static/course/course6_2.png" mode=""></image></view>
-						<view class="con_2">
-							<view class="title">帕梅拉10分钟全身燃脂新...</view>
-							<view class="title_1">极速燃脂 低强度 60分钟</view>
-							<view class="title_2">
-								<view class="title2_1">
-									<image src="/static/course/course6_8.png" mode=""></image>
-									<text>零碎记忆</text>
-								</view>
-								<view class="title2_2">立即预约</view>
-							</view>
-						</view>
-					</view>
-					<view class="con">
-						<view class="con_1"><image src="/static/course/course6_3.png" mode=""></image></view>
-						<view class="con_2">
-							<view class="title">帕梅拉10分钟全身燃脂新...</view>
-							<view class="title_1">极速燃脂 低强度 60分钟</view>
-							<view class="title_2">
-								<view class="title2_1">
-									<image src="/static/course/course6_9.png" mode=""></image>
-									<text>零碎记忆</text>
-								</view>
-								<view class="title2_2">立即预约</view>
-							</view>
-						</view>
-					</view>
-					<view class="con">
-						<view class="con_1"><image src="/static/course/course6_4.png" mode=""></image></view>
-						<view class="con_2">
-							<view class="title">帕梅拉10分钟全身燃脂新...</view>
-							<view class="title_1">极速燃脂 低强度 60分钟</view>
-							<view class="title_2">
-								<view class="title2_1">
-									<image src="/static/course/course6_7.png" mode=""></image>
-									<text>零碎记忆</text>
-								</view>
-								<view class="title2_2">立即预约</view>
-							</view>
-						</view>
-					</view>
-					<view class="con">
-						<view class="con_1"><image src="/static/course/course6_5.png" mode=""></image></view>
-						<view class="con_2">
-							<view class="title">帕梅拉10分钟全身燃脂新...</view>
-							<view class="title_1">极速燃脂 低强度 60分钟</view>
-							<view class="title_2">
-								<view class="title2_1">
-									<image src="/static/course/course6_8.png" mode=""></image>
-									<text>零碎记忆</text>
-								</view>
-								<view class="title2_2">立即预约</view>
-							</view>
-						</view>
-					</view>
-					<view class="con">
-						<view class="con_1"><image src="/static/course/course6_6.png" mode=""></image></view>
-						<view class="con_2">
-							<view class="title">帕梅拉10分钟全身燃脂新...</view>
-							<view class="title_1">极速燃脂 低强度 60分钟</view>
-							<view class="title_2">
-								<view class="title2_1">
-									<image src="/static/course/course6_9.png" mode=""></image>
-									<text>零碎记忆</text>
-								</view>
-								<view class="title2_2">立即预约</view>
-							</view>
-						</view>
-					</view> -->
 				</view>
-				<view slot="content1" class="xxx">B</view>
-				<view slot="content2" class="xxx">C</view>
-			</aloys-tab>
+			</view>
+			<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
+			<noData :isShow="noDataIsShow"></noData>
 		</view>
 	</view>
 </template>
@@ -102,10 +30,8 @@
 import { post } from '@/common/util.js';
 import noData from '@/components/noData.vue'; //暂无数据
 import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
-import aloysTab from '@/components/aloys-tab3/aloys-tab.vue';
 export default {
 	components: {
-		aloysTab,
 		noData,
 		uniLoadMore
 	},
@@ -120,51 +46,57 @@ export default {
 			hasData: false,
 			noDataIsShow: false,
 			orderclass: [],
-			tabs: [
-				{
-					title: '推荐'
-				},
-				{
-					title: '减脂'
-				},
-				{
-					title: '塑形'
-				},
-				{
-					title: '增肌'
-				},
-				{
-					title: '体态'
-				},
-				{
-					title: '热身'
-				}
-			]
+			tabs: [],
+			tabIndex: 45,
+			id: 0
 		};
 	},
 	onLoad() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
 		this.getOrderClass();
+		this.getClassType();
 	},
 	methods: {
 		orderClassDetails(id) {
 			uni.navigateTo({
-				url: '/pages/course/orderClassDetails/orderClassDetails?orderId'+id
+				url: '/pages/course/orderClassDetails/orderClassDetails?orderId=' + id
 			});
 		},
-		classDetails() {
+		classDetails(id) {
 			uni.navigateTo({
-				url: '/pages/course/classDetails/classDetails'
+				url: '/pages/course/classDetails/classDetails?detailId=' + id
 			});
 		},
+		cliTab(index) {
+			this.tabIndex = index;
+			this.page = 1;
+			this.orderclass = [];
+			this.noDataIsShow = false;
+			this.hasData = false;
+			this.getOrderClass();
+		},
+		//所有课程类型
+		async getClassType() {
+			let result = await post('Course/GetCourseTypeList', {});
+			if (result.code == 0) {
+				this.tabs = result.data;
+			}
+		},
+		//预约课程列表
 		async getOrderClass() {
 			let result = await post('Course/GetCourseOfflineList', {
 				page: this.page,
-				pageSize: this.pageSize
+				pageSize: this.pageSize,
+				UserId: this.userId,
+				Token: this.token,
+				SearchKey: '',
+				IsNewPeopleVip: 0,
+				Ctype: this.tabIndex,
+				IsLike: 0,
+				IsRic: 0
 			});
 			if (result.code == 0) {
-				console.log(result.data);
 				if (result.data.length > 0) {
 					this.hasData = true;
 					this.noDataIsShow = false;
@@ -178,7 +110,7 @@ export default {
 				this.orderclass = result.data;
 			}
 			if (this.page > 1) {
-				this.orderclass = this.orderclass.concat(result.data);
+				this.orderclass.push(...result.data);
 			}
 			if (result.data.length < this.pageSize) {
 				this.isLoad = false;

@@ -76,7 +76,7 @@
 import { post } from '@/common/util.js';
 import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
 import noData from '@/components/noData.vue'; //暂无数据
-import aloysTab from '@/components/aloys-tab4/aloys-tab.vue';
+import aloysTab from '@/components/aloys-tab/aloys-tab.vue';
 export default {
 	components: {
 		aloysTab

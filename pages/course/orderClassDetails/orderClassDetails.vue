@@ -1,34 +1,36 @@
 <template>
 	<view class="orderClassDetails">
 		<view class="top">
-			<view class="photo"><image src="/static/course/course6_10.png" mode=""></image></view>
-			<view class="info"><view class="name">超强下腹燃脂,躺练版训练</view></view>
-			<view class="detail">极速燃脂 | 低强度 | 60分钟</view>
+			<view class="photo"><image :src="orderdetail.PicImg" mode=""></image></view>
+			<view class="info">
+				<view class="name">{{ orderdetail.Title }}</view>
+			</view>
+			<view class="detail">{{ orderdetail.TargetName }} | {{ orderdetail.DifficultyName }} | 60分钟</view>
 			<view class="info1">
 				<view class="info1_3"><image src="/static/course/course3_2.png" mode=""></image></view>
 				<view class="info1_4">可乐</view>
 				<view class="info1_1"><image src="/static/course/course5_7.png" mode=""></image></view>
-				<view class="info1_2">1.8万人已预约</view>
+				<view class="info1_2">{{ orderdetail.ApplyNum }}人已预约</view>
 			</view>
 		</view>
 		<view class="line"></view>
 		<view class="cen">
-			<view class="stadium"><image src="/static/course/course_2.png" mode=""></image></view>
+			<view class="stadium"><image :src="orderdetail.StoreLogo"></image></view>
 			<view class="stadium_1">
-				<view class="stadium_1_1">深圳力美健俱乐部</view>
-				<view class="stadium_1_2">龙华区恒福路98号淘金花园商业中心</view>
+				<view class="stadium_1_1">{{ orderdetail.StoreName }}</view>
+				<view class="stadium_1_2">{{ orderdetail.StoreAddress }}</view>
 			</view>
 		</view>
 		<view class="line"></view>
 		<view class="con">
 			<view class="title">课程简介</view>
 			<view class="con1_1">
-				瑜伽教练培训简介，培训专业瑜伽教练，专业瑜伽推拿培训，针对不同的学习方式，提升未来的竞争力，让您的人生更加适合自己的特长，帮助学员在管理过程中的提升，坚持两周时间，可以感觉到身体素...
-				<text>展开更多</text>
+				{{ orderdetail.CoachNick }}
+				<!-- <text>展开更多</text> -->
 			</view>
 		</view>
-		<view class="line" @click="show"></view>
-		<view class="time"><times @change="getTime"></times></view>
+		<view class="line"></view>
+		<view class="time"><times></times></view>
 	</view>
 </template>
 
@@ -43,27 +45,38 @@ export default {
 		return {
 			userId: '',
 			token: '',
-			orderdetail: []
+			Id: '',
+			orderdetail: {}
 		};
 	},
-	onLoad() {
+	onLoad(e) {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
+		this.Id = e.orderId;
 		this.getOrderDetail();
+		this.getOrderDetails();
 	},
 	methods: {
 		async getOrderDetail() {
 			let result = await post('Course/GetCourseOffline_xq', {
-				page: this.page,
-				pageSize: this.pageSize
+				Id: this.Id,
+				UserId: this.userId,
+				Token: this.token
 			});
 			if (result.code == 0) {
-				console.log(result.data);
 				this.orderdetail = result.data;
-				// if (result.data.length > 0) {
-				// 	this.hasData = true;
-				// 	this.noDataIsShow = false;
-				// }
+			}
+		},
+		async getOrderDetails() {
+			let result = await post('Course/CourseOfflineReg', {
+				Id: this.Id,
+				UserId: this.userId,
+				Token: this.token,
+				// DateId: 0,
+				// HourId: 0
+			});
+			if (result.code == 0) {
+				this.orderdetail = result.data;
 			}
 		}
 	}

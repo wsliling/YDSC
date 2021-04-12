@@ -28,53 +28,26 @@
 		<view class="sec2">
 			<view class="sec1_title">推荐课程</view>
 			<view class="sec2_tab">
-				<aloys-tab :tabs="tabs">
-					<view slot="content0" class="xxx">
-						<view class="tab1" v-for="(item, index) in classlist" :key="index">
-							<view class="sec2_1"><image :src="item.PicImg"></image></view>
-						</view>
-						<!-- <view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view> -->
-						<noData :isShow="noDataIsShow"></noData>
-						<view class="more" @click="moreCourse">查看更多推荐课程</view>
+				<view class="bg_fff tabList flex">
+					<view class="item" v-for="(item, index) in tabs" :key="index" :class="{ active: item.Id == tabIndex }" @click="cliTab(item.Id)">{{ item.Name }}</view>
+				</view>
+				<view class="list" v-if="hasData">
+					<view class="tab1" v-for="(item, index) in classlist" :key="index">
+						<view class="sec2_1"><image :src="item.PicImg"></image></view>
 					</view>
-					<view slot="content1" class="xxx">B</view>
-					<view slot="content2" class="xxx">C</view>
-				</aloys-tab>
+					<view class="more" @click="moreCourse">查看更多推荐课程</view>
+				</view>
+				<noData :isShow="noDataIsShow"></noData>
 			</view>
 		</view>
 		<view class="line"></view>
-		<view class="sec3">
-			<view class="sec1_title">猜你喜欢</view>
-			<view class="sec3"></view>
-		</view>
-		<view class="sec4">
+		<view class="sec3"><view class="sec1_title">猜你喜欢</view></view>
+		<view class="sec4" v-for="(item, index) in classlike" :key="index">
 			<view class="sec4_1">
-				<view><image src="/static/health/change/class_11.png"></image></view>
+				<view><image :src="item.PicImg"></image></view>
 				<view>
-					<view class="sec4_title">帕梅拉10分钟全身燃脂新...</view>
-					<view class="sec4_title1">K2初学 . 10分钟</view>
-					<view class="sec4_title2">
-						<image class="sec4_img" src="/static/health/change/class_14.png"></image>
-						零碎记忆
-					</view>
-				</view>
-			</view>
-			<view class="sec4_1">
-				<view><image src="/static/health/change/class_12.png"></image></view>
-				<view>
-					<view class="sec4_title">帕梅拉10分钟全身燃脂新...</view>
-					<view class="sec4_title1">K2初学 . 10分钟</view>
-					<view class="sec4_title2">
-						<image class="sec4_img" src="/static/health/change/class_14.png"></image>
-						零碎记忆
-					</view>
-				</view>
-			</view>
-			<view class="sec4_1">
-				<view><image src="/static/health/change/class_13.png"></image></view>
-				<view>
-					<view class="sec4_title">帕梅拉10分钟全身燃脂新...</view>
-					<view class="sec4_title1">K2初学 . 10分钟</view>
+					<view class="sec4_title">{{item.Title}}</view>
+					<view class="sec4_title1">{{item.DifficultyName}} . {{item.CourseDuration}}分钟</view>
 					<view class="sec4_title2">
 						<image class="sec4_img" src="/static/health/change/class_14.png"></image>
 						零碎记忆
@@ -82,6 +55,7 @@
 				</view>
 			</view>
 		</view>
+		<noData :isShow="noDataIsShow"></noData>
 	</view>
 </template>
 <script>
@@ -91,15 +65,13 @@ import noData from '@/components/noData.vue'; //暂无数据
 import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
 import bmSearchInput from '@/components/bm-searchInput/bm-searchInput.vue';
 import banner from '@/components/ay-banner/banner.vue';
-import aloysTab from '@/components/aloys-tab/aloys-tab.vue';
 export default {
 	components: {
 		noData,
 		uniLoadMore,
 		product,
 		bmSearchInput,
-		banner,
-		aloysTab
+		banner
 	},
 	data() {
 		return {
@@ -114,6 +86,7 @@ export default {
 			noDataIsShow: false,
 			pageCon: 0,
 			classlist: [],
+			classlike: [],
 			bannerList: [
 				{
 					id: 0,
@@ -129,17 +102,8 @@ export default {
 					img: '/static/health/change/class_1.png'
 				}
 			],
-			tabs: [
-				{
-					title: '产品'
-				},
-				{
-					title: '运营'
-				},
-				{
-					title: '其他'
-				}
-			]
+			tabs: [],
+			tabIndex: 45
 		};
 	},
 	onLoad() {
@@ -147,6 +111,8 @@ export default {
 		this.token = uni.getStorageSync('token');
 		this.pageCon = uni.getStorageSync('pageCon');
 		this.getClassList();
+		this.getClassType();
+		this.getClassLike();
 	},
 	onShow() {
 		this.pageCon = uni.getStorageSync('pageCon');
@@ -177,15 +143,35 @@ export default {
 				url: '/pages/course/orderClass/orderClass'
 			});
 		},
+		cliTab(index) {
+			this.tabIndex = index;
+			this.page = 1;
+			this.classlist = [];
+			this.noDataIsShow = false;
+			this.hasData = false;
+			this.getClassList();
+		},
+		//所有课程类型
+		async getClassType() {
+			let result = await post('Course/GetCourseTypeList', {});
+			if (result.code == 0) {
+				this.tabs = result.data;
+			}
+		},
 		// 课程列表
 		async getClassList() {
 			let result = await post('Course/GetCourseOutlineList', {
 				page: this.page,
-				pageSize: this.pageSize
-				// IsRec: 1
+				pageSize: this.pageSize,
+				UserId: this.userId,
+				Token: this.token,
+				SearchKey: '',
+				IsNewPeopleVip: 0,
+				Ctype: this.tabIndex,
+				IsLike: 0,
+				IsRic: 0
 			});
 			if (result.code == 0) {
-				console.log(result.data);
 				if (result.data.length > 0) {
 					this.hasData = true;
 					this.noDataIsShow = false;
@@ -200,6 +186,42 @@ export default {
 			}
 			if (this.page > 1) {
 				this.classlist = this.classlist.concat(result.data);
+			}
+			if (result.data.length < this.pageSize) {
+				this.isLoad = false;
+				this.loadingType = 2;
+			} else {
+				this.isLoad = true;
+				this.loadingType = 0;
+			}
+		},
+		// 猜你喜欢
+		async getClassLike() {
+			let result = await post('Course/GetCourseOutlineList', {
+				page: this.page,
+				pageSize: this.pageSize,
+				UserId: this.userId,
+				Token: this.token,
+				SearchKey: '',
+				IsNewPeopleVip: 0,
+				IsLike: 0,
+				IsRic: 0
+			});
+			if (result.code == 0) {
+				if (result.data.length > 0) {
+					this.hasData = true;
+					this.noDataIsShow = false;
+				}
+			}
+			if (result.data.length == 0 && this.page == 1) {
+				this.noDataIsShow = true;
+				this.hasData = false;
+			}
+			if (this.page === 1) {
+				this.classlike = result.data;
+			}
+			if (this.page > 1) {
+				this.classlike = this.classlike.concat(result.data);
 			}
 			if (result.data.length < this.pageSize) {
 				this.isLoad = false;

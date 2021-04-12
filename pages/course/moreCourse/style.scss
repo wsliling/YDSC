@@ -1,20 +1,44 @@
 .tab {
-	position: absolute;
-	height: 100%;
 	background-color: white;
-	.tab1 {
-		.con {
-			padding: 12upx;
-			image {
-				height: 260upx;
-				width: 96%;
+	height: 100vh;
+	.tabList {
+		width: 100%;
+		display: flex;
+		.item {
+			flex: 1;
+			text-align: center;
+			color: grey;
+			line-height: 73rpx;
+			font-size: 32rpx;
+			font-weight: 500;
+			height: 100%;
+			box-sizing: border-box;
+			margin: 0 12px;
+			&.active {
+				color: #f57609;
+				border-bottom: 5rpx solid #f57609;
+				font-weight: bold;
+				margin: 0 12px;
 			}
 		}
 	}
-	.xxx {
-		font-size: 42rpx;
-		font-weight: bold;
-		padding: 20rpx 0;
-		text-align: center;
+
+	.list {
+		padding: 12upx 0;
+		.sec2_1 {
+			padding: 12upx 20upx;
+			image {
+				height: 280upx;
+			}
+		}
+		.more {
+			text-align: center;
+			background: #f3f3f3;
+			border-radius: 62upx;
+			margin: 22upx auto;
+			height: 76upx;
+			line-height: 76upx;
+			width: 50%;
+		}
 	}
 }
