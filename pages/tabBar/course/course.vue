@@ -33,7 +33,7 @@
 				</view>
 				<view class="list" v-if="hasData">
 					<view class="tab1" v-for="(item, index) in classlist" :key="index">
-						<view class="sec2_1"><image :src="item.PicImg"></image></view>
+						<view class="sec2_1"><image :src="item.PicImg" @click="classDetails(item.Id)"></image></view>
 					</view>
 					<view class="more" @click="moreCourse">查看更多推荐课程</view>
 				</view>
@@ -43,11 +43,11 @@
 		<view class="line"></view>
 		<view class="sec3"><view class="sec1_title">猜你喜欢</view></view>
 		<view class="sec4" v-for="(item, index) in classlike" :key="index">
-			<view class="sec4_1">
+			<view class="sec4_1" @click="classDetails(item.Id)">
 				<view><image :src="item.PicImg"></image></view>
 				<view>
-					<view class="sec4_title">{{item.Title}}</view>
-					<view class="sec4_title1">{{item.DifficultyName}} . {{item.CourseDuration}}分钟</view>
+					<view class="sec4_title">{{ item.Title }}</view>
+					<view class="sec4_title1">{{ item.DifficultyName }} . {{ item.CourseDuration }}分钟</view>
 					<view class="sec4_title2">
 						<image class="sec4_img" src="/static/health/change/class_14.png"></image>
 						零碎记忆
@@ -103,7 +103,8 @@ export default {
 				}
 			],
 			tabs: [],
-			tabIndex: 45
+			tabIndex: 45,
+			id: 0
 		};
 	},
 	onLoad() {
@@ -141,6 +142,11 @@ export default {
 		orderClass() {
 			uni.navigateTo({
 				url: '/pages/course/orderClass/orderClass'
+			});
+		},
+		classDetails(id) {
+			uni.navigateTo({
+				url: '/pages/course/classDetails/classDetails?detailId=' + id
 			});
 		},
 		cliTab(index) {

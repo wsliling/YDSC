@@ -1,31 +1,55 @@
 <template>
 	<view class="gym">
 		<view class="list-1">
-			<view class="list-cell" v-for="(item, index) in 5" :key="index">
-				<view class="hd flex-start" @click="tolink('/pages/personal/VenueDetail/VenueDetail')">
-					<view class="author"><image src="/static/default.png" mode="aspectFill"></image></view>
+			<view class="list-cell" v-for="(item, index) in gymlist" :key="index">
+				<view class="hd flex-start" @click="tolink('/pages/personal/VenueDetail/VenueDetail?gymId=' + item.Id)">
+					<view class="author"><image :src="item.Logo"></image></view>
 					<view class="flex1">
 						<view class="name flex-start">
-							<text class="txt uni-ellipsis">动体能健身工作室</text>
+							<text class="txt uni-ellipsis">{{ item.StoreNick }}</text>
 							<text class="uni-icon uni-icon-arrowright fz14"></text>
 						</view>
-						<view class="fz12 c_999">距离您2.1km</view>
+						<view class="fz12 c_999">距离您{{ item.Distance }}km</view>
 					</view>
 				</view>
 				<view class="bd">
 					<scroll-view class="image-list" scroll-x="true">
-						<view class="img" v-for="(i, e) in 8" :key="e"><image src="/static/of/s1.png" mode="aspectFill"></image></view>
+						<view class="img" v-for="(items, index) in item.PicData" :key="index"><image :src="items.PicUrl"></image></view>
 					</scroll-view>
 				</view>
 			</view>
+			<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
+			<noData :isShow="noDataIsShow"></noData>
 		</view>
 	</view>
 </template>
 
 <script>
+import { post } from '@/common/util.js';
+import noData from '@/components/noData.vue'; //暂无数据
+import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
 export default {
+	components: {
+		noData,
+		uniLoadMore
+	},
 	data() {
-		return {};
+		return {
+			userId: '',
+			token: '',
+			page: 1,
+			pageSize: 5,
+			loadingType: 0, //0加载前，1加载中，2没有更多了
+			isLoad: false,
+			hasData: false,
+			noDataIsShow: false,
+			gymlist: []
+		};
+	},
+	onLoad() {
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
+		this.getGymList();
 	},
 	methods: {
 		//跳转
@@ -41,6 +65,56 @@ export default {
 					url: Url
 				});
 			}
+		},
+		//场馆列表
+		async getGymList() {
+			let result = await post('Store/GetStoreList', {
+				page: this.page,
+				pageSize: this.pageSize,
+				UserId: this.userId,
+				Token: this.token,
+				IsNewPeopleVip: 0,
+				Lat: 0,
+				Lng: 0,
+				AreaSite: ''
+			});
+			if (result.code == 0) {
+				if (result.data.length > 0) {
+					this.hasData = true;
+					this.noDataIsShow = false;
+				}
+			}
+			if (result.data.length == 0 && this.page == 1) {
+				this.noDataIsShow = true;
+				this.hasData = false;
+			}
+			if (this.page === 1) {
+				this.gymlist = result.data;
+			}
+			if (this.page > 1) {
+				this.gymlist = this.gymlist.concat(result.data);
+			}
+			if (result.data.length < this.pageSize) {
+				this.isLoad = false;
+				this.loadingType = 2;
+			} else {
+				this.isLoad = true;
+				this.loadingType = 0;
+			}
+		}
+	},
+	onPullDownRefresh() {
+		this.page = 1;
+		uni.stopPullDownRefresh();
+	},
+	// 上拉加载
+	onReachBottom: function() {
+		if (this.isLoad) {
+			this.loadingType = 1;
+			this.page++;
+			this.getGymList();
+		} else {
+			this.loadingType = 2;
 		}
 	}
 };

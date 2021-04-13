@@ -1,15 +1,15 @@
 <template>
 	<view class="orderClassDetails">
 		<view class="top">
-			<view class="photo"><image :src="orderdetail.PicImg" mode=""></image></view>
+			<view class="photo"><image :src="orderdetail.PicImg"></image></view>
 			<view class="info">
 				<view class="name">{{ orderdetail.Title }}</view>
 			</view>
-			<view class="detail">{{ orderdetail.TargetName }} | {{ orderdetail.DifficultyName }} | 60分钟</view>
+			<view class="detail">{{ orderdetail.TargetName }} | {{ orderdetail.DifficultyName }} </view>
 			<view class="info1">
-				<view class="info1_3"><image src="/static/course/course3_2.png" mode=""></image></view>
-				<view class="info1_4">可乐</view>
-				<view class="info1_1"><image src="/static/course/course5_7.png" mode=""></image></view>
+				<view class="info1_3"><image :src="orderdetail.CoachAvatar"></image></view>
+				<view class="info1_4">{{orderdetail.CoachNick}}</view>
+				<view class="info1_1"><image src="/static/course/course5_7.png"></image></view>
 				<view class="info1_2">{{ orderdetail.ApplyNum }}人已预约</view>
 			</view>
 		</view>
@@ -54,7 +54,7 @@ export default {
 		this.token = uni.getStorageSync('token');
 		this.Id = e.orderId;
 		this.getOrderDetail();
-		this.getOrderDetails();
+		// this.getOrderDetails();
 	},
 	methods: {
 		async getOrderDetail() {
@@ -67,18 +67,18 @@ export default {
 				this.orderdetail = result.data;
 			}
 		},
-		async getOrderDetails() {
-			let result = await post('Course/CourseOfflineReg', {
-				Id: this.Id,
-				UserId: this.userId,
-				Token: this.token,
-				// DateId: 0,
-				// HourId: 0
-			});
-			if (result.code == 0) {
-				this.orderdetail = result.data;
-			}
-		}
+		// async getOrderDetails() {
+		// 	let result = await post('Course/CourseOfflineReg', {
+		// 		Id: this.Id,
+		// 		UserId: this.userId,
+		// 		Token: this.token,
+		// 		// DateId: 0,
+		// 		// HourId: 0
+		// 	});
+		// 	if (result.code == 0) {
+		// 		this.orderdetail = result.data;
+		// 	}
+		// }
 	}
 };
 </script>

@@ -6,9 +6,6 @@
 			<scroll-view class="scroll-view_H b-t b-b" scroll-x>
 				<block v-for="(item, index) in dateArr" :key="index">
 					<div class="flex-box" @click="selectDateEvent(index, item)">
-						<!-- <view class="date-box" 
-						:style="{ color: index == dateActive ? selectedTabColor : '#333' }"
-						> -->
 						<view class="date-box">
 							<text class="date" :class="{ active: index == dateActive }" :style="{ color: index == dateActive ? selectedTabColor : '#333' }">{{ item.date1 }}</text>
 							<text>{{ item.week }}</text>
@@ -38,9 +35,6 @@
 			</view>
 		</view>
 		<view class="bottom" @click="pop">
-			<!-- <view class="show_time">
-				预约时间:{{ordertime}}
-			</view> -->
 			<button form-type="submit" type="default" size="mini" class="buybtn" @click="getTime">预约</button>
 			<wyb-popup ref="popup" type="center" height="490" width="600" radius="6" :showCloseIcon="true">
 				<view class="popup-content">
@@ -55,6 +49,7 @@
 </template>
 
 <script>
+import { post } from '@/common/util.js';
 import { dateData, timeData, timeStamp, currentTime } from '../utils/date.js';
 import wybPopup from '@/components/wyb-popup/wyb-popup.vue';
 export default {
@@ -112,13 +107,22 @@ export default {
 			timeActive: 0, //选中的时间索引
 			selectDate: '', //选择的日期
 			selectTime: '', //选择的时间
-			currentTime: '' //当前时分秒
+			currentTime: '', //当前时分秒
+			timeList: [],
+			Id: 0
 		};
 	},
 	created(props) {
 		this.nowdata = currentTime();
 		this.timeQuery = currentTime();
 		this.setOnload();
+		this.getDate();
+	},
+	onLoad(e) {
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
+		this.Id = e.Id;
+		this.getDate();
 	},
 	methods: {
 		pop() {
@@ -128,6 +132,16 @@ export default {
 			uni.navigateTo({
 				url: '/pages/course/now/now'
 			});
+		},
+		async getDate() {
+			let result = await post('Course/GetCourseOffineTimeList', {
+				Id: this.Id,
+				UserId: this.userId,
+				Token: this.token
+			});
+			if (result.code == 0) {
+				this.timeList = result.data;
+			}
 		},
 		setOnload() {
 			this.dateArr = dateData(); // 日期栏初始化

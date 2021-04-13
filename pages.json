@@ -852,14 +852,14 @@
 						"enablePullDownRefresh": false
 					}
 
-				}, 
+				},
 				{
 					"path": "applyPartner/applyPartner",
 					"style": {
 						"navigationBarTitleText": "申请成为合伙人",
 						"enablePullDownRefresh": false
 					}
-				}, 
+				},
 				{
 					"path": "applyPartnerSuc/applyPartnerSuc",
 					"style": {
@@ -894,7 +894,7 @@
 						"navigationBarTitleText": "我的团队",
 						"enablePullDownRefresh": false
 					}
-				}, 
+				},
 				{
 					"path": "applyShop/applyShop",
 					"style": {
@@ -902,7 +902,7 @@
 						"enablePullDownRefresh": false
 					}
 
-				}, 
+				},
 				{
 					"path": "score/score",
 					"style": {
@@ -945,17 +945,15 @@
 						"enablePullDownRefresh": false
 					}
 
+				}, {
+					"path": "inviteTwo/inviteTwo",
+					"style": {
+						"navigationBarTitleText": "邀请好友",
+						"enablePullDownRefresh": false
+					}
+
 				}
-			    ,{
-                    "path" : "inviteTwo/inviteTwo",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "邀请好友",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-            ]
+			]
 		},
 		{
 			"root": "pages/personal",
@@ -1073,13 +1071,6 @@
 		{
 			"root": "pages/course",
 			"pages": [{
-				"path": "stadium/stadium",
-				"style": {
-					"navigationBarTitleText": "场馆详情",
-					"navigationBarBackgroundColor": "#FFFFFF",
-					"navigationBarTextStyle": "black"
-				}
-			}, {
 				"path": "gym/gym",
 				"style": {
 					"navigationBarTitleText": "场馆详情",

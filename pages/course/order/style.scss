@@ -17,9 +17,12 @@
 			border-radius: 10upx;
 			background-color: white;
 			text-align: center;
-			image {
-				width: 150upx;
-				height: 150upx;
+			.list1_1 {
+				image {
+					border-radius: 50%;
+					width: 150upx;
+					height: 150upx;
+				}
 			}
 			.name {
 				font-size: 28upx;
@@ -40,6 +43,7 @@
 		.list1_1 {
 			flex: 1.5;
 			image {
+				border-radius: 50%;
 				width: 120upx;
 				height: 120upx;
 			}

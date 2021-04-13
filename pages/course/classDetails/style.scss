@@ -4,7 +4,7 @@
 		height: 20upx;
 		background-color: #f3f3f3;
 	}
-	.last_line{
+	.last_line {
 		padding-bottom: 126upx;
 	}
 	.top {
@@ -27,13 +27,14 @@
 			display: flex;
 			align-items: center;
 			.detail_1 {
-				flex: 2.8;
+				flex: 3;
 				color: #8f8f8f;
 				font-size: 26upx;
 				padding: 20upx 30upx;
 			}
 			.detail_2 {
 				flex: 1;
+				float: right;
 				color: #8f8f8f;
 				font-size: 25upx;
 				padding: 20upx 0 0 30upx;
@@ -98,6 +99,9 @@
 			line-height: 36upx;
 			color: gray;
 			margin-left: 20upx;
+			.bd {
+				color: #f0370b;
+			}
 			view {
 				font-size: 30upx;
 			}
@@ -118,7 +122,7 @@
 			border-radius: 60upx;
 			font-size: 26upx;
 			color: white;
-			height:70upx;
+			height: 70upx;
 			line-height: 70upx;
 			margin: 20upx;
 		}
@@ -129,7 +133,7 @@
 			border-radius: 60upx;
 			font-size: 26upx;
 			color: white;
-			height:70upx;
+			height: 70upx;
 			line-height: 70upx;
 			margin: 20upx;
 		}

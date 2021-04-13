@@ -6,7 +6,7 @@
 			</view>
 			<view class="list" v-if="hasData">
 				<view class="tab1" v-for="(item, index) in classlist" :key="index">
-					<view class="sec2_1"><image :src="item.PicImg"></image></view>
+					<view class="sec2_1"><image :src="item.PicImg" @click="classDetails(item.Id)"></image></view>
 				</view>
 			</view>
 			<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
@@ -36,7 +36,8 @@ export default {
 			noDataIsShow: false,
 			classlist: [],
 			tabs: [],
-			tabIndex: 45
+			tabIndex: 45,
+			id: 0
 		};
 	},
 	onLoad() {
@@ -46,6 +47,11 @@ export default {
 		this.getClassType();
 	},
 	methods: {
+		classDetails(id) {
+			uni.navigateTo({
+				url: '/pages/course/classDetails/classDetails?detailId=' + id
+			});
+		},
 		cliTab(index) {
 			this.tabIndex = index;
 			this.page = 1;

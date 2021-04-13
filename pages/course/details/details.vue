@@ -28,15 +28,38 @@
 </template>
 
 <script>
+import { post } from '@/common/util.js';
 import times from '@/components/pretty-timespicker/pretty-timespicker.vue';
 export default {
 	components: {
 		times
 	},
 	data() {
-		return {};
+		return {
+			userId: '',
+			token: '',
+			Id: '',
+			orderdetail: {}
+		};
 	},
-	methods: {}
+	onLoad(e) {
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
+		this.Id = e.coachId;
+		this.getOrderDetail();
+	},
+	methods: {
+		async getOrderDetail() {
+			let result = await post('Course/GetCourseOffline_xq', {
+				Id: this.Id,
+				UserId: this.userId,
+				Token: this.token
+			});
+			if (result.code == 0) {
+				this.orderdetail = result.data;
+			}
+		}
+	}
 };
 </script>
 

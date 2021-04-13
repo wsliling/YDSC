@@ -6,7 +6,7 @@
 			</view>
 			<view class="list" v-if="hasData">
 				<view class="con" v-for="(item, index) in orderclass" :key="index">
-					<view class="con_1"><image :src="item.PicImg" @click="classDetails(item.Id)"></image></view>
+					<view class="con_1"><image :src="item.PicImg"></image></view>
 					<view class="con_2">
 						<view class="title">{{ item.Title }}</view>
 						<view class="title_1">{{ item.TargetName }} | {{ item.DifficultyName }} | {{ item.CourseDuration }}分钟</view>
@@ -61,11 +61,6 @@ export default {
 		orderClassDetails(id) {
 			uni.navigateTo({
 				url: '/pages/course/orderClassDetails/orderClassDetails?orderId=' + id
-			});
-		},
-		classDetails(id) {
-			uni.navigateTo({
-				url: '/pages/course/classDetails/classDetails?detailId=' + id
 			});
 		},
 		cliTab(index) {

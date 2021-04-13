@@ -1,7 +1,7 @@
 <template>
 	<view class="newPer">
-		<view v-for="(item, index) in classlist" :key="index">
-			<view class="con"><image :src="item.PicImg"></image></view>
+		<view v-for="(item, index) in orderclass" :key="index">
+			<view class="con"><image :src="item.PicImg" @click="orderClassDetails(item.Id)"></image></view>
 		</view>
 		<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
 		<noData :isShow="noDataIsShow"></noData>
@@ -27,23 +27,31 @@ export default {
 			isLoad: false,
 			hasData: false,
 			noDataIsShow: false,
-			classlist: []
+			orderclass: [],
+			id: 0
 		};
 	},
 	onLoad() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
-		this.getClassList();
+		this.getOrderClass();
 	},
 	methods: {
-		async getClassList() {
-			let result = await post('Course/GetCourseOutlineList', {
+		orderClassDetails(id) {
+			uni.navigateTo({
+				url: '/pages/course/orderClassDetails/orderClassDetails?orderId=' + id
+			});
+		},
+		//预约课程列表
+		async getOrderClass() {
+			let result = await post('Course/GetCourseOfflineList', {
 				page: this.page,
 				pageSize: this.pageSize,
 				UserId: this.userId,
 				Token: this.token,
 				SearchKey: '',
 				IsNewPeopleVip: 0,
+				Ctype: this.tabIndex,
 				IsLike: 0,
 				IsRic: 0
 			});
@@ -58,11 +66,10 @@ export default {
 				this.hasData = false;
 			}
 			if (this.page === 1) {
-				this.classlist = result.data;
-				console.log(this.classlist);
+				this.orderclass = result.data;
 			}
 			if (this.page > 1) {
-				this.classlist.push(...result.data);
+				this.orderclass.push(...result.data);
 			}
 			if (result.data.length < this.pageSize) {
 				this.isLoad = false;
