@@ -7,7 +7,7 @@
 			<view class="success_2">恭喜您付款成功，您可以在个人中心- 我的课程页面查看。</view>
 			<view class="btn">
 				<view class="btn_1" @click="back">返回首页</view>
-				<view class="btn_2">查看购买课程</view>
+				<view class="btn_2" @click="buyClassList">查看购买课程</view>
 			</view>
 		</view>
 	</view>
@@ -22,6 +22,11 @@ export default {
 		back() {
 			uni.switchTab({
 				url: '/pages/tabBar/course/course'
+			});
+		},
+		buyClassList() {
+			uni.navigateTo({
+				url: '/pages/member/mycourse/mycourse'
 			});
 		}
 	}

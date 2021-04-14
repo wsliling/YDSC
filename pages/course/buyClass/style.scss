@@ -65,34 +65,6 @@
 		align-items: center;
 		text-align: center;
 		line-height: 85upx;
-		.payPic {
-			flex: 1;
-			font-size: 25upx;
-			.wx {
-				color: #4bd964;
-				font-size: 36upx;
-			}
-			.zfb {
-				color: #15a9f1;
-				font-size: 36upx;
-			}
-			.qb {
-				color: #fa6008;
-				font-size: 36upx;
-			}
-		}
-		.payWay {
-			flex: 5;
-			text-align: left;
-		}
-		.payRadio {
-			flex: 1;
-			radio-group {
-				> view {
-					transform: scale(0.8);
-				}
-			}
-		}
 	}
 	.foot {
 		display: flex;

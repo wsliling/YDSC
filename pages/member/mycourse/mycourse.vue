@@ -36,16 +36,105 @@
 </template>
 
 <script>
+import { post } from '@/common/util.js';
+import noData from '@/components/noData.vue'; //暂无数据
+import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
 export default {
+	components: {
+		noData,
+		uniLoadMore
+	},
 	data() {
 		return {
-			btnnum: 1
+			btnnum: 1,
+			userId: '',
+			token: '',
+			loadingType: 0, //0加载前，1加载中，2没有更多了
+			isLoad: false,
+			hasData: false,
+			noDataIsShow: false,
+			classlist: [],
+			buyclasslist: [],
+			id: 0
 		};
+	},
+	onLoad() {
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
+		this.getClassList();
+		this.getBuyClassList();
 	},
 	methods: {
 		change(e) {
 			this.btnnum = e;
-		}
+		},
+		//课程列表
+		async getClassList() {
+			let result = await post('Course/GetCourseOutlineList', {
+				page: this.page,
+				pageSize: this.pageSize,
+				UserId: this.userId,
+				Token: this.token,
+				SearchKey: '',
+				IsNewPeopleVip: 0,
+				Ctype: this.tabIndex,
+				IsLike: 0,
+				IsRic: 0
+			});
+			if (result.code == 0) {
+				if (result.data.length > 0) {
+					this.hasData = true;
+					this.noDataIsShow = false;
+				}
+			}
+			if (result.data.length == 0 && this.page == 1) {
+				this.noDataIsShow = true;
+				this.hasData = false;
+			}
+			if (this.page === 1) {
+				this.classlist = result.data;
+			}
+			if (this.page > 1) {
+				this.classlist = this.classlist.concat(result.data);
+			}
+			if (result.data.length < this.pageSize) {
+				this.isLoad = false;
+				this.loadingType = 2;
+			} else {
+				this.isLoad = true;
+				this.loadingType = 0;
+			}
+		},
+		//已购买课程列表
+		async getBuyClassList() {
+			let result = await post('Course/MyCourseBuyList', {
+				UserId: this.userId,
+				Token: this.token
+			});
+			if (result.code == 0) {
+				if (result.data.length > 0) {
+					this.hasData = true;
+					this.noDataIsShow = false;
+				}
+			}
+			if (result.data.length == 0 && this.page == 1) {
+				this.noDataIsShow = true;
+				this.hasData = false;
+			}
+			if (this.page === 1) {
+				this.buyclasslist = result.data;
+			}
+			if (this.page > 1) {
+				this.buyclasslist = this.buyclasslist.concat(result.data);
+			}
+			if (result.data.length < this.pageSize) {
+				this.isLoad = false;
+				this.loadingType = 2;
+			} else {
+				this.isLoad = true;
+				this.loadingType = 0;
+			}
+		},
 	}
 };
 </script>

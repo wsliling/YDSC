@@ -27,7 +27,9 @@
 		<view class="line"></view>
 		<view class="con">
 			<view class="title">训练部位</view>
-			<view class="con1_1" v-for="(item, index) in classdetails" :key="index">{{ item.TrainingSiteInfo }}</view>
+			<view class="con1_1">
+				<text v-for="(item, index) in classdetails" :key="index">{{ item.Name }}</text>
+			</view>
 		</view>
 		<view class="line"></view>
 		<view class="con">
@@ -102,7 +104,6 @@ export default {
 				this.classdetail = result.data;
 				this.classdetails = result.data.TrainingSiteInfo;
 				this.IsCollect = result.data.IsCollect;
-				console.log(this.IsCollect);
 			}
 		},
 		//添加取消收藏

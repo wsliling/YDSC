@@ -102,6 +102,7 @@ export default {
 			this.page = 1;
 			this.datalist = [];
 			this.FindList();
+			this.getGymList();
 		},
 		/*获取动态列表*/
 		async FindList() {
@@ -203,6 +204,7 @@ export default {
 		this.page = 1;
 		this.datalist = [];
 		this.FindList();
+		this.getGymList();
 		uni.stopPullDownRefresh();
 	},
 	// 上拉加载
@@ -211,6 +213,7 @@ export default {
 			this.loadingType = 1;
 			this.page++;
 			this.FindList();
+			this.getGymList();
 		} else {
 			this.loadingType = 2;
 		}

@@ -7,7 +7,7 @@
 			<view class="success_2">恭喜您兑换成功，您可以在个人中心- Y币页面查看。</view>
 			<view class="btn">
 				<view class="btn_1" @click="back">返回首页</view>
-				<view class="btn_2">查看兑换课程</view>
+				<view class="btn_2" @click="scoreRecord">查看兑换课程</view>
 			</view>
 		</view>
 	</view>
@@ -22,6 +22,11 @@ export default {
 		back() {
 			uni.switchTab({
 				url: '/pages/tabBar/course/course'
+			});
+		},
+		scoreRecord() {
+			uni.navigateTo({
+				url: '/pages/member/scoreRecord/scoreRecord'
 			});
 		}
 	}

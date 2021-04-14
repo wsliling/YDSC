@@ -5,10 +5,10 @@
 			<view class="info">
 				<view class="name">{{ orderdetail.Title }}</view>
 			</view>
-			<view class="detail">{{ orderdetail.TargetName }} | {{ orderdetail.DifficultyName }} </view>
+			<view class="detail">{{ orderdetail.TargetName }} | {{ orderdetail.DifficultyName }}</view>
 			<view class="info1">
 				<view class="info1_3"><image :src="orderdetail.CoachAvatar"></image></view>
-				<view class="info1_4">{{orderdetail.CoachNick}}</view>
+				<view class="info1_4">{{ orderdetail.CoachNick }}</view>
 				<view class="info1_1"><image src="/static/course/course5_7.png"></image></view>
 				<view class="info1_2">{{ orderdetail.ApplyNum }}人已预约</view>
 			</view>
@@ -30,7 +30,9 @@
 			</view>
 		</view>
 		<view class="line"></view>
-		<view class="time"><times></times></view>
+		<view class="time">
+			<times :reserveId="Id"></times>
+		</view>
 	</view>
 </template>
 
@@ -45,7 +47,7 @@ export default {
 		return {
 			userId: '',
 			token: '',
-			Id: '',
+			Id: 0,
 			orderdetail: {}
 		};
 	},
@@ -66,7 +68,7 @@ export default {
 			if (result.code == 0) {
 				this.orderdetail = result.data;
 			}
-		},
+		}
 		// async getOrderDetails() {
 		// 	let result = await post('Course/CourseOfflineReg', {
 		// 		Id: this.Id,

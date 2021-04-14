@@ -78,10 +78,8 @@
 			padding: 0 30upx 30upx 30upx;
 			color: #6c6c6c;
 			font-size: 28upx;
-			text {
-				color: #fa6611;
-				padding-left: 30upx;
-				font-weight: bold;
+			text:nth-of-type(1) ~ text {
+				padding-left: 20upx;
 			}
 		}
 	}

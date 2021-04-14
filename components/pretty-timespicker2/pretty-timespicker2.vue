@@ -27,7 +27,7 @@
 							>
 								<text>{{ item.time }}</text>
 								<text class="all"></text>
-								<view class="full" v-show="item.disable"><image src="/static/course/course5_8.png" mode=""></image></view>
+								<view class="full" v-show="item.disable"><image src="/static/course/course5_8.png"></image></view>
 							</view>
 						</view>
 					</block>
@@ -62,6 +62,10 @@ export default {
 		event: 'change'
 	},
 	props: {
+		reserveId: {
+			type: Number,
+			default: 1
+		},
 		disableText: {
 			//禁用显示的文本
 			type: String,
@@ -108,8 +112,7 @@ export default {
 			selectDate: '', //选择的日期
 			selectTime: '', //选择的时间
 			currentTime: '', //当前时分秒
-			timeList: [],
-			Id: 0
+			timeList: []
 		};
 	},
 	created(props) {
@@ -118,10 +121,7 @@ export default {
 		this.setOnload();
 		this.getDate();
 	},
-	onLoad(e) {
-		this.userId = uni.getStorageSync('userId');
-		this.token = uni.getStorageSync('token');
-		this.Id = e.Id;
+	onLoad() {
 		this.getDate();
 	},
 	methods: {
@@ -135,9 +135,9 @@ export default {
 		},
 		async getDate() {
 			let result = await post('Course/GetCourseOffineTimeList', {
-				Id: this.Id,
-				UserId: this.userId,
-				Token: this.token
+				Id: this.reserveId,
+				UserId: uni.getStorageSync('userId'),
+				Token: uni.getStorageSync('token')
 			});
 			if (result.code == 0) {
 				this.timeList = result.data;
@@ -175,7 +175,6 @@ export default {
 				this.ordertime = this.timeQuery;
 				this.timeActive = -1;
 			}
-
 			// 选出默认值
 			this.timeArr.some((item, index) => {
 				this.selectTime = this.timeArr[index]['time']; //默认选中的时间  15:00

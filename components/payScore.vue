@@ -6,8 +6,8 @@
 				<text class="iconfont icon-close cancle" @click="hide"></text>
 			</view>
 			<view class="pay-money">
-				<text class="font26">￥</text>
 				{{ allprice }}
+				<text class="font26">Y币</text>
 			</view>
 			<view class="pay-password">
 				<input type="number" maxlength="6" class="real-ipt" v-model="Password" :focus="true" />

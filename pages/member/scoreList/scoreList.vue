@@ -36,7 +36,6 @@ export default {
 			});
 			if (result.code == 0) {
 				this.time = result.data.SignData;
-				console.log(this.time);
 			}
 		}
 	}

@@ -27,7 +27,7 @@ export default {
 		return {
 			userId: '',
 			token: '',
-			score: []
+			score: {}
 		};
 	},
 	onLoad() {
@@ -58,7 +58,6 @@ export default {
 			});
 			if (result.code == 0) {
 				this.score = result.data;
-				console.log(this.score);
 			}
 		}
 	}
