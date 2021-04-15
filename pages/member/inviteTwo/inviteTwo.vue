@@ -12,7 +12,8 @@
 					<view class="tip">出示二维码，好友扫码注册时可建立邀请关系</view>
 				</view>
 			</view>
-			<view class="joinImg" @click="saveImg"><view>立即邀请</view></view>
+			<!-- <view class="joinImg" @click="saveImg"><view>立即邀请</view></view> -->
+			<view class="joinImg" @click="showShare"><view>立即邀请</view></view>
 			<!-- <view class=" flex bg_fff pp3 flexAlignCenter">
 				  <view class=" flex flexColumn flex1 justifyContentStart">
 					  <view class=" flex flexAlignCenter">
@@ -28,8 +29,8 @@
 		</view>
 		<!-- <view class="yy_scan font30 " @click="showShare" >点击分享</view> -->
 		<!--分享-->
-		<!-- <view class="mask" v-if="isShowShare" @click="cancelShare" @catchtouchmove="true"></view> -->
-		<!-- <view class="modal_mask flex justifyContentAround pp3" v-if="isShowShare">
+		<view class="mask" v-if="isShowShare" @click="cancelShare" @catchtouchmove="true"></view>
+		<view class="modal_mask flex justifyContentAround pp3" v-if="isShowShare">
 			 <view class="flex flexColumn flexAlignCenter" @click="sharePlus">
 				  <image src="http://jyy.wtvxin.com/static/images/icons/vy.png" alt="" class="circle_img"></image>
 				  <view class="mt1 flex1 font18">分享微信好友</view>
@@ -40,7 +41,7 @@
 					<view class="mt1 flex1 font18">分享到朋友圈</view>
 				</view>
 			 
-		  </view> -->
+		  </view>
 		<!-- 保存海报 -->
 		<view class="mask" v-if="showImg" @catchtouchmove="true"></view>
 		<!-- #ifndef H5-->
@@ -102,7 +103,7 @@ export default {
 			this.isShowShare = false;
 		},
 		sharePlus() {
-			console.log(this.codeurl, 'app分享微信好友拉！！！！！！');
+			// console.log(this.codeurl, 'app分享微信好友拉！！！！！！');
 			uni.share({
 				provider: 'weixin',
 				scene: 'WXSceneSession',
@@ -254,7 +255,7 @@ export default {
 				UserId: this.userId,
 				Token: this.token
 			}).then(res => {
-				console.log(res.data);
+				// console.log(res.data);
 				// this.tel = res.data.Mobile;
 				this.Avatar = res.data.Avatar;
 				this.NickName = res.data.NickName;
@@ -262,7 +263,7 @@ export default {
 				uni.getImageInfo({
 					src: '/static/invite.png', //服务器返回的图片地址
 					success: function(res) {
-						console.log(res.path, 'res');
+						// console.log(res.path, 'res');
 						//res.path是网络图片的本地地址
 						_this.bgurl = res.path;
 					},
@@ -293,7 +294,7 @@ export default {
 					src: this.info.InviteQRcode, //服务器返回的图片地址
 					success: function(res) {
 						//res.path是网络图片的本地地址
-						console.log(res.path, '邀请好友');
+						// console.log(res.path, '邀请好友');
 						_this.codeurl = res.path;
 					},
 					fail: function(err) {

@@ -55,6 +55,7 @@
 				</view>
 			</view>
 		</view>
+		<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
 		<noData :isShow="noDataIsShow"></noData>
 	</view>
 </template>
@@ -211,7 +212,7 @@ export default {
 				SearchKey: '',
 				IsNewPeopleVip: 0,
 				IsLike: 0,
-				IsRic: 0
+				IsRic: 1
 			});
 			if (result.code == 0) {
 				if (result.data.length > 0) {
@@ -247,6 +248,7 @@ export default {
 		if (this.isLoad) {
 			this.loadingType = 1;
 			this.page++;
+			this.getClassLike();
 		} else {
 			this.loadingType = 2;
 		}

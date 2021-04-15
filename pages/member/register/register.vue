@@ -77,8 +77,8 @@ export default {
 			});
 			if (result.code == 0) {
 				this.createSign = result.data;
+				location.reload();
 			}
-			location.reload();
 		},
 		// 签到详情
 		async signIn() {

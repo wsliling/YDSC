@@ -91,7 +91,6 @@ export default {
 			type: String,
 			default: '#fa6008'
 		},
-
 		appoTime: {
 			// 预约的时间
 			type: Array,
