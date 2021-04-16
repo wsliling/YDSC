@@ -92,19 +92,19 @@ export default {
 				this.isLoad = true;
 				this.loadingType = 0;
 			}
-		},
-		onPullDownRefresh() {
-			this.page = 1;
-			uni.stopPullDownRefresh();
-		},
-		// 上拉加载
-		onReachBottom: function() {
-			if (this.isLoad) {
-				this.loadingType = 1;
-				this.page++;
-			} else {
-				this.loadingType = 2;
-			}
+		}
+	},
+	onPullDownRefresh() {
+		this.page = 1;
+		uni.stopPullDownRefresh();
+	},
+	// 上拉加载
+	onReachBottom: function() {
+		if (this.isLoad) {
+			this.loadingType = 1;
+			this.page++;
+		} else {
+			this.loadingType = 2;
 		}
 	}
 };
