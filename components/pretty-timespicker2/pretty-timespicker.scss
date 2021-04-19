@@ -29,7 +29,6 @@
 			height: 120upx;
 			width: 14%;
 			box-sizing: border-box;
-
 			&.active {
 				.date-box {
 					border: none;
@@ -113,7 +112,7 @@
 					}
 					.full {
 						position: absolute;
-						bottom: 2upx;
+						bottom: 1upx;
 						right: 8upx;
 						image {
 							width: 40upx;

@@ -4,31 +4,31 @@
 			<view class="item" @click="change(0)" :class="{ active: btnnum == 0 }">课程</view>
 			<view class="item" @click="change(1)" :class="{ active: btnnum == 1 }">已购买</view>
 		</view>
-		<view class="list" v-if="btnnum == 0" v-for="(item, index) in 3" :key="index">
-			<view class="leftImg"><image class="img" src="/static/health/change/class_11.png"></image></view>
+		<view class="list" v-if="btnnum == 0" v-for="(item, index) in classlist" :key="index">
+			<view class="leftImg"><image class="img" :src="item.PicImg"></image></view>
 			<view class="rightContent">
-				<view class="titledetail">帕梅拉10分钟全身燃脂新燃脂分钟全身燃脂新燃脂</view>
+				<view class="titledetail">{{ item.Name }}</view>
 				<view class="time">极速燃脂.10分钟</view>
 				<view class="userinfo">
 					<view class="user">
 						<view class="header"><image class="headerImg" src="/static/health/change/class_11.png"></image></view>
 						<view class="name">零碎记忆</view>
 					</view>
-					<view class="price">￥21.98</view>
+					<view class="price">￥{{ item.Price }}</view>
 				</view>
 			</view>
 		</view>
-		<view class="list" v-if="btnnum == 1" v-for="(item, index) in 3" :key="index">
-			<view class="leftImg"><image class="img" src="/static/health/change/class_11.png"></image></view>
+		<view class="list" v-if="btnnum == 1" v-for="(item, index) in buyclasslist" :key="index">
+			<view class="leftImg"><image class="img" :src="item.PicImg"></image></view>
 			<view class="rightContent">
-				<view class="titledetail">帕梅拉10分钟全身燃脂新燃脂分钟全身燃脂新燃脂</view>
+				<view class="titledetail">{{ item.Name }}</view>
 				<view class="time">极速燃脂.10分钟</view>
 				<view class="userinfo">
 					<view class="user">
 						<view class="header"><image class="headerImg" src="/static/health/change/class_11.png"></image></view>
 						<view class="name">零碎记忆</view>
 					</view>
-					<view class="price">￥21.98</view>
+					<view class="price">￥{{ item.Price }}</view>
 				</view>
 			</view>
 		</view>
@@ -70,39 +70,12 @@ export default {
 		},
 		//课程列表
 		async getClassList() {
-			let result = await post('Course/GetCourseOutlineList', {
-				page: this.page,
-				pageSize: this.pageSize,
+			let result = await post('Course/MemberViewCourseList', {
 				UserId: this.userId,
-				Token: this.token,
-				SearchKey: '',
-				IsNewPeopleVip: 0,
-				Ctype: this.tabIndex,
-				IsLike: 0,
-				IsRic: 0
+				Token: this.token
 			});
 			if (result.code == 0) {
-				if (result.data.length > 0) {
-					this.hasData = true;
-					this.noDataIsShow = false;
-				}
-			}
-			if (result.data.length == 0 && this.page == 1) {
-				this.noDataIsShow = true;
-				this.hasData = false;
-			}
-			if (this.page === 1) {
 				this.classlist = result.data;
-			}
-			if (this.page > 1) {
-				this.classlist = this.classlist.concat(result.data);
-			}
-			if (result.data.length < this.pageSize) {
-				this.isLoad = false;
-				this.loadingType = 2;
-			} else {
-				this.isLoad = true;
-				this.loadingType = 0;
 			}
 		},
 		//已购买课程列表
@@ -112,29 +85,9 @@ export default {
 				Token: this.token
 			});
 			if (result.code == 0) {
-				if (result.data.length > 0) {
-					this.hasData = true;
-					this.noDataIsShow = false;
-				}
-			}
-			if (result.data.length == 0 && this.page == 1) {
-				this.noDataIsShow = true;
-				this.hasData = false;
-			}
-			if (this.page === 1) {
 				this.buyclasslist = result.data;
 			}
-			if (this.page > 1) {
-				this.buyclasslist = this.buyclasslist.concat(result.data);
-			}
-			if (result.data.length < this.pageSize) {
-				this.isLoad = false;
-				this.loadingType = 2;
-			} else {
-				this.isLoad = true;
-				this.loadingType = 0;
-			}
-		},
+		}
 	}
 };
 </script>

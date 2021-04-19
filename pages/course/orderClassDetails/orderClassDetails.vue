@@ -30,9 +30,7 @@
 			</view>
 		</view>
 		<view class="line"></view>
-		<view class="time">
-			<times :reserveId="Id"></times>
-		</view>
+		<view class="time"><times :reserveId="Id" :jsonData="orderdetail.DateList"></times></view>
 	</view>
 </template>
 

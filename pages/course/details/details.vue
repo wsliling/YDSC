@@ -50,8 +50,8 @@ export default {
 	},
 	methods: {
 		async getOrderDetail() {
-			let result = await post('Course/GetCourseOffline_xq', {
-				Id: this.Id,
+			let result = await post('Course/GetRegCoach_xq', {
+				OrderNo: this.Id,
 				UserId: this.userId,
 				Token: this.token
 			});

@@ -10,7 +10,7 @@
 				<view class="detail_2">{{ classdetail.Hits }}人看过</view>
 			</view>
 			<view class="info1">
-				<view class="info1_3"><image :src="classdetail.StoreLogo"></image></view>
+				<view class="info1_3" @click="tolink('/pages/personal/VenueDetail/VenueDetail?gymId=' + classdetail.StoreId)"><image :src="classdetail.StoreLogo"></image></view>
 				<view class="info1_4">{{ classdetail.StoreNick }}</view>
 				<view class="info1_2">关注</view>
 			</view>
@@ -56,8 +56,8 @@
 				<view class="iconfont icon-share"></view>
 				分享
 			</view>
-			<view class="foot_3" @click="scoreExchane(classdetail.Id)">{{ classdetail.Score }}Y币兑换</view>
-			<view class="foot_4" @click="buyClass(classdetail.Id)">￥{{ classdetail.Price }}购买</view>
+			<view class="foot_3" @click="tolink('/pages/course/scoreExchange/scoreExchange?classId=' + classdetail.Id)">{{ classdetail.Score }}Y币兑换</view>
+			<view class="foot_4" @click="tolink('/pages/course/buyClass/buyClass?classId=' + classdetail.Id)">￥{{ classdetail.Price }}购买</view>
 		</view>
 	</view>
 </template>
@@ -83,15 +83,19 @@ export default {
 		this.getClassDetail();
 	},
 	methods: {
-		scoreExchane(id) {
-			uni.navigateTo({
-				url: '/pages/course/scoreExchange/scoreExchange?classId=' + id
-			});
-		},
-		buyClass(id) {
-			uni.navigateTo({
-				url: '/pages/course/buyClass/buyClass?classId=' + id
-			});
+		//跳转
+		tolink(Url, islogin) {
+			if (islogin == 'login') {
+				if (toLogin()) {
+					uni.navigateTo({
+						url: Url
+					});
+				}
+			} else {
+				uni.navigateTo({
+					url: Url
+				});
+			}
 		},
 		// 课程详情
 		async getClassDetail() {

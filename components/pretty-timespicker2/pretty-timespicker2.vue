@@ -4,11 +4,21 @@
 			<!-- 日期列表 -->
 			<view class="class">排课时间</view>
 			<scroll-view class="scroll-view_H b-t b-b" scroll-x>
-				<block v-for="(item, index) in dateArr" :key="index">
+				<!-- <block v-for="(item, index) in dateArr" :key="index">
 					<div class="flex-box" @click="selectDateEvent(index, item)">
 						<view class="date-box">
 							<text class="date" :class="{ active: index == dateActive }" :style="{ color: index == dateActive ? selectedTabColor : '#333' }">{{ item.date1 }}</text>
 							<text>{{ item.week }}</text>
+						</view>
+					</div>
+				</block> -->
+				<block v-for="(item, index) in jsonData" :key="index">
+					<div class="flex-box" @click="selectDateEvent(index, item)">
+						<view class="date-box">
+							<text class="date" :class="{ active: index == dateActive }" :style="{ color: index == dateActive ? selectedTabColor : '#333' }">
+								{{ item.DateDay }}
+							</text>
+							<text>{{ item.DayWeek }}</text>
 						</view>
 					</div>
 				</block>
@@ -17,7 +27,7 @@
 			<view class="time-box_1">
 				<view class="begin">课程时长60分钟(请选择起始时问)</view>
 				<view class="time-box">
-					<block v-for="(item, _index) in timeArr" :key="_index">
+					<!-- <block v-for="(item, _index) in timeArr" :key="_index">
 						<view class="item">
 							<view
 								class="item-box"
@@ -30,6 +40,22 @@
 								<view class="full" v-show="item.disable"><image src="/static/course/course5_8.png"></image></view>
 							</view>
 						</view>
+					</block> -->
+					<block v-for="(items, index) in jsonData" :key="index">
+						<block v-for="(item, _index) in items.TimeList" :key="_index">
+							<view class="item">
+								<view
+									class="item-box"
+									:class="{ disable: item.IsFull == 1, active: _index == timeActive }"
+									:style="{ color: _index == timeActive ? selectedItemColor : '#333' }"
+									@click="selectTimeEvent(_index, item)"
+								>
+									<text>{{ item.TimeSpan }}</text>
+									<text class="all"></text>
+									<view class="full" v-show="item.IsFull == 1"><image src="/static/course/course5_8.png"></image></view>
+								</view>
+							</view>
+						</block>
 					</block>
 				</view>
 			</view>
@@ -63,8 +89,14 @@ export default {
 	},
 	props: {
 		reserveId: {
-			type: Number,
-			default: 1
+			type: String,
+			default: ''
+		},
+		jsonData: {
+			type: Array,
+			default() {
+				return [];
+			}
 		},
 		disableText: {
 			//禁用显示的文本
@@ -110,18 +142,17 @@ export default {
 			timeActive: 0, //选中的时间索引
 			selectDate: '', //选择的日期
 			selectTime: '', //选择的时间
-			currentTime: '', //当前时分秒
-			timeList: []
+			currentTime: '' //当前时分秒
 		};
 	},
 	created(props) {
 		this.nowdata = currentTime();
 		this.timeQuery = currentTime();
-		this.setOnload();
+		// this.setOnload();
 		this.getDate();
 	},
 	onLoad() {
-		this.getDate();
+		// this.getDate();
 	},
 	methods: {
 		pop() {
@@ -132,16 +163,17 @@ export default {
 				url: '/pages/course/now/now'
 			});
 		},
-		async getDate() {
-			let result = await post('Course/GetCourseOffineTimeList', {
-				Id: this.reserveId,
-				UserId: uni.getStorageSync('userId'),
-				Token: uni.getStorageSync('token')
-			});
-			if (result.code == 0) {
-				this.timeList = result.data;
-			}
-		},
+		// async getDate() {
+		// 	let result = await post('Course/GetCourseOffineTimeList', {
+		// 		Id: this.reserveId,
+		// 		UserId: uni.getStorageSync('userId'),
+		// 		Token: uni.getStorageSync('token')
+		// 	});
+		// 	if (result.code == 0) {
+		// 		console.log(this.jsonData);
+		// 		// this.timeList = result.data;
+		// 	}
+		// },
 		setOnload() {
 			this.dateArr = dateData(); // 日期栏初始化
 			this.timeArr = timeData('08:00:00', '22:00:00', 2); //时间选项初始化

@@ -7,11 +7,11 @@
 				<view class="name">{{ item.UserNick }}</view>
 				<view class="num">{{ item.ApplyNum }}人预约过</view>
 			</view>
-			<view class="list">
-				<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
-				<noData :isShow="noDataIsShow"></noData>
-			</view>
 		</view>
+		<!-- <view class="list">
+			<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
+			<noData :isShow="noDataIsShow"></noData>
+		</view> -->
 		<view class="title">全部教练</view>
 		<view class="list1" v-for="(item, index) in coachlist" :key="index">
 			<view class="list1_1"><image :src="item.Avatar"></image></view>
