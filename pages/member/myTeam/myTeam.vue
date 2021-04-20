@@ -107,10 +107,10 @@ export default {
 		};
 	},
 	onLoad() {
-		this.userId = uni.getStorageSync('userId');
-		this.token = uni.getStorageSync('token');
 	},
 	onShow() {
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
 		this.init();
 	},
 	methods: {
@@ -119,15 +119,13 @@ export default {
 				UserId: this.userId,
 				Token: this.token,
 				Page: this.page,
-				// PageSize:this.pageSize,
+				PageSize:this.pageSize,
 				Type: this.selIndex
 			});
 			if (result.code == 0) {
 				this.data = result.data;
-				// console.log(this.data);
 				this.TeamList = this.data.TeamList;
 				this.FatherData = this.data.FatherData;
-				// console.log(this.TeamList===[])
 				if (this.data.TeamNum == 0) {
 					this.noData = true;
 					this.dataMore = false;

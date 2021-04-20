@@ -3,7 +3,7 @@
 		<view class="sec">
 			<view class="sec1">
 				<view class="sec_1">积分</view>
-				<view class="sec_2">{{score.SumScore}}</view>
+				<view class="sec_2">{{ scoreAll }}</view>
 			</view>
 			<view class="sec2" @click="register">每日签到</view>
 		</view>
@@ -27,13 +27,16 @@ export default {
 		return {
 			userId: '',
 			token: '',
-			score: {}
+			score: 0,
+			Score: 0, //会员积分
+			scoreAll: 0
 		};
 	},
 	onLoad() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
 		this.signIn();
+		this.GetMemInfo();
 	},
 	methods: {
 		scoreList() {
@@ -57,7 +60,18 @@ export default {
 				Token: this.token
 			});
 			if (result.code == 0) {
-				this.score = result.data;
+				this.score = result.data.SumScore;
+			}
+		},
+		//获取账户积分信息
+		async GetMemInfo() {
+			let result = await post('User/GetMemInfo', {
+				UserId: this.userId,
+				Token: this.token
+			});
+			if (result.code == 0) {
+				this.Score = result.data.Score;
+				this.scoreAll = this.score + this.Score;
 			}
 		}
 	}

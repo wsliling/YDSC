@@ -43,9 +43,12 @@
 			}
 			.info1_1 {
 				flex: 3;
+				text-align: right;
+				margin-right: 20upx;
 				image {
-					height: 60upx;
-					width: 300upx;
+					border-radius: 50%;
+					height: 50upx;
+					width: 50upx;
 				}
 			}
 			.info1_2 {

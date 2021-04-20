@@ -9,7 +9,7 @@
 			<view class="info1">
 				<view class="info1_3"><image :src="orderdetail.CoachAvatar"></image></view>
 				<view class="info1_4">{{ orderdetail.CoachNick }}</view>
-				<view class="info1_1"><image src="/static/course/course5_7.png"></image></view>
+				<view class="info1_1"><image :src="orderdetail.RegUser||'/static/default.png'"></image></view>
 				<view class="info1_2">{{ orderdetail.ApplyNum }}人已预约</view>
 			</view>
 		</view>
@@ -30,7 +30,7 @@
 			</view>
 		</view>
 		<view class="line"></view>
-		<view class="time"><times :reserveId="Id" :jsonData="orderdetail.DateList"></times></view>
+		<view class="time"><times v-if="hasDate" :reserveId="Id" :jsonData="orderdetail.DateList"></times></view>
 	</view>
 </template>
 
@@ -46,7 +46,8 @@ export default {
 			userId: '',
 			token: '',
 			Id: 0,
-			orderdetail: {}
+			orderdetail: {},
+			hasDate:false
 		};
 	},
 	onLoad(e) {
@@ -65,6 +66,8 @@ export default {
 			});
 			if (result.code == 0) {
 				this.orderdetail = result.data;
+				this.hasDate=true
+				
 			}
 		}
 		// async getOrderDetails() {

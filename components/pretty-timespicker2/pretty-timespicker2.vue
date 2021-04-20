@@ -12,7 +12,7 @@
 						</view>
 					</div>
 				</block> -->
-				<block v-for="(item, index) in jsonData" :key="index">
+				<block v-for="(item, index) in dateArr" :key="index">
 					<div class="flex-box" @click="selectDateEvent(index, item)">
 						<view class="date-box">
 							<text class="date" :class="{ active: index == dateActive }" :style="{ color: index == dateActive ? selectedTabColor : '#333' }">
@@ -41,21 +41,19 @@
 							</view>
 						</view>
 					</block> -->
-					<block v-for="(items, index) in jsonData" :key="index">
-						<block v-for="(item, _index) in items.TimeList" :key="_index">
-							<view class="item">
-								<view
-									class="item-box"
-									:class="{ disable: item.IsFull == 1, active: _index == timeActive }"
-									:style="{ color: _index == timeActive ? selectedItemColor : '#333' }"
-									@click="selectTimeEvent(_index, item)"
-								>
-									<text>{{ item.TimeSpan }}</text>
-									<text class="all"></text>
-									<view class="full" v-show="item.IsFull == 1"><image src="/static/course/course5_8.png"></image></view>
-								</view>
+					<block v-for="(item, _index) in timeArr" :key="_index">
+						<view class="item">
+							<view
+								class="item-box"
+								:class="{ disable: item.IsFull == 1, active: _index == timeActive }"
+								:style="{ color: _index == timeActive ? selectedItemColor : '#333' }"
+								@click="selectTimeEvent(_index, item)"
+							>
+								<text>{{ item.TimeSpan }}</text>
+								<text class="all"></text>
+								<view class="full" v-show="item.IsFull == 1"><image src="/static/course/course5_8.png"></image></view>
 							</view>
-						</block>
+						</view>
 					</block>
 				</view>
 			</view>
@@ -148,12 +146,13 @@ export default {
 	created(props) {
 		this.nowdata = currentTime();
 		this.timeQuery = currentTime();
-		// this.setOnload();
-		this.getDate();
-	},
-	onLoad() {
+		this.dateArr = this.jsonData;
+		this.timeArr = this.dateArr[0].TimeList;
+		this.selectTime = this.timeArr[0].TimeSpan; //默认选中的时间
+		this.setOnload();
 		// this.getDate();
 	},
+	onLoad() {},
 	methods: {
 		pop() {
 			this.$refs.popup.show(); // 显示
@@ -170,43 +169,42 @@ export default {
 		// 		Token: uni.getStorageSync('token')
 		// 	});
 		// 	if (result.code == 0) {
-		// 		console.log(this.jsonData);
 		// 		// this.timeList = result.data;
 		// 	}
 		// },
 		setOnload() {
-			this.dateArr = dateData(); // 日期栏初始化
-			this.timeArr = timeData('08:00:00', '22:00:00', 2); //时间选项初始化
-			this.selectDate = `${this.dateArr[this.dateActive]['date']}`; //默认选中的日期
-			this.currentTime = timeStamp(Date.now()).hour; //当前时分秒
-			let ifFullTime = true;
-			this.timeArr.forEach((item, index) => {
-				if (this.timeQuery == this.nowdata) {
-					//判断是当前这一天
-					if (this.currentTime > item.time) {
-						//选中时间小于当前时间则禁用
+		// this.dateArr = dateData(); // 日期栏初始化
+		// this.timeArr = timeData('08:00:00', '22:00:00', 2); //时间选项初始化
+		this.selectDate = `${this.dateArr[this.dateActive]['date']}`; //默认选中的日期
+		this.currentTime = timeStamp(Date.now()).hour; //当前时分秒
+		let ifFullTime = true;
+		this.timeArr.forEach((item, index) => {
+			if (this.timeQuery == this.nowdata) {
+				//判断是当前这一天
+				if (this.currentTime > item.time) {
+					//选中时间小于当前时间则禁用
+					item.disable = 1;
+				}
+			}
+			// 将预约的时间禁用
+			this.appoTime.forEach(items => {
+				// console.log(items.split(' ')[0], this.selectDate);
+				if (items.split(' ')[0] == this.selectDate) {
+					if (item.time == items.split(' ')[1]) {
 						item.disable = 1;
 					}
 				}
-				// 将预约的时间禁用
-				this.appoTime.forEach(items => {
-					// console.log(items.split(' ')[0], this.selectDate);
-					if (items.split(' ')[0] == this.selectDate) {
-						if (item.time == items.split(' ')[1]) {
-							item.disable = 1;
-						}
-					}
-				});
-				if (item.disable == 0) {
-					// 判断是否当前日期时间都被预约
-					ifFullTime = false;
-				}
 			});
-			if (ifFullTime) {
-				this.ordertime = this.timeQuery;
-				this.timeActive = -1;
+			if (item.disable == 0) {
+				// 判断是否当前日期时间都被预约
+				ifFullTime = false;
 			}
-			// 选出默认值
+		});
+		if (ifFullTime) {
+			this.ordertime = this.timeQuery;
+			this.timeActive = -1;
+		}
+		// 选出默认值
 			this.timeArr.some((item, index) => {
 				this.selectTime = this.timeArr[index]['time']; //默认选中的时间  15:00
 				this.ordertime = this.timeQuery + ' ' + this.selectTime;
@@ -216,14 +214,13 @@ export default {
 		},
 		selectDateEvent(index, item) {
 			this.dateActive = index;
-			this.timeArr = [];
+			this.timeArr = item.TimeList;
 			this.timeQuery = item.date;
 			this.selectDate = `${this.dateArr[index]['date']}`;
 			this.setOnload();
 		},
-
 		selectTimeEvent(index, item) {
-			if (item.disable) return;
+			if (item.IsFull == 1) return;
 			this.timeActive = index;
 			this.selectTime = this.timeArr[index]['time'];
 			this.ordertime = this.timeQuery + ' ' + item.time;
@@ -237,7 +234,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import './pretty-timespicker.scss';
-
 page {
 	height: 100%;
 }
@@ -254,17 +250,6 @@ page {
 	width: 100%;
 	background-color: #f3f3f3;
 }
-
-// .show_time {
-// 	width: 70%;
-// 	height: 47px;
-// 	color: #505050;
-// 	background-color: #f3f3f3;
-// 	font-size: 15px;
-// 	line-height: 47px;
-// 	text-align: center;
-// }
-
 .buybtn {
 	width: 90%;
 	height: 80upx;
