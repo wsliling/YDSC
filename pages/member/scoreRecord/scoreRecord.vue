@@ -49,7 +49,6 @@ export default {
 			});
 			if (result.code == 0) {
 				this.changelist = result.data;
-				console.log(this.changelist);
 			}
 		}
 	}

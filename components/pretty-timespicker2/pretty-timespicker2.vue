@@ -63,8 +63,8 @@
 			<wyb-popup ref="popup" type="center" height="490" width="600" radius="6" :showCloseIcon="true">
 				<view class="popup-content">
 					<view class="title">预约信息</view>
-					<view class="name"><input type="text" placeholder="姓名" /></view>
-					<view class="phone"><input type="text" placeholder="手机号码" /></view>
+					<view class="name"><input type="text" v-model="name" placeholder="姓名" /></view>
+					<view class="phone"><input type="text" v-model="tel" placeholder="手机号码" /></view>
 					<view class="now" @click="now">立即预约</view>
 				</view>
 			</wyb-popup>
@@ -73,7 +73,7 @@
 </template>
 
 <script>
-import { post } from '@/common/util.js';
+import { post, valPhone } from '@/common/util.js';
 import { dateData, timeData, timeStamp, currentTime } from '../utils/date.js';
 import wybPopup from '@/components/wyb-popup/wyb-popup.vue';
 export default {
@@ -140,7 +140,9 @@ export default {
 			timeActive: 0, //选中的时间索引
 			selectDate: '', //选择的日期
 			selectTime: '', //选择的时间
-			currentTime: '' //当前时分秒
+			currentTime: '', //当前时分秒
+			name: '',
+			tel: ''
 		};
 	},
 	created(props) {
@@ -158,9 +160,10 @@ export default {
 			this.$refs.popup.show(); // 显示
 		},
 		now() {
-			uni.navigateTo({
-				url: '/pages/course/now/now'
-			});
+			// uni.navigateTo({
+			// 	url: '/pages/course/now/now'
+			// });
+			this.getNow();
 		},
 		// async getDate() {
 		// 	let result = await post('Course/GetCourseOffineTimeList', {
@@ -169,42 +172,54 @@ export default {
 		// 		Token: uni.getStorageSync('token')
 		// 	});
 		// 	if (result.code == 0) {
-		// 		// this.timeList = result.data;
+		// 		this.timeList = result.data;
 		// 	}
 		// },
-		setOnload() {
-		// this.dateArr = dateData(); // 日期栏初始化
-		// this.timeArr = timeData('08:00:00', '22:00:00', 2); //时间选项初始化
-		this.selectDate = `${this.dateArr[this.dateActive]['date']}`; //默认选中的日期
-		this.currentTime = timeStamp(Date.now()).hour; //当前时分秒
-		let ifFullTime = true;
-		this.timeArr.forEach((item, index) => {
-			if (this.timeQuery == this.nowdata) {
-				//判断是当前这一天
-				if (this.currentTime > item.time) {
-					//选中时间小于当前时间则禁用
-					item.disable = 1;
-				}
+		async getNow() {
+			let result = await post('Course/CourseOfflineReg', {
+				Id: this.reserveId,
+				UserId: uni.getStorageSync('userId'),
+				Token: uni.getStorageSync('token'),
+				DateId: this.selectDate.Id,
+				HourId: this.selectTime
+			});
+			if (result.code == 0) {
+				this.timeList = result.data;
 			}
-			// 将预约的时间禁用
-			this.appoTime.forEach(items => {
-				// console.log(items.split(' ')[0], this.selectDate);
-				if (items.split(' ')[0] == this.selectDate) {
-					if (item.time == items.split(' ')[1]) {
+		},
+		setOnload() {
+			// this.dateArr = dateData(); // 日期栏初始化
+			// this.timeArr = timeData('08:00:00', '22:00:00', 2); //时间选项初始化
+			this.selectDate = `${this.dateArr[this.dateActive]['date']}`; //默认选中的日期
+			this.currentTime = timeStamp(Date.now()).hour; //当前时分秒
+			let ifFullTime = true;
+			this.timeArr.forEach((item, index) => {
+				if (this.timeQuery == this.nowdata) {
+					//判断是当前这一天
+					if (this.currentTime > item.time) {
+						//选中时间小于当前时间则禁用
 						item.disable = 1;
 					}
 				}
+				// 将预约的时间禁用
+				this.appoTime.forEach(items => {
+					// console.log(items.split(' ')[0], this.selectDate);
+					if (items.split(' ')[0] == this.selectDate) {
+						if (item.time == items.split(' ')[1]) {
+							item.disable = 1;
+						}
+					}
+				});
+				if (item.disable == 0) {
+					// 判断是否当前日期时间都被预约
+					ifFullTime = false;
+				}
 			});
-			if (item.disable == 0) {
-				// 判断是否当前日期时间都被预约
-				ifFullTime = false;
+			if (ifFullTime) {
+				this.ordertime = this.timeQuery;
+				this.timeActive = -1;
 			}
-		});
-		if (ifFullTime) {
-			this.ordertime = this.timeQuery;
-			this.timeActive = -1;
-		}
-		// 选出默认值
+			// 选出默认值
 			this.timeArr.some((item, index) => {
 				this.selectTime = this.timeArr[index]['time']; //默认选中的时间  15:00
 				this.ordertime = this.timeQuery + ' ' + this.selectTime;
@@ -216,13 +231,15 @@ export default {
 			this.dateActive = index;
 			this.timeArr = item.TimeList;
 			this.timeQuery = item.date;
-			this.selectDate = `${this.dateArr[index]['date']}`;
+			this.selectDate = `${this.dateArr[index]}`;
+			// this.selectDate = `${this.dateArr[index]['date']}`;
 			this.setOnload();
 		},
 		selectTimeEvent(index, item) {
 			if (item.IsFull == 1) return;
 			this.timeActive = index;
-			this.selectTime = this.timeArr[index]['time'];
+			this.selectTime = this.timeArr[index];
+			// this.selectTime = this.timeArr[index]['time'];
 			this.ordertime = this.timeQuery + ' ' + item.time;
 		},
 		getTime() {

@@ -31,7 +31,8 @@
 			</view>
 		</view>
 		<view class="list" v-if="hasData">
-			<block v-for="(item, index) in datalist" :key="index"><mediaList :datajson="item" Grid="3" @click="goDetail"></mediaList></block>
+			<block v-for="(item, index) in datalist" :key="index">
+				<mediaList :datajson="item" Grid="3" @click="goDetail"></mediaList></block>
 		</view>
 		<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
 		<noData :isShow="noDataIsShow"></noData>
@@ -137,7 +138,7 @@ export default {
 		//链接动态详情页
 		goDetail(e) {
 			uni.navigateTo({
-				url: '/pages/personal/replylist/replylist?id=' + e.id
+				url: '/pages/personal/replylistTopic/replylist?id=' + e.id
 			});
 		}
 	},

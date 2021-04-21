@@ -9,8 +9,8 @@
 			<view class="cen">
 				<view class="total">已累计签到</view>
 				<view class="total_1">
-					<view class="total_1_1">0</view>
-					<view class="total_1_1">0</view>
+					<!-- <view class="total_1_1">0</view> -->
+					<!-- <view class="total_1_1">0</view> -->
 					<view class="total_1_1">{{ score.SignDayNum }}</view>
 					<view class="total_1_2">天</view>
 				</view>
@@ -138,7 +138,7 @@ export default {
 				margin: 30upx;
 			}
 			.total_1 {
-				width: 55%;
+				width: 30%;
 				margin: 0 auto;
 				display: flex;
 				align-items: baseline;

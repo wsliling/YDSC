@@ -26,7 +26,8 @@ export default {
 			userId: '',
 			token: '',
 			checkId: 0,
-			topiclist: []
+			topiclist: [],
+			topic: ''
 		};
 	},
 	onShow() {
@@ -37,6 +38,13 @@ export default {
 	methods: {
 		checkTopic(id) {
 			this.checkId = id;
+			this.topic = uni.setStorageSync('topic', this.topiclist[id].Title);
+			this.topicId = uni.setStorageSync('topicId', this.topiclist[id].Id);
+			setTimeout(function() {
+				uni.navigateTo({
+					url: '/pages/personal/artPost/topicPost'
+				});
+			}, 300);
 		},
 		/*获取话题详情*/
 		async getTopicList() {

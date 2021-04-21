@@ -976,6 +976,20 @@
 							"scrollIndicator": "none" //不显示滚动条
 						}
 					}
+				}, {
+					"path": "replylistTopic/replylist",
+					"style": {
+						"navigationBarTitleText": "详情",
+						"enablePullDownRefresh": true,
+						"app-plus": {
+							"pullToRefresh": {
+								"support": true,
+								"color": "#FF3737", //小圈圈的颜色
+								"style": "circle" //小圈圈的样式
+							},
+							"scrollIndicator": "none" //不显示滚动条
+						}
+					}
 				},
 				{
 					"path": "chat/chat",
@@ -1031,7 +1045,8 @@
 					"style": {
 						"navigationBarTitleText": "发布话题"
 					}
-				}, {
+				}, 
+				{
 					"path": "addtopic/addtopic",
 					"style": {
 						"navigationBarTitleText": "添加话题",

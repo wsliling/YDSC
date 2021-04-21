@@ -35,24 +35,25 @@
 					<text class="iconfont icon-ziyuan131 mr1"></text>
 					添加话题
 				</view>
-				<view class="topicTitle c_theme">#<text class="uni-ellipsis">2021我的运动计划</text>#</view>
+				<view class="topicTitle c_theme">
+					<text class="uni-ellipsis">{{ topic }}</text>
+				</view>
 				<text class="uni-icon uni-icon-arrowright fz14"></text>
 			</view>
 		</form>
 		<!--底部-->
 		<view style="height: 110upx;"></view>
 		<view class="fixedbtn" style="background: #f5f5f5;"><view class="btn" @click="Submit">发布</view></view>
-		
 	</view>
 </template>
 
 <script>
-import { host, post, get, formatLocation, formatTime, toLogin,debounce,permision } from '@/common/util.js';
-import { pathToBase64} from '@/common/image-tools.js';
+import { host, post, get, formatLocation, formatTime, toLogin, debounce, permision } from '@/common/util.js';
+import { pathToBase64 } from '@/common/image-tools.js';
 export default {
 	data() {
 		return {
-			showmsk:0,
+			showmsk: 0,
 			userId: '',
 			token: '',
 			hasLocation: false,
@@ -74,9 +75,11 @@ export default {
 	onLoad(e) {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
+		this.topic = uni.getStorageSync('topic');
+		this.topicId = uni.getStorageSync('topicId');
 	},
 	onShow() {
-		this.showmsk=uni.getStorageSync("showmsk2")||1;
+		this.showmsk = uni.getStorageSync('showmsk2') || 1;
 		this.quanxian();
 	},
 	onUnload() {
@@ -85,13 +88,13 @@ export default {
 	methods: {
 		// 判断是否已开启权限
 		async quanxian() {
-			let platform = uni.getSystemInfoSync()&&uni.getSystemInfoSync().platform;
+			let platform = uni.getSystemInfoSync() && uni.getSystemInfoSync().platform;
 			switch (uni.getSystemInfoSync().platform) {
 				case 'android':
 					var res = await permision.requestAndroidPermission('android.permission.WRITE_EXTERNAL_STORAGE');
-					if(res == 1){//已经获取授权开始
-						
-					}else{
+					if (res == 1) {
+						//已经获取授权开始
+					} else {
 						uni.showToast({
 							title: '请先开启相册权限',
 							icon: 'none',
@@ -101,50 +104,50 @@ export default {
 						});
 					}
 					break;
-		
+
 				case 'ios':
 					var iosresult = await permision.judgeIosPermission('camera');
 					var iosres = await permision.judgeIosPermission('photoLibrary');
-					if(iosresult&& iosres){//已经获取授权
-						
-					}else if ((!iosres)||(!iosresult)) {
-						uni.showModal({  
-							content: '请先开启相机和相册权限！',  
-							confirmText: '设置',  
-							success: res => {  
-								if(res.confirm) {  
-									plus.runtime.openURL('app-settings://')  
-								} else {  
-									uni.navigateBack({  
-										delta: 1  
-									})  
-								}  
-							}  
-						}); 
+					if (iosresult && iosres) {
+						//已经获取授权
+					} else if (!iosres || !iosresult) {
+						uni.showModal({
+							content: '请先开启相机和相册权限！',
+							confirmText: '设置',
+							success: res => {
+								if (res.confirm) {
+									plus.runtime.openURL('app-settings://');
+								} else {
+									uni.navigateBack({
+										delta: 1
+									});
+								}
+							}
+						});
 					}
-				break;
+					break;
 			}
 		},
-		toback(){
-			uni.navigateBack()
+		toback() {
+			uni.navigateBack();
 		},
-		showmskFn(){
-			this.showmsk=2;
-			uni.setStorageSync("showmsk2",2)
+		showmskFn() {
+			this.showmsk = 2;
+			uni.setStorageSync('showmsk2', 2);
 		},
 		//跳转
 		tolink(Url) {
 			uni.navigateTo({
 				url: Url
-			})
+			});
 		},
 		async chooseImage() {
-			let _this=this;
+			let _this = this;
 			uni.chooseImage({
 				count: this.imageList.length + this.count[this.countIndex] > 9 ? 9 - this.imageList.length : this.count[this.countIndex],
 				sizeType: ['compressed'],
 				sourceType: ['album', 'camera'],
-				success:async res => {
+				success: async res => {
 					// tempFilePath可以作为img标签的src属性显示图片
 					//let tempFilePaths = res.tempFilePaths[0];
 					_this.imageList = _this.imageList.concat(res.tempFilePaths);
@@ -185,15 +188,17 @@ export default {
 			//#endif
 			// #ifdef APP-PLUS
 			this.$showModal({
-				content: "已经有9张图片了,是否清空现有图片？",
-			}).then(_res=>{
-				this.imageList = [];
-				res(true);
-				//确认
-			  }).catch(_res=>{
-				//取消
-				res(false)
-			  })
+				content: '已经有9张图片了,是否清空现有图片？'
+			})
+				.then(_res => {
+					this.imageList = [];
+					res(true);
+					//确认
+				})
+				.catch(_res => {
+					//取消
+					res(false);
+				});
 			// #endif
 		},
 		previewImage: function(e) {
@@ -226,8 +231,7 @@ export default {
 		getLocationInfo() {
 			uni.chooseLocation({
 				success: res => {
-					console.log(res)
-					(this.hasLocation = true), (this.location = formatLocation(res.longitude, res.latitude)), (this.locationAddress = res.address);
+					console.log(res)((this.hasLocation = true)), (this.location = formatLocation(res.longitude, res.latitude)), (this.locationAddress = res.address);
 				}
 			});
 		},
@@ -272,11 +276,8 @@ export default {
 			let result = await post('Topic/UserPublishTopicDynamic', {
 				UserId: this.userId,
 				Token: this.token,
-				// ShowRole: this.role,
+				TopicId: this.topicId,
 				Title: encodeURIComponent(this.title),
-				// Location: this.locationAddress,
-				// ContentAbstract: this.ContentAbstract,
-				// ContentDetails: encodeURIComponent(this.ContentDetails),
 				PicList: JSON.stringify(this.base64Arr)
 			});
 			if (result.code === 0) {
@@ -288,7 +289,9 @@ export default {
 				});
 				setTimeout(function() {
 					_this.clearData();
-					uni.navigateBack();
+					uni.navigateTo({
+						url: '/pages/personal/topic/topic'
+					});
 				}, 2000);
 			} else if (result.code === 2) {
 				uni.showToast({
@@ -318,28 +321,30 @@ export default {
 		},
 		async Submit() {
 			let _this = this;
-			debounce(()=>{
-			if (_this.verifysubmint()) {
-				_this.UserPublishFind();
-			}
-			})
+			debounce(() => {
+				if (_this.verifysubmint()) {
+					_this.UserPublishFind();
+					_this.clearData();
+				}
+			});
 		},
 		//清除数据
 		clearData() {
 			(this.imageList = []), (this.base64Arr = []), (this.title = ''), (this.isShowBtnUpload = true), (this.inputTxtLength = 0), this.clearlocation();
+			this.topic = uni.setStorageSync('topic', '');
 		}
 	}
 };
 </script>
 
 <style scoped lang="scss">
-  @import './style';
-  .topicTitle{
-	  display: flex;
-	  align-items: center;
-	  text{
-		 display: block;
-		 max-width: 300upx; 
-	  }
-  }
+@import './style';
+.topicTitle {
+	display: flex;
+	align-items: center;
+	text {
+		display: block;
+		max-width: 300upx;
+	}
+}
 </style>
