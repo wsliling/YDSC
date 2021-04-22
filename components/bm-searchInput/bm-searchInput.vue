@@ -197,7 +197,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .search_input_wrapper {
 	font-size: 16px;
 	width: 96%;

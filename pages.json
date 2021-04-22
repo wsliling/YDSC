@@ -453,6 +453,50 @@
 						"navigationBarTitleText": "分类"
 					}
 				}
+				,{
+				    "path" : "lease/lease",
+				    "style" :                                                                                    
+						{
+							"navigationBarTitleText": "租赁设备",
+							"enablePullDownRefresh": false
+						}
+				}
+				,{
+				    "path" : "myLease/myLease",
+				    "style" :                                                                                    
+				{
+				    "navigationBarTitleText": "我的租赁",
+				    "enablePullDownRefresh": false
+				}
+				
+				}
+				,{
+				    "path" : "submitLease/submitLease",
+				    "style" :                                                                                    
+				{
+				    "navigationBarTitleText": "租赁设备",
+				    "enablePullDownRefresh": false
+				}
+				
+				}
+				,{
+				    "path" : "submitLease/storelist",
+				    "style" :                                                                                    
+				{
+				    "navigationBarTitleText": "门店选择",
+				    "enablePullDownRefresh": false
+				}
+				
+				},
+				{
+				    "path" : "submitLease/leaseResult",
+				    "style" :                                                                                    
+				{
+				    "navigationBarTitleText": "租赁设备",
+				    "enablePullDownRefresh": false
+				}
+				
+				}
 			]
 		},
 		{
