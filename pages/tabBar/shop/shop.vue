@@ -51,7 +51,7 @@
 			</view>
 			<!-- 小banner -->
 			<view class="page-section BrandList uni-bg-white pp3 uni-mb10">
-				<view class="img"><image src="/static/of/gg1.png" mode="widthFix"></image></view>
+				<view class="img" @click="tolink('/pages/goods/lease/lease')"><image src="/static/of/gg1.png" mode="widthFix"></image></view>
 			</view>
 			<!-- 每日上新 -->
 			<view class="page-section HotsellList uni-bg-white pd15 uni-mb10" v-if="newprolist.length">
