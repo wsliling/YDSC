@@ -5,26 +5,26 @@
 			<view class="item" @click="change(1)" :class="{ active: btnnum == 1 }">教练</view>
 		</view>
 		<block v-if="btnnum == 0">
-			<view class="list" v-for="(item, index) in 3" :key="index" @click="tolink(btnnum)">
-				<view class="leftImg"><image class="img" src="../../../static/health/change/class_11.png"></image></view>
+			<view class="list" v-for="(item, index) in regclasslist" :key="index" @click="tolink(btnnum, item.OrderNo)">
+				<view class="leftImg"><image class="img" :src="item.PicImg"></image></view>
 				<view class="rightContent">
-					<view class="titledetail">帕梅拉10分钟全身燃脂新燃脂分钟全身燃脂新燃脂</view>
-					<view class="time">2021-02-23 周二 18：00-19：00</view>
+					<view class="titledetail">{{ item.Title }}</view>
+					<view class="time">{{ item.CourseDate }} {{ item.DayWeek }} {{ item.CourseTimeSpan }}</view>
 					<view class="userinfo">
 						<view class="user">
-							<view class="header"><image class="headerImg" src="../../../static/health/change/class_11.png"></image></view>
-							<view class="name">零碎记忆</view>
+							<view class="header"><image class="headerImg" :src="item.CoachAvatar"></image></view>
+							<view class="name">{{ item.CoachNick }}</view>
 						</view>
 					</view>
 				</view>
 			</view>
 		</block>
 		<block v-if="btnnum == 1">
-			<view class="list" v-for="(item, index) in 3" :key="index" @click="tolink(btnnum)">
-				<view class="jl-leftImg"><image class="img" src="../../../static/health/change/class_2.png" mode="widthFix"></image></view>
+			<view class="list" v-for="(item, index) in regclasslistcoach" :key="index" @click="tolink(btnnum, item.OrderNo)">
+				<view class="jl-leftImg"><image class="img" :src="item.CoachAvatar"></image></view>
 				<view class="rightContent">
-					<view class="titledetail">帕梅拉10分钟全身燃脂新燃脂分钟全身燃脂新燃脂</view>
-					<view class="time">2021-02-23 周二 18：00-19：00</view>
+					<view class="titledetail">{{item.CoachNick}}</view>
+					<view class="time">{{item.CourseDate}} {{item.DayWeek}} {{item.ApplyTimeSpan}}</view>
 				</view>
 			</view>
 		</block>
@@ -32,25 +32,56 @@
 </template>
 
 <script>
+import { post } from '@/common/util.js';
 export default {
 	data() {
 		return {
-			btnnum: 1
+			btnnum: 0,
+			userId: '',
+			token: '',
+			regclasslist: [],
+			regclasslistcoach: []
 		};
+	},
+	onLoad() {
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
+		this.getRegClassList();
+		this.getRegClassListCoach();
 	},
 	methods: {
 		change(e) {
 			this.btnnum = e;
 		},
-		tolink(e) {
+		tolink(e, id) {
 			if (e == 0) {
 				uni.navigateTo({
-					url: '/pages/member/myappointment/coach'
+					url: '/pages/member/myappointment/coach?orderNo=' + id
 				});
 			} else {
 				uni.navigateTo({
-					url: '/pages/member/myappointment/coachinfo'
+					url: '/pages/member/myappointment/coachinfo?orderNo=' + id
 				});
+			}
+		},
+		//预约课程列表
+		async getRegClassList() {
+			let result = await post('Course/MyRegCourseOfflineList', {
+				UserId: this.userId,
+				Token: this.token
+			});
+			if (result.code == 0) {
+				this.regclasslist = result.data;
+			}
+		},
+		//预约教练列表
+		async getRegClassListCoach() {
+			let result = await post('Course/MyRegCoachList', {
+				UserId: this.userId,
+				Token: this.token
+			});
+			if (result.code == 0) {
+				this.regclasslistcoach = result.data;
 			}
 		}
 	}

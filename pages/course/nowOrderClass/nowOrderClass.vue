@@ -1,14 +1,14 @@
 <template>
-	<view class="nowOrderClass">
+	<view class="now">
 		<view class="line"></view>
 		<view class="success">
 			<view class="iconfont icon-gou success_1"></view>
 			<view class="success_3">预约成功</view>
-			<view class="time">时间：2021-03-23 周二 15:00-14:00</view>
-			<view class="success_2">恭喜您预约成功，您可以在个人 中心-我的预约页面查看</view>
+			<view class="time">时间：{{ fullDate }} {{ DayWeek }} {{ TimeSpan }}</view>
+			<view class="success_2">恭喜您预约成功，您可以在个人中心 - 我的预约页面查看</view>
 			<view class="btn">
 				<view class="btn_1" @click="back">返回首页</view>
-				<view class="btn_2">我的预约</view>
+				<view class="btn_2" @click="myappointment">我的预约</view>
 			</view>
 		</view>
 	</view>
@@ -17,12 +17,24 @@
 <script>
 export default {
 	data() {
-		return {};
+		return {
+			fullDate: '',
+			DayWeek: '',
+			TimeSpan: ''
+		};
+	},
+	onLoad(e) {
+		(this.fullDate = e.fullDate), (this.DayWeek = e.dayWeek), (this.TimeSpan = e.timeSpan);
 	},
 	methods: {
 		back() {
 			uni.switchTab({
 				url: '/pages/tabBar/course/course'
+			});
+		},
+		myappointment() {
+			uni.navigateTo({
+				url: '/pages/member/myappointment/myappointment'
 			});
 		}
 	}
@@ -30,7 +42,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nowOrderClass {
+.now {
 	background-color: white;
 	height: 95vh;
 	.line {

@@ -9,7 +9,8 @@
 		width: 100%;
 		overflow: scroll;
 		> view {
-			flex: 1;
+			width: 270upx;
+			height: 310upx;
 		}
 		.list {
 			padding: 30upx 60upx;
@@ -59,23 +60,14 @@
 			}
 		}
 		.list1_3 {
-			flex: 1.6;
+			flex: 1.8;
 			background-color: #fa6008;
 			color: white;
 			border-radius: 80upx;
 			text-align: center;
 			height: 60upx;
 			line-height: 60upx;
-		}
-		.list1_3_1 {
-			flex: 1.6;
-			background-color: white;
-			border: 1px solid #dddddd;
-			color: #e2e2e2;
-			border-radius: 80upx;
-			text-align: center;
-			height: 62upx;
-			line-height: 60upx;
+			color: #ffd1a3;
 		}
 	}
 }

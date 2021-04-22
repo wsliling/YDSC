@@ -11,8 +11,6 @@
 		background-color: #fff;
 		position: relative;
 		padding-top: 10upx;
-
-		// margin-top:10px;
 		&::after {
 			background: #e5e5e5;
 			content: '';
@@ -26,28 +24,10 @@
 		}
 		.flex-box {
 			display: inline-block;
+			float: left;
 			height: 120upx;
 			width: 14%;
 			box-sizing: border-box;
-
-			&.active {
-				.date-box {
-					border: none;
-					.days {
-						font-weight: bold;
-						color: #818181;
-					}
-					.date {
-						font-weight: bold;
-						// color: #818181;
-						color: white;
-						font-size: 20upx;
-						background-color: #fa6008;
-						border-radius: 50%;
-						padding: 5upx 12upx;
-					}
-				}
-			}
 			.date-box {
 				border: none;
 				display: flex;
@@ -57,8 +37,10 @@
 				justify-content: space-around;
 				font-size: 26upx;
 				color: black;
+				padding: 5upx 13upx;
 				.date {
 					font-size: 26upx;
+					padding: 5upx 13upx;
 					&.active {
 						color: white !important;
 						font-size: 26upx;
@@ -82,12 +64,12 @@
 			flex-wrap: wrap;
 			padding: 0 20upx 20upx;
 			.item {
-				width: 20%;
+				// width: 20%;
 				padding: 10upx 6upx;
 				position: relative;
 				&-box {
-					height: 70upx;
-					line-height: 70upx;
+					width: 112px;
+					height: 90upx;
 					background: #fff;
 					color: #333;
 					border: 1px solid #eeeeee;
@@ -99,9 +81,7 @@
 					&.disable {
 						background: #e5e5e5 !important;
 						color: #999 !important;
-
-						height: 70upx;
-						line-height: 70upx;
+						height: 90upx;
 					}
 					&.active {
 						background-color: #fa6008;
@@ -113,7 +93,7 @@
 					}
 					.full {
 						position: absolute;
-						bottom: 1upx;
+						bottom: 10upx;
 						right: 8upx;
 						image {
 							width: 40upx;

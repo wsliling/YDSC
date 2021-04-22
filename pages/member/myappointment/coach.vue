@@ -1,45 +1,67 @@
 <template>
 	<view>
 		<view class="topbox">
-			<view class="icon"><image src="../../../static/time.png"></image></view>
-			<view class="time">2021-02-23 周二 18:00-19:00</view>
+			<view class="icon"><image src="/static/time.png"></image></view>
+			<view class="time">{{regclasslistdetail.CourseDate}} {{regclasslistdetail.DayWeek}} {{regclasslistdetail.CourseTimeSpan}}</view>
 		</view>
 		<view class="introduct">
-			<view class="title">超强下腹燃脂，躺练版训练</view>
+			<view class="title">{{regclasslistdetail.Title}}</view>
 			<view class="txtcolor">
-				<view class="gray">极速燃脂</view>
-				<view class="gray">低强度</view>
-				<view class="gray">60分钟</view>
+				<view class="gray">{{regclasslistdetail.TargetName}}</view>
+				<view class="gray">{{regclasslistdetail.DifficultyName}}</view>
+				<!-- <view class="gray">60分钟</view> -->
 			</view>
 			<view class="userinfo">
-				<view class="header"><image src="../../../static/health/change/class_2.png"></image></view>
-				<view class="name">柠檬</view>
+				<view class="header"><image :src="regclasslistdetail.CoachAvatar"></image></view>
+				<view class="name">{{regclasslistdetail.CoachNick}}</view>
 			</view>
 		</view>
 		<view class="studio">
-			<view class="header"><image src="../../../static/health/change/class_2.png"></image></view>
+			<view class="header"><image :src="regclasslistdetail.StoreLogo"></image></view>
 			<view class="company">
-				<view class="studioName">动体能健身工作室</view>
-				<view class="address">龙华区恒福路98号淘金花园商业中心</view>
+				<view class="studioName">{{regclasslistdetail.StoreName}}</view>
+				<view class="address">{{regclasslistdetail.StoreAddress}}</view>
 			</view>
 			<view class="trangle"></view>
 		</view>
 		<view class="classIntroduct">
 			<view class="titlename">课程简介</view>
-			<view class="content">
-				瑜伽教练培训简介，培训专业瑜伽教练，专业瑜伽推拿 培训，针对不同的学习方式，提升未来的竞争力，让您 的人生更加适合自己的特长，帮助学员在管理过程中的
-				提升，坚持两周时间，可以感觉到身体素
+			<view class="content">{{regclasslistdetail.Content}}
 			</view>
 		</view>
 	</view>
 </template>
 
 <script>
+import { post } from '@/common/util.js';
 export default {
 	data() {
-		return {};
+		return {
+			userId: '',
+			token: '',
+			regclasslistdetail: {},
+			Id: 0
+		};
 	},
-	methods: {}
+	onLoad(e) {
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
+		this.Id = e.orderNo;
+		this.getRegClassListDetail();
+	},
+	methods: {
+		//预约课程详情
+		async getRegClassListDetail() {
+			let result = await post('Course/GetRegCourseOffline_xq', {
+				UserId: this.userId,
+				Token: this.token,
+				OrderNo: this.Id
+			});
+			if (result.code == 0) {
+				this.regclasslistdetail = result.data;
+			}
+		}
+	}
 };
 </script>
 
@@ -110,7 +132,7 @@ export default {
 				height: 100%;
 			}
 		}
-		.name{
+		.name {
 			font-size: 28upx;
 		}
 	}
@@ -157,7 +179,7 @@ export default {
 .classIntroduct {
 	background-color: #ffffff;
 	margin-top: 26upx;
-	padding:26upx;
+	padding: 26upx;
 	.titlename {
 		font-size: 34upx;
 		font-weight: bold;

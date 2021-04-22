@@ -11,8 +11,6 @@
 		background-color: #fff;
 		position: relative;
 		padding-top: 10upx;
-
-		// margin-top:10px;
 		&::after {
 			background: #e5e5e5;
 			content: '';
@@ -30,24 +28,6 @@
 			height: 120upx;
 			width: 14%;
 			box-sizing: border-box;
-			// &.active {
-			// 	.date-box {
-			// 		border: none;
-			// 		.days {
-			// 			font-weight: bold;
-			// 			color: #818181;
-			// 		}
-			// 		.date {
-			// 			font-weight: bold;
-			// 			// color: #818181;
-			// 			color: white;
-			// 			font-size: 26upx;
-			// 			background-color: #fa6008;
-			// 			border-radius: 50%;
-			// 			padding: 5upx 12upx;
-			// 		}
-			// 	}
-			// }
 			.date-box {
 				border: none;
 				display: flex;

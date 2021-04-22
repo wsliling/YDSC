@@ -1,17 +1,17 @@
 <template>
 	<view class="content">
 		<view class="container">
+			<view class="line"></view>
 			<!-- 日期列表 -->
 			<view class="class">排课时间</view>
 			<scroll-view class="scroll-view_H b-t b-b" scroll-x>
 				<block v-for="(item, index) in dateArr" :key="index">
 					<div class="flex-box" @click="selectDateEvent(index, item)">
-						<!-- <view class="date-box" 
-						:style="{ color: index == dateActive ? selectedTabColor : '#333' }"
-						> -->
 						<view class="date-box">
-							<text class="date" :class="{ active: index == dateActive }" :style="{ color: index == dateActive ? selectedTabColor : '#333' }">{{ item.date1 }}</text>
-							<text>{{ item.week }}</text>
+							<text class="date" :class="{ active: index == dateActive }" :style="{ color: index == dateActive ? selectedTabColor : '#333' }">
+								{{ item.DateDay }}
+							</text>
+							<text>{{ item.DayWeek }}</text>
 						</view>
 					</div>
 				</block>
@@ -24,13 +24,13 @@
 						<view class="item">
 							<view
 								class="item-box"
-								:class="{ disable: item.disable, active: _index == timeActive }"
+								:class="{ disable: item.IsFull == 1, active: _index == timeActive }"
 								:style="{ color: _index == timeActive ? selectedItemColor : '#333' }"
 								@click="selectTimeEvent(_index, item)"
 							>
-								<text>{{ item.time }}</text>
+								<text>{{ item.TimeSpan }}</text>
 								<text class="all"></text>
-								<view class="full" v-show="item.disable"><image src="/static/course/course5_8.png" mode=""></image></view>
+								<view class="full" v-show="item.IsFull == 1"><image src="/static/course/course5_8.png"></image></view>
 							</view>
 						</view>
 					</block>
@@ -38,15 +38,12 @@
 			</view>
 		</view>
 		<view class="bottom" @click="pop">
-			<!-- <view class="show_time">
-				预约时间:{{ordertime}}
-			</view> -->
-			<button form-type="submit" type="default" size="mini" class="buybtn" @click="getTime">预约</button>
+			<button form-type="submit" type="default" size="mini" class="buybtn">预约</button>
 			<wyb-popup ref="popup" type="center" height="490" width="600" radius="6" :showCloseIcon="true">
 				<view class="popup-content">
 					<view class="title">预约信息</view>
-					<view class="name"><input type="text" placeholder="姓名" /></view>
-					<view class="phone"><input type="text" placeholder="手机号码" /></view>
+					<view class="name"><input type="text" v-model="name" placeholder="姓名" /></view>
+					<view class="phone"><input type="text" v-model="tel" placeholder="手机号码" /></view>
 					<view class="now" @click="now">立即预约</view>
 				</view>
 			</wyb-popup>
@@ -55,32 +52,27 @@
 </template>
 
 <script>
+import { post, valPhone } from '@/common/util.js';
 import { dateData, timeData, timeStamp, currentTime } from '../utils/date.js';
 import wybPopup from '@/components/wyb-popup/wyb-popup.vue';
 export default {
 	components: {
 		wybPopup
 	},
-	name: 'times',
 	model: {
 		prop: 'showPop',
 		event: 'change'
 	},
 	props: {
-		disableText: {
-			//禁用显示的文本
-			type: String,
-			default: '满'
-		},
-		undisableText: {
-			//未禁用显示的文本
+		CoachId: {
 			type: String,
 			default: ''
 		},
-		timeInterval: {
-			// 时间间隔，小时为单位
-			type: Number,
-			default: 1
+		jsonData: {
+			type: Array,
+			default() {
+				return [];
+			}
 		},
 		selectedTabColor: {
 			// 日期栏选中的颜色
@@ -91,109 +83,101 @@ export default {
 			// 时间选中的颜色
 			type: String,
 			default: '#fa6008'
-		},
-
-		appoTime: {
-			// 预约的时间
-			type: Array,
-			default() {
-				return ['2020-12-05 17:00:00', '2020-12-06 09:00:00'];
-			}
 		}
 	},
 	data() {
 		return {
-			ordertime: '暂无选择', // 选中时间
 			dateArr: [], //日期数据
 			timeArr: [], //时间数据
-			nowdata: '', // 当前日期
-			timeQuery: '', // 用于日期对比,选中的日期
 			dateActive: 0, //选中的日期索引
 			timeActive: 0, //选中的时间索引
 			selectDate: '', //选择的日期
 			selectTime: '', //选择的时间
-			currentTime: '' //当前时分秒
+			selectDateId: 0,
+			selectTimeId: 0,
+			name: '',
+			tel: ''
 		};
 	},
 	created(props) {
-		this.nowdata = currentTime();
-		this.timeQuery = currentTime();
-		this.setOnload();
+		this.dateArr = this.jsonData;
+		this.timeArr = this.dateArr[0].TimeList;
+		this.selectTime = this.timeArr[0].TimeSpan; //默认选中的时间
+		this.selectDateId = this.dateArr[0].Id;
+		this.selectTimeId = this.timeArr[0].Id;
 	},
+	onLoad() {},
 	methods: {
 		pop() {
 			this.$refs.popup.show(); // 显示
 		},
 		now() {
-			uni.navigateTo({
-				url: '/pages/course/now/now'
-			});
-		},
-		setOnload() {
-			this.dateArr = dateData(); // 日期栏初始化
-			this.timeArr = timeData('08:00:00', '22:00:00', 2); //时间选项初始化
-			this.selectDate = `${this.dateArr[this.dateActive]['date']}`; //默认选中的日期
-			this.currentTime = timeStamp(Date.now()).hour; //当前时分秒
-			let ifFullTime = true;
-			this.timeArr.forEach((item, index) => {
-				if (this.timeQuery == this.nowdata) {
-					//判断是当前这一天
-					if (this.currentTime > item.time) {
-						//选中时间小于当前时间则禁用
-						item.disable = 1;
-					}
-				}
-				// 将预约的时间禁用
-				this.appoTime.forEach(items => {
-					// console.log(items.split(' ')[0], this.selectDate);
-					if (items.split(' ')[0] == this.selectDate) {
-						if (item.time == items.split(' ')[1]) {
-							item.disable = 1;
-						}
-					}
-				});
-				if (item.disable == 0) {
-					// 判断是否当前日期时间都被预约
-					ifFullTime = false;
-				}
-			});
-			if (ifFullTime) {
-				this.ordertime = this.timeQuery;
-				this.timeActive = -1;
+			if (this.valOther()) {
+				this.getNow();
 			}
-
+		},
+		valOther() {
+			if (this.name == '') {
+				uni.showToast({
+					title: '请输入姓名!',
+					icon: 'none',
+					duration: 2000
+				});
+				return false;
+			}
+			if (!valPhone(this.tel)) {
+				return false;
+			}
+			return true;
+		},
+		async getNow() {
+			let result = await post('Course/CoachReg', {
+				CoachId: this.CoachId,
+				UserId: uni.getStorageSync('userId'),
+				Token: uni.getStorageSync('token'),
+				DateId: this.selectDateId,
+				HourId: this.selectTimeId,
+				FullName: this.name,
+				Mobile: this.tel
+			});
+			if (result.code == 0) {
+				setTimeout(() => {
+					uni.navigateTo({
+						url:
+							'/pages/course/nowOrderClass/nowOrderClass?fullDate=' +
+							this.selectDate.FullDate +
+							'&dayWeek=' +
+							this.selectDate.DayWeek +
+							'&timeSpan=' +
+							this.selectTime
+					});
+				}, 2000);
+			}
+			// if(result.data.DayWeek)
+		},
+		selectDateEvent(index, item) {
+			this.dateActive = index;
+			this.timeArr = item.TimeList;
+			this.selectDate = this.dateArr[index];
+			this.selectDateId = item.Id;
 			// 选出默认值
 			this.timeArr.some((item, index) => {
-				this.selectTime = this.timeArr[index]['time']; //默认选中的时间  15:00
-				this.ordertime = this.timeQuery + ' ' + this.selectTime;
+				this.selectTime = this.timeArr; //默认选中的时间  15:00
 				this.timeActive = index; //选中的时间索引
 				return !item.disable;
 			});
 		},
-		selectDateEvent(index, item) {
-			this.dateActive = index;
-			this.timeArr = [];
-			this.timeQuery = item.date;
-			this.selectDate = `${this.dateArr[index]['date']}`;
-			this.setOnload();
-		},
-
 		selectTimeEvent(index, item) {
-			if (item.disable) return;
+			if (item.IsFull == 1) return;
 			this.timeActive = index;
-			this.selectTime = this.timeArr[index]['time'];
-			this.ordertime = this.timeQuery + ' ' + item.time;
-		},
-		getTime() {
-			let time = `${this.dateArr[this.dateActive]['date']}` + ' ' + this.selectTime; //默认选中的日期
-			this.$emit('change', time);
+			this.selectTime = this.timeArr[index].TimeSpan;
+			this.selectTimeId = item.Id;
 		}
 	}
 };
 </script>
 <style lang="scss" scoped>
 @import './pretty-timespicker.scss';
-
 page {
 	height: 100%;
 }
@@ -210,17 +194,6 @@ page {
 	width: 100%;
 	background-color: #f3f3f3;
 }
-
-// .show_time {
-// 	width: 70%;
-// 	height: 47px;
-// 	color: #505050;
-// 	background-color: #f3f3f3;
-// 	font-size: 15px;
-// 	line-height: 47px;
-// 	text-align: center;
-// }
-
 .buybtn {
 	width: 90%;
 	height: 80upx;

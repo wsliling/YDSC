@@ -22,11 +22,11 @@
 			<view class="leftImg"><image class="img" :src="item.PicImg"></image></view>
 			<view class="rightContent">
 				<view class="titledetail">{{ item.Name }}</view>
-				<view class="time">极速燃脂.10分钟</view>
+				<view class="time">{{ item.Target }}</view>
 				<view class="userinfo">
 					<view class="user">
-						<view class="header"><image class="headerImg" src="/static/health/change/class_11.png"></image></view>
-						<view class="name">零碎记忆</view>
+						<view class="header"><image class="headerImg" :src="item.StoreLogo"></image></view>
+						<view class="name">{{ item.StoreNick }}</view>
 					</view>
 					<view class="price">￥{{ item.Price }}</view>
 				</view>

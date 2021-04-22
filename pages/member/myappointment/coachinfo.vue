@@ -1,17 +1,17 @@
 <template>
 	<view>
 		<view class="topbox">
-			<view class="icon"><image src="../../../static/time.png"></image></view>
-			<view class="time">2021-02-23 周二 18:00-19:00</view>
+			<view class="icon"><image src="/static/time.png"></image></view>
+			<view class="time">{{ regclasslistcoachdetail.ApplyDate }} {{ regclasslistcoachdetail.DayWeek }} {{ regclasslistcoachdetail.ApplyTimeSpan }}</view>
 		</view>
 		<view class="introduct">
 			<view class="title">教练信息</view>
 			<view class="userinfo">
 				<view style="display: flex; align-items: center;">
-					<view class="header"><image src="../../../static/health/change/class_2.png"></image></view>
+					<view class="header"><image :src="regclasslistcoachdetail.CoachAvatar"></image></view>
 					<view class="caochinfo">
-						<view class="name">柠檬教练</view>
-						<view class="contentname">瑜伽课程教练</view>
+						<view class="name">{{ regclasslistcoachdetail.CoachNick }}</view>
+						<view class="contentname">{{ regclasslistcoachdetail.CoachType }}</view>
 					</view>
 				</view>
 				<view class="homepage" @click="tolink">
@@ -21,10 +21,10 @@
 			</view>
 		</view>
 		<view class="studio">
-			<view class="header"><image src="../../../static/health/change/class_2.png"></image></view>
+			<view class="header"><image :src="regclasslistcoachdetail.StoreLogo"></image></view>
 			<view class="company">
-				<view class="studioName">动体能健身工作室</view>
-				<view class="address">龙华区恒福路98号淘金花园商业中心</view>
+				<view class="studioName">{{ regclasslistcoachdetail.StoreName }}</view>
+				<view class="address">{{ regclasslistcoachdetail.StoreAddress }}</view>
 			</view>
 			<view class="trangle"></view>
 		</view>
@@ -32,15 +32,38 @@
 </template>
 
 <script>
+import { post } from '@/common/util.js';
 export default {
 	data() {
-		return {};
+		return {
+			userId: '',
+			token: '',
+			regclasslistcoachdetail: {},
+			Id: 0
+		};
+	},
+	onLoad(e) {
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
+		this.Id = e.orderNo;
+		this.getRegClassListCoachDetail();
 	},
 	methods: {
-		tolink(){
+		tolink() {
 			uni.navigateTo({
-				url:'/pages/homepage/homepage'
-			})
+				url: '/pages/homepage/homepage'
+			});
+		},
+		//预约教练详情
+		async getRegClassListCoachDetail() {
+			let result = await post('Course/GetRegCoach_xq', {
+				UserId: this.userId,
+				Token: this.token,
+				OrderNo: this.Id
+			});
+			if (result.code == 0) {
+				this.regclasslistcoachdetail = result.data;
+			}
 		}
 	}
 };
@@ -114,11 +137,11 @@ export default {
 				height: 100%;
 			}
 		}
-		.name{
+		.name {
 			font-size: 30upx;
 		}
-		.caochinfo{
-			.contentname{
+		.caochinfo {
+			.contentname {
 				font-size: 24upx;
 				color: #bbbbbb;
 			}
@@ -158,20 +181,20 @@ export default {
 		}
 	}
 }
-.homepage{
+.homepage {
 	display: flex;
 	align-items: center;
 	color: #cbcbcb;
 	font-size: 24upx;
-	.txt{
+	.txt {
 		margin: 10upx;
 	}
 }
 .trangle {
-		width: 20upx;
-		height: 20upx;
-		border-top: solid 4upx #999;
-		border-left: solid 4upx #999;
-		transform: rotate(130deg);
-	}
+	width: 20upx;
+	height: 20upx;
+	border-top: solid 4upx #999;
+	border-left: solid 4upx #999;
+	transform: rotate(130deg);
+}
 </style>

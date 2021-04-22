@@ -3,23 +3,19 @@
 		<view class="title">推荐教练</view>
 		<view class="tui">
 			<view class="list" v-for="(item, index) in coachlist" :key="index">
-				<view class="list1_1"><image :src="item.Avatar" @click="details(item.Id)"></image></view>
+				<view class="list1_1"><image :src="item.Avatar || '/static/default.png'" @click="details(item.MemberId)"></image></view>
 				<view class="name">{{ item.UserNick }}</view>
 				<view class="num">{{ item.ApplyNum }}人预约过</view>
 			</view>
 		</view>
-		<!-- <view class="list">
-			<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
-			<noData :isShow="noDataIsShow"></noData>
-		</view> -->
 		<view class="title">全部教练</view>
-		<view class="list1" v-for="(item, index) in coachlist" :key="index">
+		<view class="list1" v-for="(item, index) in coachlistOne" :key="index">
 			<view class="list1_1"><image :src="item.Avatar"></image></view>
 			<view class="list1_2">
 				<view class="name">{{ item.UserNick }}</view>
 				<view class="num">{{ item.ApplyNum }}人预约过</view>
 			</view>
-			<view class="list1_3" @click="details(item.Id)">立即预约</view>
+			<view class="list1_3" @click="details(item.MemberId)">立即预约</view>
 		</view>
 		<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
 		<noData :isShow="noDataIsShow"></noData>
@@ -47,7 +43,8 @@ export default {
 			noDataIsShow: false,
 			IsRec: 0,
 			AreaCode: '',
-			coachlist: {}
+			coachlist: {},
+			coachlistOne: {}
 		};
 	},
 	onLoad() {
@@ -58,7 +55,7 @@ export default {
 	methods: {
 		details(id) {
 			uni.navigateTo({
-				url: '/pages/course/details/details?coachId=' + id
+				url: '/pages/course/details/details?memberId=' + id
 			});
 		},
 		//教练列表
@@ -66,7 +63,7 @@ export default {
 			let result = await post('Course/GetCoachList', {
 				page: this.page,
 				pageSize: this.pageSize,
-				IsRec: 0,
+				// IsRec: 1,
 				AreaCode: ''
 			});
 			if (result.code == 0) {
@@ -80,10 +77,16 @@ export default {
 				this.hasData = false;
 			}
 			if (this.page === 1) {
-				this.coachlist = result.data;
+				if (this.IsRec == 0) {
+					this.coachlist = result.data;
+				}
+				if (this.IsRec == 1 || this.IsRec == 0) {
+					this.coachlistOne = result.data;
+				}
 			}
 			if (this.page > 1) {
 				this.coachlist = this.coachlist.concat(result.data);
+				this.coachlistOne = this.coachlist.concat(result.data);
 			}
 			if (result.data.length < this.pageSize) {
 				this.isLoad = false;

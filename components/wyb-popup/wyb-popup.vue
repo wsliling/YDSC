@@ -223,7 +223,7 @@ export default {
 		},
 		zIndex: {
 			type: [String, Number],
-			default: 10076
+			default: 20
 		},
 		maskClickClose: {
 			type: Boolean,
@@ -424,7 +424,7 @@ export default {
 	position: absolute;
 	fontsize: 40rpx;
 	color: #808080;
-	z-index: 20000;
+	z-index: 20;
 	inset: 0 9px auto auto !important;
 }
 

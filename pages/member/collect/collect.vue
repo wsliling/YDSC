@@ -52,7 +52,7 @@
 		</view>
 		<view class="followList" v-if="tabIndex == 1 && hasData">
 			<block v-for="(item, index) in datalist" :key="index">
-				<view class="followItem" @click="tolink('/pages/goods/storeIndex/storeIndex?id=' + item.ShopId, item.Status)">
+				<!-- <view class="followItem" @click="tolink('/pages/goods/storeIndex/storeIndex?id=' + item.ShopId, item.Status)">
 					<view class="itemLeft">
 						<image :src="item.Logo"></image>
 						<view class="name">
@@ -61,6 +61,20 @@
 						</view>
 					</view>
 					<view :class="['flowbtn', item.IsCollect ? 'ed' : '']" @click.stop="flowFn(index, item.ShopId, item.IsCollect)">{{ item.IsCollect ? '已关注' : '关注' }}</view>
+				</view> -->
+				<view class="list" @click="tolinkClassDetails('/pages/course/classDetails/classDetails?detailId=' + item.Id)">
+					<view class="leftImg"><image class="img" :src="item.PicImg"></image></view>
+					<view class="rightContent">
+						<view class="titledetail">{{ item.Name }}</view>
+						<view class="time">{{ item.Target }}</view>
+						<view class="userinfo">
+							<view class="user">
+								<view class="header"><image class="headerImg" :src="item.StoreLogo"></image></view>
+								<view class="name">{{ item.StoreNick }}</view>
+							</view>
+							<view class="price">￥{{ item.Price }}</view>
+						</view>
+					</view>
 				</view>
 			</block>
 		</view>
@@ -94,7 +108,7 @@ export default {
 					TypeName: '商品'
 				},
 				{
-					Id: 1,
+					Id: 3,
 					TypeName: '课程'
 				}
 			],
@@ -108,7 +122,7 @@ export default {
 			datalength: 0,
 			Ids: [], //保存要删除数据
 			checked: false,
-			Type: 0 //0-产品  1-商家
+			Type: 0 //0-产品  1-商家 3-课程
 		};
 	},
 	components: {
@@ -137,7 +151,7 @@ export default {
 		tolink(url, dis) {
 			if (dis != 0) {
 				uni.showToast({
-					title: '该商品或店铺已失效！',
+					title: '该商品或课程已失效！',
 					icon: 'none'
 				});
 			} else {
@@ -145,6 +159,11 @@ export default {
 					url: url
 				});
 			}
+		},
+		tolinkClassDetails(url) {
+			uni.navigateTo({
+				url: url
+			});
 		},
 		toback() {
 			uni.switchTab({
@@ -501,48 +520,108 @@ export default {
 	.followList {
 		background-color: #fff;
 		padding: 0 20rpx;
-		.followItem {
-			height: 150rpx;
+		// 列表
+		.list {
+			border-bottom: solid 2upx #f5f5f5;
 			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			border-bottom: 1rpx solid #ececec;
-			.itemLeft {
-				display: flex;
-				align-items: center;
-				image {
-					width: 88rpx;
-					height: 88rpx;
-					border-radius: 100%;
-					border: 1rpx solid #ececec;
-					margin-right: 20rpx;
-				}
-				.name {
-					font-size: 32rpx;
-				}
-				text {
-					font-size: 24rpx;
-					color: #999;
+			background-color: #ffffff;
+			padding: 30upx 0;
+			margin: 0 20upx;
+			&:last-child {
+				border-bottom: 0;
+			}
+			.leftImg {
+				width: 246upx;
+				height: 152upx;
+				border-radius: 8upx;
+				overflow: hidden;
+				margin-right: 10upx;
+				.img {
+					width: 100%;
+					height: 100%;
 				}
 			}
-			.flowbtn {
-				color: #fff;
-				background: $primary;
-				border-radius: 100px;
-				width: 128upx;
-				height: 52upx;
-				line-height: 1;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				font-size: 26upx;
-				&.ed {
-					color: #999;
-					background: #f6f7fb;
+			.rightContent {
+				.titledetail {
+					font-size: 30upx;
+					font-weight: 500;
+					color: #333333;
+					width: 444upx;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+				.time {
+					font-size: 22upx;
+					font-weight: 500;
+					color: #999999;
+				}
+				.userinfo {
+					display: flex;
+					justify-content: space-between;
+					.user {
+						display: flex;
+						.header {
+							width: 40upx;
+							height: 40upx;
+							border-radius: 50%;
+							overflow: hidden;
+							margin-right: 18upx;
+							.headerImg {
+								width: 100%;
+								height: 100%;
+							}
+						}
+					}
+					.price {
+						color: #fa6008;
+						font-size: 24upx;
+					}
 				}
 			}
 		}
+		// .followItem {
+		// 	height: 150rpx;
+		// 	display: flex;
+		// 	align-items: center;
+		// 	justify-content: space-between;
+		// 	border-bottom: 1rpx solid #ececec;
+		// 	.itemLeft {
+		// 		display: flex;
+		// 		align-items: center;
+		// 		image {
+		// 			width: 88rpx;
+		// 			height: 88rpx;
+		// 			border-radius: 100%;
+		// 			border: 1rpx solid #ececec;
+		// 			margin-right: 20rpx;
+		// 		}
+		// 		.name {
+		// 			font-size: 32rpx;
+		// 		}
+		// 		text {
+		// 			font-size: 24rpx;
+		// 			color: #999;
+		// 		}
+		// 	}
+		// 	.flowbtn {
+		// 		color: #fff;
+		// 		background: $primary;
+		// 		border-radius: 100px;
+		// 		width: 128upx;
+		// 		height: 52upx;
+		// 		line-height: 1;
+		// 		display: flex;
+		// 		flex-direction: column;
+		// 		align-items: center;
+		// 		justify-content: center;
+		// 		font-size: 26upx;
+		// 		&.ed {
+		// 			color: #999;
+		// 			background: #f6f7fb;
+		// 		}
+		// 	}
+		// }
 	}
 }
 </style>
