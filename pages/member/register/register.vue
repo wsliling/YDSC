@@ -24,23 +24,23 @@
 			<!-- 	<view class="rig" @click="rig" v-show="(score.IsSign = 0)">签到</view>
 			<view class="rig1" v-show="(score.IsSign = 1)">已签到</view> -->
 			<view class="rig" @click="rig">签到</view>
-			<wyb-popup ref="popup" type="center" height="490" width="600" radius="6" :showCloseIcon="true">
+			<!-- <wyb-popup ref="popup" type="center" height="490" width="600" radius="6" :showCloseIcon="true">
 				<view class="popup-content">
 					<view class="title">获得积分</view>
 					<view class="con" v-for="(item, index) in scoreAdd" :key="index">+{{ item.Score }}</view>
 					<view class="con_1">连签天数越多得Y币越多</view>
 				</view>
-			</wyb-popup>
+			</wyb-popup> -->
 		</view>
 	</view>
 </template>
 
 <script>
 import { post } from '@/common/util.js';
-import wybPopup from '@/components/wyb-popup2/wyb-popup.vue';
+// import wybPopup from '@/components/wyb-popup2/wyb-popup.vue';
 export default {
 	components: {
-		wybPopup
+		// wybPopup
 	},
 	data() {
 		return {

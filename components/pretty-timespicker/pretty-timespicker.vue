@@ -39,26 +39,31 @@
 		</view>
 		<view class="bottom" @click="pop">
 			<button form-type="submit" type="default" size="mini" class="buybtn">预约</button>
-			<wyb-popup ref="popup" type="center" height="490" width="600" radius="6" :showCloseIcon="true">
+			<!-- <wyb-popup ref="popup" type="center" height="490" width="600" radius="6" :showCloseIcon="true">
 				<view class="popup-content">
 					<view class="title">预约信息</view>
 					<view class="name"><input type="text" v-model="name" placeholder="姓名" /></view>
 					<view class="phone"><input type="text" v-model="tel" placeholder="手机号码" /></view>
 					<view class="now" @click="now">立即预约</view>
 				</view>
-			</wyb-popup>
+			</wyb-popup> -->
+			<uni-popup ref="popup" type="center">
+				<view class="popup-content">
+					<view class="closebtn uni-icon uni-icon-close" @click="hidePopup"></view>
+					<view class="title">预约信息</view>
+					<view class="name"><input type="text" v-model="name" placeholder="姓名" /></view>
+					<view class="phone"><input type="text" v-model="tel" placeholder="手机号码" /></view>
+					<view class="now" @click="now">立即预约</view>
+				</view>
+			</uni-popup>
 		</view>
 	</view>
 </template>
 
 <script>
 import { post, valPhone } from '@/common/util.js';
-import { dateData, timeData, timeStamp, currentTime } from '../utils/date.js';
-import wybPopup from '@/components/wyb-popup/wyb-popup.vue';
 export default {
-	components: {
-		wybPopup
-	},
+	components: {},
 	model: {
 		prop: 'showPop',
 		event: 'change'
@@ -102,15 +107,20 @@ export default {
 	created(props) {
 		this.dateArr = this.jsonData;
 		this.timeArr = this.dateArr[0].TimeList;
+		this.selectDate = this.dateArr[0]; //默认选中的日期
 		this.selectTime = this.timeArr[0].TimeSpan; //默认选中的时间
 		this.selectDateId = this.dateArr[0].Id;
 		this.selectTimeId = this.timeArr[0].Id;
 	},
-	onLoad() {},
+	onShow() {},
 	methods: {
 		pop() {
-			this.$refs.popup.show(); // 显示
+			this.$refs.popup.open(); // 显示弹窗
 		},
+		hidePopup() {
+			this.$refs.popup.close(); // 关闭弹窗
+		},
+		// 立即预约
 		now() {
 			if (this.valOther()) {
 				this.getNow();
@@ -130,6 +140,7 @@ export default {
 			}
 			return true;
 		},
+		// 预约
 		async getNow() {
 			let result = await post('Course/CoachReg', {
 				CoachId: this.CoachId,
@@ -144,7 +155,7 @@ export default {
 				setTimeout(() => {
 					uni.navigateTo({
 						url:
-							'/pages/course/nowOrderClass/nowOrderClass?fullDate=' +
+							'/pages/course/now/now?fullDate=' +
 							this.selectDate.FullDate +
 							'&dayWeek=' +
 							this.selectDate.DayWeek +
@@ -162,7 +173,7 @@ export default {
 			this.selectDateId = item.Id;
 			// 选出默认值
 			this.timeArr.some((item, index) => {
-				this.selectTime = this.timeArr; //默认选中的时间  15:00
+				this.selectTime = this.timeArr[index].TimeSpan; //默认选中的时间  15:00
 				this.timeActive = index; //选中的时间索引
 				return !item.disable;
 			});
@@ -217,6 +228,9 @@ page {
 	padding: 30upx;
 }
 .popup-content {
+	background-color: white;
+	width: 600upx;
+	height: 480upx;
 	.name {
 		margin: 0 auto;
 		width: 80%;
