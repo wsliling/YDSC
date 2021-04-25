@@ -34,10 +34,15 @@
 			</view>
 			<view class="centerBox flex-between">
 				<view class="flex-between flex1">
-					<view class="imgBox flex1">
-						<image src="/static/of/body.png" mode="widthFix"></image>
+					<view class="imgBox flex1 flex-between">
+						<view :class="['img',bodyIndex==0?'active':'']">
+							<image src="/static/of/body.png" mode="widthFix"></image>
+						</view>
+						<view :class="['img',bodyIndex==1?'active':'']">
+							<image src="/static/of/body.png" mode="widthFix"></image>
+						</view>
 					</view>
-					<view class="nextbtn iconfont icon-arrow_r"></view>
+					<view class="nextbtn iconfont icon-arrow_r" @click="changeBody"></view>
 				</view>
 				<view class="valbox">
 					<view class="num">0</view>
@@ -78,7 +83,8 @@
 			return {
 				userId: "",
 				token: "",
-				headTitle:"YDSC000198"
+				headTitle:"YDSC000198",
+				bodyIndex:0
 			}
 		},
 		onShow() {
@@ -89,7 +95,9 @@
 			})
 		},
 		methods: {
-			
+			changeBody(){
+				this.bodyIndex=this.bodyIndex==0?1:0
+			}
 		}
 	}
 </script>
@@ -133,6 +141,18 @@ page{
 		}
 	}
 	.centerBox{
+		.imgBox{
+			height: 720upx;
+			.img{
+				opacity: .5;
+				transition: all .35s;
+				width: 42%;
+				&.active{
+					opacity: 1;
+					width: 58%;
+				}
+			}
+		}
 		.nextbtn{
 			padding: 10upx 30upx;
 		}
