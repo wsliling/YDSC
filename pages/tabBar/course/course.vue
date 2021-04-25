@@ -8,8 +8,6 @@
 			<view class="search"><bm-search-input></bm-search-input></view>
 		</view>
 		<view>
-			<!-- <banner :list="bannerList" :height="300" :padding="10" :borderRadius="20"></banner> -->
-
 			<!-- 轮播 -->
 			<view class="index_swiper">
 				<swiper class="swiper" :indicator-dots="false" autoplay :interval="5000" :duration="500" @change="changeSwiper">

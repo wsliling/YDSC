@@ -4,7 +4,10 @@
 		<view class="index_swiper" v-if="tabNav != 1">
 			<swiper class="swiper" :indicator-dots="false" autoplay :interval="5000" :duration="500" @change="changeSwiper">
 				<swiper-item v-for="(item, index) in bannerList" :key="index">
-					<view class="swiper-item swiperTop" @click="tolink(item.Url)"><image class="img" :src="item.Pic" mode="aspectFill"></image></view>
+					<!-- <view class="swiper-item swiperTop" @click="tolink(item.Url)"><image class="img" :src="item.Pic" mode="aspectFill"></image></view> -->
+					<view class="swiper-item swiperTop" @click="tolink('/pages/index/beginExercise/beginExercise')">
+						<image class="img" :src="item.Pic" mode="aspectFill"></image>
+					</view>
 				</swiper-item>
 			</swiper>
 			<view class="dots" style="bottom: 10upx;">

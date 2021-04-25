@@ -85,7 +85,7 @@
 			this.barHeight = height;
 			// #endif
 			// #ifndef MP-WEIXIN
-			console.log(e.askUrl,"99999999999999")
+			// console.log(e.askUrl,"99999999999999")
 			this.isShowMolie=false;
 			this.isShowminiApp = true;
 			// #endif
@@ -101,7 +101,7 @@
 			this.isShowminiApp = true;
 			// #endif
 			// #ifndef MP-WEIXIN
-			console.log("7777777777777")
+			// console.log("7777777777777")
 			this.isShowMolie=true;
 			this.isShowminiApp = false;
 			// #endif
@@ -116,7 +116,7 @@
 				this.isIndex = this.$root.$mp.query.isIndex
 			}
 			// #endif
-			console.log(this.isRegister,"8888888888")
+			// console.log(this.isRegister,"8888888888")
 		},
 		data() {
 			return {
@@ -257,7 +257,7 @@
 					uni.setStorageSync('userId', result.data.UserId);
 					uni.setStorageSync('ReferralCode', result.data.ReferralCode);
 					uni.setStorageSync('IsShop', result.data.IsShop);
-					console.log(result.data,"mmmmmmmmmmmm")
+					// console.log(result.data,"mmmmmmmmmmmm")
 					let _this = this;
 					uni.showToast({
 					     title: "登录成功",
@@ -297,7 +297,7 @@
 				uni.setStorageSync("openId", result.data.openId);
 				uni.setStorageSync('ReferralCode', result.data.ReferralCode);
 				uni.setStorageSync('IsShop', result.data.IsShop);
-				console.log(result.data,"mmmmmmmmmmmm")
+				// console.log(result.data,"mmmmmmmmmmmm")
 				if(result.code===0){
 					let _this = this;
 					uni.showToast({

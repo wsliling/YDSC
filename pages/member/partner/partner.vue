@@ -7,7 +7,7 @@
 				<view class="sec1_2">我的团队</view>
 				<view class="iconfont icon-arrow_r sec1_3"></view>
 			</view>
-			<view class="sec_2" @click="notPartner">
+			<view class="sec_2" @click="myAcount">
 				<view class="sec1_1"><image src="/static/my/partner_2.png" mode=""></image></view>
 				<view class="sec1_2">我的收益</view>
 				<view class="iconfont icon-arrow_r sec1_3"></view>
@@ -17,20 +17,57 @@
 </template>
 
 <script>
+import { post } from '@/common/util.js';
 export default {
 	data() {
-		return {};
+		return {
+			userId: '',
+			token: '',
+			audit: 0
+		};
+	},
+	onShow() {
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
+		this.getPartnerAuthInfo();
 	},
 	methods: {
-		notPartner() {
+		myAcount() {
 			uni.navigateTo({
-				url: '/pages/member/notPartner/notPartner'
+				url: '/pages/other/myAcount/myAcount'
 			});
 		},
 		myTeam() {
-			uni.navigateTo({
-				url: '/pages/member/myTeam/myTeam'
+			if (this.audit == 0) {
+				uni.navigateTo({
+					url: '/pages/member/applyPartnerReview/applyPartnerReview'
+				});
+			}
+			if (this.audit == 1) {
+				uni.navigateTo({
+					url: '/pages/member/applyPartnerSuc/applyPartnerSuc'
+				});
+			}
+			if (this.audit == 2) {
+				uni.navigateTo({
+					url: '/pages/member/applyPartnerFail/applyPartnerFail'
+				});
+			}
+			if (this.audit == 99) {
+				uni.navigateTo({
+					url: '/pages/member/notPartner/notPartner'
+				});
+			}
+		},
+		//申请合伙人信息
+		async getPartnerAuthInfo() {
+			let result = await post('User/PartnerAuthInfo', {
+				UserId: this.userId,
+				Token: this.token
 			});
+			if (result.code == 0) {
+				this.audit = result.data.IsAudit;
+			}
 		}
 	}
 };

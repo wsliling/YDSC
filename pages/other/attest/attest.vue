@@ -737,10 +737,6 @@
 			height: 350rpx;
 			border: 1px dashed #cccccc;
 			border-radius: 10rpx;
-			// display: flex;
-			// flex-wrap: wrap;
-			// align-items: center;
-			// justify-content: center;
 			text{
 				display: inline-block;
 				width: 100%;
