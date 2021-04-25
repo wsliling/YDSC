@@ -1,0 +1,169 @@
+<template>
+	<view>
+		<view class="itemlist">
+			<view class="item flex-between">
+				<view class="lab">脉宽</view>
+				<view class="val flex1">
+					<slider class="sliderbox" value="50" @change="sliderChange" activeColor="#fa6008" backgroundColor="#fff2ea" block-color="#fa6008" block-size="18" />
+				</view>
+				<view class="uidt">200us</view>
+			</view>
+			<view class="item flex-between">
+				<view class="lab">频率</view>
+				<view class="val flex1">
+					<slider class="sliderbox" value="33" @change="sliderChange" activeColor="#fa6008" backgroundColor="#fff2ea" block-color="#fa6008" block-size="18" />
+				</view>
+				<view class="uidt">40Hz</view>
+			</view>
+			<view class="item flex-between">
+				<view class="lab">放电</view>
+				<view class="val flex1">
+					<slider class="sliderbox" value="20" @change="sliderChange" activeColor="#fa6008" backgroundColor="#fff2ea" block-color="#fa6008" block-size="18" />
+				</view>
+				<view class="uidt">20s</view>
+			</view>
+			<view class="item flex-between">
+				<view class="lab">间隔</view>
+				<view class="val flex1">
+					<slider class="sliderbox" value="33" @change="sliderChange" activeColor="#fa6008" backgroundColor="#fff2ea" block-color="#fa6008" block-size="18" />
+				</view>
+				<view class="uidt">4s</view>
+			</view>
+			<view class="item flex-between">
+				<view class="lab">训练时长</view>
+				<view class="val flex1">
+					<slider class="sliderbox" value="33" @change="sliderChange" activeColor="#fa6008" backgroundColor="#fff2ea" block-color="#fa6008" block-size="18" />
+				</view>
+				<view class="uidt">20min</view>
+			</view>
+			<view class="item flex-between">
+				<view class="lab">缓冲时长</view>
+				<view class="val flex1">
+					<slider class="sliderbox" value="33" @change="sliderChange" activeColor="#fa6008" backgroundColor="#fff2ea" block-color="#fa6008" block-size="18" />
+				</view>
+				<view class="uidt">1.5s</view>
+			</view>
+			<view class="item flex-between" @click="showPicker(1)">
+				<view class="lab">基波</view>
+				<view class="val flex1">
+					方波
+				</view>
+				<view class="uni-icon uni-icon-arrowright"></view>
+			</view>
+			<view class="item flex-between" @click="showPicker(2)">
+				<view class="lab">载波</view>
+				<view class="val flex1">
+					方波
+				</view>
+				<view class="uni-icon uni-icon-arrowright"></view>
+			</view>
+		</view>
+		<view style="height: 130upx;"></view>
+		<view class="fixedbtn">
+			<view class="btns flex-between">
+				<view class="btn btn_line">保存</view>
+				<view class="btn">使用</view>
+			</view>
+		</view>
+		 <pickers :arr="bolist" :show.sync="isShow" @success="gettype"></pickers>
+	</view>
+</template>
+
+<script>
+	import {post,toLogin} from '@/common/util.js';
+	import pickers from '@/components/pickers';
+	export default {
+		components:{
+			pickers
+		},
+		data() {
+			return {
+				userId: "",
+				token: "",
+				isShow:false,
+				bolist:[
+					{
+						code:1,
+						message:"方波"
+					},
+					{
+						code:2,
+						message:"方波1"
+					},
+					{
+						code:3,
+						message:"方波2"
+					}
+				]
+			}
+		},
+		onShow() {
+			this.userId = uni.getStorageSync("userId");
+			this.token = uni.getStorageSync("token");
+		},
+		methods: {
+			//跳转
+			goLink(url){
+				uni.navigateTo({
+					url:url
+				})
+			},
+			sliderChange(e) {
+				console.log('value 发生变化：' + e.detail.value)
+			},
+			showPicker(type){
+				this.isShow = true
+			},
+			gettype(e){
+				console.log(e,"//")
+			  if(e.code){
+			    
+			  }
+			},
+			
+			
+		}
+	}
+</script>
+
+<style lang="scss" scoped>
+.itemlist{
+	padding: 30upx;
+	.item{
+		background: #fff;
+		border-radius: 16upx;
+		margin-bottom: 20upx;
+		padding: 30upx;
+		.lab{
+			font-size: 30upx;
+			width: 120upx;
+		}
+		.val{padding: 0 20upx; 
+		font-size: 30upx;}
+		.sliderbox{
+			margin: 0;
+			background: none;
+			height: 40upx;
+			/deep/ .uni-slider-handle-wrapper{
+				height: 10upx;
+				border-radius: 100px;
+			}
+		}
+		.uidt{width: 120upx;
+		text-align: right;}
+		.uni-icon{font-size: 32upx; color: #666;}
+	}
+}
+.fixedbtn{
+	padding: 20upx 30upx;
+	background: #f5f5f5;
+	.btn{
+		width: 48%;
+		&.btn_line{
+			border: 1px solid $primary;
+			color: $primary;
+			background: none;
+		}
+	}
+}
+</style>
