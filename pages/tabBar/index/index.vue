@@ -8,6 +8,7 @@
 					<view class="swiper-item swiperTop" @click="tolink('/pages/index/beginExercise/beginExercise')">
 						<image class="img" :src="item.Pic" mode="aspectFill"></image>
 					</view>
+					<!-- <view class="swiper-item swiperTop" @click="bannerlink(item.Url, index)"><image class="img" :src="item.Pic" mode="aspectFill"></image></view> -->
 				</swiper-item>
 			</swiper>
 			<view class="dots" style="bottom: 10upx;">
@@ -138,6 +139,15 @@ export default {
 		},
 		changeSwiper(e) {
 			this.currentSwiper = e.detail.current;
+		},
+		bannerlink(url, index) {
+			if (index == 0) {
+				uni.navigateTo({
+					url: '/pages/ems/select_Pro/select_Pro'
+				});
+			} else {
+				this.tolink(url);
+			}
 		}
 	},
 	// 下拉刷新

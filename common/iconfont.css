@@ -12,6 +12,58 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.icon-shijian1:before {
+  content: "\e605";
+}
+
+.icon-bainji:before {
+  content: "\e630";
+}
+
+.icon-ALL:before {
+  content: "\e65e";
+}
+
+.icon-shijian2:before {
+  content: "\e607";
+}
+
+.icon-huo:before {
+  content: "\e78a";
+}
+
+.icon-guanbi:before {
+  content: "\e663";
+}
+
+.icon-shuaxin:before {
+  content: "\e7bd";
+}
+
+.icon-zulin:before {
+  content: "\e635";
+}
+
+.icon-remen:before {
+  content: "\e61f";
+}
+
+.icon-fenlei:before {
+  content: "\e636";
+}
+
+.icon-wifi:before {
+  content: "\e60e";
+}
+
+.icon-shan:before {
+  content: "\eb6d";
+}
+
+.icon-moshi:before {
+  content: "\e6ae";
+}
+
 .icon-ziyuan131:before {
   content: "\e785";
 }
