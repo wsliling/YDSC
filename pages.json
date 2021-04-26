@@ -194,19 +194,33 @@
 	"subPackages": [{
 			"root": "pages/index",
 			"pages": [{
-				"path": "beginExercise/beginExercise",
-				"style": {
-					"navigationBarTitleText": "开始训练",
-					"enablePullDownRefresh": false
-				}
-			}, {
-				"path": "pickMode/pickMode",
-				"style": {
-					"navigationBarTitleText": "选择模式",
-					"enablePullDownRefresh": false
-				}
-
-			}]
+                    "path" : "modeSet/modeSet",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "模式设置",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "healthLife/healthLife",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "健康生活",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "ExeRecord/ExeRecord",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "运动记录",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
 		},
 		{
 			"root": "pages/goods",

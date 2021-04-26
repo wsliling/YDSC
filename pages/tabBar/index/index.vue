@@ -5,17 +5,17 @@
 			<swiper class="swiper" :indicator-dots="false" autoplay :interval="5000" :duration="500" @change="changeSwiper">
 				<swiper-item v-for="(item, index) in bannerList" :key="index">
 					<!-- <view class="swiper-item swiperTop" @click="tolink(item.Url)"><image class="img" :src="item.Pic" mode="aspectFill"></image></view> -->
-					<view class="swiper-item swiperTop" @click="tolink('/pages/index/beginExercise/beginExercise')">
+					<!-- <view class="swiper-item swiperTop" @click="tolink('/pages/index/beginExercise/beginExercise')">
 						<image class="img" :src="item.Pic" mode="aspectFill"></image>
-					</view>
-					<!-- <view class="swiper-item swiperTop" @click="bannerlink(item.Url, index)"><image class="img" :src="item.Pic" mode="aspectFill"></image></view> -->
+					</view> -->
+					<view class="swiper-item swiperTop" @click="bannerlink(item.Url, index)"><image class="img" :src="item.Pic" mode="aspectFill"></image></view>
 				</swiper-item>
 			</swiper>
 			<view class="dots" style="bottom: 10upx;">
 				<view v-for="(item, index) in bannerList.length" :key="index" :class="['dot', currentSwiper == index ? 'active' : '']"></view>
 			</view>
 		</view>
-		<view class="cen">
+		<view class="cen" @click="tolink('/pages/index/healthLife/healthLife')">
 			<view class="cardTitle">健康生活</view>
 			<view class="cardAll">
 				<view class="card_1">
@@ -29,7 +29,7 @@
 				<view class="card_2_2">目标达成</view>
 			</view>
 		</view>
-		<view class="cen">
+		<view class="cen" @click="tolink('/pages/index/ExeRecord/ExeRecord')">
 			<view class="cardTitle">运动记录</view>
 			<view class="cardAll">
 				<view class="card_1">
@@ -42,7 +42,7 @@
 				<view class="card_2_1"></view>
 			</view>
 		</view>
-		<view class="cen">
+		<view class="cen" @click="tolink('/pages/index/bodyFat/bodyFat')">
 			<view class="cardTitle">体脂</view>
 			<view class="cardAll">
 				<view class="card_1">
@@ -56,8 +56,8 @@
 				<view class="card_2">正常</view>
 			</view>
 		</view>
-		<view class="cen">
-			<view class="cardTitle">健康生活</view>
+		<view class="cen" @click="tolink('/pages/index/healthLife/healthLife')">
+			<view class="cardTitle">心率</view>
 			<view class="cardAll">
 				<view class="card_1">
 					<view><image src="/static/health/jian_4.png"></image></view>
