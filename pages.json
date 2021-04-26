@@ -1307,6 +1307,15 @@
                 }
                 
                 }
+                ,{
+                    "path" : "bodyFat/bodyFat",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "体脂",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
             ]
 		}
 	],

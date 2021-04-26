@@ -38,7 +38,7 @@
 				<view class="card_2_1"></view>
 			</view>
 		</view>
-		<view class="cen">
+		<view class="cen" @click="tolink('/pages/ems/bodyFat/bodyFat')">
 			<view class="cardTitle">体脂</view>
 			<view class="cardAll">
 				<view class="card_1">
@@ -53,7 +53,7 @@
 			</view>
 		</view>
 		<view class="cen">
-			<view class="cardTitle">健康生活</view>
+			<view class="cardTitle">心率</view>
 			<view class="cardAll">
 				<view class="card_1">
 					<view><image src="/static/health/jian_4.png"></image></view>
