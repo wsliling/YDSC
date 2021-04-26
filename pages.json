@@ -168,9 +168,7 @@
 				"navigationBarBackgroundColor": "#FF3333",
 				"navigationBarTextStyle": "white"
 			}
-		}
-
-		, {
+		}, {
 			"path": "pages/classify/classify",
 			"style": {
 				"app-plus": {
@@ -191,15 +189,26 @@
 					"titleNView": false //去除原生导航
 				}
 			}
-		}, {
-			"path": "components/linzq-imgUpload2/linzq-imgUpload2",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
 		}
 	],
 	"subPackages": [{
+			"root": "pages/index",
+			"pages": [{
+				"path": "beginExercise/beginExercise",
+				"style": {
+					"navigationBarTitleText": "开始训练",
+					"enablePullDownRefresh": false
+				}
+			}, {
+				"path": "pickMode/pickMode",
+				"style": {
+					"navigationBarTitleText": "选择模式",
+					"enablePullDownRefresh": false
+				}
+
+			}]
+		},
+		{
 			"root": "pages/goods",
 			"pages": [{
 					"path": "newpro/newpro",
@@ -452,50 +461,41 @@
 					"style": {
 						"navigationBarTitleText": "分类"
 					}
-				}
-				,{
-				    "path" : "lease/lease",
-				    "style" :                                                                                    
-						{
-							"navigationBarTitleText": "租赁设备",
-							"enablePullDownRefresh": false
-						}
-				}
-				,{
-				    "path" : "myLease/myLease",
-				    "style" :                                                                                    
-				{
-				    "navigationBarTitleText": "我的租赁",
-				    "enablePullDownRefresh": false
-				}
-				
-				}
-				,{
-				    "path" : "submitLease/submitLease",
-				    "style" :                                                                                    
-				{
-				    "navigationBarTitleText": "租赁设备",
-				    "enablePullDownRefresh": false
-				}
-				
-				}
-				,{
-				    "path" : "submitLease/storelist",
-				    "style" :                                                                                    
-				{
-				    "navigationBarTitleText": "门店选择",
-				    "enablePullDownRefresh": false
-				}
-				
+				}, {
+					"path": "lease/lease",
+					"style": {
+						"navigationBarTitleText": "租赁设备",
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "myLease/myLease",
+					"style": {
+						"navigationBarTitleText": "我的租赁",
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "submitLease/submitLease",
+					"style": {
+						"navigationBarTitleText": "租赁设备",
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "submitLease/storelist",
+					"style": {
+						"navigationBarTitleText": "门店选择",
+						"enablePullDownRefresh": false
+					}
+
 				},
 				{
-				    "path" : "submitLease/leaseResult",
-				    "style" :                                                                                    
-				{
-				    "navigationBarTitleText": "租赁设备",
-				    "enablePullDownRefresh": false
-				}
-				
+					"path": "submitLease/leaseResult",
+					"style": {
+						"navigationBarTitleText": "租赁设备",
+						"enablePullDownRefresh": false
+					}
+
 				}
 			]
 		},
@@ -569,12 +569,6 @@
 					"path": "getCome/getCome",
 					"style": {
 						"navigationBarTitleText": "收益明细"
-					}
-				},
-				{
-					"path": "rebate/rebate",
-					"style": {
-						"navigationBarTitleText": "佣金明细"
 					}
 				},
 				{
@@ -940,14 +934,6 @@
 					}
 				},
 				{
-					"path": "applyShop/applyShop",
-					"style": {
-						"navigationBarTitleText": "店铺申请",
-						"enablePullDownRefresh": false
-					}
-
-				},
-				{
 					"path": "score/score",
 					"style": {
 						"navigationBarTitleText": "积分",
@@ -1089,7 +1075,7 @@
 					"style": {
 						"navigationBarTitleText": "发布话题"
 					}
-				}, 
+				},
 				{
 					"path": "addtopic/addtopic",
 					"style": {

@@ -7,7 +7,19 @@
 			</view>
 			<view class="search"><bm-search-input></bm-search-input></view>
 		</view>
-		<view><banner :list="bannerList" :height="300" :padding="10" :borderRadius="20"></banner></view>
+		<view>
+			<!-- 轮播 -->
+			<view class="index_swiper">
+				<swiper class="swiper" :indicator-dots="false" autoplay :interval="5000" :duration="500" @change="changeSwiper">
+					<swiper-item v-for="(item, index) in bannerList" :key="index">
+						<view class="swiper-item swiperTop" @click="tolink(item.Url)"><image class="img" :src="item.Pic" mode="aspectFill"></image></view>
+					</swiper-item>
+				</swiper>
+				<view class="dots" style="bottom: 10upx;">
+					<view v-for="(item, index) in bannerList.length" :key="index" :class="['dot', currentSwiper == index ? 'active' : '']"></view>
+				</view>
+			</view>
+		</view>
 		<view class="sec">
 			<view class="sec_1"><image src="/static/health/change/class_2.png" @click="order"></image></view>
 			<view class="sec_2">
@@ -65,14 +77,12 @@ import product from '@/components/product.vue';
 import noData from '@/components/noData.vue'; //暂无数据
 import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
 import bmSearchInput from '@/components/bm-searchInput/bm-searchInput.vue';
-import banner from '@/components/ay-banner/banner.vue';
 export default {
 	components: {
 		noData,
 		uniLoadMore,
 		product,
-		bmSearchInput,
-		banner
+		bmSearchInput
 	},
 	data() {
 		return {
@@ -88,21 +98,8 @@ export default {
 			pageCon: 0,
 			classlist: [],
 			classlike: [],
-			bannerList: [
-				{
-					id: 0,
-					img: '/static/health/change/class_1.png',
-					url: 'www.baidu.com/'
-				},
-				{
-					id: 1,
-					img: '/static/health/change/class_1.png'
-				},
-				{
-					id: 2,
-					img: '/static/health/change/class_1.png'
-				}
-			],
+			bannerList: [],
+			currentSwiper: 0,
 			tabs: [],
 			tabIndex: 45,
 			id: 0
@@ -115,6 +112,7 @@ export default {
 		this.getClassList();
 		this.getClassType();
 		this.getClassLike();
+		this.getBanner();
 	},
 	onShow() {
 		this.pageCon = uni.getStorageSync('pageCon');
@@ -157,6 +155,32 @@ export default {
 			this.noDataIsShow = false;
 			this.hasData = false;
 			this.getClassList();
+		},
+		//跳转
+		tolink(Url, islogin) {
+			if (islogin == 'login') {
+				if (toLogin()) {
+					uni.navigateTo({
+						url: Url
+					});
+				}
+			} else {
+				uni.navigateTo({
+					url: Url
+				});
+			}
+		},
+		// 获取banner图
+		async getBanner() {
+			let result = await post('Banner/BannerList', {
+				Cid: 1
+			});
+			if (result.code == 0) {
+				this.bannerList = result.data;
+			}
+		},
+		changeSwiper(e) {
+			this.currentSwiper = e.detail.current;
 		},
 		//所有课程类型
 		async getClassType() {

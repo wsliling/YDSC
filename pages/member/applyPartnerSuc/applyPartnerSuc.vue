@@ -13,6 +13,14 @@ export default {
 	data() {
 		return {};
 	},
+	onshow() {},
+	onLoad() {
+		setTimeout(() => {
+			uni.navigateTo({
+				url: '/pages/member/myTeam/myTeam'
+			});
+		}, 500);
+	},
 	methods: {}
 };
 </script>

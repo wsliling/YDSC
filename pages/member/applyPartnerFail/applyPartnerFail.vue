@@ -4,22 +4,43 @@
 		<view class="secAll">
 			<view class="iconfont icon-shibai suc"></view>
 			<view class="suc_1">申请失败</view>
-			<view class="suc_2">上传照片不清晰，信息有速盖</view>
+			<view class="suc_2">{{ auditreason }}</view>
 			<view class="review" @click="back">重新申请</view>
 		</view>
 	</view>
 </template>
-
 <script>
+import { post } from '@/common/util.js';
 export default {
 	data() {
-		return {};
+		return {
+			userId: '',
+			token: '',
+			auditreason: '' //申请失败原因
+		};
+	},
+	onShow() {
+	},
+	onLoad() {
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
+		this.getPartnerAuthInfo();
 	},
 	methods: {
 		back() {
 			uni.navigateTo({
 				url: '../applyPartner/applyPartner'
 			});
+		},
+		//申请合伙人信息
+		async getPartnerAuthInfo() {
+			let result = await post('User/PartnerAuthInfo', {
+				UserId: this.userId,
+				Token: this.token
+			});
+			if (result.code == 0) {
+				this.auditreason = result.data.AuditReason;
+			}
 		}
 	}
 };

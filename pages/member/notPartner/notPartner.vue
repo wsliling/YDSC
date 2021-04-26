@@ -19,7 +19,7 @@ export default {
 			uni.navigateTo({
 				url: '/pages/member/applyPartner/applyPartner'
 			});
-		}
+		},
 	}
 };
 </script>

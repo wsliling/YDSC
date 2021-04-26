@@ -40,11 +40,11 @@ export default {
 			this.checkId = id;
 			this.topic = uni.setStorageSync('topic', this.topiclist[id].Title);
 			this.topicId = uni.setStorageSync('topicId', this.topiclist[id].Id);
-			setTimeout(function() {
+			setTimeout(() => {
 				uni.navigateTo({
 					url: '/pages/personal/artPost/topicPost'
 				});
-			}, 300);
+			}, 500);
 		},
 		/*获取话题详情*/
 		async getTopicList() {

@@ -4,7 +4,11 @@
 		<view class="index_swiper" v-if="tabNav != 1">
 			<swiper class="swiper" :indicator-dots="false" autoplay :interval="5000" :duration="500" @change="changeSwiper">
 				<swiper-item v-for="(item, index) in bannerList" :key="index">
-					<view class="swiper-item swiperTop" @click="bannerlink(item.Url,index)"><image class="img" :src="item.Pic" mode="aspectFill"></image></view>
+					<!-- <view class="swiper-item swiperTop" @click="tolink(item.Url)"><image class="img" :src="item.Pic" mode="aspectFill"></image></view> -->
+					<view class="swiper-item swiperTop" @click="tolink('/pages/index/beginExercise/beginExercise')">
+						<image class="img" :src="item.Pic" mode="aspectFill"></image>
+					</view>
+					<!-- <view class="swiper-item swiperTop" @click="bannerlink(item.Url, index)"><image class="img" :src="item.Pic" mode="aspectFill"></image></view> -->
 				</swiper-item>
 			</swiper>
 			<view class="dots" style="bottom: 10upx;">
@@ -136,15 +140,15 @@ export default {
 		changeSwiper(e) {
 			this.currentSwiper = e.detail.current;
 		},
-		bannerlink(url,index){
-			if(index==0){
+		bannerlink(url, index) {
+			if (index == 0) {
 				uni.navigateTo({
-					url:"/pages/ems/select_Pro/select_Pro"
-				})
-			}else{
-				this.tolink(url)
+					url: '/pages/ems/select_Pro/select_Pro'
+				});
+			} else {
+				this.tolink(url);
 			}
-		},
+		}
 	},
 	// 下拉刷新
 	onPullDownRefresh() {
