@@ -1,0 +1,67 @@
+.fatPage{
+	padding: 0 30upx 30upx;
+}
+.tabTime{
+	.item{
+		width: 100upx;
+		text-align: center;
+		padding: 20upx 0;
+		font-size: 32upx;
+		font-weight: bold;
+		&.active{
+			color: $primary;
+		}
+	}
+}
+.dateTime{
+	.time{padding: 0 20upx;}
+}
+.nowInfo{
+	padding: 20upx 0;
+	text-align: center;
+	.weight{
+		font-size: 76upx;
+		line-height: 1;
+		color: $primary;
+	}
+}
+.itembox{
+	background: #fff;
+	border-radius: 8px;
+	margin-bottom: 20upx;
+	padding: 20upx;
+	.txtName{
+		color: #999;
+		font-size: 26upx;
+	}
+	.val{ font-size: 28upx;}
+	.type{
+		font-size: 26upx;
+	}
+	.type1{color: #78d249;}
+	.type2{color: #f56e31;}
+	.type3{color: #2990fa;}
+	.type4{color: #e94737;}
+	.box_l{
+		padding: 0 20upx;
+		border-right: 1px solid #eee;
+		.num{
+			font-size: 76upx;
+			line-height: 1;
+			color: $primary;
+		}
+	}
+	.box_r{
+		padding-left: 30upx;
+		line-height: 1.5;
+		color: #666;
+	}
+}
+.itemlist{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	.itembox{
+		width: 31.3%;
+	}
+}
