@@ -8,7 +8,7 @@
 			</div>
 			<picker-view indicator-style="height: 50px;" style="height:480rpx;" @change="onChange">
 				<picker-view-column>
-					<div v-for="(item, index) in arr" :key="index" style="line-height: 100rpx;width:100%;text-align:center;">{{ item.message }}</div>
+					<div v-for="(item, index) in arr" :key="index" style="line-height: 100rpx;width:100%;text-align:center;">{{ item.Name }}</div>
 				</picker-view-column>
 			</picker-view>
 		</div>
@@ -37,7 +37,7 @@ export default {
 		};
 	},
 	onLoad() {
-		console.log(this.arr, 'arr');
+		// console.log(this.arr, 'arr');
 		this.value = this.arr[0];
 		// this.arr.map((item, index) => {
 		//   if (this.default === item) {

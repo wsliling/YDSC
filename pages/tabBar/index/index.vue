@@ -15,7 +15,7 @@
 				<view v-for="(item, index) in bannerList.length" :key="index" :class="['dot', currentSwiper == index ? 'active' : '']"></view>
 			</view>
 		</view>
-		<view class="cen" @click="tolink('/pages/index/healthLife/healthLife')">
+		<view class="cen" @click="tolink('/pages/ems/healthLife/healthLife')">
 			<view class="cardTitle">健康生活</view>
 			<view class="cardAll">
 				<view class="card_1">
@@ -29,7 +29,7 @@
 				<view class="card_2_2">目标达成</view>
 			</view>
 		</view>
-		<view class="cen" @click="tolink('/pages/index/ExeRecord/ExeRecord')">
+		<view class="cen" @click="tolink('/pages/ems/ExeRecord/ExeRecord')">
 			<view class="cardTitle">运动记录</view>
 			<view class="cardAll">
 				<view class="card_1">
@@ -42,7 +42,6 @@
 				<view class="card_2_1"></view>
 			</view>
 		</view>
-		<!-- <view class="cen" @click="tolink('/pages/index/bodyFat/bodyFat')"> -->
 		<view class="cen" @click="tolink('/pages/ems/bodyFat/bodyFat')">
 			<view class="cardTitle">体脂</view>
 			<view class="cardAll">
@@ -57,7 +56,7 @@
 				<view class="card_2">正常</view>
 			</view>
 		</view>
-		<view class="cen" @click="tolink('/pages/index/healthLife/healthLife')">
+		<view class="cen" @click="tolink('/pages/ems/heart/heart')">
 		<!-- <view class="cen"> -->
 			<view class="cardTitle">心率</view>
 			<view class="cardAll">

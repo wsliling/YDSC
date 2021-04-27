@@ -6,21 +6,21 @@
 				<view class="val flex1">
 					<slider class="sliderbox" value="50" @change="sliderChange" activeColor="#fa6008" backgroundColor="#fff2ea" block-color="#fa6008" block-size="18" />
 				</view>
-				<view class="uidt">{{modeinfo.PulseWidth}}us</view>
+				<view class="uidt">{{ modeinfo.PulseWidth }}us</view>
 			</view>
 			<view class="item flex-between">
 				<view class="lab">频率</view>
 				<view class="val flex1">
 					<slider class="sliderbox" value="33" @change="sliderChange" activeColor="#fa6008" backgroundColor="#fff2ea" block-color="#fa6008" block-size="18" />
 				</view>
-				<view class="uidt">{{modeinfo.Frequency}}Hz</view>
+				<view class="uidt">{{ modeinfo.Frequency }}Hz</view>
 			</view>
 			<view class="item flex-between">
 				<view class="lab">放电</view>
 				<view class="val flex1">
 					<slider class="sliderbox" value="20" @change="sliderChange" activeColor="#fa6008" backgroundColor="#fff2ea" block-color="#fa6008" block-size="18" />
 				</view>
-				<view class="uidt">{{modeinfo.Discharge}}s</view>
+				<view class="uidt">{{ modeinfo.Discharge }}s</view>
 			</view>
 			<view class="item flex-between">
 				<view class="lab">间隔</view>
@@ -34,23 +34,25 @@
 				<view class="val flex1">
 					<slider class="sliderbox" value="33" @change="sliderChange" activeColor="#fa6008" backgroundColor="#fff2ea" block-color="#fa6008" block-size="18" />
 				</view>
-				<view class="uidt">{{modeinfo.TrainDuration}}min</view>
+				<view class="uidt">{{ modeinfo.TrainDuration }}min</view>
 			</view>
 			<view class="item flex-between">
 				<view class="lab">缓冲时长</view>
 				<view class="val flex1">
 					<slider class="sliderbox" value="33" @change="sliderChange" activeColor="#fa6008" backgroundColor="#fff2ea" block-color="#fa6008" block-size="18" />
 				</view>
-				<view class="uidt">{{modeinfo.BufferDuration}}s</view>
+				<view class="uidt">{{ modeinfo.BufferDuration }}s</view>
 			</view>
 			<view class="item flex-between" @click="showPicker(1)">
 				<view class="lab">基波</view>
-				<view class="val flex1">方波</view>
+				<view class="val flex1">{{ modeinfo.BasicWaveName }}</view>
+				<!-- {{ bolistbasic }} -->
 				<view class="uni-icon uni-icon-arrowright"></view>
 			</view>
 			<view class="item flex-between" @click="showPicker(2)">
 				<view class="lab">载波</view>
-				<view class="val flex1">方波</view>
+				<view class="val flex1">{{ modeinfo.CarrierName }}</view>
+				<!-- {{ bolistcarrier }} -->
 				<view class="uni-icon uni-icon-arrowright"></view>
 			</view>
 		</view>
@@ -61,13 +63,14 @@
 				<view class="btn">使用</view>
 			</view>
 		</view>
-		<pickers :arr="bolist" :show.sync="isShow" @success="gettype"></pickers>
+		<pickers :arr="bolistbasic" :show.sync="isShow" @success="gettype"></pickers>
+		<pickers :arr="bolistcarrier" :show.sync="isShowTwo" @success="gettype"></pickers>
 	</view>
 </template>
 
 <script>
 import { post, toLogin } from '@/common/util.js';
-import pickers from '@/components/pickers';
+import pickers from '@/components/pickersWave';
 export default {
 	components: {
 		pickers
@@ -77,20 +80,9 @@ export default {
 			userId: '',
 			token: '',
 			isShow: false,
-			bolist: [
-				{
-					code: 1,
-					message: '方波'
-				},
-				{
-					code: 2,
-					message: '方波1'
-				},
-				{
-					code: 3,
-					message: '方波2'
-				}
-			],
+			isShowTwo: false,
+			bolistbasic: [], //基波
+			bolistcarrier: [], //载波
 			Id: 0,
 			modeinfo: [],
 			baseinfo: []
@@ -115,11 +107,17 @@ export default {
 			console.log('value 发生变化：' + e.detail.value);
 		},
 		showPicker(type) {
-			this.isShow = true;
+			if (type == 1) {
+				this.isShow = true;
+			}
+			if (type == 2) {
+				this.isShowTwo = true;
+			}
 		},
 		gettype(e) {
 			console.log(e, '//');
 			if (e.code) {
+				// this.bolistbasic = e.code;
 			}
 		},
 		async getTraininModeInfo() {
@@ -130,7 +128,8 @@ export default {
 			});
 			if (result.code == 0) {
 				this.modeinfo = result.data;
-				this.baseinfo = result.data.BaseInfo;
+				this.bolistbasic = result.data.BaseInfo.BasicWaveData;
+				this.bolistcarrier = result.data.BaseInfo.CarrierData;
 			}
 		}
 	}

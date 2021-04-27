@@ -192,37 +192,6 @@
 		}
 	],
 	"subPackages": [{
-			"root": "pages/index",
-			"pages": [{
-                    "path" : "modeSet/modeSet",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "模式设置",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                ,{
-                    "path" : "healthLife/healthLife",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "健康生活",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                ,{
-                    "path" : "ExeRecord/ExeRecord",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "运动记录",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-            ]
-		},
-		{
 			"root": "pages/goods",
 			"pages": [{
 					"path": "newpro/newpro",
@@ -1242,81 +1211,84 @@
 			}]
 		},
 		{
-			"root":"pages/ems",
-			"pages":[
-				{
-                    "path" : "select_Pro/select_Pro",
-                    "style" :                                                                                    
-						{
-							"navigationBarTitleText": "选择产品",
-							"enablePullDownRefresh": false
-						}
-                
-                }
-                ,{
-                    "path" : "findEquipment/findEquipment",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "查找设备",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                ,{
-                    "path" : "startTrain/startTrain",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "开始训练",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                ,{
-                    "path" : "myMOSHI/myMOSHI",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "我的模式",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                ,{
-                    "path" : "selectMoshi/selectMoshi",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "选择模式",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                ,{
-                    "path" : "setMoshi/setMoshi",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "模式设置",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                ,{
-                    "path" : "moshi/moshi",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                ,{
-                    "path" : "bodyFat/bodyFat",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "体脂",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-            ]
+			"root": "pages/ems",
+			"pages": [{
+				"path": "select_Pro/select_Pro",
+				"style": {
+					"navigationBarTitleText": "选择产品",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "findEquipment/findEquipment",
+				"style": {
+					"navigationBarTitleText": "查找设备",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "startTrain/startTrain",
+				"style": {
+					"navigationBarTitleText": "开始训练",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "myMOSHI/myMOSHI",
+				"style": {
+					"navigationBarTitleText": "我的模式",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "selectMoshi/selectMoshi",
+				"style": {
+					"navigationBarTitleText": "选择模式",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "setMoshi/setMoshi",
+				"style": {
+					"navigationBarTitleText": "模式设置",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "moshi/moshi",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "bodyFat/bodyFat",
+				"style": {
+					"navigationBarTitleText": "体脂",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "ExeRecord/ExeRecord",
+				"style": {
+					"navigationBarTitleText": "运动记录",
+					"enablePullDownRefresh": false
+				}
+			}, {
+				"path": "healthLife/healthLife",
+				"style": {
+					"navigationBarTitleText": "健康生活",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "heart/heart",
+				"style": {
+					"navigationBarTitleText": "心率",
+					"enablePullDownRefresh": false
+				}
+
+			}]
 		}
 	],
 	"globalStyle": {
