@@ -846,19 +846,12 @@
 					}
 				},
 				{
-					"path": "chat/chat",
+					"path": "kefu/kefu",
 					"style": {
-						"navigationBarTitleText": "平台客服",
+						"navigationBarTitleText": "在线客服",
 						"enablePullDownRefresh": false
 					}
-				},
-				// {
-				// 	"path": "kefu/kefu",
-				// 	"style": {
-				// 		"navigationBarTitleText": "在线客服",
-				// 		"enablePullDownRefresh": false
-				// 	}
-				// }, 
+				}, 
 				{
 					"path": "partner/partner",
 					"style": {

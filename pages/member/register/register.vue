@@ -21,27 +21,15 @@
 					<view class="one_2">+{{ item.Score }}</view>
 				</view>
 			</view>
-			<!-- 	<view class="rig" @click="rig" v-show="(score.IsSign = 0)">签到</view>
-			<view class="rig1" v-show="(score.IsSign = 1)">已签到</view> -->
 			<view class="rig" @click="rig">签到</view>
-			<!-- <wyb-popup ref="popup" type="center" height="490" width="600" radius="6" :showCloseIcon="true">
-				<view class="popup-content">
-					<view class="title">获得积分</view>
-					<view class="con" v-for="(item, index) in scoreAdd" :key="index">+{{ item.Score }}</view>
-					<view class="con_1">连签天数越多得Y币越多</view>
-				</view>
-			</wyb-popup> -->
 		</view>
 	</view>
 </template>
 
 <script>
 import { post } from '@/common/util.js';
-// import wybPopup from '@/components/wyb-popup2/wyb-popup.vue';
 export default {
-	components: {
-		// wybPopup
-	},
+	components: {},
 	data() {
 		return {
 			userId: '',
@@ -51,7 +39,7 @@ export default {
 			IsSign: 0,
 			score: [],
 			scoreAdd: [],
-			createSign: []
+			sign: 0 //连续签到
 		};
 	},
 	onLoad() {
@@ -66,7 +54,6 @@ export default {
 			});
 		},
 		rig() {
-			// this.$refs.popup.show(); // 显示
 			this.getsignIn();
 		},
 		// 签到
@@ -76,7 +63,6 @@ export default {
 				Token: this.token
 			});
 			if (result.code == 0) {
-				this.createSign = result.data;
 				location.reload();
 			}
 		},
@@ -88,8 +74,17 @@ export default {
 			});
 			if (result.code == 0) {
 				this.score = result.data;
-				console.log(result.data);
 				this.scoreAdd = result.data.SignData;
+				for (var i = 0; i < this.scoreAdd.length; i++) {
+					if (this.scoreAdd[i].IsSign == 1) {
+						this.sign++;
+					}
+				}
+				uni.showToast({
+					title: '已连续签到' + this.sign + '天',
+					icon: 'none',
+					duration: 2000
+				});
 			}
 		}
 	}

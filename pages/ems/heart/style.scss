@@ -40,16 +40,20 @@
 		font-size: 28upx;
 	}
 }
-.itemlist {
-	display: flex;
-	flex-wrap: wrap;
-	.itembox {
-		width: 38%;
-	}
-	.itembox:nth-of-type(1) ~ view {
-		margin-left: 20upx;
+.itemlist_1 {
+	overflow: scroll;
+	.itemlist {
+		display: flex;
+		flex-wrap: nowrap;
+		width: 800upx;
+		.itembox {
+			width: 38%;
+		}
+		.itembox:nth-of-type(1) ~ view {
+			margin-left: 20upx;
+		}
 	}
 }
-.bottom{
+.bottom {
 	color: #999;
 }

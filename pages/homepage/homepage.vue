@@ -47,12 +47,12 @@
 						<view v-if="Info.City">{{ Info.City }}</view>
 					</view>
 				</view>
-				
+
 				<view class="userSign uni-ellipsis2" v-if="Info.Introduction">{{ Info.Introduction }}</view>
 				<view class="userSign" v-else @click="toMylink('/pages/member/editinfo/editinfo')">
 					{{ myType ? '填写个人介绍更容易获得关注，点击此处添加' : '这个人很懒，什么都没留下~' }}
 				</view>
-				
+
 				<!-- <view class="flex" v-if="Info.FanGroup">
 					<view class="fansCard">
 						<image :src="Info.Avatar || 'http://xcx.yixijiu19.com/static/default.png'"></image>
@@ -63,7 +63,7 @@
 					</view>
 				</view> -->
 			</view>
-			
+
 			<view class="fans">
 				<view class="fansNum">
 					<view class="item-num" @click="toMylink('/pages/member/follow/follow?type=1')">
@@ -81,7 +81,7 @@
 				</view>
 			</view>
 		</view>
-		
+
 		<view style="overflow-x: hidden;">
 			<view class="tabdiv" v-if="pageCon == 1">
 				<view :class="['item', tabIndex == 1 ? 'active' : '']" @click="tapTab(1)" v-show="false">
@@ -101,7 +101,7 @@
 					<text class="txt">直播</text>
 				</view>
 			</view>
-			<view class="tabCon tab-img flex flexWrap" v-if="tabIndex == 0">
+			<!-- <view class="tabCon tab-img flex flexWrap" v-if="tabIndex == 0">
 				<block v-for="(item, index) in datalist" :key="index">
 					<view class="item" @longtap="longtap(item, index, 0)">
 						<image :src="item.Logo || 'http://via.placeholder.com/400x400'" mode="aspectFill" @click.stop="goLivePlay(item, index)"></image>
@@ -111,7 +111,7 @@
 						</view>
 					</view>
 				</block>
-			</view>
+			</view> 
 			<view class="tabCon tab-img flex flexWrap" v-if="tabIndex == 1">
 				<block v-for="(item, index) in datalist" :key="index">
 					<view class="item" @longtap="longtap(item, index, 1)">
@@ -125,7 +125,7 @@
 						</view>
 					</view>
 				</block>
-			</view>
+			</view>-->
 			<view class="tabCon tab-find" v-if="tabIndex == 2 && hasData">
 				<block v-for="(item, index) in datalist" :key="index">
 					<view class="media-item flex" @click="tolink('/pages/personal/replylist/replylist?id=' + item.Id)">
@@ -150,11 +150,10 @@
 			</view>
 			<!-- 课程 -->
 			<view class="course" v-if="tabIndex == 3">
-				<view class="listcourse" v-for="(item,index) in 3" :key="index">
-					<image src="../../static/health/change/class_10.png"></image>
-				</view>
+				<view class="listcourse" v-for="(item, index) in datalist" :key="index" @click="classDetails(item.Id)">
+					<image :src="item.PicImg"></image>
+					</view>
 			</view>
-			
 			<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
 			<noData :isShow="noDataIsShow"></noData>
 		</view>
@@ -214,6 +213,11 @@ export default {
 		this.GetdateList();
 	},
 	methods: {
+		classDetails(id) {
+			uni.navigateTo({
+				url: '/pages/course/classDetails/classDetails?detailId=' + id
+			});
+		},
 		// 判断是否已开启权限
 		async quanxian() {
 			let platform = uni.getSystemInfoSync() && uni.getSystemInfoSync().platform;
@@ -380,6 +384,15 @@ export default {
 					Page: this.page,
 					PageSize: this.pageSize,
 					myType: 1, //指定用户
+					MemberId: this.memberId
+				};
+			} else if (this.tabIndex == 3) {
+				url = 'Course/MemberViewCourseList';
+				json = {
+					UserId: this.userId,
+					Token: this.token,
+					Page: this.page,
+					PageSize: this.pageSize,
 					MemberId: this.memberId
 				};
 			}

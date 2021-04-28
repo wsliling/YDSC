@@ -20,14 +20,20 @@
 		<view class="itembox">
 			<view class="flex-center"><canvas canvas-id="canvasRing" id="canvasRing" class="charts" @touchstart="touchPie($event, 'canvasRing')"></canvas></view>
 		</view>
-		<view class="itemlist">
-			<view class="itembox">
-				<view class="txtName">心率范围</view>
-				<view class="val">56-126次/分钟</view>
-			</view>
-			<view class="itembox">
-				<view class="txtName">心率范围</view>
-				<view class="val">56-126次/分钟</view>
+		<view class="itemlist_1">
+			<view class="itemlist">
+				<view class="itembox">
+					<view class="txtName">心率范围</view>
+					<view class="val">56-126次/分钟</view>
+				</view>
+				<view class="itembox">
+					<view class="txtName">心率范围</view>
+					<view class="val">56-126次/分钟</view>
+				</view>
+				<view class="itembox">
+					<view class="txtName">心率范围</view>
+					<view class="val">56-126次/分钟</view>
+				</view>
 			</view>
 		</view>
 		<view class="bottom">静息心牢是指在清醒不活动的安静状态下，每分钟心跳次数，是衡量心脏健康的重要指标之一,理想的静的息心率是50-80次/分钟</view>
@@ -55,7 +61,7 @@ export default {
 					{
 						name: '心跳',
 						data: [80, 120, 85, 107, 90]
-					},
+					}
 				]
 			}
 		};
@@ -67,7 +73,7 @@ export default {
 	onLoad() {
 		_self = this;
 		this.cWidth = uni.upx2px(680);
-		this.cHeight = uni.upx2px(500);
+		this.cHeight = uni.upx2px(400);
 	},
 	onReady() {
 		this.getData();
@@ -99,7 +105,7 @@ export default {
 				timing: 'easeOut',
 				duration: 1000,
 				color: ['#1890FF', '#91CB74', '#FAC858', '#EE6666', '#73C0DE', '#3CA272', '#FC8452', '#9A60B4', '#ea7ccc'],
-				padding: [15, 15, 0, 0],
+				padding: [15, 15, 15, 0],
 				rotate: false,
 				reserve: false,
 				fontSize: 11,
@@ -133,7 +139,7 @@ export default {
 				yAxis: {
 					disabled: false,
 					disableGrid: false,
-					splitNumber: 5,
+					splitNumber: 4,
 					gridType: 'solid',
 					dashLength: 2,
 					gridColor: '#CCCCCC',
@@ -182,7 +188,7 @@ export default {
 						type: 'straight',
 						opacity: 0.2,
 						addLine: true,
-						width: 2,
+						width: 1.2,
 						gradient: false
 					},
 					tooltip: {
@@ -232,6 +238,6 @@ export default {
 @import './style';
 .charts {
 	width: 100%;
-	height: 500rpx;
+	height: 400rpx;
 }
 </style>

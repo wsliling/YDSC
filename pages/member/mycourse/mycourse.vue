@@ -4,7 +4,7 @@
 			<view class="item" @click="change(0)" :class="{ active: btnnum == 0 }">课程</view>
 			<view class="item" @click="change(1)" :class="{ active: btnnum == 1 }">已购买</view>
 		</view>
-		<view class="list" v-if="btnnum == 0" v-for="(item, index) in classlist" :key="index">
+		<view class="list" v-if="btnnum == 0" v-for="(item, index) in classlist" :key="index" @click="classDetails(item.Id)">
 			<view class="leftImg"><image class="img" :src="item.PicImg"></image></view>
 			<view class="rightContent">
 				<view class="titledetail">{{ item.Name }}</view>
@@ -18,7 +18,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="list" v-if="btnnum == 1" v-for="(item, index) in buyclasslist" :key="index">
+		<view class="list" v-if="btnnum == 1" v-for="(item, index) in buyclasslist" :key="index" @click="classDetails(item.Id)">
 			<view class="leftImg"><image class="img" :src="item.PicImg"></image></view>
 			<view class="rightContent">
 				<view class="titledetail">{{ item.Name }}</view>
@@ -67,6 +67,11 @@ export default {
 	methods: {
 		change(e) {
 			this.btnnum = e;
+		},
+		classDetails(id) {
+			uni.navigateTo({
+				url: '/pages/course/classDetails/classDetails?detailId=' + id
+			});
 		},
 		//课程列表
 		async getClassList() {

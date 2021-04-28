@@ -144,7 +144,7 @@
 					</view>
 					<view class="arrowr uni-icon uni-icon-arrowright"></view>
 				</view>
-				<view class="line-item" @click="golink('/pages/member/chat/chat')">
+				<view class="line-item" @click="golink('/pages/member/kefu/kefu')">
 					<view class="item-left">
 						<text class="iconfont icon-kefu"></text>
 						<view>联系客服</view>

@@ -18,7 +18,7 @@
 					<view class="goodsBox">
 						<block v-for="(item, index) in tab.data" :key="index">
 							<!-- <view class="goods" @click="tolink('/pages/ProductList/ProductList?cid=' + item.Id + '&keyname=' + item.ClassName)"> -->
-							<view class="goods"  @click="tolink('/pages/goods/ProductList/ProductList?id='+item.Id+'&keystr='+item.ClassName)">
+							<view class="goods" @click="tolink('/pages/goods/ProductList/ProductList?id=' + item.Id + '&keystr=' + item.ClassName)">
 								<view class="icon flex-center"><image :src="item.PicUrl || 'http://via.placeholder.com/100x100'" mode="widthFix"></image></view>
 								<view class="uni-ellipsis">{{ item.ClassName }}</view>
 							</view>
@@ -147,7 +147,6 @@ export default {
 						}
 						this.subCategoryList = dest;
 					}
-					console.log(this.subCategoryList);
 				} else {
 					this.hasData = false;
 					this.getGoodsList();
@@ -168,7 +167,6 @@ export default {
 					this.hasProData = true;
 					this.noDataIsShow = false;
 					this.prolist = result.data;
-					console.log(this.prolist);
 					if (len > 12) {
 						this.showMore = true;
 					}
