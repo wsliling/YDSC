@@ -77,7 +77,7 @@ export default {
 				this.hasData = false;
 			}
 			if (this.page === 1) {
-				if (this.IsRec == 0) {
+				if (this.IsRec == 1) {
 					this.coachlist = result.data;
 				}
 				if (this.IsRec == 1 || this.IsRec == 0) {
