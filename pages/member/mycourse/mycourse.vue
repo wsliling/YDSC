@@ -11,8 +11,8 @@
 				<view class="time">极速燃脂.10分钟</view>
 				<view class="userinfo">
 					<view class="user">
-						<view class="header"><image class="headerImg" src="/static/health/change/class_11.png"></image></view>
-						<view class="name">零碎记忆</view>
+						<view class="header"><image class="headerImg" :src="item.StoreLogo"></image></view>
+						<view class="name">{{ item.StoreNick }}</view>
 					</view>
 					<view class="price">￥{{ item.Price }}</view>
 				</view>
@@ -22,7 +22,7 @@
 			<view class="leftImg"><image class="img" :src="item.PicImg"></image></view>
 			<view class="rightContent">
 				<view class="titledetail">{{ item.Name }}</view>
-				<view class="time">{{ item.Target }}</view>
+				<view class="time">{{ item.Difficulty }}.{{ item.Target }}</view>
 				<view class="userinfo">
 					<view class="user">
 						<view class="header"><image class="headerImg" :src="item.StoreLogo"></image></view>
@@ -138,9 +138,9 @@ page {
 		}
 	}
 	.rightContent {
+		line-height: 55upx;
 		.titledetail {
 			font-size: 30upx;
-			font-weight: 500;
 			color: #333333;
 			width: 444upx;
 			overflow: hidden;
@@ -148,8 +148,7 @@ page {
 			white-space: nowrap;
 		}
 		.time {
-			font-size: 22upx;
-			font-weight: 500;
+			font-size: 26upx;
 			color: #999999;
 		}
 		.userinfo {
@@ -167,6 +166,10 @@ page {
 						width: 100%;
 						height: 100%;
 					}
+				}
+				.name {
+					font-size: 22upx;
+					color: #999999;
 				}
 			}
 			.price {

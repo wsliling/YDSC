@@ -66,7 +66,7 @@
 					<view class="leftImg"><image class="img" :src="item.PicImg"></image></view>
 					<view class="rightContent">
 						<view class="titledetail">{{ item.Name }}</view>
-						<view class="time">{{ item.Target }}</view>
+						<view class="time">{{ item.Difficulty }}.{{ item.Target }}</view>
 						<view class="userinfo">
 							<view class="user">
 								<view class="header"><image class="headerImg" :src="item.StoreLogo"></image></view>
@@ -552,7 +552,7 @@ export default {
 					white-space: nowrap;
 				}
 				.time {
-					font-size: 22upx;
+					font-size: 26upx;
 					font-weight: 500;
 					color: #999999;
 				}
@@ -571,6 +571,10 @@ export default {
 								width: 100%;
 								height: 100%;
 							}
+						}
+						.name {
+							font-size: 22upx;
+							color: #999999;
 						}
 					}
 					.price {

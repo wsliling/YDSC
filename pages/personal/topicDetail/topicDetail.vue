@@ -32,7 +32,7 @@
 		</view>
 		<view class="list" v-if="hasData">
 			<block v-for="(item, index) in datalist" :key="index">
-				<mediaList :datajson="item" Grid="3" @click="goDetail"></mediaList></block>
+				<mediaListTopic :datajson="item" Grid="3" @click="goDetail"></mediaListTopic></block>
 		</view>
 		<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
 		<noData :isShow="noDataIsShow"></noData>

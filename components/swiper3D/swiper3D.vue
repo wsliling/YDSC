@@ -152,7 +152,7 @@ export default {
 .swiperbox {
 	position: relative;
 	width: 100%;
-	height: 480rpx;
+	height: 580rpx;
 }
 .swiperitem {
 	position: absolute;
