@@ -48,9 +48,10 @@
 		width: 800upx;
 		.itembox {
 			width: 38%;
-		}
-		.itembox:nth-of-type(1) ~ view {
 			margin-left: 20upx;
+		}
+		.itembox:first-child {
+			margin-left: 0;
 		}
 	}
 }
