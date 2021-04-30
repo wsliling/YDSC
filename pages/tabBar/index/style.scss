@@ -1,6 +1,10 @@
 .index_swiper .swiper {
+	height: 350upx;
 	.swiperTop {
-		padding: 0 12upx;
+		padding: 20upx 30upx 0;
+		.img {
+			height: 330upx;
+		}
 	}
 }
 .top image {

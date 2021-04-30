@@ -85,6 +85,7 @@ export default {
 	margin: 30upx 25upx;
 	.rec {
 		margin-top: 30upx;
+		display: block;
 	}
 	.con {
 		.course {

@@ -108,7 +108,8 @@ export default {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
 		this.pageCon = uni.getStorageSync('pageCon');
-		this.getBanner();
+		this.getBanner(1);
+		this.getBanner(14);
 	},
 	onShow() {
 		this.pageCon = uni.getStorageSync('pageCon');
@@ -129,13 +130,16 @@ export default {
 			}
 		},
 		// 获取banner图
-		async getBanner() {
+		async getBanner(type) {
 			let result = await post('Banner/BannerList', {
-				Cid: 1
+				Cid: type
 			});
 			if (result.code == 0) {
-				this.bannerList = result.data;
-				this.imgList = result.data;
+				if(type==1){
+					this.bannerList = result.data;
+				}else if(type==14){
+					this.imgList = result.data;
+				}
 			}
 		},
 		changeSwiper(e) {

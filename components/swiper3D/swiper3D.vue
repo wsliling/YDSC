@@ -118,7 +118,7 @@ export default {
 				.scale(1)
 				.translateX(0)
 				.opacity(1)
-				.step();
+				.step();	
 			this.imgList[index].aData[0] = animation.export();
 		},
 		toleftA: function(index, animation) {
@@ -131,12 +131,7 @@ export default {
 			this.imgList[index].aData[0] = animation.export();
 		},
 		torightA: function(index, animation) {
-			animation
-				.rotateY(-30)
-				.scale(0.86)
-				.translateX(this.movewidth)
-				.opacity(1)
-				.step();
+			animation.rotateY(-30).scale(0.86).translateX(this.movewidth).opacity(1).step();			
 			this.imgList[index].aData[0] = animation.export();
 		},
 		tohide: function(index, animation) {
