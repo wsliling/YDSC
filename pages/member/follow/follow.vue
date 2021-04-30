@@ -37,7 +37,7 @@
 					</view>
 					<view class="flow" :class="{ active: item.IsFollow > 0 }" @click="getFollowOperation(item.UserId, index)">{{ item.IsFollow > 0 ? '已互关' : '关注' }}</view>
 				</view>
-				<!-- <view class="flex-between" v-if="Type == 2">
+				<view class="flex-between" v-if="Type == 2">
 					<view class="author flex-start" @click="tolink('/pages/homepage/homepage?id=' + item.UserId)">
 						<view class="tx"><image :src="item.MemberHead || 'http://xcx.yixijiu19.com/static/default.png'" mode="aspectFill"></image></view>
 						<view class="info">
@@ -46,7 +46,7 @@
 						</view>
 					</view>
 					<view class="flow" :class="{ active: item.IsFollow > 0 }" @click="getFollowOperation(item.UserId, index)">{{ item.IsFollow > 0 ? '已互关' : '关注' }}</view>
-				</view> -->
+				</view>
 			</view>
 		</view>
 		<view class="Yi-Userlist bg_fff" v-if="hasData && Type == 3">
@@ -151,7 +151,7 @@ export default {
 				this.getLists();
 			}
 		},
-		/*获取列表*/
+		/*获取关注列表*/
 		async getList() {
 			let result = await post('User/UserFollowList', {
 				UserId: this.userId,
@@ -184,7 +184,7 @@ export default {
 				}
 			}
 		},
-		/*获取列表*/
+		/*获取店铺列表*/
 		async getLists() {
 			let result = await post('User/MemberCollections', {
 				UserId: this.userId,

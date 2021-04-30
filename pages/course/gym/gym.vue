@@ -9,7 +9,7 @@
 							<text class="txt uni-ellipsis">{{ item.StoreNick }}</text>
 							<text class="uni-icon uni-icon-arrowright fz14"></text>
 						</view>
-						<view class="fz12 c_999">距离您{{ item.Distance }}km</view>
+						<view class="fz12 c_999" v-if="item.IsShowDistance">距离您{{ item.Distance }}</view>
 					</view>
 				</view>
 				<view class="bd">
@@ -38,7 +38,7 @@ export default {
 			userId: '',
 			token: '',
 			page: 1,
-			pageSize: 5,
+			pageSize: 8,
 			loadingType: 0, //0加载前，1加载中，2没有更多了
 			isLoad: false,
 			hasData: false,

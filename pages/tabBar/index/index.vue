@@ -5,9 +5,6 @@
 			<swiper class="swiper" :indicator-dots="false" autoplay :interval="5000" :duration="500" @change="changeSwiper">
 				<swiper-item v-for="(item, index) in bannerList" :key="index">
 					<!-- <view class="swiper-item swiperTop" @click="tolink(item.Url)"><image class="img" :src="item.Pic" mode="aspectFill"></image></view> -->
-					<!-- <view class="swiper-item swiperTop" @click="tolink('/pages/index/beginExercise/beginExercise')">
-						<image class="img" :src="item.Pic" mode="aspectFill"></image>
-					</view> -->
 					<view class="swiper-item swiperTop" @click="bannerlink(item.Url, index)"><image class="img" :src="item.Pic" mode="aspectFill"></image></view>
 				</swiper-item>
 			</swiper>
@@ -57,7 +54,6 @@
 			</view>
 		</view>
 		<view class="cen" @click="tolink('/pages/ems/heart/heart')">
-		<!-- <view class="cen"> -->
 			<view class="cardTitle">心率</view>
 			<view class="cardAll">
 				<view class="card_1">
@@ -71,7 +67,7 @@
 				<view class="card_2">正常</view>
 			</view>
 		</view>
-		<view class="swiper uni-mb10" v-if="imgList.length"><swiper3D :imgList="imgList" :currentIndexParameter="currentpic" wx:key="index"></swiper3D></view>
+		<view class="swiper uni-mb10" v-if="devicelist.length"><swiper3D :imgList="devicelist" :currentIndexParameter="currentpic" wx:key="index"></swiper3D></view>
 	</view>
 </template>
 
@@ -96,7 +92,7 @@ export default {
 			noDataIsShow: false,
 			pageCon: 0,
 			currentpic: 1, // 默认先展示的图片下标
-			imgList: []
+			devicelist: []
 		};
 	},
 	components: {
@@ -109,6 +105,7 @@ export default {
 		this.token = uni.getStorageSync('token');
 		this.pageCon = uni.getStorageSync('pageCon');
 		this.getBanner();
+		this.getDeviceList();
 	},
 	onShow() {
 		this.pageCon = uni.getStorageSync('pageCon');
@@ -135,7 +132,18 @@ export default {
 			});
 			if (result.code == 0) {
 				this.bannerList = result.data;
-				this.imgList = result.data;
+			}
+		},
+		// 设备列表
+		async getDeviceList() {
+			let result = await post('Device/GetDeviceList', {
+				UserId: this.userId,
+				Token: this.token,
+				page: this.page,
+				pageSize: this.pageSize
+			});
+			if (result.code === 0) {
+				this.devicelist = result.data;
 			}
 		},
 		changeSwiper(e) {

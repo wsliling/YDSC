@@ -11,7 +11,6 @@
 				<view class="line-item">
 					<view class="lab">次数</view>
 					<input class="ipt flex1" type="number" @input="useNumAll" v-model="useNum" placeholder="请输入使用次数" />
-					<!-- <input class="ipt flex1" type="number" v-model="useNum" placeholder="请输入使用次数" /> -->
 					<view class="iconfont icon-help" @click="showWin('提示')"></view>
 				</view>
 				<view class="line-item" @click="goLink('/pages/goods/submitLease/storelist')">

@@ -40,7 +40,7 @@ export default {
 			userId: '',
 			token: '',
 			page: 1,
-			pageSize: 6,
+			pageSize: 10,
 			loadingType: 0, //0加载前，1加载中，2没有更多了
 			isLoad: false,
 			hasData: false,
@@ -114,6 +114,20 @@ export default {
 				this.isLoad = true;
 				this.loadingType = 0;
 			}
+		}
+	},
+	onPullDownRefresh() {
+		this.page = 1;
+		uni.stopPullDownRefresh();
+	},
+	// 上拉加载
+	onReachBottom: function() {
+		if (this.isLoad) {
+			this.loadingType = 1;
+			this.page++;
+			this.getOrderClass();
+		} else {
+			this.loadingType = 2;
 		}
 	}
 };

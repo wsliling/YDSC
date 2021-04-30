@@ -19,20 +19,20 @@
 				</view>
 				<view class="u_data flex center">
 					<view class="item" @click="golink('/pages/member/follow/follow?type=0')">
-						<view class="num">{{ Info.Follow }}</view>
+						<view class="num">{{ Info.Follow || 0 }}</view>
 						<view class="txt">关注</view>
 					</view>
 					<view class="item" @click="golink('/pages/member/follow/follow?type=1')">
-						<view class="num">{{ Info.Fans > 9999 ? (Info.Fans / 9999).toFixed(1) + 'W' : Info.Fans }}</view>
+						<view class="num">{{ Info.Fans > 9999 ? (Info.Fans / 9999).toFixed(1) + 'W' : Info.Fans || 0 }}</view>
 						<view class="txt">粉丝</view>
 					</view>
 					<view class="item">
 						<!-- <view class="item" @click="golink('/pages/message/messageClass/messageClass?type=2')"> -->
-						<view class="num">{{ Info.Follow }}</view>
+						<view class="num">{{ Info.TotalLikeNum || 0 }}</view>
 						<view class="txt">获赞</view>
 					</view>
 					<view class="item" @click="golink('/pages/member/collect/collect?type=3')">
-						<view class="num">8</view>
+						<view class="num">{{ Info.CollectionNum }}</view>
 						<view class="txt">收藏</view>
 					</view>
 				</view>

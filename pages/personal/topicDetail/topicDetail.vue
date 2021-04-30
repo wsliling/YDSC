@@ -5,8 +5,8 @@
 			<view class="coverbox">
 				<view class="fz18">{{ topicdetail.Title }}</view>
 				<view class="fz12">
-					<text>{{ topicdetail.PartNum }}人参与</text>
-					<text>{{ topicdetail.CommentNum }}人讨论</text>
+					<text>{{ topicdetail.PartNum > 9999 ? (topicdetail.PartNum / 9999).toFixed(1) + '万' : topicdetail.PartNum }}人参与</text>
+					<text>{{ topicdetail.CommentNum > 9999 ? (topicdetail.CommentNum / 9999).toFixed(1) + '万' : topicdetail.CommentNum }}人讨论</text>
 				</view>
 			</view>
 		</view>
@@ -17,7 +17,7 @@
 			</view>
 			<view class="desc">{{ topicdetail.TopicIntro }}</view>
 		</view>
-		<view class="topic-star uni-bg-white uni-mb10 pp2">
+		<view class="topic-star uni-bg-white uni-mb10 pp2" v-if="topicdetail.IsShowTopicStar">
 			<view class="t_hd flex-start">
 				<image class="iconimg" src="/static/discover/star.png" mode="aspectFill"></image>
 				<text class="title">话题之星</text>
@@ -31,8 +31,7 @@
 			</view>
 		</view>
 		<view class="list" v-if="hasData">
-			<block v-for="(item, index) in datalist" :key="index">
-				<mediaListTopic :datajson="item" Grid="3" @click="goDetail"></mediaListTopic></block>
+			<block v-for="(item, index) in datalist" :key="index"><mediaList :datajson="item" Grid="3" @click="goDetail"></mediaList></block>
 		</view>
 		<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
 		<noData :isShow="noDataIsShow"></noData>
@@ -96,11 +95,14 @@ export default {
 			});
 			if (result.code === 0) {
 				this.topicdetail = result.data;
+				if (this.topicdetail.UserList.length > 0) {
+					this.IsShowTopicStar = true;
+				}
 			}
 		},
 		/*获取动态列表*/
 		async FindList() {
-			let result = await post('Topic/TopicDynamicList', {
+			let result = await post('Find/FindList', {
 				UserId: uni.getStorageSync('userId'),
 				Token: uni.getStorageSync('token'),
 				Page: this.page,
@@ -138,7 +140,7 @@ export default {
 		//链接动态详情页
 		goDetail(e) {
 			uni.navigateTo({
-				url: '/pages/personal/replylistTopic/replylist?id=' + e.id
+				url: '/pages/personal/replylist/replylist?id=' + e.id
 			});
 		}
 	},

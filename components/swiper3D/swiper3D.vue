@@ -9,33 +9,42 @@
 				:style="{ zIndex: index == currentIndex ? 4 : item.issecond ? 3 : item.ishide ? 1 : 2 }"
 				@tap="toPage(item)"
 			>
-				<image :src="item.Pic" mode="aspectFill"></image>
+				<image :src="item.BannerPic" mode="aspectFill" @click="toLink('/pages/goods/submitLease/submitLease?deviceId=' + item.Id)"></image>
+				<view class="name">
+					<view>{{ item.DeviceName }}</view>
+					<view>{{ item.Effect }}</view>
+				</view>
 			</view>
 		</view>
 	</view>
 </template>
 <script>
 export default {
-	props:{
-		imgList : { type : Array , default () { return  []}},
-		currentIndexParameter  : {type : Number, default : 1},//默认放在中间的图片
-		movewidthParameter  : {type : Number, default : 0.32},//图片位移
-		haveUrl : { type : Boolean, default : true },//是否进行页面的跳转
-		openTypeParameter  :{type : String, default : "navigate"},
+	props: {
+		imgList: {
+			type: Array,
+			default() {
+				return [];
+			}
+		},
+		currentIndexParameter: { type: Number, default: 1 }, //默认放在中间的图片
+		movewidthParameter: { type: Number, default: 0.32 }, //图片位移
+		haveUrl: { type: Boolean, default: true }, //是否进行页面的跳转
+		openTypeParameter: { type: String, default: 'navigate' }
 	},
 	data() {
 		return {
 			startData: { clientX: '' }, //确定左滑右滑
-			movewidth:0,
-			currentIndex:1
+			movewidth: 0,
+			currentIndex: 1
 		};
 	},
 	created: function() {
-		var that=this
+		var that = this;
 		uni.getSystemInfo({
-		    success: function (res) {
-				that.movewidth =res.windowWidth * that.movewidthParameter; //设置图片位移
-				that.currentIndex=that.currentIndexParameter
+			success: function(res) {
+				that.movewidth = res.windowWidth * that.movewidthParameter; //设置图片位移
+				that.currentIndex = that.currentIndexParameter;
 				for (var i = 0; i < that.imgList.length; i++) {
 					//设置显示图层和隐藏多余图片
 					var animation = uni.createAnimation({
@@ -45,10 +54,10 @@ export default {
 					that.imgList[i].aData = [{}, animation]; //item.aData[0] 动画控制代表元素 item.aData[1] 动画声明代表动画
 					that.imgList[i].ishide = true;
 					that.imgList[i].issecond = false;
-					let midI=that.currentIndex
-					let leftI=that.currentIndex==0?(that.imgList.length-1):(that.currentIndex-1)
-					let rightI=that.currentIndex==(that.imgList.length-1)?0:(that.currentIndex+1)
-					
+					let midI = that.currentIndex;
+					let leftI = that.currentIndex == 0 ? that.imgList.length - 1 : that.currentIndex - 1;
+					let rightI = that.currentIndex == that.imgList.length - 1 ? 0 : that.currentIndex + 1;
+
 					if (i == midI) {
 						that.tomidA(midI, that.imgList[midI].aData[1]);
 					} else if (i == leftI) {
@@ -60,21 +69,25 @@ export default {
 						that.tohide(i, that.imgList[i].aData[1]);
 					}
 				}
-		    }
+			}
 		});
-		
-
 	},
 	methods: {
-		toPage(item){
-			if(this.haveUrl&&item.url&&this.openTypeParameter=='navigate'){
+		//跳转
+		toLink(url) {
+			uni.navigateTo({
+				url: url
+			});
+		},
+		toPage(item) {
+			if (this.haveUrl && item.url && this.openTypeParameter == 'navigate') {
 				uni.navigateTo({
-					url:item.url
-				})
-			}else if(this.haveUrl&&item.url&&this.openTypeParameter=='switchTab'){
+					url: item.url
+				});
+			} else if (this.haveUrl && item.url && this.openTypeParameter == 'switchTab') {
 				uni.switchTab({
-					url:item.url
-				})
+					url: item.url
+				});
 			}
 		},
 		start(e) {
@@ -140,15 +153,13 @@ export default {
 			this.imgList[index].aData[0] = animation.export();
 		},
 		tohide: function(index, animation) {
-			animation
-				.opacity(0)
-				.step();
+			animation.opacity(0).step();
 			this.imgList[index].aData[0] = animation.export();
 		}
 	}
 };
 </script>
-<style>
+<style lang="scss">
 .swiperbox {
 	position: relative;
 	width: 100%;
@@ -168,5 +179,18 @@ export default {
 	height: 100%;
 	border-radius: 20rpx;
 	overflow: hidden;
+}
+.name {
+	font-weight: bold;
+	color: white;
+	position: relative;
+	top: -180px;
+	text-align: center;
+	view:nth-of-type(1) {
+		font-size: 48upx;
+	}
+	view:nth-of-type(2) {
+		font-size: 40upx;
+	}
 }
 </style>

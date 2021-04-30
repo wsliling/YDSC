@@ -8,10 +8,6 @@
 						<text class="title uni-ellipsis flex1">{{ item.Title }}</text>
 						<view class="check iconfont icon-check" v-if="checkId == index"></view>
 					</view>
-					<view class="info">
-						<text>3万人参与</text>
-						<text>12万人讨论</text>
-					</view>
 				</view>
 			</block>
 		</view>

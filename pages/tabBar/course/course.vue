@@ -5,35 +5,42 @@
 				深圳
 				<text class="iconfont icon-arrow_r"></text>
 			</view>
-			<view class="search"><bm-search-input></bm-search-input></view>
-		</view>
-		<view>
-			<!-- 轮播 -->
-			<view class="index_swiper">
-				<swiper class="swiper" :indicator-dots="false" autoplay :interval="5000" :duration="500" @change="changeSwiper">
-					<swiper-item v-for="(item, index) in bannerList" :key="index">
-						<view class="swiper-item swiperTop" @click="tolink(item.Url)"><image class="img" :src="item.Pic" mode="aspectFill"></image></view>
-					</swiper-item>
-				</swiper>
-				<view class="dots" style="bottom: 10upx;">
-					<view v-for="(item, index) in bannerList.length" :key="index" :class="['dot', currentSwiper == index ? 'active' : '']"></view>
-				</view>
+			<view class="search">
+				<uni-nav-bar color="#ffffff" background-color="#fff" :border="false">
+					<block slot="center" class="flex1">
+						<view class="input-view" style="background: #f2f2f2; border-radius: 10upx; margin-left: 30upx;">
+							<uni-icons class="input-uni-icon" type="search" size="22" color="#b8b8b8" />
+							<input confirm-type="search" disabled="" class="nav-bar-input" type="text" placeholder="输入搜索关键词" />
+						</view>
+					</block>
+				</uni-nav-bar>
 			</view>
 		</view>
-		<view class="sec">
-			<view class="sec_1"><image src="/static/health/change/class_2.png" @click="order"></image></view>
+		<!-- 轮播 -->
+		<view class="index_swiper">
+			<swiper class="swiper" :indicator-dots="false" autoplay :interval="5000" :duration="500" @change="changeSwiper">
+				<swiper-item v-for="(item, index) in bannerList" :key="index">
+					<view class="swiper-item swiperTop" @click="tolink(item.Url)"><image class="img" :src="item.Pic" mode="aspectFill"></image></view>
+				</swiper-item>
+			</swiper>
+			<view class="dots" style="bottom: 10upx;">
+				<view v-for="(item, index) in bannerList.length" :key="index" :class="['dot', currentSwiper == index ? 'active' : '']"></view>
+			</view>
+		</view>
+		<view class="sec" v-if="bannerListOne.length">
+			<view class="sec_1"><image :src="bannerListOne[0].Pic" @click="order"></image></view>
 			<view class="sec_2">
-				<view class=""><image src="/static/health/change/class_3.png" @click="orderClass"></image></view>
-				<view class=""><image src="/static/health/change/class_4.png" @click="gym"></image></view>
+				<view><image :src="bannerListOne[1].Pic" @click="orderClass"></image></view>
+				<view><image :src="bannerListOne[2].Pic" @click="gym"></image></view>
 			</view>
 		</view>
 		<view class="line"></view>
-		<view class="sec1">
+		<view class="sec1" v-if="bannerListTwo.length">
 			<view class="sec1_title">大家都在练</view>
-			<view class="sec1_1"><image src="/static/health/change/class_5.png"></image></view>
+			<view class="sec1_1"><image :src="bannerListTwo[0].Pic"></image></view>
 			<view class="sec1_2">
-				<image src="/static/health/change/class_6.png" @click="newPer"></image>
-				<image src="/static/health/change/class_7.png"></image>
+				<image :src="bannerListTwo[1].Pic" @click="newPer"></image>
+				<image :src="bannerListTwo[2].Pic"></image>
 			</view>
 		</view>
 		<view class="line"></view>
@@ -55,14 +62,14 @@
 		<view class="line"></view>
 		<view class="sec3"><view class="sec1_title">猜你喜欢</view></view>
 		<view class="sec4" v-for="(item, index) in classlike" :key="index">
-			<view class="sec4_1" @click="classDetails(item.Id)">
+			<view class="sec4_1" @click="orderClassDetails(item.Id)">
 				<view><image :src="item.PicImg"></image></view>
 				<view>
 					<view class="sec4_title">{{ item.Title }}</view>
 					<view class="sec4_title1">{{ item.DifficultyName }} . {{ item.CourseDuration }}分钟</view>
 					<view class="sec4_title2">
-						<image class="sec4_img" src="/static/health/change/class_14.png"></image>
-						零碎记忆
+						<image :src="item.CoachAvatar || '/static/default.png'"></image>
+						<text>{{ item.CoachNick }}</text>
 					</view>
 				</view>
 			</view>
@@ -99,6 +106,8 @@ export default {
 			classlist: [],
 			classlike: [],
 			bannerList: [],
+			bannerListOne: [],
+			bannerListTwo: [],
 			currentSwiper: 0,
 			tabs: [],
 			tabIndex: 45,
@@ -112,7 +121,9 @@ export default {
 		this.getClassList();
 		this.getClassType();
 		this.getClassLike();
-		this.getBanner();
+		this.getBanner(6);
+		this.getBannerOne(7);
+		this.getBannerTwo(10);
 	},
 	onShow() {
 		this.pageCon = uni.getStorageSync('pageCon');
@@ -148,6 +159,11 @@ export default {
 				url: '/pages/course/classDetails/classDetails?detailId=' + id
 			});
 		},
+		orderClassDetails(id) {
+			uni.navigateTo({
+				url: '/pages/course/orderClassDetails/orderClassDetails?orderId=' + id
+			});
+		},
 		cliTab(index) {
 			this.tabIndex = index;
 			this.page = 1;
@@ -171,12 +187,29 @@ export default {
 			}
 		},
 		// 获取banner图
-		async getBanner() {
+		async getBanner(type) {
+			//顶级分类
 			let result = await post('Banner/BannerList', {
-				Cid: 1
+				Cid: type
 			});
-			if (result.code == 0) {
+			if (result.code === 0) {
 				this.bannerList = result.data;
+			}
+		},
+		async getBannerOne(type) {
+			let result = await post('Banner/BannerList', {
+				Cid: type
+			});
+			if (result.code === 0) {
+				this.bannerListOne = result.data;
+			}
+		},
+		async getBannerTwo(type) {
+			let result = await post('Banner/BannerList', {
+				Cid: type
+			});
+			if (result.code === 0) {
+				this.bannerListTwo = result.data;
 			}
 		},
 		changeSwiper(e) {
@@ -228,15 +261,15 @@ export default {
 		},
 		// 猜你喜欢
 		async getClassLike() {
-			let result = await post('Course/GetCourseOutlineList', {
+			let result = await post('Course/GetCourseOfflineList', {
 				page: this.page,
 				pageSize: this.pageSize,
 				UserId: this.userId,
 				Token: this.token,
 				SearchKey: '',
 				IsNewPeopleVip: 0,
-				IsLike: 0,
-				IsRic: 1
+				IsLike: 1,
+				IsRic: 0
 			});
 			if (result.code == 0) {
 				if (result.data.length > 0) {

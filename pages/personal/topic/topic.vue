@@ -9,7 +9,7 @@
 							<text class="title uni-ellipsis">{{ item.Title }}</text>
 						</view>
 						<view class="flex-end">
-							<text class="fz12 c_999">{{ item.PartNum }}人参与</text>
+							<text class="fz12 c_999">{{ item.PartNum > 9999 ? (item.PartNum / 9999).toFixed(1) + '万' : item.PartNum }}人参与</text>
 							<text class="uni-icon uni-icon-arrowright fz14"></text>
 						</view>
 					</view>
@@ -19,17 +19,17 @@
 							<view class="ft_info flex-start">
 								<view class="info-text">
 									<text class="iconfont icon-yanjing"></text>
-									{{ item.HitsNum }}
+									{{ item.HitsNum > 9999 ? (item.HitsNum / 9999).toFixed(1) + '万' : item.HitsNum }}
 								</view>
 								<view class="info-text">
 									<text class="iconfont icon-pinglun2"></text>
-									{{ item.CommentNum }}
+									{{ item.CommentNum > 9999 ? (item.CommentNum / 9999).toFixed(1) + '万' : item.CommentNum }}
 								</view>
 							</view>
 						</view>
 						<view class="img"><image :src="item.CoverLogo"></image></view>
 					</view>
-					<view class="topname flex-between">
+					<view class="topname flex-between" v-if="item.IsShowTopicStar">
 						<view class="item flex-center" v-for="(items, index) in item.UserList" :key="index">
 							<image class="icon" :src="'/static/discover/top' + (index + 1) + '.png'" mode="aspectFill"></image>
 							<image class="tx" :src="items.Avatar || '/static/default.png'"></image>
@@ -66,7 +66,7 @@ export default {
 			userlist: [],
 			userlistOne1: {},
 			userlistOne2: {},
-			userlistOne3: {},
+			userlistOne3: {}
 		};
 	},
 	onShow() {

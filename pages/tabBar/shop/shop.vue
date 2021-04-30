@@ -43,15 +43,15 @@
 				<view class="Yi-hd flex-between">
 					<view class="title"><text>今日好物推荐</text></view>
 				</view>
-				<view class="uni-bd">
-					<view class="item"><image src="/static/of/s1.png" mode="aspectFill"></image></view>
-					<view class="item"><image src="/static/of/s2.png" mode="aspectFill"></image></view>
-					<view class="item"><image src="/static/of/s3.png" mode="aspectFill"></image></view>
+				<view class="uni-bd" v-if="BannerlistTwo.length">
+					<view class="item"><image :src="BannerlistTwo[0].Pic" mode="aspectFill"></image></view>
+					<view class="item"><image :src="BannerlistTwo[1].Pic" mode="aspectFill"></image></view>
+					<view class="item"><image :src="BannerlistTwo[2].Pic" mode="aspectFill"></image></view>
 				</view>
 			</view>
 			<!-- 小banner -->
-			<view class="page-section BrandList uni-bg-white pp3 uni-mb10">
-				<view class="img" @click="tolink('/pages/goods/lease/lease')"><image src="/static/of/gg1.png" mode="widthFix"></image></view>
+			<view class="page-section BrandList uni-bg-white pp3 uni-mb10" v-if="BannerlistThree.length">
+				<view class="img" @click="tolink('/pages/goods/lease/lease')"><image :src="BannerlistThree[0].Pic" mode="widthFix"></image></view>
 			</view>
 			<!-- 每日上新 -->
 			<view class="page-section HotsellList uni-bg-white pd15 uni-mb10" v-if="newprolist.length">
@@ -106,6 +106,8 @@ export default {
 			token: '',
 			barHeight: 0,
 			Bannerlist: [], //轮播图
+			BannerlistTwo: [],
+			BannerlistThree: [],
 			currentSwiper: 0,
 			CartNum: 0, //购物车数量
 			categoryList: [], //类型
@@ -128,6 +130,8 @@ export default {
 		this.barHeight = plus.navigator.getStatusbarHeight();
 		// #endif
 		this.BannerList(2);
+		this.BannerListTwo(12);
+		this.BannerListThree(13);
 		this.getTypeList();
 		this.getnewpro();
 		this.getprolist();
@@ -151,7 +155,6 @@ export default {
 				});
 			}
 		},
-
 		//轮播图
 		async BannerList(type) {
 			//顶级分类
@@ -159,9 +162,23 @@ export default {
 				Cid: type
 			});
 			if (result.code === 0) {
-				if (type == 2) {
-					this.Bannerlist = result.data;
-				}
+				this.Bannerlist = result.data;
+			}
+		},
+		async BannerListTwo(type) {
+			let result = await post('Banner/BannerList', {
+				Cid: type
+			});
+			if (result.code === 0) {
+				this.BannerlistTwo = result.data;
+			}
+		},
+		async BannerListThree(type) {
+			let result = await post('Banner/BannerList', {
+				Cid: type
+			});
+			if (result.code === 0) {
+				this.BannerlistThree = result.data;
 			}
 		},
 		changeSwiper(e) {

@@ -3,7 +3,7 @@
 	height: 100%;
 	.index_swiper .swiper {
 		.swiperTop {
-			padding: 0 12upx;
+			padding: 0 20upx;
 		}
 	}
 	.top {
@@ -19,7 +19,10 @@
 		}
 		.search {
 			flex: 4;
-			padding: 25upx 0px !important;
+			padding: 10upx 0upx !important;
+			.input-view {
+				margin-left: 0 !important;
+			}
 		}
 	}
 	.sec {
@@ -159,9 +162,13 @@
 					color: #c5c5c5;
 					transform: scale(0.9);
 					margin-left: -25upx;
-					.sec4_img {
-						width: 60upx;
-						height: 60upx;
+					image {
+						border-radius: 50%;
+						width: 56upx;
+						height: 56upx;
+					}
+					text {
+						padding-left: 10upx;
 					}
 				}
 			}

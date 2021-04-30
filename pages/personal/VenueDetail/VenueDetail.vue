@@ -35,11 +35,11 @@
 		<view class="itembox pd15">
 			<view class="Yi-hd"><view class="title">设备</view></view>
 			<view class="bd shebei-list">
-				<view class="item flex-between" v-for="(item, index) in 2" :key="index">
-					<view class="img"><image src="/static/health/change/jian_5.png" mode="aspectFill"></image></view>
+				<view class="item flex-between" v-for="(item, index) in devicelist" :key="index">
+					<view class="img"><image :src="item.DevicePic" mode="aspectFill"></image></view>
 					<view class="item_r flex-between flex1">
-						<view class="name uni-ellipsis flex1">训练服</view>
-						<view class="btn">租赁</view>
+						<view class="name uni-ellipsis flex1">{{ item.DeviceName }}</view>
+						<view class="btn" @click="toLink('/pages/goods/submitLease/submitLease?deviceId=' + item.Id)">租赁</view>
 					</view>
 				</view>
 			</view>
@@ -53,8 +53,8 @@
 						<view class="title uni-ellipsis">{{ item.Title }}</view>
 						<view class="desc">{{ item.DifficultyName }} . {{ item.CourseDuration }}分钟</view>
 						<view class="flex-start uni-mt10">
-							<image class="tx" src="/static/default.png" mode="aspectFill"></image>
-							<text class="author">可乐加冰</text>
+							<image class="tx" :src="item.CoachAvatar || '/static/default.png'" mode="aspectFill"></image>
+							<text class="author">{{ item.CoachNick }}</text>
 						</view>
 					</view>
 				</view>
@@ -79,7 +79,7 @@ export default {
 			userId: '',
 			token: '',
 			page: 1,
-			pageSize: 3,
+			pageSize: 8,
 			loadingType: 0, //0加载前，1加载中，2没有更多了
 			isLoad: false,
 			hasData: false,
@@ -87,19 +87,26 @@ export default {
 			Id: '',
 			gymlistdetail: {},
 			gymlistImg: [],
+			devicelist: [],
 			classlist: []
 		};
 	},
-	onShow() {
+	onShow() {},
+	onLoad(e) {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
-	},
-	onLoad(e) {
 		this.Id = e.gymId;
 		this.getGymListDetail();
+		this.getDeviceListDetail();
 		this.getClassList();
 	},
 	methods: {
+		//跳转
+		toLink(url) {
+			uni.navigateTo({
+				url: url
+			});
+		},
 		//场馆详情
 		async getGymListDetail() {
 			let result = await post('Store/GetStoreDetail', {
@@ -119,9 +126,22 @@ export default {
 				url: '/pages/course/classDetails/classDetails?detailId=' + id
 			});
 		},
+		//门店设备
+		async getDeviceListDetail() {
+			let result = await post('Device/StoreDeviceList', {
+				UserId: this.userId,
+				Token: this.token,
+				page: this.page,
+				pageSize: this.pageSize,
+				StoreId: this.Id
+			});
+			if (result.code == 0) {
+				this.devicelist = result.data;
+			}
+		},
 		// 猜你喜欢
 		async getClassList() {
-			let result = await post('Course/GetCourseOutlineList', {
+			let result = await post('Course/GetCourseOfflineList', {
 				page: this.page,
 				pageSize: this.pageSize,
 				UserId: this.userId,
@@ -129,7 +149,8 @@ export default {
 				SearchKey: '',
 				IsNewPeopleVip: 0,
 				IsLike: 0,
-				IsRic: 0
+				IsRic: 0,
+				StoreId: this.Id
 			});
 			if (result.code == 0) {
 				if (result.data.length > 0) {

@@ -9,8 +9,8 @@
 			</view>
 		</view>
 		<view :style="{ height: barHeight + 44 + 'px' }"></view>
-		<view class="f_banner uni-bg-white" v-if="tabNav == 2" @click="tolink('/pages/personal/topic/topic')">
-			<image class="b_radius" src="/static/of/find_banner.jpg" mode="widthFix"></image>
+		<view class="f_banner uni-bg-white" v-if="tabNav == 2 && bannerList.length" @click="tolink('/pages/personal/topic/topic')">
+			<image class="b_radius" :src="bannerList[0].Pic" mode="widthFix"></image>
 		</view>
 		<view class="list" v-if="hasData && tabNav != 3">
 			<block v-for="(item, index) in datalist" :key="index"><mediaList :datajson="item" Grid="3" @click="goDetail" @previewImg="previewImg"></mediaList></block>
@@ -24,7 +24,7 @@
 							<text class="txt uni-ellipsis">{{ item.StoreNick }}</text>
 							<text class="uni-icon uni-icon-arrowright fz14"></text>
 						</view>
-						<view class="fz12 c_999">距离您{{ item.Distance }}km</view>
+						<view class="fz12 c_999" v-if="item.IsShowDistance">距离您{{ item.Distance }}km</view>
 					</view>
 				</view>
 				<view class="bd">
@@ -62,7 +62,8 @@ export default {
 			isLoad: false,
 			hasData: false,
 			noDataIsShow: false,
-			gymlist: []
+			gymlist: [],
+			bannerList: []
 		};
 	},
 	onShow() {
@@ -70,6 +71,7 @@ export default {
 		this.token = uni.getStorageSync('token');
 		this.FindList();
 		this.getGymList();
+		this.getBanner(11);
 	},
 	onLoad() {
 		// #ifdef APP-PLUS
@@ -103,6 +105,16 @@ export default {
 			this.datalist = [];
 			this.FindList();
 			this.getGymList();
+		},
+		// 获取banner图
+		async getBanner(type) {
+			//顶级分类
+			let result = await post('Banner/BannerList', {
+				Cid: type
+			});
+			if (result.code === 0) {
+				this.bannerList = result.data;
+			}
 		},
 		/*获取动态列表*/
 		async FindList() {
