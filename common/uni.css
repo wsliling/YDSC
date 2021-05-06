@@ -1666,7 +1666,8 @@ uni-swiper .uni-swiper-dot{
 	display: block;
 	background-color: #fff;
 	margin-top:1px;
-	padding-bottom: 40upx;
+	border-radius: 20rpx;
+	/* padding-bottom: 40upx; */
 }
 .level__product-list .uni-product{
 	width: 100% !important;

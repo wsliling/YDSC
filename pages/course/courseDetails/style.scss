@@ -1,4 +1,4 @@
-.orderClassDetails {
+.courseDetails {
 	background-color: white;
 	.line {
 		height: 20upx;
@@ -33,18 +33,19 @@
 			.info1_3 {
 				flex: 0.8;
 				image {
-					height: 70upx;
+					border-radius: 50%;
+					height: 75upx;
 					width: 75upx;
 				}
 			}
 			.info1_4 {
+				padding-left: 20upx;
 				flex: 1;
 				font-weight: bold;
 			}
 			.info1_1 {
 				flex: 3;
 				text-align: right;
-				margin-right: 20upx;
 				image {
 					border-radius: 50%;
 					height: 50upx;
@@ -52,6 +53,7 @@
 				}
 			}
 			.info1_2 {
+				padding-left: 20upx;
 				flex: 1.8;
 				color: #adadad;
 				font-size: 25upx;

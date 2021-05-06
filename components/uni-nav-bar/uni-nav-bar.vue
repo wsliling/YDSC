@@ -1,6 +1,6 @@
 <template>
 	<view class="uni-navbar">
-		<view :class="{ 'uni-navbar--fixed': fixed, 'uni-navbar--shadow': shadow, 'uni-navbar--border': border,'dis':leftIcon=='arrowleft' }" :style="{ 'background-color': backgroundColor }" class="uni-navbar__content">
+		<view :class="{ 'uni-navbar--fixed': fixed, 'uni-navbar--shadow': shadow, 'uni-navbar--border': border,'dis':leftIcon=='arrowleft' }"  class="uni-navbar__content">
 			<!-- #ifdef APP-PLUS -->
 			<uni-status-bar v-if="statusBar" />
 			<!-- #endif -->
@@ -150,7 +150,7 @@
 
 	.uni-navbar__content {
 		position: relative;
-		background-color: #ffffff;
+		/* background-color: #ffffff; */
 		overflow: hidden;
 	}
 

@@ -1,9 +1,9 @@
 <template>
-	<view class="order">
+	<view class="appointmentCoach">
 		<view class="title">推荐教练</view>
 		<view class="tui">
 			<view class="list" v-for="(item, index) in coachlist" :key="index">
-				<view class="list1_1"><image :src="item.Avatar || '/static/default.png'" @click="details(item.MemberId)"></image></view>
+				<view class="list1_1"><image :src="item.Avatar || '/static/default.png'" @click="coachDetails(item.MemberId)"></image></view>
 				<view class="name">{{ item.UserNick }}</view>
 				<view class="num">{{ item.ApplyNum }}人预约过</view>
 			</view>
@@ -15,7 +15,7 @@
 				<view class="name">{{ item.UserNick }}</view>
 				<view class="num">{{ item.ApplyNum }}人预约过</view>
 			</view>
-			<view class="list1_3" @click="details(item.MemberId)">立即预约</view>
+			<view class="list1_3" @click="coachDetails(item.MemberId)">立即预约</view>
 		</view>
 		<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
 		<noData :isShow="noDataIsShow"></noData>
@@ -53,9 +53,9 @@ export default {
 		this.getCoachList();
 	},
 	methods: {
-		details(id) {
+		coachDetails(id) {
 			uni.navigateTo({
-				url: '/pages/course/details/details?memberId=' + id
+				url: '/pages/course/coachDetails/coachDetails?memberId=' + id
 			});
 		},
 		//教练列表

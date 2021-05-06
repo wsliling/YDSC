@@ -168,13 +168,6 @@
 				"navigationBarBackgroundColor": "#FF3333",
 				"navigationBarTextStyle": "white"
 			}
-		}, {
-			"path": "pages/classify/classify",
-			"style": {
-				"app-plus": {
-					"titleNView": false //首页去除原生导航
-				}
-			}
 		},
 		{
 			"path": "pages/getPassword/getPassword",
@@ -1099,14 +1092,14 @@
 					"navigationBarTextStyle": "black"
 				}
 			}, {
-				"path": "order/order",
+				"path": "appointmentCoach/appointmentCoach",
 				"style": {
 					"navigationBarTitleText": "预约教练",
 					"navigationBarBackgroundColor": "#FFFFFF",
 					"navigationBarTextStyle": "black"
 				}
 			}, {
-				"path": "details/details",
+				"path": "coachDetails/coachDetails",
 				"style": {
 					"navigationBarTitleText": "预约教练",
 					"app-plus": {
@@ -1117,21 +1110,21 @@
 					}
 				}
 			}, {
-				"path": "now/now",
+				"path": "appCoachSuc/appCoachSuc",
 				"style": {
 					"navigationBarTitleText": "预约教练",
 					"navigationBarBackgroundColor": "#FFFFFF",
 					"navigationBarTextStyle": "black"
 				}
 			}, {
-				"path": "orderClass/orderClass",
+				"path": "appointmentCourse/appointmentCourse",
 				"style": {
 					"navigationBarTitleText": "预约课程",
 					"navigationBarBackgroundColor": "#FFFFFF",
 					"navigationBarTextStyle": "black"
 				}
 			}, {
-				"path": "orderClassDetails/orderClassDetails",
+				"path": "courseDetails/courseDetails",
 				"style": {
 					"navigationBarTitleText": "预约课程",
 					"app-plus": {
@@ -1142,7 +1135,7 @@
 					}
 				}
 			}, {
-				"path": "nowOrderClass/nowOrderClass",
+				"path": "appCourseSuc/appCourseSuc",
 				"style": {
 					"navigationBarTitleText": "预约课程",
 					"navigationBarBackgroundColor": "#FFFFFF",

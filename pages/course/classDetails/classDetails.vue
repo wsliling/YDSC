@@ -10,7 +10,9 @@
 				<view class="detail_2">{{ classdetail.Hits }}人看过</view>
 			</view>
 			<view class="info1">
-				<view class="info1_3" @click="tolink('/pages/personal/VenueDetail/VenueDetail?gymId=' + classdetail.StoreId)"><image :src="classdetail.StoreLogo"></image></view>
+				<view class="info1_3" @click="tolink('/pages/personal/VenueDetail/VenueDetail?gymId=' + classdetail.StoreId)">
+					<image :src="classdetail.StoreLogo || '/static/default.png'"></image>
+				</view>
 				<view class="info1_4">{{ classdetail.StoreNick }}</view>
 				<view class="info1_2">关注</view>
 			</view>
@@ -18,11 +20,7 @@
 		<view class="line"></view>
 		<view class="con">
 			<view class="title">课程简介</view>
-			<view class="con1_1">
-				{{ classdetail.Intro }}
-				<!-- 瑜伽教练培训简介，培训专业瑜伽教练，专业瑜伽推拿培训，针对不同的学习方式，提升未来的竞争力，让您的人生更加适合自己的特长，帮助学员在管理过程中的提升，坚持两周时间，可以感觉到身体素... -->
-				<!-- <text>展开更多</text> -->
-			</view>
+			<view class="con1_1">{{ classdetail.Intro }}</view>
 		</view>
 		<view class="line"></view>
 		<view class="con">

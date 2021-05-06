@@ -98,7 +98,7 @@ export default {
 		this.Id = e.gymId;
 		this.getGymListDetail();
 		this.getDeviceListDetail();
-		this.getClassList();
+		this.getCourseList();
 	},
 	methods: {
 		//跳转
@@ -140,7 +140,7 @@ export default {
 			}
 		},
 		// 猜你喜欢
-		async getClassList() {
+		async getCourseList() {
 			let result = await post('Course/GetCourseOfflineList', {
 				page: this.page,
 				pageSize: this.pageSize,
@@ -186,7 +186,7 @@ export default {
 		if (this.isLoad) {
 			this.loadingType = 1;
 			this.page++;
-			this.getClassList();
+			this.getCourseList();
 		} else {
 			this.loadingType = 2;
 		}
