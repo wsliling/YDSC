@@ -90,7 +90,6 @@ export default {
 			isLoad: false,
 			hasData: false,
 			noDataIsShow: false,
-			pageCon: 0,
 			currentpic: 1, // 默认先展示的图片下标
 			devicelist: []
 		};
@@ -103,12 +102,12 @@ export default {
 	onLoad(e) {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
-		this.pageCon = uni.getStorageSync('pageCon');
 		this.getBanner(1);
 		this.getDeviceList();
 	},
 	onShow() {
-		this.pageCon = uni.getStorageSync('pageCon');
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
 	},
 	methods: {
 		//跳转
@@ -125,6 +124,17 @@ export default {
 				});
 			}
 		},
+		// tolink(url) {
+		// 	if (this.userId && this.token) {
+		// 		uni.navigateTo({
+		// 			url: url
+		// 		});
+		// 	} else {
+		// 		uni.navigateTo({
+		// 			url: '/pages/login/login'
+		// 		});
+		// 	}
+		// },
 		// 获取banner图
 		async getBanner(type) {
 			let result = await post('Banner/BannerList', {
