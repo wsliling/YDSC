@@ -44,8 +44,7 @@
 		<view class="team-list" v-for="(item,index) in TeamList" :key="index">
 			<view class="list-item">
 				<view class="item-user">
-					<image :src="item.Avatar" v-if="item.Avatar!=''"></image>
-					<image src="@/static/default.png" v-else></image>
+					<image :src="item.Avatar||'http://yd.wtanvxin.com/static/default.png'"></image>
 					<view class="nameBox">
 						<view>{{item.NickName}}</view>
 						<text>135****3928</text>
@@ -138,7 +137,7 @@
 			height: 300upx;
 			width: 100%;
 			position: relative;
-			background: url(../../../static/teambg.png);
+			background: url('http://yd.wtanvxin.com/static/teambg.png');
 			background-size: 100% 100%;
 			border-radius: 10upx;
 			.info{

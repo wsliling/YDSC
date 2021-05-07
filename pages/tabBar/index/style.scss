@@ -1,9 +1,12 @@
-.index_swiper .swiper {
-	height: 332upx;
-	.swiperTop {
-		padding: 0 22upx;
-		.img {
-			height: 330upx;
+.index_swiper {
+	padding-top: 20upx;
+	.swiper {
+		height: 330upx;
+		.swiperTop {
+			padding: 0 22upx;
+			.img {
+				height: 330upx;
+			}
 		}
 	}
 }

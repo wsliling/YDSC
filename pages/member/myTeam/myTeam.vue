@@ -31,8 +31,7 @@
 				<view slot="content0" class="xxx" v-if="item.GradeName == '普通用户'">
 					<view class="con">
 						<view class="con_1">
-							<image :src="item.Avatar" v-if="item.Avatar != ''"></image>
-							<image src="@/static/default.png" v-else></image>
+							<image :src="item.Avatar||'http://yd.wtanvxin.com/static/default.png'"></image>
 						</view>
 						<view class="con_2">
 							<view class="title">{{ item.NickName }}</view>
@@ -44,8 +43,7 @@
 				<view slot="content1" class="xxx" v-if="item.GradeName == '普通用户'">
 					<view class="con">
 						<view class="con_1">
-							<image :src="item.Avatar" v-if="item.Avatar != ''"></image>
-							<image src="@/static/default.png" v-else></image>
+							<image :src="item.Avatar||'http://yd.wtanvxin.com/static/default.png'"></image>
 						</view>
 						<view class="con_2">
 							<view class="title">{{ item.NickName }}</view>
@@ -57,8 +55,7 @@
 				<view slot="content2" class="xxx" v-if="item.GradeName == '普通用户'">
 					<view class="con">
 						<view class="con_1">
-							<image :src="item.Avatar" v-if="item.Avatar != ''"></image>
-							<image src="@/static/default.png" v-else></image>
+							<image :src="item.Avatar||'http://yd.wtanvxin.com/static/default.png'"></image>
 						</view>
 						<view class="con_2">
 							<view class="title">{{ item.NickName }}</view>

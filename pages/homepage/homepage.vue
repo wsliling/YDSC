@@ -7,7 +7,7 @@
 				<!-- 设置封面 -->
 			</view>
 			<!-- <view v-if="myType != 0" class="btn flex-center">
-				<image class="mesg" src="../../static/message.png"></image>
+				<image class="mesg" src="http://yd.wtanvxin.com/static/message.png"></image>
 			</view> -->
 		</view>
 		<view class="userInfo">
@@ -26,7 +26,7 @@
 					</view>
 					<view class="fansBtn" v-else>
 						<view class="position" @click="tolink('/pages/personal/chat/chat?id=' + memberId + '&nick=' + Info.NickName, 'login')">
-							<image style="width: 72upx; height: 72upx;" src="../../static/message.png"></image>
+							<image style="width: 72upx; height: 72upx;" src="http://yd.wtanvxin.com/static/message.png"></image>
 						</view>
 						<view class="btn" @click="flowbtn">取消关注</view>
 					</view>

@@ -7,7 +7,7 @@
 					<input confirm-type="search" disabled="" class="nav-bar-input" type="text" placeholder="输入搜索关键词" />
 				</view>
 			</block>
-			<block slot="right">
+			<block slot="right" class="flex">
 				<view class="iconfont icon-class" style="color: #584f60; font-size: 22px; padding:0 10upx;" @click="tolink('/pages/goods/classify/classify')"></view>
 				<view class="iconfont icon-tianchongxing- p_re" style="color: #584f60; font-size: 22px; padding:0 10upx;" @click="tolink('/pages/goods/cart/cart')">
 					<text class="uni-badge" v-if="CartNum > 0">{{ CartNum > 99 ? '99+' : CartNum }}</text>
