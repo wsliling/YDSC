@@ -617,18 +617,6 @@
 					}
 				},
 				{
-					"path": "invite/invite",
-					"style": {
-						"navigationBarTitleText": "推荐好友"
-					}
-				},
-				{
-					"path": "invite/invite2",
-					"style": {
-						"navigationBarTitleText": "推荐好友"
-					}
-				},
-				{
 					"path": "coupon/coupon",
 					"style": {
 						"navigationBarTitleText": "优惠券"

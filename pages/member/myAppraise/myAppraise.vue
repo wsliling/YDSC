@@ -1,27 +1,13 @@
 <template>
 	<view class="content commet">
-		<!-- <view class="comment-head weui-cell mb10">
-			<view class="weui-cell__bd">
-				<image class="tx" v-if="Userinfo.Avatar" :src="Userinfo.Avatar" mode="aspectFill"></image>
-				<image class="tx" v-else src="http://yd.wtanvxin.com/static/default.png" mode="aspectFill"></image>
-				<text class="name uni-ellipsis">{{ Userinfo.NickName }}</text>
-			</view>
-			<view class="weui-cell__ft"><button type="primary" size="middle" plain="true" class="radius100 btn" @click="gotoOrder"></button></view>
-		</view> -->
 		<view class="comment-content">
-			<!-- <view class="comment-content__hd">全部评价</view> -->
-			<!-- 			<view class="flex justifyContentBetween bg_fff bb_tba">
-				<view class="active">全部评价</view>
-				<view>有图</view>
-			</view> -->
 			<view class="commentList" v-if="hasData">
+				<view class="line"></view>
 				<block v-for="(item, index) in Commentlist" :key="index">
-					<view class="comment-head weui-cell mb10">
-						<view class="weui-cell__bd">
-							<image class="tx" v-if="Userinfo.Avatar" :src="Userinfo.Avatar" mode="aspectFill"></image>
-							<image class="tx" v-else src="http://yd.wtanvxin.com/static/default.png" mode="aspectFill"></image>
-							<text class="name uni-ellipsis">{{ Userinfo.NickName }}</text>
-						</view>
+					<view class="comment-head weui-cell">
+						<image class="tx" v-if="Userinfo.Avatar" :src="Userinfo.Avatar" mode="aspectFill"></image>
+						<image class="tx" v-else src="http://yd.wtanvxin.com/static/default.png" mode="aspectFill"></image>
+						<text class="name uni-ellipsis">{{ Userinfo.NickName }}</text>
 					</view>
 					<view class="item" @click="commentDetail(item.Id)">
 						<view class="time">{{ item.AddTime }}</view>
@@ -32,42 +18,24 @@
 							</view>
 							<view v-if="item.imgArr.length > 3" class="count">{{ item.imgArr.length }}</view>
 						</view>
-						<view class="column levelPanel order__column bg_no">
+						<view class="column levelPanel">
 							<view class="item">
-								<view class="item__bd">
-									<view class="outside" @click.stop="gotoDetail(item.ProductId)">
-										<view class="pictrueAll">
-											<view class="pictrue"><image :src="item.ProductPic" mode="aspectFill"></image></view>
+								<view class="outside" @click.stop="gotoDetail(item.ProductId)">
+									<view class="pictrueAll">
+										<view class="pictrue"><image :src="item.ProductPic" mode="aspectFill"></image></view>
+									</view>
+									<view class="txtBox">
+										<view class="title">{{ item.ProductTitle }}</view>
+										<view class="flex skuBox">
+											<text class="sku">{{ item.ProductSpecification }}</text>
 										</view>
-										<view class="txtBox">
-											<view class="title text-line2">{{ item.ProductTitle }}</view>
-											<view class="flex skuBox flex-between">
-												<view class="flex-item flex1">
-													<text class="sku">{{ item.ProductSpecification }}</text>
-												</view>
-												<view class="flex-item right"><!-- <text class="buyNum">x1</text> --></view>
-											</view>
-											<view class="flex flex-between">
-												<view class="flex-item flex1">
-													<text class="new-price">￥{{ item.ProductPrice }}</text>
-												</view>
-												<view class="flex-item right"><text class="subStatus"></text></view>
-											</view>
+										<view class="flex">
+											<text class="new-price">￥{{ item.ProductPrice }}</text>
 										</view>
 									</view>
 								</view>
 							</view>
 						</view>
-						<!-- 		<view class="item__ft weui-cell">
-							<view class="weui-cell__bd">
-								<text class="txt">浏览&nbsp;{{ item.ViewingCount }}次</text>
-								<text class="txt">点赞&nbsp;{{ item.LikesCount }}次</text>
-								<text class="txt">评论&nbsp;{{ item.ReplyCount }}次</text>
-							</view>
-							<view class="weui-cell__ft">
-								<button type="primary" size="middle" plain="true" class="radius100 btn" @click.stop="gotoDetail(item.ProductId)">再次购买</button>
-							</view>
-						</view> -->
 					</view>
 					<view class="line"></view>
 				</block>
@@ -234,7 +202,168 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../../common/dd_style.css';
+.weui-cell {
+	padding: 20upx;
+	position: relative;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-align-items: center;
+	-ms-align-items: center;
+	-o-align-items: center;
+	align-items: center;
+	font-size: 30upx;
+}
+
+.column .pictrueAll .pictrue {
+	position: relative;
+	width: 100%;
+	padding-top: 100%;
+	background-color: #f5f5f5;
+}
+
+.column .pictrueAll .pictrue image {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+
+.levelPanel .item .outside {
+	padding: 20upx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-align-items: center;
+	-ms-align-items: center;
+	-o-align-items: center;
+	align-items: center;
+	position: relative;
+}
+
+.levelPanel .item .outside .pictrueAll {
+	width: 30%;
+	margin-bottom: 0;
+	margin-right: 20upx;
+}
+
+.levelPanel .item .outside .txtBox {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+	overflow: hidden;
+}
+
+.levelPanel .item .outside .txtBox .title {
+	line-height: 1.4;
+	margin-bottom: 10upx;
+	font-size: 30upx;
+}
+
+.levelPanel .item .outside .txtBox .skuBox {
+	font-size: 26upx;
+	color: #999999;
+	padding: 0;
+	border-bottom: none;
+}
+
+.levelPanel .item .outside .txtBox .skuBox * {
+	font-size: 26upx;
+}
+
+.levelPanel .item .outside .txtBox .new-price {
+	color: #ff6666;
+	font-size: 36upx;
+	font-family: arial;
+}
+.comment-head .tx {
+	width: 80upx;
+	height: 80upx;
+	border-radius: 50%;
+	vertical-align: middle;
+}
+.commet button[type='primary'][plain] {
+	vertical-align: middle;
+	border-color: #ff6666;
+	color: #ff6666;
+	line-height: 2;
+	width: 160upx;
+	padding: 0;
+	text-align: center;
+}
+.comment-content__hd {
+	background: #fff;
+	font-size: 32upx;
+	padding: 20upx;
+	border-bottom: 1px solid #f2f2f2;
+}
+.commentList > .item {
+	padding: 10upx 20upx 0;
+	background-color: #fff;
+	margin-bottom: 20upx;
+}
+.commentList > .item .time {
+	color: #999;
+}
+.commentList > .item .con {
+	line-height: 1.4;
+	margin-bottom: 30upx;
+	font-size: 30upx;
+}
+.commentList > .item > .item__ft {
+	padding: 0 0 20upx 0;
+	color: #999;
+	font-size: 24upx;
+}
+.commentList > .item > .item__ft .txt *,
+.commentList > .item > .item__ft .txt {
+	font-size: 26upx;
+}
+.commentList > .item > .item__ft .txt {
+	margin-right: 30upx;
+}
+.li_33 .item {
+	width: 33.333333%;
+}
+.li_25 .item {
+	width: 25%;
+}
+.imgLise {
+	margin-right: -20upx;
+	padding-bottom: 20upx;
+}
+.imgLise .item {
+	float: left;
+	margin-bottom: 20upx;
+}
+.imgLise .item .pictrueAll {
+	margin-right: 20upx;
+}
+.imgLise .item .pictrue {
+	width: 100%;
+	padding-top: 100%;
+	position: relative;
+}
+.imgLise .item .pictrue image {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	top: 0;
+	left: 0;
+}
 .commet button {
 	background: none;
 	border: none;
@@ -248,7 +377,7 @@ export default {
 .commet .line {
 	background-color: #f5f5f5;
 	height: 22upx;
-	margin-top: 40upx;
+	margin-top: 22upx;
 }
 .comment-content {
 	background-color: white;
