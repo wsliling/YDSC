@@ -192,7 +192,7 @@ export default {
 					});
 					if (r.code == 0) {
 						uni.navigateTo({
-							url: '/pages/other/attest/attest2'
+							url: '/pages/other/attest/attest'
 						});
 					} else {
 						return;

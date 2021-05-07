@@ -286,6 +286,9 @@
 
 <style scoped>
 	@import '@/common/login.css';
+	.logo {
+		padding: 100upx 0 80upx;
+	}
 	.regLoginBox{
 		 /* background: rgba(0,0,0,0.5); */
 		  width: 90%;

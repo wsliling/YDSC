@@ -1,33 +1,24 @@
 <template>
 	<view>
 		<block v-if="IsAudit==9||IsAudit==99">
-			<view class="attest" v-if="attestType==0">
+			<view class="attest">
 				<view class="attestItem">
-					<view>姓名</view>
-					<input type="text" v-model="name" placeholder="请输入姓名"/>
+					<view>名称</view>
+					<input type="text" v-model="name" placeholder="请输入机构名称"/>
 				</view>
-				<view class="attestItem">
+				<!-- <view class="attestItem">
 					<view>申请区域</view>
-					<!-- <view class="flex-start flex1">
-						<view :class="['btn',e==index?'active':'']" v-for="(i,e) in array" :key="e" @click="bindPickerChange(e)">
-							{{i.title}}
-						</view>
-					</view> -->
 					<radio-group @change="bindPickerChange" class="flex-start flex1">
 						<label v-for="(i,e) in array" :key="e" class="btn">
 							<radio :value="''+e+''" :checked="index==e" color="#ff3333" /><text>{{i.title}}</text>
 						</label>
 					</radio-group>
-					<!-- <picker @change="bindPickerChange" :value="index" :range="array" range-key="title">
-					   <view>{{array[index].title}}</view>
-					</picker> -->
-				</view>
+				</view> -->
 				<view class="attestItem">
 					<view>地区</view>
 					<input @click="choseSite" type="text" v-model="areadText" :disabled="true" placeholder="请选择地区">
-					<!-- <text >{{areadText}}</text> -->
 				</view>
-				<view class="attestItem" style="display: none;">
+				<view class="attestItem">
 					<view>详细地址</view>
 					<input type="text" v-model="address" placeholder="请输入详细地址" />
 				</view>
@@ -35,84 +26,55 @@
 					<view>联系电话</view>
 					<input type="number" v-model="mobile" placeholder="请输入联系电话"/>
 				</view>
-				<view class="attestItem" style="border: none;">
-					<view>身份证</view>
-					<input type="text" v-model="Idcard" placeholder="请输入身份证号码">
-					<view class="chooseImg" style="margin-bottom: 20rpx;" @click="chooseImage(1)">
-						<image v-if="cardImg1" :src="tempcardImg1" mode="aspectFit"></image>
-						<block v-else>
-							<text class="iconfont icon-fabu"></text>
-							<view>上传身份证正面照</view>
-						</block>
-					</view>
-					<view class="chooseImg" style="margin-bottom: 20rpx;" @click="chooseImage(2)">
-						<image v-if="cardImg2" :src="tempcardImg2" mode="aspectFit"></image>
-						<block v-else>
-							<text class="iconfont icon-fabu"></text>
-							<view>上传身份证反面照</view>
-						</block>
-					</view>
-				</view>
-				<view class="attestItem" style="display: none;">
+				<view class="attestItem">
 					<view>法人代表</view>
 					<input type="text" v-model="legal" placeholder="请输入法人代表"/>
 				</view>
-				<view class="attestItem" style="display: none;">
+				<view class="attestItem">
 					<view>银行开户行</view>
 					<input type="text" v-model="bank" placeholder="请输入银行开户行"/>
 				</view>
-				<view class="attestItem" style="display: none;">
+				<view class="attestItem">
 					<view>银行对公账户</view>
 					<input type="number" v-model="bankNumber" placeholder="请输入对公账户"/>
 				</view>
-				<view class="attestItem" style="display: none;">
-					<view>合法资质证明</view>
+				<view class="attestItem">
+					<view>营业执照</view>
 					<view class="chooseImg" @click="chooseImage(0)">
 						<image v-if="base64Img" :src="tempbase64Img" mode="aspectFit"></image>
 						<block v-else>
 							<text class="iconfont icon-fabu"></text>
+							<view>上传营业执照</view>
 						</block>
 					</view>
 				</view>
-			</view>
-			<view class="attest" v-else>
 				<view class="attestItem">
-					<view>姓名</view>
-					<input type="text" v-model="name" placeholder="请输入您的姓名" />
-				</view>
-				<view class="attestItem">
-					<view>电话</view>
-					<input type="text" v-model="mobile" placeholder="请输入电话号码" />
-				</view> 
-				<view class="attestItem" style="border: none;">
-					<view>身份证</view>
-					<input type="text" v-model="Idcard" placeholder="请输入身份证号码">
-					<view class="chooseImg" style="margin-bottom: 20rpx;" @click="chooseImage(1)">
-						<image v-if="cardImg1" :src="tempcardImg1" mode="aspectFit"></image>
+					<view>流通许可证</view>
+					<view class="chooseImg" @click="chooseImage(1)">
+						<image v-if="base64Img1" :src="tempbase64Img1" mode="aspectFit"></image>
 						<block v-else>
 							<text class="iconfont icon-fabu"></text>
-							<view>上传身份证正面照</view>
+							<view>上传流通许可证</view>
 						</block>
 					</view>
-					<view class="chooseImg" style="margin-bottom: 20rpx;" @click="chooseImage(2)">
-						<image v-if="cardImg2" :src="tempcardImg2" mode="aspectFit"></image>
-						<block v-else>
-							<text class="iconfont icon-fabu"></text>
-							<view>上传身份证反面照</view>
-						</block>
-					</view>
-				</view>
-				<view class="attestItem" >
-					<view style="width: 45%;">平台账号（第三方平台）</view>
-					<input type="text" v-model="account" placeholder="请输入平台账号" />
 				</view>
 				<view class="attestItem">
-					<view style="width: 100%;">个人主页截图（第三方平台）</view>
+					<view>检测报告</view>
+					<view class="chooseImg" @click="chooseImage(2)">
+						<image v-if="base64Img2" :src="tempbase64Img2" mode="aspectFit"></image>
+						<block v-else>
+							<text class="iconfont icon-fabu"></text>
+							<view>上传检测报告</view>
+						</block>
+					</view>
+				</view>
+				<view class="attestItem">
+					<view style="width: 100%;">补充资料<text class="c_999">（选填）</text></view>
 					<view class="chooseImg" @click="chooseImage(3)">
-						<image v-if="platformImg" :src="tempplatformImg" mode="aspectFit"></image>
+						<image v-if="base64Img3" :src="tempbase64Img3" mode="aspectFit"></image>
 						<block v-else>
 							<text class="iconfont icon-fabu"></text>
-							<view>个人主页截图</view>
+							<view>上传补充资料</view>
 						</block>
 					</view>
 				</view>
@@ -182,25 +144,25 @@
 				array:[{title:'省级',type:50},{title:'市级',type:30},{title:'区/县级',type:20}],
 				index:0,
 				base64Img:'',//资质
+				base64Img1:'',//许可证
+				base64Img2:'',//检测报告
+				base64Img3:'',//补充资料
 				userId:'',
 				token:'',
 				amount:'',
 				amountType:false,
 				IsAudit:9,
 				AuditReason:'',
-				cardImg1:'',//身份证正面图片
-				cardImg2:'',//身份证反面图片
-				platformImg:'',//第三方平台截图
 				Idcard:'',
 				hasData:false,
 				pickerText: '',  //选择的地址值
 				pickerTextArr:[],
 				code:"",  //地址code
 				orderNo:'',
-				tempcardImg1:'',//临时路径图片
-				tempcardImg2:'',
-				tempplatformImg:'',
 				tempbase64Img:'',
+				tempbase64Img1:'',
+				tempbase64Img2:'',
+				tempbase64Img3:'',
 				hasPayPassword:0,
 				MemberWallet:0
 			}
@@ -211,30 +173,15 @@
 		onShow(){
 			this.userId = uni.getStorageSync("userId");
 			this.token = uni.getStorageSync("token");
-			// if(this.$root.$mp.query.type){
-			// 	this.attestType=this.$root.$mp.query.type
-			// }
 			this.quanxian();
 			this.GetMemInfo();
 		},
 		onLoad(e){
 			this.userId = uni.getStorageSync("userId");
 			this.token = uni.getStorageSync("token");
-			this.attestType=e.type;
-			if(this.attestType==0){
-				uni.setNavigationBarTitle({
-				    title: '经销商认证'
-				});
-				this.AuthInfo()
-				this.ShopAuthInfo()
-				this.getShopArea()
-			}else{
-				uni.setNavigationBarTitle({
-				    title: '网红达人认证'
-				});
-				this.AuthInfo()
-				this.ShopAuthInfo()
-			}
+			this.AuthInfo()
+			this.ShopAuthInfo()
+			this.getShopArea()
 		},
 		methods: {
 			// 判断是否已开启权限
@@ -291,6 +238,10 @@
 				}
 			},
 			choseSite(){
+				this.index = 2;
+				this.cityPickerValueDefault=[0,0,0]
+				this.areadText=""
+				this.getShopArea()
 			  this.$refs.mpvueCityPicker.show();
 			},
 			onconfirm(code) {
@@ -316,47 +267,22 @@
 			},
 			// 获取审核状态
 			async ShopAuthInfo(){
-				let res=null
-				if(this.attestType==0){
-					res = await post('User/ShopAuthInfo',{
-						UserId:this.userId,
-						Token:this.token,
-					})
-					if(res.code==0 && res.data.Id!=0){
-						this.IsAudit=res.data.IsAudit;
-						this.name=res.data.Name;
-					}
-				}else{
-					res = await post('User/SageAuthInfo',{
-						UserId:this.userId,
-						Token:this.token,
-					})
-					if(res.code==0 && res.data.GradeId!=0){
-						this.IsAudit=res.data.IsAudit;
-						this.name=res.data.FullName;
-						this.mobile=res.data.Phone;
-						this.Idcard=res.data.Idcard;
-						this.account=res.data.ThirdPartyUser;
-					}
+				let res = await post('User/ShopAuthInfo',{
+					UserId:this.userId,
+					Token:this.token,
+					IsBusiness:1
+				})
+				if(res.code==0 && res.data.Id!=0){
+					this.IsAudit=res.data.IsAudit;
+					this.name=res.data.Name;
 				}
-				console.log(res)
 			},
 			async AuthInfo(){
-				let res=null
-				if(this.attestType!=0){
-					res = await post('User/AuthInfo',{
-						UserId:this.userId,
-						Token:this.token,
-						GradeId:10
-					})
-				}else{
-					res = await post('User/AuthInfo',{
-						UserId:this.userId,
-						Token:this.token,
-						GradeId:this.array[this.index].type
-					})
-				}
-				
+				let res = await post('User/AuthInfo',{
+					UserId:this.userId,
+					Token:this.token,
+					//GradeId:this.array[this.index].type
+				})
 				if(res.code==0&&res.data.length>0){
 					this.amount=res.data[0].CertFee
 				}
@@ -377,19 +303,19 @@
 				    sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
 				    success:async (res)=> {
 						let base64=await pathToBase64(res.tempFilePaths[0])
-						if(type==1){//身份证正面
-							this.tempcardImg1=res.tempFilePaths[0];
-							this.cardImg1= base64
-						}else if(type==2){//身份证反面面
-							this.tempcardImg2=res.tempFilePaths[0];
-							this.cardImg2= base64
-						}else if(type==3){//个人主页截图
-							this.tempplatformImg=res.tempFilePaths[0];
-							this.platformImg= base64
-						}else{//供货商资质
+						if(type==0){//身份证正面
 							this.tempbase64Img=res.tempFilePaths[0];
 							this.base64Img=base64
-						} 
+						}else if(type==1){//许可证
+							this.tempbase64Img1=res.tempFilePaths[0];
+							this.base64Img1=base64
+						}else if(type==2){//报告
+							this.tempbase64Img2=res.tempFilePaths[0];
+							this.base64Img2=base64
+						}else{
+							this.tempbase64Img3=res.tempFilePaths[0];
+							this.base64Img3=base64
+						}
 				    }
 				});
 			},
@@ -403,78 +329,43 @@
 			},
 			async openPay(ispwd,isPayWallet){
 				//e.id= 0--微信支付.1--余额支付,2--支付宝
-				if(this.attestType==0){
-					let AuthObj={
-						UserId:this.userId,
-						Token:this.token,
-						GradeId:this.array[this.index].type,
-						AreaCode:this.AreaCode,
-						Name:this.name,
-						Address:this.address,
-						Phone:this.mobile,
-						BankAddress:this.bank,
-						BankCardNo:this.bankNumber,
-						LegalPerson:this.legal,
-						BusinessLicense:this.base64Img,
-						IsPayWallet:isPayWallet,
-						Password:ispwd,
-						Idcard:this.Idcard,
-						IdcardPositive:this.cardImg1,
-						IdcardNegative:this.cardImg2
+				let AuthObj={
+					UserId:this.userId,
+					Token:this.token,
+					//GradeId:this.array[this.index].type,
+					AreaCode:this.AreaCode,
+					Name:this.name,
+					Address:this.address,
+					Phone:this.mobile,
+					BankAddress:this.bank,
+					BankCardNo:this.bankNumber,
+					LegalPerson:this.legal,
+					BusinessLicense:this.base64Img,
+					Licence:this.base64Img1,
+					TestReport:this.base64Img2,
+					ReplenishInfo:this.base64Img3,
+					IsPayWallet:isPayWallet,
+					Password:ispwd,
+					IsBusiness:1
+				}
+				let res = await post('User/ShopAuth',AuthObj)
+				if(res.code==0){
+					console.log(res)
+					this.amount=res.data.CertFee
+					this.amountType=true
+					this.orderNo=res.data.OrderNo;
+					if(!ispwd){
+						setTimeout(()=>{
+							this.$refs.payWin.open();
+						},500)
 					}
-					let res = await post('User/ShopAuth',AuthObj)
-					if(res.code==0){
-						console.log(res)
-						this.amount=res.data.CertFee
-						this.amountType=true
-						this.orderNo=res.data.OrderNo;
-						if(!ispwd){
-							setTimeout(()=>{
-								this.$refs.payWin.open();
-							},500)
-						}
-						if(isPayWallet){
-							this.$refs.payWin.close();
-						}
-					}else if(res.code==200){
+					if(isPayWallet){
 						this.$refs.payWin.close();
-						this.ShopAuthInfo()
 					}
-				}else{
-						let AuthObj={
-							UserId:this.userId,
-							Token:this.token,
-							GradeId:10,
-							FullName:this.name,
-							Phone:this.mobile,
-							Idcard:this.Idcard,
-							IdcardPositive:this.cardImg1,
-							IdcardNegative:this.cardImg2,
-							ThirdPartyUser:this.account,
-							ThirdPartyHome:this.platformImg,
-							IsPayWallet:isPayWallet,
-							Password:ispwd
-						}
-						let res = await post('User/SageAuth',AuthObj)
-						if(res.code==0){
-							console.log(res)
-							this.amount=res.data.CertFee
-							this.amountType=true
-							this.orderNo=res.data.OrderNo;
-							if(!ispwd){
-								setTimeout(()=>{
-									this.$refs.payWin.open();
-								},500)
-							}
-							if(isPayWallet){
-								this.$refs.payWin.close();
-							}
-						}else if(res.code==200){
-							this.$refs.payWin.close();
-							this.ShopAuthInfo()
-						}
-					}
-					
+				}else if(res.code==200){
+					this.$refs.payWin.close();
+					this.ShopAuthInfo()
+				}
 			},
 			async paySuccess(e,payPassword){
 				if(e.id==1&&!this.hasPayPassword){
@@ -610,87 +501,64 @@
 				if(!valPhone(this.mobile)) {
 					return false;
 				}
-				if(!IdNumber(this.Idcard)) {
-					return false;
-				}
-				if(!this.cardImg1) {
+				if(!this.areadText) {
 					uni.showToast({
-					  title: "请上传身份证正面照!",
+					  title: "请选择地区!",
 					  icon: "none",
 					  duration: 2000
 					});
 					return false;
 				}
-				if(!this.cardImg2) {
+				if(!this.address) {
 					uni.showToast({
-					  title: "请上传身份证反面照!",
+					  title: "请输入详细地址!",
 					  icon: "none",
 					  duration: 2000
 					});
 					return false;
 				}
-				if(this.attestType==0){
-					if(!this.areadText) {
-						uni.showToast({
-						  title: "请选择地区!",
-						  icon: "none",
-						  duration: 2000
-						});
-						return false;
-					}
-					// if(!this.address) {
-					// 	uni.showToast({
-					// 	  title: "请输入详细地址!",
-					// 	  icon: "none",
-					// 	  duration: 2000
-					// 	});
-					// 	return false;
-					// }
-					// if(!this.legal) {
-					// 	uni.showToast({
-					// 	  title: "请输入法人代表!",
-					// 	  icon: "none",
-					// 	  duration: 2000
-					// 	});
-					// 	return false;
-					// }
-					// if(!this.bank) {
-					// 	uni.showToast({
-					// 	  title: "请输入银行开户行!",
-					// 	  icon: "none",
-					// 	  duration: 2000
-					// 	});
-					// 	return false;
-					// }
-					// if(!valbankNo(this.bankNumber)) {
-					// 	return false;
-					// }
-					// if(!this.base64Img) {
-					// 	uni.showToast({
-					// 	  title: "请上传资质证明!",
-					// 	  icon: "none",
-					// 	  duration: 2000
-					// 	});
-					// 	return false;
-					// }
-				}else{
-					
-					if(!this.account) {
-						uni.showToast({
-						  title: "请输入平台账号!",
-						  icon: "none",
-						  duration: 2000
-						});
-						return false;
-					}
-					if(!this.platformImg) {
-						uni.showToast({
-						  title: "请上传个人主页截图!",
-						  icon: "none",
-						  duration: 2000
-						});
-						return false;
-					}
+				if(!this.legal) {
+					uni.showToast({
+					  title: "请输入法人代表!",
+					  icon: "none",
+					  duration: 2000
+					});
+					return false;
+				}
+				if(!this.bank) {
+					uni.showToast({
+					  title: "请输入银行开户行!",
+					  icon: "none",
+					  duration: 2000
+					});
+					return false;
+				}
+				if(!valbankNo(this.bankNumber)) {
+					return false;
+				}
+				if(!this.base64Img) {
+					uni.showToast({
+					  title: "请上传营业执照!",
+					  icon: "none",
+					  duration: 2000
+					});
+					return false;
+				}
+				if(!this.base64Img1) {
+					uni.showToast({
+					  title: "请上传流通许可证!",
+					  icon: "none",
+					  duration: 2000
+					});
+					return false;
+				}
+				if(!this.base64Img2) {
+					uni.showToast({
+					  title: "请上传检测报告!",
+					  icon: "none",
+					  duration: 2000
+					});
+					return false;
 				}
 				return true;
 			}
@@ -737,6 +605,10 @@
 			height: 350rpx;
 			border: 1px dashed #cccccc;
 			border-radius: 10rpx;
+			// display: flex;
+			// flex-wrap: wrap;
+			// align-items: center;
+			// justify-content: center;
 			text{
 				display: inline-block;
 				width: 100%;
