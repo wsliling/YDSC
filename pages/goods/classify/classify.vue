@@ -1,13 +1,5 @@
 <template>
 	<view class="content" style="height: 100%;">
-		<!-- 	<uni-nav-bar fixed="true" color="#333333" background-color="#ffffff" :border="true">
-			<block slot="center" class="flex1 color_fff">
-				<view class="input-view" @click="tolink('/pages/ProductList/search')">
-					<uni-icons class="input-uni-icon" type="search" size="22" color="#b8b8b8" />
-					<text class="c_999 fz15 ml5">搜索产品</text>
-				</view>
-			</block>
-		</uni-nav-bar> -->
 		<view class="classify">
 			<scroll-view class="classify-left" scroll-y :style="'height:' + height + 'px'">
 				<view @click="getclassIndex(index, item.Id)" v-for="(item, index) in typeList" :key="index" :class="classIndex == index ? 'active' : ''">{{ item.Name }}</view>
@@ -17,30 +9,16 @@
 					<view class="title">{{ tab.FatherName }}</view>
 					<view class="goodsBox">
 						<block v-for="(item, index) in tab.data" :key="index">
-							<!-- <view class="goods" @click="tolink('/pages/ProductList/ProductList?cid=' + item.Id + '&keyname=' + item.ClassName)"> -->
-							<view class="goods" @click="tolink('/pages/goods/ProductList/ProductList?id=' + item.Id + '&keystr=' + item.ClassName)">
+							<view class="goods" @click="tolink('/pages/goods/ProductList/ProductList?cid=' + item.Id + '&keyname=' + item.ClassName)">
 								<view class="icon flex-center"><image :src="item.PicUrl || 'http://via.placeholder.com/100x100'" mode="widthFix"></image></view>
 								<view class="uni-ellipsis">{{ item.ClassName }}</view>
 							</view>
 						</block>
 					</view>
 				</block>
-				<!-- <view v-if="hasProData" class="uni-product-list level__product-list uni-mt10" style="padding-left: 20upx;">
-					<block v-for="(item,index) in prolist" :key="index">
-						<product :datajson="item" v-on:goDetail="goDetail"></product>
-					</block>
-				</view> -->
-				<block v-if="hasProData">
-					<view class="title">{{ prolist.FatherName }}</view>
-					<view class="goodsBox">
-						<block v-for="(item, index) in prolist" :key="index">
-							<view class="goods" @click="tolink('/pages/goods/ProductList/ProductList?cid=' + item.Id + '&keyname=' + item.ClassName)">
-								<view class="icon flex-center"><image :src="item.PicNo || 'http://via.placeholder.com/100x100'" mode="widthFix"></image></view>
-								<view class="uni-ellipsis">{{ item.Name }}</view>
-							</view>
-						</block>
-					</view>
-				</block>
+				<view v-if="hasProData" class="uni-product-list level__product-list uni-mt10" style="padding-left: 20upx;">
+					<block v-for="(item, index) in prolist" :key="index"><product :datajson="item" v-on:goDetail="goDetail(item.Id)"></product></block>
+				</view>
 				<!-- <view class="center c_theme uni-mt10" v-if="showMore" @click="tolink('/pages/ProductList/ProductList?cid=' + cid)">查看更多→</view> -->
 				<noData :isShow="noDataIsShow"></noData>
 			</scroll-view>
@@ -83,7 +61,8 @@ export default {
 		// #endif
 		// #ifndef APP-PLUS
 		this.barHeight = 0;
-		this.height = uni.getSystemInfoSync().windowHeight - 44;
+		// this.height = uni.getSystemInfoSync().windowHeight - 44;
+		this.height = uni.getSystemInfoSync().windowHeight;
 		// #endif
 		this.getTypeList();
 	},
@@ -178,7 +157,7 @@ export default {
 		},
 		goDetail(id) {
 			uni.navigateTo({
-				url: '/pages/productDetail/productDetail?proId=' + id
+				url: '/pages/goods/productDetail/productDetail?proId=' + id
 			});
 		},
 		scroll(e) {

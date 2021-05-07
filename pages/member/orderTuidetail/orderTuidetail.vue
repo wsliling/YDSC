@@ -150,7 +150,7 @@
 		onShow:function(){
 			this.userId = uni.getStorageSync("userId");
 			this.token = uni.getStorageSync("token");
-			this.getOrderDetails();
+			this.getAppCourseDetails();
 			this.getInfo();
 			this.getExpressCompanyList()
 			
@@ -272,7 +272,7 @@
 				}
 			},
 			//获取订单详情
-			async getOrderDetails(){
+			async getAppCourseDetails(){
 				let result = await post("Order/RefundOrderInfo",{
 					UserId: this.userId,
 					Token: this.token,

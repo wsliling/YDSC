@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<uni-nav-bar fixed="true" color="#ffffff" background-color="#fff" :border="false">
+		<uni-nav-bar fixed="true" color="#ffffff" :border="false">
 			<block slot="center" class="flex1">
 				<view class="input-view" style="background: #f2f2f2; border-radius: 10upx; margin-left: 30upx;" @click="tolink('/pages/goods/ProductList/ProductList')">
 					<uni-icons class="input-uni-icon" type="search" size="22" color="#b8b8b8" />

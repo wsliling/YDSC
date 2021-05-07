@@ -28,9 +28,9 @@
 			</view>
 		</view>
 		<view class="sec" v-if="bannerListOne.length">
-			<view class="sec_1"><image :src="bannerListOne[0].Pic" @click="order"></image></view>
+			<view class="sec_1"><image :src="bannerListOne[0].Pic" @click="appointmentCoach"></image></view>
 			<view class="sec_2">
-				<view><image :src="bannerListOne[1].Pic" @click="orderClass"></image></view>
+				<view><image :src="bannerListOne[1].Pic" @click="appointmentCourse"></image></view>
 				<view><image :src="bannerListOne[2].Pic" @click="gym"></image></view>
 			</view>
 		</view>
@@ -62,7 +62,7 @@
 		<view class="line"></view>
 		<view class="sec3"><view class="sec1_title">猜你喜欢</view></view>
 		<view class="sec4" v-for="(item, index) in classlike" :key="index">
-			<view class="sec4_1" @click="orderClassDetails(item.Id)">
+			<view class="sec4_1" @click="courseDetails(item.Id)">
 				<view><image :src="item.PicImg"></image></view>
 				<view>
 					<view class="sec4_title">{{ item.Title }}</view>
@@ -118,9 +118,9 @@ export default {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
 		this.pageCon = uni.getStorageSync('pageCon');
-		this.getClassList();
-		this.getClassType();
-		this.getClassLike();
+		this.getCourseList();
+		this.getCourseType();
+		this.getCourseLike();
 		this.getBanner(6);
 		this.getBannerOne(7);
 		this.getBannerTwo(10);
@@ -144,14 +144,14 @@ export default {
 				url: '/pages/course/newPer/newPer'
 			});
 		},
-		order() {
+		appointmentCoach() {
 			uni.navigateTo({
-				url: '/pages/course/order/order'
+				url: '/pages/course/appointmentCoach/appointmentCoach'
 			});
 		},
-		orderClass() {
+		appointmentCourse() {
 			uni.navigateTo({
-				url: '/pages/course/orderClass/orderClass'
+				url: '/pages/course/appointmentCourse/appointmentCourse'
 			});
 		},
 		classDetails(id) {
@@ -159,9 +159,9 @@ export default {
 				url: '/pages/course/classDetails/classDetails?detailId=' + id
 			});
 		},
-		orderClassDetails(id) {
+		courseDetails(id) {
 			uni.navigateTo({
-				url: '/pages/course/orderClassDetails/orderClassDetails?orderId=' + id
+				url: '/pages/course/courseDetails/courseDetails?appointId=' + id
 			});
 		},
 		cliTab(index) {
@@ -170,7 +170,7 @@ export default {
 			this.classlist = [];
 			this.noDataIsShow = false;
 			this.hasData = false;
-			this.getClassList();
+			this.getCourseList();
 		},
 		//跳转
 		tolink(Url, islogin) {
@@ -216,14 +216,14 @@ export default {
 			this.currentSwiper = e.detail.current;
 		},
 		//所有课程类型
-		async getClassType() {
+		async getCourseType() {
 			let result = await post('Course/GetCourseTypeList', {});
 			if (result.code == 0) {
 				this.tabs = result.data;
 			}
 		},
 		// 课程列表
-		async getClassList() {
+		async getCourseList() {
 			let result = await post('Course/GetCourseOutlineList', {
 				page: this.page,
 				pageSize: this.pageSize,
@@ -260,7 +260,7 @@ export default {
 			}
 		},
 		// 猜你喜欢
-		async getClassLike() {
+		async getCourseLike() {
 			let result = await post('Course/GetCourseOfflineList', {
 				page: this.page,
 				pageSize: this.pageSize,
@@ -305,7 +305,7 @@ export default {
 		if (this.isLoad) {
 			this.loadingType = 1;
 			this.page++;
-			this.getClassLike();
+			this.getCourseLike();
 		} else {
 			this.loadingType = 2;
 		}

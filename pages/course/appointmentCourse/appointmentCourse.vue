@@ -1,21 +1,21 @@
 <template>
-	<view class="orderClass">
+	<view class="appointmentCourse">
 		<view class="tab">
 			<view class="bg_fff tabList flex">
 				<view class="item" v-for="(item, index) in tabs" :key="index" :class="{ active: item.Id == tabIndex }" @click="cliTab(item.Id)">{{ item.Name }}</view>
 			</view>
 			<view class="list" v-if="hasData">
-				<view class="con" v-for="(item, index) in orderclass" :key="index">
+				<view class="con" v-for="(item, index) in course" :key="index">
 					<view class="con_1"><image :src="item.PicImg"></image></view>
 					<view class="con_2">
 						<view class="title">{{ item.Title }}</view>
 						<view class="title_1">{{ item.TargetName }} | {{ item.DifficultyName }} | {{ item.CourseDuration }}分钟</view>
 						<view class="title_2">
 							<view class="title2_1">
-								<image :src="item.CoachAvatar"></image>
+								<image :src="item.CoachAvatar || '/static/default.png'"></image>
 								<text>{{ item.CoachNick }}</text>
 							</view>
-							<view class="title2_2" @click="orderClassDetails(item.Id)">立即预约</view>
+							<view class="title2_2" @click="courseDetails(item.Id)">立即预约</view>
 						</view>
 					</view>
 				</view>
@@ -45,7 +45,7 @@ export default {
 			isLoad: false,
 			hasData: false,
 			noDataIsShow: false,
-			orderclass: [],
+			course: [],
 			tabs: [],
 			tabIndex: 45,
 			id: 0
@@ -54,32 +54,32 @@ export default {
 	onLoad() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
-		this.getOrderClass();
-		this.getClassType();
+		this.getCourse();
+		this.getCourseType();
 	},
 	methods: {
-		orderClassDetails(id) {
+		courseDetails(id) {
 			uni.navigateTo({
-				url: '/pages/course/orderClassDetails/orderClassDetails?orderId=' + id
+				url: '/pages/course/courseDetails/courseDetails?appointId=' + id
 			});
 		},
 		cliTab(index) {
 			this.tabIndex = index;
 			this.page = 1;
-			this.orderclass = [];
+			this.course = [];
 			this.noDataIsShow = false;
 			this.hasData = false;
-			this.getOrderClass();
+			this.getCourse();
 		},
 		//所有课程类型
-		async getClassType() {
+		async getCourseType() {
 			let result = await post('Course/GetCourseTypeList', {});
 			if (result.code == 0) {
 				this.tabs = result.data;
 			}
 		},
 		//预约课程列表
-		async getOrderClass() {
+		async getCourse() {
 			let result = await post('Course/GetCourseOfflineList', {
 				page: this.page,
 				pageSize: this.pageSize,
@@ -102,10 +102,10 @@ export default {
 				this.hasData = false;
 			}
 			if (this.page === 1) {
-				this.orderclass = result.data;
+				this.course = result.data;
 			}
 			if (this.page > 1) {
-				this.orderclass.push(...result.data);
+				this.course.push(...result.data);
 			}
 			if (result.data.length < this.pageSize) {
 				this.isLoad = false;
@@ -125,7 +125,7 @@ export default {
 		if (this.isLoad) {
 			this.loadingType = 1;
 			this.page++;
-			this.getOrderClass();
+			this.getCourse();
 		} else {
 			this.loadingType = 2;
 		}

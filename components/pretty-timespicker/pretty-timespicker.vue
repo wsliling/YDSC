@@ -39,14 +39,6 @@
 		</view>
 		<view class="bottom" @click="pop">
 			<button form-type="submit" type="default" size="mini" class="buybtn">预约</button>
-			<!-- <wyb-popup ref="popup" type="center" height="490" width="600" radius="6" :showCloseIcon="true">
-				<view class="popup-content">
-					<view class="title">预约信息</view>
-					<view class="name"><input type="text" v-model="name" placeholder="姓名" /></view>
-					<view class="phone"><input type="text" v-model="tel" placeholder="手机号码" /></view>
-					<view class="now" @click="now">立即预约</view>
-				</view>
-			</wyb-popup> -->
 			<uni-popup ref="popup" type="center">
 				<view class="popup-content">
 					<view class="closebtn uni-icon uni-icon-close" @click="hidePopup"></view>
@@ -155,7 +147,7 @@ export default {
 				setTimeout(() => {
 					uni.navigateTo({
 						url:
-							'/pages/course/now/now?fullDate=' +
+							'/pages/course/appCoachSuc/appCoachSuc?fullDate=' +
 							this.selectDate.FullDate +
 							'&dayWeek=' +
 							this.selectDate.DayWeek +

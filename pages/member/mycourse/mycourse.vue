@@ -61,7 +61,7 @@ export default {
 	onLoad() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
-		this.getClassList();
+		this.getCourseList();
 		this.getBuyClassList();
 	},
 	methods: {
@@ -74,7 +74,7 @@ export default {
 			});
 		},
 		//课程列表
-		async getClassList() {
+		async getCourseList() {
 			let result = await post('Course/MemberViewCourseList', {
 				UserId: this.userId,
 				Token: this.token

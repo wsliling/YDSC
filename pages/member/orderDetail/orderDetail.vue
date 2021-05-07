@@ -159,7 +159,6 @@ export default {
 		  }else{
 			   this.hasData=false
 		  }
-		console.log(this.info)
       })
     },
     //微信支付需参数

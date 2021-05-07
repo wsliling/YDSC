@@ -43,8 +43,8 @@ export default {
 	onLoad() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
-		this.getClassList();
-		this.getClassType();
+		this.getCourseList();
+		this.getCourseType();
 	},
 	methods: {
 		classDetails(id) {
@@ -58,17 +58,17 @@ export default {
 			this.classlist = [];
 			this.noDataIsShow = false;
 			this.hasData = false;
-			this.getClassList();
+			this.getCourseList();
 		},
 		//所有课程类型
-		async getClassType() {
+		async getCourseType() {
 			let result = await post('Course/GetCourseTypeList', {});
 			if (result.code == 0) {
 				this.tabs = result.data;
 			}
 		},
 		//课程列表
-		async getClassList() {
+		async getCourseList() {
 			let result = await post('Course/GetCourseOutlineList', {
 				page: this.page,
 				pageSize: this.pageSize,

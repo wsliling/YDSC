@@ -145,7 +145,7 @@ export default {
 			if (result.code == 0) {
 				setTimeout(() => {
 					uni.navigateTo({
-						url: '/pages/course/nowOrderClass/nowOrderClass?fullDate=' + this.selectDate.FullDate + '&dayWeek=' + this.selectDate.DayWeek + '&timeSpan=' + this.selectTime
+						url: '/pages/course/appCourseSuc/appCourseSuc?fullDate=' + this.selectDate.FullDate + '&dayWeek=' + this.selectDate.DayWeek + '&timeSpan=' + this.selectTime
 					});
 				}, 2000);
 			}

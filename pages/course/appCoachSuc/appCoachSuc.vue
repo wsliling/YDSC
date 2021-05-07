@@ -1,5 +1,5 @@
 <template>
-	<view class="now">
+	<view class="appCoachSuc">
 		<view class="line"></view>
 		<view class="success">
 			<view class="iconfont icon-gou success_1"></view>
@@ -42,7 +42,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.now {
+.appCoachSuc {
 	background-color: white;
 	height: 95vh;
 	.line {

@@ -5,7 +5,7 @@
 	>
 		<view :class="{ 'uni-collapse-cell--disabled': disabled }" class="uni-collapse-cell__title" @click="onClick">
 			<image v-if="thumb" :src="thumb" class="uni-collapse-cell__title-img" />
-			<text class="uni-collapse-cell__title-text">
+			<view class="uni-collapse-cell__title-text">
 				{{ title }}
 				<view v-if="lititle" class="li_title">
 					<text class="iconfont icon-shijian2"></text>
@@ -13,7 +13,7 @@
 					<text class="iconfont icon-huo" style="padding-left: 20upx;"></text>
 					<text style="padding-left: 10upx;">{{ lititle2 }}</text>
 				</view>
-			</text>
+			</view>
 			<!-- #ifdef MP-ALIPAY -->
 			<view :class="{ 'uni-collapse-cell__title-arrow-active': isOpen, 'uni-collapse-cell--animation': showAnimation === true }" class="uni-collapse-cell__title-arrow">
 				<uni-icons color="#bbb" size="20" type="arrowdown" />

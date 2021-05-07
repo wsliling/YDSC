@@ -67,7 +67,7 @@
 			this.userId = uni.getStorageSync("userId");
 			this.token = uni.getStorageSync("token");
 			this.getLogistics();
-			this.getOrderDetails();
+			this.getAppCourseDetails();
 		},
 		methods: {
 			//物流信息
@@ -83,7 +83,7 @@
 				}
 			},
 			//订单信息
-			async getOrderDetails() {
+			async getAppCourseDetails() {
 				let result = await post("Order/OrderDetails", {
 					UserId: this.userId,
 					Token: this.token,
