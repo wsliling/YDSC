@@ -9,8 +9,12 @@
 			</view>
 		</view>
 		<view :style="{ height: barHeight + 44 + 'px' }"></view>
-		<view class="f_banner uni-bg-white" v-if="tabNav == 4 && bannerList.length" @click="tolink('/pages/personal/topic/topic')">
+		<!-- <view class="f_banner uni-bg-white" v-if="tabNav == 4 && bannerList.length" @click="tolink('/pages/personal/topic/topic')">
 			<image class="b_radius" :src="bannerList[0].Pic" mode="widthFix"></image>
+			<block v-for="(item, index) in datalist" :key="index"><mediaList :datajson="item" Grid="3" @click="goDetail" @previewImg="previewImg"></mediaList></block>
+		</view> -->
+		<view class="list-2" v-if="tabNav == 4 && bannerList.length">
+			<image class="b_radius" :src="bannerList[0].Pic" mode="widthFix" @click="tolink('/pages/personal/topic/topic')"></image>
 			<block v-for="(item, index) in datalist" :key="index"><mediaList :datajson="item" Grid="3" @click="goDetail" @previewImg="previewImg"></mediaList></block>
 		</view>
 		<view class="list" v-if="hasData && tabNav == 2">
@@ -275,8 +279,12 @@ export default {
 		}
 	}
 }
-.f_banner {
-	padding: 20upx;
+.list-2 {
+	background-color: white;
+	image {
+		padding: 20upx;
+		border-radius: 80upx;
+	}
 }
 .uploadbtn {
 	position: fixed;
