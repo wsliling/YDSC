@@ -2,7 +2,7 @@
 	<view>
 		<view class="kefu_top">
 			<!-- <view class="kefu_img">
-				<image src="http://xcx.yixijiu19.com/static/qq.png"></image>
+				<image src="http://yd.wtanvxin.com/static/qq.png"></image>
 			</view> -->
 			<view class="kefu_detail">在线客服<view>(09:00~22:00)</view></view>
 		</view>

@@ -22,28 +22,28 @@
         data() {
             return {
 				shopId:'',
-				// http://xcx.yixijiu19.com
+				// http://yd.wtanvxin.com
                 list: [{
                         "pagePath": "/pages/goods/storeIndex/storeIndex?id=",
-                        "iconPath": "http://xcx.yixijiu19.com/static/s_f1.png",
+                        "iconPath": "http://yd.wtanvxin.com/static/s_f1.png",
                         "selectedIconPath": "../../../static/s_f1_in.png",
                         "text": "店铺首页"
                     },
                     {
                         "pagePath": "/pages/goods/storeprolist/storeprolist?id=",
-                        "iconPath": "http://xcx.yixijiu19.com/static/s_f2.png",
+                        "iconPath": "http://yd.wtanvxin.com/static/s_f2.png",
                         "selectedIconPath": "../../../static/s_f2_in.png",
                         "text": "全部商品"
                     },
                     {
                         "pagePath": "/pages/goods/storeClass/storeClass?id=",
-                        "iconPath": "http://xcx.yixijiu19.com/static/s_f3.png",
+                        "iconPath": "http://yd.wtanvxin.com/static/s_f3.png",
                         "selectedIconPath": "../../../static/s_f3_in.png",
                         "text": "商品分类"
                     },
                     {
                        "pagePath": "/pages/goods/storeInfo/storeInfo?id=",
-                       "iconPath": "http://xcx.yixijiu19.com/static/s_f4.png",
+                       "iconPath": "http://yd.wtanvxin.com/static/s_f4.png",
                        "selectedIconPath": "../../../static/s_f4_in.png",
                        "text": "店铺介绍"
                     }

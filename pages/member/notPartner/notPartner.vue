@@ -2,7 +2,7 @@
 	<view class="notPartner">
 		<view class="line"></view>
 		<view class="sec">
-			<view class="sec_img"><image src="/static/my/partner_3.png" mode=""></image></view>
+			<view class="sec_img"><image src="http://yd.wtanvxin.com/static/my/partner_3.png" mode=""></image></view>
 			<view class="sec_1">您还不是合伙人~</view>
 			<view class="apply" @click="applyPartner">申请成为合伙人</view>
 		</view>

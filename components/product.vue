@@ -78,5 +78,5 @@
 		color: #999;
 	}
 	/* .uni-product-price-original{ font-size: 36upx;} */
-	.plus-price .icon-plusprice{ display: inline-block; vertical-align: middle; height: 28upx; width: 60upx; background: url(http://xcx.yixijiu19.com/static/plus/plus_icon.png) right center no-repeat; background-size: 100%; }
+	.plus-price .icon-plusprice{ display: inline-block; vertical-align: middle; height: 28upx; width: 60upx; background: url(http://yd.wtanvxin.com/static/plus/plus_icon.png) right center no-repeat; background-size: 100%; }
 </style>

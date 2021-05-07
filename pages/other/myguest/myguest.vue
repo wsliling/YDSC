@@ -2,7 +2,7 @@
 	<view>
 		<view class="team-header">
 			<view class="invita">
-				<image class="invitaBg" src="http://xcx.yixijiu19.com/static/teambg.png"></image>
+				<image class="invitaBg" src="http://yd.wtanvxin.com/static/teambg.png"></image>
 				<view class="info">
 					<view class="info-item">
 						<text>{{data.TeamNum}}</text>
@@ -19,7 +19,7 @@
 				</view>
 				<view class="invitation" v-if="FatherData.length>0">
 					<image v-if="FatherData[0].Avatar" :src="FatherData[0].Avatar"></image>
-					<image v-else src="http://xcx.yixijiu19.com/static/default.png"></image>
+					<image v-else src="http://yd.wtanvxin.com/static/default.png"></image>
 					<view class="invita-name">
 						<view>{{FatherData[0].NickName}}</view>
 						<text>我的邀请人</text>
@@ -54,12 +54,12 @@
 				<view class="list-item">
 					<view class="item-user">
 						<image :src="item.Avatar" v-if="item.Avatar!=''"></image>
-						<image v-else src="http://xcx.yixijiu19.com/static/default.png" ></image>
+						<image v-else src="http://yd.wtanvxin.com/static/default.png" ></image>
 						<view class="nameBox">
 							<view>
 								<text>{{item.NickName}}</text>
 								<view class="attest" v-if="item.GradeName!='普通用户'">
-									<image src='http://xcx.yixijiu19.com/static/attest1.png'></image>
+									<image src='http://yd.wtanvxin.com/static/attest1.png'></image>
 									{{item.GradeName}}
 								</view>
 							</view>

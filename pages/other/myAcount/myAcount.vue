@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view class="acount">
-			<image class="acountbg" mode="widthFix" src="/static/myAcount.png"></image>
+			<image class="acountbg" mode="widthFix" src="http://yd.wtanvxin.com/static/myAcount.png"></image>
 			<view class="acountBox">
 				<view class="allmoney">
 					<text>￥</text>

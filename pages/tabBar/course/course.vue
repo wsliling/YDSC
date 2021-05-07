@@ -68,7 +68,7 @@
 					<view class="sec4_title">{{ item.Title }}</view>
 					<view class="sec4_title1">{{ item.DifficultyName }} . {{ item.CourseDuration }}分钟</view>
 					<view class="sec4_title2">
-						<image :src="item.CoachAvatar || '/static/default.png'"></image>
+						<image :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'"></image>
 						<text>{{ item.CoachNick }}</text>
 					</view>
 				</view>

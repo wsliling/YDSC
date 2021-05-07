@@ -131,11 +131,11 @@
   .for_hd .txt{ line-height: 1;font-size: 32upx; font-weight: 600; padding: 0 20upx}
   .for_hd .icon{ height: 32upx; width: 32upx;}
   .for_hd .icon_l {
-      background: url(http://xcx.yixijiu19.com/static/tit_l.png) center center no-repeat;
+      background: url(http://yd.wtanvxin.com/static/tit_l.png) center center no-repeat;
       background-size: cover;
   }
   .for_hd .icon_r {
-      background: url(http://xcx.yixijiu19.com/static/tit_r.png) center center no-repeat;
+      background: url(http://yd.wtanvxin.com/static/tit_r.png) center center no-repeat;
       background-size: cover;
   }
 </style>

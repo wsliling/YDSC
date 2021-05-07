@@ -3,8 +3,8 @@
 		<view class="regLoginBox" v-if="isShowMolie">
 			<view class="logo">
 				<view class="img">
-					<image class="logoimg" src="http://xcx.yixijiu19.com/static/logo.png" mode="widthFix"></image>
-					<view class="Title">亿喜</view>
+					<image class="logoimg" src="http://yd.wtanvxin.com/static/logo.png" mode="widthFix"></image>
+					<view class="Title">英达思创</view>
 				</view>
 			</view>
 			<view class="from pd10">
@@ -48,16 +48,16 @@
 				</view>	
 			</view>
 			<!-- #ifdef H5 -->
-			<view class="downapp" @click="golink('/pages/dowmApp/dowmApp')">下载亿喜app</view>
+			<view class="downapp" @click="golink('/pages/dowmApp/dowmApp')">下载英达思创app</view>
 			<!-- #endif -->
 		</view>
 		<!-- #ifdef MP-WEIXIN -->  
 		<view class="MP-login" v-if="isShowminiApp">
 		    <view class="logo">
 				<view class="logoimg">
-					<image class="img_bb" src="http://xcx.yixijiu19.com/static/logo.png" mode="widthFix"></image>
+					<image class="img_bb" src="http://yd.wtanvxin.com/static/logo.png" mode="widthFix"></image>
 				</view>
-				<view class="Title">亿喜</view>
+				<view class="Title">英达思创</view>
 		    </view> 
 		    <button class="login-btn btn_gree" open-type="getUserInfo" @click="oauth">微信登录</button>
 		    <!-- <view class="c_blue uni-center" @click="loginTel">手机号登录/注册</view> -->

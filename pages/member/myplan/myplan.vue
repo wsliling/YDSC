@@ -2,7 +2,7 @@
 	<view>
 		<view class="m-wrap">
 			<view class="row" v-for="(item,index) in 3" :key="index">
-				<view class="titlename"><image class="icon_plan" src="/static/f2_in.png"></image>减体重</view>
+				<view class="titlename"><image class="icon_plan" src="http://yd.wtanvxin.com/static/f2_in.png"></image>减体重</view>
 				<view class="detail">
 					<view class="weight">2.0kg<text class="txt">/4kg</text></view>
 					<view class="schedule">

@@ -3,22 +3,22 @@
 		<view class="moshiBox">
 			<view class="icons flex-between">
 				<view class="icon">
-					<image class="iconimg" src="/static/shijian1.png" mode="widthFix"></image>
+					<image class="iconimg" src="http://yd.wtanvxin.com/static/shijian1.png" mode="widthFix"></image>
 				</view>
 				<view class="icon">
-					<image class="iconimg" src="/static/shebei1.png" mode="widthFix"></image>
+					<image class="iconimg" src="http://yd.wtanvxin.com/static/shebei1.png" mode="widthFix"></image>
 				</view>
 				<view class="icon">
-					<image class="iconimg" src="/static/fenlei.png" mode="widthFix"></image>
+					<image class="iconimg" src="http://yd.wtanvxin.com/static/fenlei.png" mode="widthFix"></image>
 				</view>
 				<view class="icon">
-					<image class="iconimg" src="/static/shijian2.png" mode="widthFix"></image>
+					<image class="iconimg" src="http://yd.wtanvxin.com/static/shijian2.png" mode="widthFix"></image>
 					<view class="num">
 						15:36<text class="c_999 fz12">/20:00</text>
 					</view>
 				</view>
 				<view class="icon">
-					<image class="iconimg" src="/static/huo.png" mode="widthFix"></image>
+					<image class="iconimg" src="http://yd.wtanvxin.com/static/huo.png" mode="widthFix"></image>
 					<view class="num">
 						0<text class="c_999 fz12">cal</text>
 					</view>
@@ -36,10 +36,10 @@
 				<view class="flex-between flex1">
 					<view class="imgBox flex1 flex-between">
 						<view :class="['img',bodyIndex==0?'active':'']">
-							<image src="/static/of/body.png" mode="widthFix"></image>
+							<image src="http://yd.wtanvxin.com/static/of/body.png" mode="widthFix"></image>
 						</view>
 						<view :class="['img',bodyIndex==1?'active':'']">
-							<image src="/static/of/body.png" mode="widthFix"></image>
+							<image src="http://yd.wtanvxin.com/static/of/body.png" mode="widthFix"></image>
 						</view>
 					</view>
 					<view class="nextbtn iconfont icon-arrow_r" @click="changeBody"></view>

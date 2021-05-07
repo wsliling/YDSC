@@ -24,7 +24,7 @@
 								}).then(res=>{
 									//确认
 									let version=_res.data.VersionNo.split('.').join('');
-									const dowmappURL='http://xcx.yixijiu19.com/down/android'+version+'.apk';//app下载地址安卓
+									const dowmappURL='http://yd.wtanvxin.com/down/android'+version+'.apk';//app下载地址安卓
 									plus.runtime.openURL(system=="ios"?dowmappURLios:dowmappURL);
 						
 								  }).catch(res=>{
@@ -37,11 +37,11 @@
 			}
 			// #endif
 			// #ifdef H5
-			const s2 = document.createElement('script');
-			s2.type = 'text/javascript';
+			//const s2 = document.createElement('script');
+			//s2.type = 'text/javascript';
 			//s2.src = "https://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.3.3.js";
-			s2.src ='http://xcx.yixijiu19.com/static/TcPlayer-2.3.2.js';
-			document.body.appendChild(s2);
+			//s2.src ='http://yd.wtanvxin.com/static/TcPlayer-2.3.2.js';
+			//document.body.appendChild(s2);
 			// #endif
 		},
 		onShow: function() {

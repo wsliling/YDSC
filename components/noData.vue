@@ -2,7 +2,7 @@
 	<view class="emptybox" v-if="isShow">
 		<view class="iconimg">
 			<view class="iconfont icon-wushuju"></view>
-			<!-- <image class="img" src="http://xcx.yixijiu19.com/static/noCart.png" mode="aspectFill"></image> -->
+			<!-- <image class="img" src="http://yd.wtanvxin.com/static/noCart.png" mode="aspectFill"></image> -->
 		</view>
 		<view class="tips uni-center">{{tips}}</view>
 	</view>

@@ -12,15 +12,15 @@
 		   <text class="pop-hd">分享</text>
 			<view class="sharelist flex-center">
 				<view class="share-item" @click.stop="appShare1('WXSceneSession')">
-					<image class="imgico" src="http://xcx.yixijiu19.com/static/wx.png" mode="aspectFit"></image>
+					<image class="imgico" src="http://yd.wtanvxin.com/static/wx.png" mode="aspectFit"></image>
 					<text class="txt">微信好友</text>
 				</view>
 				<view class="share-item" @click.stop="appShare1('WXSenceTimeline')">
-					<image class="imgico" src="http://xcx.yixijiu19.com/static/ico_quan.png" mode="aspectFit"></image>
+					<image class="imgico" src="http://yd.wtanvxin.com/static/ico_quan.png" mode="aspectFit"></image>
 					<text class="txt">微信朋友圈</text>
 				</view>
 				<view class="share-item" @click.stop="appShare1()" v-if="false">
-					<image class="imgico" src="http://xcx.yixijiu19.com/static/share_link.png" mode="aspectFit"></image>
+					<image class="imgico" src="http://yd.wtanvxin.com/static/share_link.png" mode="aspectFit"></image>
 					<text class="txt">复制链接</text>
 				</view>
 			</view>
@@ -61,7 +61,7 @@ export default {
         },
 		title:{
             type:String,
-            default:'亿喜-直播'
+            default:'英达思创-直播'
 		},
 		shareid1:{
 			type:String,
@@ -116,10 +116,10 @@ export default {
             // #ifdef APP-PLUS
 			  
 				// uni.shareWithSystem({
-				// 	summary:'我在亿喜发现了好东西，快来看看吧~',
+				// 	summary:'我在英达思创发现了好东西，快来看看吧~',
 				// 	type:'image',
 				// 	// href:this.data.appUrl?webUrl+'/#'+this.data.appUrl:webUrl+'/#'+this.data.url,
-				// 	imageUrl:'http://xcx.yixijiu19.com/static/logo.png',
+				// 	imageUrl:'http://yd.wtanvxin.com/static/logo.png',
 				// 	success(res){
 				// 	   console.log("success:" + JSON.stringify(res));
 				// 	},
@@ -144,14 +144,14 @@ export default {
 				//     scene: Scene,
 				//     type: 5,
 				// 	title:this.title,
-				// 	summary:'我在亿喜发现了好东西，快来看看吧~',
-				// 	imageUrl:'http://xcx.yixijiu19.com/static/logo.png',
+				// 	summary:'我在英达思创发现了好东西，快来看看吧~',
+				// 	imageUrl:'http://yd.wtanvxin.com/static/logo.png',
 				//     // href: this.data.appUrl?webUrl+'/#'+this.data.appUrl:webUrl+'/#'+this.data.url,
 				// 	miniProgram:{
 				// 		id:'gh_da1c486d94da',
 				// 		path: this.data.url,
 				// 		type:2,
-				// 		webUrl:"http://xcx.yixijiu19.com"
+				// 		webUrl:"http://yd.wtanvxin.com"
 				// 	},
 				//     success: function (res) {
 				//         console.log("success:" + JSON.stringify(res));
@@ -165,8 +165,8 @@ export default {
 				    scene: Scene,
 				    type: 0,
 					title:this.title,
-					summary:'我在亿喜发现了好东西，快来看看吧~',
-					imageUrl:'http://xcx.yixijiu19.com/static/logo.png',
+					summary:'我在英达思创发现了好东西，快来看看吧~',
+					imageUrl:'http://yd.wtanvxin.com/static/logo.png',
 				    href: webUrl+'/#/pages/dowmApp/dowmApp?url='+encodeURIComponent(this.data.url),
 				    success: function (res) {
 				        console.log("success:" + JSON.stringify(res));

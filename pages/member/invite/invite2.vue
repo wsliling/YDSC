@@ -2,13 +2,13 @@
 	<view>
 		<view class="inviteBox">
 			<view class="user flex-start">
-				<view class="tx"><image class="user-img" :src="Avatar || 'http://xcx.yixijiu19.com/static/default.png'"></image></view>
+				<view class="tx"><image class="user-img" :src="Avatar || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
 				<view class="text_left">
 					<text class="user-name">{{ NickName }}</text>
 					<view class="tel" @click="copy(ReferralCode)">邀请码：{{ ReferralCode }}</view>
 				</view>
 			</view>
-			<view class="maxtxt">亿喜直播电商系统,3223个《亿喜主播之家》联动,把好产品卖到全国2856个县区,服务亿万家庭,托起亿万财富!</view>
+			<view class="maxtxt">英达思创直播电商系统,3223个《英达思创主播之家》联动,把好产品卖到全国2856个县区,服务亿万家庭,托起亿万财富!</view>
 			<view class="code flex-start">
 				<image class="code_img" :src="codeurl"></image>
 				<text>长按识别图中二维码</text>
@@ -79,9 +79,9 @@ export default {
 			console.log(res.target);
 		}
 		return {
-			title: '亿喜小程序！',
+			title: '英达思创小程序！',
 			path: '/pages/register/register?inviteCode=' + this.ReferralCode,
-			imageUrl: 'http://xcx.yixijiu19.com/static/logo.png'
+			imageUrl: 'http://yd.wtanvxin.com/static/logo.png'
 		};
 	},
 	methods: {
@@ -101,15 +101,15 @@ export default {
 				provider: 'weixin',
 				scene: 'WXSceneSession',
 				type: 0,
-				href: 'http://xcx.yixijiu19.com/#/pages/register/register?inviteCode=' + this.ReferralCode,
-				title: '亿喜APP！',
-				summary: '我正在使用亿喜APP，赶紧跟我一起来体验！',
-				imageUrl: 'http://xcx.yixijiu19.com/static/logo.png',
+				href: 'http://yd.wtanvxin.com/#/pages/register/register?inviteCode=' + this.ReferralCode,
+				title: '英达思创APP！',
+				summary: '我正在使用英达思创APP，赶紧跟我一起来体验！',
+				imageUrl: 'http://yd.wtanvxin.com/static/logo.png',
 				// miniProgram:{
 				// 	id:'gh_da1c486d94da',
 				// 	path: '/pages/register/register?inviteCode='+this.ReferralCode,
 				// 	type:2,
-				// 	webUrl:"http://xcx.yixijiu19.com"
+				// 	webUrl:"http://yd.wtanvxin.com"
 				// },
 				success: function(res) {
 					console.log('success:' + JSON.stringify(res));
@@ -253,7 +253,7 @@ export default {
 			}).then(res => {
 				console.log(res.data);
 				// this.tel = res.data.Mobile;
-				this.Avatar = res.data.Avatar || 'http://xcx.yixijiu19.com/static/default.png';
+				this.Avatar = res.data.Avatar || 'http://yd.wtanvxin.com/static/default.png';
 				this.NickName = res.data.NickName;
 				uni.getImageInfo({
 					src: this.Avatar, //服务器返回的图片地址
@@ -267,7 +267,7 @@ export default {
 				});
 			});
 			uni.getImageInfo({
-				src: 'http://xcx.yixijiu19.com/static/maxtxt.jpg', //服务器返回的图片地址
+				src: 'http://yd.wtanvxin.com/static/maxtxt.jpg', //服务器返回的图片地址
 				success: function(res) {
 					console.log(res.path, 'res');
 					//res.path是网络图片的本地地址

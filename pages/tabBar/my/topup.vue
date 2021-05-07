@@ -451,19 +451,19 @@
 	}
 	.pay-bd .line-item .lab{ padding-left: 20upx; font-size: 30upx}
 	.icon_alipay {
-	    background: url(http://xcx.yixijiu19.com/static/pay_alipay.png) center center no-repeat;
+	    background: url(http://yd.wtanvxin.com/static/pay_alipay.png) center center no-repeat;
 	    background-size: cover;
 	}
 	.icon_weixin {
-	    background: url(http://xcx.yixijiu19.com/static/pay_weixin.png) center center no-repeat;
+	    background: url(http://yd.wtanvxin.com/static/pay_weixin.png) center center no-repeat;
 	    background-size: cover;
 	}
 	.icon_yinlian {
-	    background: url(http://xcx.yixijiu19.com/static/pay_yinlian.png) center center no-repeat;
+	    background: url(http://yd.wtanvxin.com/static/pay_yinlian.png) center center no-repeat;
 	    background-size: cover;
 	}
 	.icon_yue {
-	    background: url(http://xcx.yixijiu19.com/static/pay_yue.png) center center no-repeat;
+	    background: url(http://yd.wtanvxin.com/static/pay_yue.png) center center no-repeat;
 	    background-size: cover;
 	}
 	.real-ipt{ width: 400upx; margin: 0 auto; font-size: 36upx;border: 1px solid #ddd; padding: .1rem;}

@@ -8,7 +8,7 @@
 				</view>
 				<view class="media-hd flex-between">
 					<view class="media-author" @click="gotoPensonal">
-						<image class="img" :src="NewsInfo.Avatar||'http://xcx.yixijiu19.com/static/default.png'" mode="aspectFill"></image>
+						<image class="img" :src="NewsInfo.Avatar||'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
 					</view>
 					<view class="media-hd-l uni-ellipsis flex1">
 						<text class="txt author-name">{{NewsInfo.NickName}}</text>
@@ -51,7 +51,7 @@
 			<view class="bd flex-between">
 				<view class="imgs flex1" v-if="!nolike">
 					<block v-for="(item,index) in LikesList" :key="index">
-						<image class="tx" :src="item.Avatar||'http://xcx.yixijiu19.com/static/default.png'" mode="aspectFill"></image>
+						<image class="tx" :src="item.Avatar||'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
 					</block>
 				</view>
 				<view class="c_999 flex1" v-if="nolike">

@@ -12,20 +12,20 @@
 		</view>
 		<view class="topic-info uni-bg-white uni-mb10 pp2">
 			<view class="t_hd flex-start">
-				<image class="iconimg" src="/static/discover/intro.png" mode="aspectFill"></image>
+				<image class="iconimg" src="http://yd.wtanvxin.com/static/discover/intro.png" mode="aspectFill"></image>
 				<text class="title">话题简介</text>
 			</view>
 			<view class="desc">{{ topicdetail.TopicIntro }}</view>
 		</view>
 		<view class="topic-star uni-bg-white uni-mb10 pp2" v-if="topicdetail.IsShowTopicStar">
 			<view class="t_hd flex-start">
-				<image class="iconimg" src="/static/discover/star.png" mode="aspectFill"></image>
+				<image class="iconimg" src="http://yd.wtanvxin.com/static/discover/star.png" mode="aspectFill"></image>
 				<text class="title">话题之星</text>
 			</view>
 			<view class="topname flex-between">
 				<view class="item flex-center" v-for="(item, index) in topicdetail.UserList" :key="index">
-					<image class="icon" :src="'/static/discover/top' + (index + 1) + '.png'" mode="aspectFill"></image>
-					<image class="tx" :src="item.Avatar || '/static/default.png'"></image>
+					<image class="icon" :src="'http://yd.wtanvxin.com/static/discover/top' + (index + 1) + '.png'" mode="aspectFill"></image>
+					<image class="tx" :src="item.Avatar || 'http://yd.wtanvxin.com/static/default.png'"></image>
 					<text class="name uni-ellipsis">{{ item.UserNick }}</text>
 				</view>
 			</view>

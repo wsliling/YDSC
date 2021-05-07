@@ -23,7 +23,7 @@
 		props: {
 			title: {
 				type: String,
-				default: '亿喜'
+				default: '英达思创'
 			},
 			url:{
 			    type:String,
@@ -31,7 +31,7 @@
 			},
 			imageUrl:{
 				type:String,
-				default:'http://xcx.yixijiu19.com/static/logo.png'
+				default:'http://yd.wtanvxin.com/static/logo.png'
 			}
 		},
 		inject: ['popup'],
@@ -40,17 +40,17 @@
 				bottomData: [
 					{
 						text: '微信好友',
-						icon: 'http://xcx.yixijiu19.com/static/weixin.png',
+						icon: 'http://yd.wtanvxin.com/static/weixin.png',
 						name: 'WXSceneSession'
 					},
 					{
 						text: '微信朋友圈',
-						icon: 'http://xcx.yixijiu19.com/static/weixinf.png',
+						icon: 'http://yd.wtanvxin.com/static/weixinf.png',
 						name: 'WXSenceTimeline'
 					},
 					// {
 					// 	text: '复制链接',
-					// 	icon: 'http://xcx.yixijiu19.com/static/share_link.png',
+					// 	icon: 'http://yd.wtanvxin.com/static/share_link.png',
 					// 	name: ''
 					// }
 				]
@@ -77,14 +77,14 @@
 					    scene: Scene,
 					    type: 0,
 						title:this.title,
-						summary:'我在亿喜发现了好东西，快来看看吧~',
+						summary:'我在英达思创发现了好东西，快来看看吧~',
 						imageUrl:this.imageUrl,
 					    href: webUrl+'/#/pages/dowmApp/dowmApp?url='+encodeURIComponent(this.url),
 						// miniProgram:{
 						// 	id:'gh_da1c486d94da',
 						// 	path: this.url,
 						// 	type:2,
-						// 	webUrl:"http://xcx.yixijiu19.com"
+						// 	webUrl:"http://yd.wtanvxin.com"
 						// },
 					    success: function (res) {
 					        console.log("success:" + JSON.stringify(res));

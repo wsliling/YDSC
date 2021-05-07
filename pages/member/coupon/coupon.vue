@@ -11,8 +11,8 @@
       </view>
       <block v-if="hasData">
         <view class="list " v-for="(item,index) in datalist" :key="index">
-          <image class="couponbg" v-if="couponStatus==1" src="http://xcx.yixijiu19.com/static/couponbg.png"></image>
-		  <image class="couponbg" v-else src="http://xcx.yixijiu19.com/static/couponbg1.png"></image>
+          <image class="couponbg" v-if="couponStatus==1" src="http://yd.wtanvxin.com/static/couponbg.png"></image>
+		  <image class="couponbg" v-else src="http://yd.wtanvxin.com/static/couponbg1.png"></image>
 		  <view class="coupon1">
 			  <view class="money" v-if="item.DiscountType==1">
 				  <text>￥</text>

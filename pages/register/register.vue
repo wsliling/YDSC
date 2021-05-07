@@ -6,8 +6,8 @@
 		<view class="regLoginBox">
 			<view class="logo">
 				<view class="img">
-					<image src="http://xcx.yixijiu19.com/static/logo.png" mode="widthFix"></image>
-					<view class="Title">亿喜</view>
+					<image src="http://yd.wtanvxin.com/static/logo.png" mode="widthFix"></image>
+					<view class="Title">英达思创</view>
 				</view>
 			</view>
 			<view class="from pd10">
@@ -41,7 +41,7 @@
 					<button type="primary" class="btn" @click="btnSubmit">{{type==1?'确认绑定':'确认注册'}}</button>
 				</view>
 				<!-- #ifndef APP-PLUS -->
-				<view class="downapp" @click="golink('/pages/dowmApp/dowmApp')">下载亿喜app</view>
+				<view class="downapp" @click="golink('/pages/dowmApp/dowmApp')">下载英达思创app</view>
 				<!-- #endif -->
 			</view>
 		</view>
