@@ -32,26 +32,10 @@
 						<view class="txt">获赞</view>
 					</view>
 					<view class="item" @click="golink('/pages/member/collect/collect?type=3')">
-						<view class="num">{{ Info.CollectionNum }}</view>
+						<view class="num">{{ Info.CollectionNum || 0 }}</view>
 						<view class="txt">收藏</view>
 					</view>
 				</view>
-				<!-- 	<view class="fans">
-				<view class="fansNum">
-					<view class="item-num" @click="toMylink('/pages/member/follow/follow?type=1')">
-						<view class="num">{{ Info.Fans > 9999 ? (Info.Fans / 9999).toFixed(1) + 'W' : Info.Fans }}</view>
-						<view>粉丝</view>
-					</view>
-					<view class="item-num" @click="toMylink('/pages/member/follow/follow?type=0')">
-						<view class="num">{{ Info.Follow }}</view>
-						<view>关注</view>
-					</view>
-					<view class="item-num" @click="toMylink('/pages/member/follow/follow?type=2')">
-						<view class="num">{{ Info.Follow }}</view>
-						<view>获赞</view>
-					</view>
-				</view>
-			</view> -->
 			</view>
 		</view>
 		<view class="pd15">
