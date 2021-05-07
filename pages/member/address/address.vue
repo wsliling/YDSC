@@ -12,11 +12,11 @@
           </label> 
           <view class="ali-c flex justifyContentBetween flexAlignCenter">
             <view class="ali-c btt flex flexAlignCenter" @click.stop="editSite(item.Id)">
-              <image class="write" src="http://xcx.yixijiu19.com/static/write.png" alt=""></image>
+              <image class="write" src="http://yd.wtanvxin.com/static/write.png" alt=""></image>
               <span>编辑</span>
             </view>
             <view class="ali-c btt flex flexAlignCenter" @click.stop="Delete(item.Id,index)">
-              <img class="delete" src="http://xcx.yixijiu19.com/static/del.png" alt="">
+              <img class="delete" src="http://yd.wtanvxin.com/static/del.png" alt="">
               <span>删除</span>
             </view>
           </view>
@@ -24,7 +24,7 @@
       </view>
       </radio-group>
       <p class="nodata_log flex flexColumn flexAlignCenter" v-if="noDataIsShow">
-          <image src="http://xcx.yixijiu19.com/static/site.png" alt="" class="site_log"></image>
+          <image src="http://yd.wtanvxin.com/static/site.png" alt="" class="site_log"></image>
           <span class="cg mt2">还没有收货地址哦~</span>
           <span class="add_new" @tap="toAddSite()">新建地址</span>
       </p>

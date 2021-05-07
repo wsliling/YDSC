@@ -2,7 +2,7 @@
 	<view>
 		<view class="walletBox">
 			<view class="bg">
-				<!-- <image class="bgImg" src="http://xcx.yixijiu19.com/static/wallet.png"></image> -->
+				<!-- <image class="bgImg" src="http://yd.wtanvxin.com/static/wallet.png"></image> -->
 				<view class="bgImg"></view>
 				<view class="wallet">
 					<view class="reveal">
@@ -16,7 +16,7 @@
 							充值
 							<text class="iconfont icon-arrow_r"></text>
 						</view>
-						<view class="reflesh"><image src="/static/wallet/reflesh.png" mode=""></image></view>
+						<view class="reflesh"><image src="http://yd.wtanvxin.com/static/wallet/reflesh.png" mode=""></image></view>
 						<!-- <view @click="golink('/pages/Wallet/withdraw/withdraw?type=3')">提现</view> -->
 					</view>
 				</view>
@@ -25,7 +25,7 @@
 				<!-- 	<view class="item" @click="golink('/pages/Wallet/xiCurrency/xiCurrency')">
 					<view>我的喜币</view>
 					<view>
-						<image src="http://xcx.yixijiu19.com/static/xibi.png"></image>
+						<image src="http://yd.wtanvxin.com/static/xibi.png"></image>
 						{{ Math.floor(userInfo.Wallet * 10) }}
 						<text class="iconfont icon-arrow_r"></text>
 					</view>
@@ -40,14 +40,14 @@
 				</view>
 				<view class="item" @click="golink('/pages/other/withdrawrecord/withdrawrecord')">
 					<view>
-						<image src="/static/wallet/jiL.png" class="jiL" mode=""></image>
+						<image src="http://yd.wtanvxin.com/static/wallet/jiL.png" class="jiL" mode=""></image>
 						提现充值记录
 					</view>
 					<view class="iconfont icon-arrow_r"></view>
 				</view>
 				<view class="item" @click="golink('/pages/other/money/money')">
 					<view>
-						<image src="/static/wallet/mingX.png" class="mingX" mode=""></image>
+						<image src="http://yd.wtanvxin.com/static/wallet/mingX.png" class="mingX" mode=""></image>
 						收支明细
 					</view>
 					<view class="iconfont icon-arrow_r"></view>

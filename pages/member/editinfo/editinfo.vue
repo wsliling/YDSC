@@ -5,7 +5,7 @@
 				<view class="editTitle">头像</view>
 				<view class="editBox">
 					<image v-if="img" :src="img"></image>
-					<image v-else src="http://xcx.yixijiu19.com/static/default.png"></image>
+					<image v-else src="http://yd.wtanvxin.com/static/default.png"></image>
 					<text class="iconfont icon-arrow_r"></text>
 				</view>
 			</view>

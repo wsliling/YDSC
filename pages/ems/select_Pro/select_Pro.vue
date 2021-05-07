@@ -25,17 +25,17 @@
 					{
 						Id:1,
 						name:"训练服",
-						logo:'/static/lease/1.png'
+						logo:'http://yd.wtanvxin.com/static/lease/1.png'
 					},
 					{
 						Id:2,
 						name:"裤子",
-						logo:'/static/lease/2.png'
+						logo:'http://yd.wtanvxin.com/static/lease/2.png'
 					},
 					{
 						Id:3,
 						name:"腰带",
-						logo:'/static/lease/3.png'
+						logo:'http://yd.wtanvxin.com/static/lease/3.png'
 					}
 				]
 			}

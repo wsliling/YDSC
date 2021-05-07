@@ -15,7 +15,7 @@
 				<view  v-if="Msgtype==1" class="uni-list-cell">
 					<view class="uni-media-list">
 						<view class="uni-media-list-logo">
-							<image class="img" src="http://xcx.yixijiu19.com/static/default.png" mode="aspectFill"></image>
+							<image class="img" src="http://yd.wtanvxin.com/static/default.png" mode="aspectFill"></image>
 						</view>
 						<view  class="uni-media-list-body">
 							<view class="uni-media-list-text-top flex flex-between">

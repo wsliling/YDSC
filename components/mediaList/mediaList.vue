@@ -4,8 +4,8 @@
 			<view class="media-hd" v-if="dataitem.FindType != 2">
 				<view class="media-author" @click="gotoPensonal">
 					<image class="img" v-if="dataitem.Avatar" :src="dataitem.Avatar" mode="aspectFill"></image>
-					<image class="img" v-else-if="dataitem.FindType == 2" src="http://xcx.yixijiu19.com/static/logo.png" mode="aspectFill"></image>
-					<image class="img" v-else src="http://xcx.yixijiu19.com/static/default.png"></image>
+					<image class="img" v-else-if="dataitem.FindType == 2" src="http://yd.wtanvxin.com/static/logo.png" mode="aspectFill"></image>
+					<image class="img" v-else src="http://yd.wtanvxin.com/static/default.png"></image>
 				</view>
 				<view class="author-name uni-ellipsis" @click="gotoPensonal">
 					<block v-if="dataitem.NickName">{{ dataitem.NickName }}</block>

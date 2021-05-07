@@ -2,7 +2,7 @@
 	<view class="content pw3">
 		<view class="postmas">
 			<!-- <view class="bg_fff flex flexAlignCenter info">
-				<image src="http://xcx.yixijiu19.com/static/of/yd.png"></image>
+				<image src="http://yd.wtanvxin.com/static/of/yd.png"></image>
 				<view class="flex1">
 					<view class="uni-bold">{{logistics.companyName}}</view>
 					<view class="font18">官方电话 95546 ></view>
@@ -296,7 +296,7 @@
 	  width: 100%;
 	  height: 100%;
 	  margin: 0;
-	  background: url(http://xcx.yixijiu19.com/static/circle_gou.png) center no-repeat;
+	  background: url(http://yd.wtanvxin.com/static/circle_gou.png) center no-repeat;
 	  background-size: 50upx 50upx;
 	  border: none;
 	  top: 10upx;

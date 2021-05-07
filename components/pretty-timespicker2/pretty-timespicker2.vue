@@ -29,7 +29,7 @@
 							>
 								<text>{{ item.TimeSpan }}</text>
 								<text class="all"></text>
-								<view class="full" v-show="item.IsFull == 1"><image src="/static/course/course5_8.png"></image></view>
+								<view class="full" v-show="item.IsFull == 1"><image src="http://yd.wtanvxin.com/static/course/course5_8.png"></image></view>
 							</view>
 						</view>
 					</block>

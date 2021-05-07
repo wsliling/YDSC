@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view class="bg"><image src="http://xcx.yixijiu19.com/static/bg1.png" mode="widthFix"></image></view>
+		<view class="bg"><image src="http://yd.wtanvxin.com/static/bg1.png" mode="widthFix"></image></view>
 		<uni-nav-bar fixed="true" color="#ffffff" background-color="transparent" title="限时购" left-icon="arrowleft" @clickLeft="back" :border="false">
 		</uni-nav-bar>
 		<!-- 导航 -->

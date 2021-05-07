@@ -137,7 +137,7 @@
 				详细规则<text class="fz12 iconfont icon-arrow_r"></text>
 			  </view>
 			</view>
-			<image src="http://xcx.yixijiu19.com/static/rule.jpg" mode="widthFix" class="rulepic"></image>
+			<image src="http://yd.wtanvxin.com/static/rule.jpg" mode="widthFix" class="rulepic"></image>
 		</view>
 		
 		<view class="swiper_bb uni-bg-white uni-mb10" v-if="recordList.length>0">
@@ -147,7 +147,7 @@
 			<swiper :class="recordList.length>1?'swiper_pt swiper_height ':'swiper_pt'" vertical="false"  :display-multiple-items="displayMultiple" :circular="true" :autoplay="true" interval="5000" :duration='600'>
 			<swiper-item class="swiper_item_box" v-for="(item,sindex) in recordList" :key="sindex">
 				<view class="item_box_left flex-start flex1">
-					<image :src="item.MemberHeadImg||'http://xcx.yixijiu19.com/static/default.png'"></image>
+					<image :src="item.MemberHeadImg||'http://yd.wtanvxin.com/static/default.png'"></image>
 					<view class="time-box flex1">
 						<view class="name">{{item.MemberHeadNick}}</view>
 						<view class="time">
@@ -179,7 +179,7 @@
 				<view class="comment-item" v-for="(item,index) in CommentList" :key="index">
 				  <view class="name flex-between">
 					<view class="flex-start flex1">
-					  <img class="tx" :src="item.Avatar||'http://xcx.yixijiu19.com/static/default.png'" alt="">
+					  <img class="tx" :src="item.Avatar||'http://yd.wtanvxin.com/static/default.png'" alt="">
 					  <view>{{item.NickName}}</view>
 					</view>
 					<view class="flex">
@@ -313,7 +313,7 @@
 								<view class="couponbtn">
 									<view class="btn" v-if="item.IsMyAlready==0" @click="ReceiveCoupon(item.Id,index)">立即领取</view>
 									<view class="btn dis" v-if="item.IsMyAlready==1">已领取</view>
-									<view class="rightimg" v-if="item.IsMyAlready==1"><image src="http://xcx.yixijiu19.com/static/ylq.png" mode=""></image></view>
+									<view class="rightimg" v-if="item.IsMyAlready==1"><image src="http://yd.wtanvxin.com/static/ylq.png" mode=""></image></view>
 								</view>
 							</view>
 						</view>
@@ -1075,7 +1075,7 @@
 			left: 50%;
 			top: 50%;
 			margin: -44upx 0 0 -44upx;
-			background: url(http://xcx.yixijiu19.com/static/play.png);
+			background: url(http://yd.wtanvxin.com/static/play.png);
 			background-size: cover;
 			z-index: 2;
 		}

@@ -6,7 +6,7 @@
       </view>
       <view class="or_list">
         <!-- <div class="pp2 flex justifyContentBetween  bg_fff bor_tit flexAlignEnd">
-            <image src="http://xcx.yixijiu19.com/static/images/icons/kc.png" alt="" class="kc_icon">
+            <image src="http://yd.wtanvxin.com/static/images/icons/kc.png" alt="" class="kc_icon">
             <div class="flex flex1 flexAlignCenter">
                 <div class="flex1">
                     <p class="cr">
@@ -14,11 +14,11 @@
                     </p>
                     <p class=" cg mt1">2019-09-26 18:52:10</p>
                 </div>
-                <image src="http://xcx.yixijiu19.com/static/images/icons/right.png" alt="" class="icon_right mr2">
+                <image src="http://yd.wtanvxin.com/static/images/icons/right.png" alt="" class="icon_right mr2">
             </div>
         </div> -->
         <view class="pp2 flex-between b_radius bg_fff ">
-            <image src="http://xcx.yixijiu19.com/static/lc.png" mode="aspectFit" alt="" class="icon_lc"></image>
+            <image src="http://yd.wtanvxin.com/static/lc.png" mode="aspectFit" alt="" class="icon_lc"></image>
             <div class="flex1">
                 <p>
                     <span>{{info.ContactName}}</span><span class="ml5">{{info.Tel}}</span>

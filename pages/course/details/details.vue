@@ -11,7 +11,7 @@
 				</view>
 			</view>
 			<view class="info1">
-				<view class="info1_1" v-for="(item, index) in reguser"><image :src="item.Avatar || '/static/default.png'"></image></view>
+				<view class="info1_1" v-for="(item, index) in reguser" :key="index"><image :src="item.Avatar || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
 				<view class="info1_2">{{ orderdetail.ApplyNum }}人已预约</view>
 			</view>
 		</view>

@@ -23,7 +23,7 @@
         </div>
 		<div v-else class="right flexc">
 		  <div>
-		   <image class="iconimg" src="http://xcx.yixijiu19.com/static/ylq.png" mode="widthFix"></image>
+		   <image class="iconimg" src="http://yd.wtanvxin.com/static/ylq.png" mode="widthFix"></image>
 		  </div>
 		</div>
       </div>

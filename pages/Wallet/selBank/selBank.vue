@@ -7,7 +7,7 @@
 			<image :src="item.BankLogo"></image>
 			<view>{{item.BankName}}</view>
 			<text class="iconfont icon-gou1 right" v-if="selIndex==index"></text>
-			<!-- <image class="right" src="http://xcx.yixijiu19.com/static/dui.png" ></image> -->
+			<!-- <image class="right" src="http://yd.wtanvxin.com/static/dui.png" ></image> -->
 		</view>
 		
 	</view>

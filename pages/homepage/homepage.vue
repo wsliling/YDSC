@@ -1,7 +1,7 @@
 <template>
 	<view class="pagehome">
 		<view class="homeBackground p_re">
-			<image :src="HomeCover || 'http://xcx.yixijiu19.com/static/homeBg.png'" mode="aspectFill"></image>
+			<image :src="HomeCover || 'http://yd.wtanvxin.com/static/topic.jpg'" mode="aspectFill"></image>
 			<view class="btn flex-center" v-if="myType == 1" @click="changebanner" style="z-index: 2;">
 				<text class="iconfont icon-fabu fz16"></text>
 				<!-- 设置封面 -->
@@ -12,7 +12,7 @@
 		</view>
 		<view class="userInfo">
 			<view class="headerInfo">
-				<image @click="lookImg" class="userImg" :src="Info.Avatar || 'http://xcx.yixijiu19.com/static/default.png'" mode="aspectFill"></image>
+				<image @click="lookImg" class="userImg" :src="Info.Avatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
 				<view class="fansBtn" v-if="myType != 0">
 					<view class="btn" @click="tolink('/pages/member/editinfo/editinfo')">
 						<!-- <text class="iconfont icon-fankui mr1"></text> -->
@@ -55,7 +55,7 @@
 
 				<!-- <view class="flex" v-if="Info.FanGroup">
 					<view class="fansCard">
-						<image :src="Info.Avatar || 'http://xcx.yixijiu19.com/static/default.png'"></image>
+						<image :src="Info.Avatar || 'http://yd.wtanvxin.com/static/default.png'"></image>
 						<view class="fansName">
 							<view class="p1">{{ Info.NickName }}【粉丝团】</view>
 							<view class="p2">粉丝 | {{ Info.FanGroup }}人</view>
@@ -160,7 +160,7 @@
 		<!-- 弹出更换封面 -->
 		<uni-popup v-if="myType == 1" ref="bannerWin" type="center">
 			<view class="uni-modal-banner" @click="hidePopup">
-				<view class="img"><image :src="HomeCover || 'http://xcx.yixijiu19.com/static/homeBg.png'" mode="aspectFill"></image></view>
+				<view class="img"><image :src="HomeCover || 'http://yd.wtanvxin.com/static/homeBg.png'" mode="aspectFill"></image></view>
 				<view class="btn btn_red" @click.stop="chooseImg">更换封面</view>
 				<view class="btn" @click.stop="hidePopup">取消</view>
 			</view>

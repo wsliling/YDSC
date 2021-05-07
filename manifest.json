@@ -86,7 +86,7 @@
             "sdkConfigs" : {
                 "share" : {
                     "weixin" : {
-                        "appid" : "wxd33d3c014a168ec6",
+                        "appid" : "wx184f52f01369911c",
                         "UniversalLinks" : "https://api.yixijiu19.com/apps/"
                     }
                 },
@@ -95,7 +95,7 @@
                 "payment" : {
                     "weixin" : {
                         "__platform__" : [ "ios", "android" ],
-                        "appid" : "wxd33d3c014a168ec6",
+                        "appid" : "wx184f52f01369911c",
                         "UniversalLinks" : "https://api.yixijiu19.com/apps/"
                     },
                     "alipay" : {
@@ -165,7 +165,7 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "wx5d781fe313b6eb72",
+        "appid" : "wx184f52f01369911c",
         "setting" : {
             "urlCheck" : false,
             "es6" : true,

@@ -18,7 +18,7 @@
 		<view class="xiBi">
 			<view class="xiItem" :class="rechargeIndex==index?'active':''" v-for="(item,index) in RechargeList" :key="index" @click="selRechar(item.RechargeAmount,index)">
 				<view class="xb">
-					<image src="http://xcx.yixijiu19.com/static/xibi.png" mode=""></image>
+					<image src="http://yd.wtanvxin.com/static/xibi.png" mode=""></image>
 					{{item.RechargeAmount*10}}
 				</view>
 				<text>￥{{item.RechargeAmount}}</text>
@@ -26,7 +26,7 @@
 			
 			<view class="xiItem">
 				<view class="xb" v-if="iptvalue">
-					<image src="http://xcx.yixijiu19.com/static/xibi.png" mode=""></image>
+					<image src="http://yd.wtanvxin.com/static/xibi.png" mode=""></image>
 					{{iptvalue*10}}
 				</view>
 				<view class="flex-center" style="padding: 0 20upx; line-height: 1.5;">
@@ -407,7 +407,7 @@
 		.bg{
 			height: 320rpx;
 			width: 100%;
-			background: url(http://xcx.yixijiu19.com/static/walletXi.png) no-repeat;
+			background: url(http://yd.wtanvxin.com/static/walletXi.png) no-repeat;
 			background-size: 100% 100%;
 			border-radius: 10rpx;
 			.wallet{
@@ -510,19 +510,19 @@
 	}
 	.pay-bd .line-item .lab{ padding-left: 20upx; font-size: 30upx}
 	.icon_alipay {
-	    background: url(http://xcx.yixijiu19.com/static/pay_alipay.png) center center no-repeat;
+	    background: url(http://yd.wtanvxin.com/static/pay_alipay.png) center center no-repeat;
 	    background-size: cover;
 	}
 	.icon_weixin {
-	    background: url(http://xcx.yixijiu19.com/static/pay_weixin.png) center center no-repeat;
+	    background: url(http://yd.wtanvxin.com/static/pay_weixin.png) center center no-repeat;
 	    background-size: cover;
 	}
 	.icon_yinlian {
-	    background: url(http://xcx.yixijiu19.com/static/pay_yinlian.png) center center no-repeat;
+	    background: url(http://yd.wtanvxin.com/static/pay_yinlian.png) center center no-repeat;
 	    background-size: cover;
 	}
 	.icon_yue {
-	    background: url(http://xcx.yixijiu19.com/static/pay_yue.png) center center no-repeat;
+	    background: url(http://yd.wtanvxin.com/static/pay_yue.png) center center no-repeat;
 	    background-size: cover;
 	}
 	.real-ipt{ width: 400upx; margin: 0 auto; font-size: 36upx;border: 1px solid #ddd; padding: .1rem;}

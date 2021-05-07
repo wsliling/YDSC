@@ -220,13 +220,13 @@
 				    type: 0,
 				    href:  webUrl+'/#/pages/dowmApp/dowmApp?url='+encodeURIComponent(urlstr),
 				    title: that.GroupMemberInfo.GroupTitle,
-				    summary: "我正在使用亿喜APP开启拼团，快来和我组团吧！",
+				    summary: "我正在使用英达思创APP开启拼团，快来和我组团吧！",
 				    imageUrl: that.GroupMemberInfo.GroupImage,
 					// miniProgram:{
 					// 	id:'gh_da1c486d94da',
 					// 	path: "/pages/goods/productDetail/productDetail?proId="+this.GroupMemberInfo.ProductId+'&GroupRecord='+this.groupId,
 					// 	type:2,
-					// 	webUrl:"http://xcx.yixijiu19.com"
+					// 	webUrl:"http://yd.wtanvxin.com"
 					// },
 				    success: function (res) { 
 				        console.log("success:" + JSON.stringify(res));

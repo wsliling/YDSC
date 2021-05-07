@@ -3,7 +3,7 @@
 		<view class="title">推荐教练</view>
 		<view class="tui">
 			<view class="list" v-for="(item, index) in coachlist" :key="index">
-				<view class="list1_1"><image :src="item.Avatar || '/static/default.png'" @click="details(item.MemberId)"></image></view>
+				<view class="list1_1"><image :src="item.Avatar || 'http://yd.wtanvxin.com/static/default.png'" @click="details(item.MemberId)"></image></view>
 				<view class="name">{{ item.UserNick }}</view>
 				<view class="num">{{ item.ApplyNum }}人预约过</view>
 			</view>

@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view class="topbox">
-			<view class="icon"><image src="/static/time.png"></image></view>
+			<view class="icon"><image src="http://yd.wtanvxin.com/static/time.png"></image></view>
 			<view class="time">{{regclasslistdetail.CourseDate}} {{regclasslistdetail.DayWeek}} {{regclasslistdetail.CourseTimeSpan}}</view>
 		</view>
 		<view class="introduct">
