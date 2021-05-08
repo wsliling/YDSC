@@ -100,8 +100,8 @@
 				</view>
 			</view>
 			<view class="memberIndex_list line-list b_radius uni-mb10">
-				<view class="line-item">
-					<view class="item-left" @click="golink('/pages/member/coupon/coupon')">
+				<view class="line-item" @click="golink('/pages/member/coupon/coupon')">
+					<view class="item-left">
 						<image src="http://yd.wtanvxin.com/static/u_6.png" mode="widthFix"></image>
 						<view>优惠券</view>
 					</view>
