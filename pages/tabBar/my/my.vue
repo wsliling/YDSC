@@ -81,7 +81,7 @@
 						</view>
 						<view class="item" @click="golink('/pages/member/score/score')">
 							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_3.png" mode="widthFix"></image></view>
-							<view class="txt">Y币</view>
+							<view class="txt">我的积分</view>
 						</view>
 						<view class="item">
 							<!-- <view class="item" @click="golink('/pages/member/applyShop/applyShop')"> -->

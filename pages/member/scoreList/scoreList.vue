@@ -1,13 +1,13 @@
 <template>
 	<view class="scoreList">
 		<view class="sec" v-for="(item, index) in time" :key="index">
-			<block v-if="(item.IsSign = 1)">
+			<!-- <block v-if="(item.IsSign = 1)"> -->
 				<view class="sec_2">
 					<view class="title">每日签到</view>
 					<view class="title_2">{{ item.SignTime }}</view>
 				</view>
 				<view class="sec_3">+{{ item.Score }}</view>
-			</block>
+			<!-- </block> -->
 		</view>
 	</view>
 </template>
