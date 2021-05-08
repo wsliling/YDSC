@@ -77,7 +77,6 @@
 import { post, toLogin, navigate } from '@/common/util.js';
 import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
 import noData from '@/components/noData.vue'; //暂无数据
-import swiper3D from '@/components/swiper3D/swiper3D.vue';
 import swipeList from '@/components/swipe-3d/swipe-3d.vue';
 export default {
 	data() {
@@ -100,7 +99,6 @@ export default {
 	components: {
 		uniLoadMore,
 		noData,
-		swiper3D,
 		swipeList
 	},
 	onLoad(e) {
