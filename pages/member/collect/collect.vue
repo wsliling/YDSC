@@ -69,7 +69,7 @@
 						<view class="time">{{ item.Difficulty }}.{{ item.Target }}</view>
 						<view class="userinfo">
 							<view class="user">
-								<view class="header"><image class="headerImg" :src="item.StoreLogo"></image></view>
+								<view class="header"><image class="headerImg" :src="item.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
 								<view class="name">{{ item.StoreNick }}</view>
 							</view>
 							<view class="price">￥{{ item.Price }}</view>

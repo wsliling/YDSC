@@ -7,7 +7,7 @@
 			</view>
 			<view class="detail">{{ orderdetail.TargetName }} | {{ orderdetail.DifficultyName }}</view>
 			<view class="info1">
-				<view class="info1_3"><image :src="orderdetail.CoachAvatar"></image></view>
+				<view class="info1_3"><image :src="orderdetail.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
 				<view class="info1_4">{{ orderdetail.CoachNick }}</view>
 				<view class="info1_1" v-for="(item, index) in reguser" :key="index"><image :src="item.Avatar || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
 				<view class="info1_2">{{ orderdetail.ApplyNum }}人已预约</view>
@@ -15,7 +15,7 @@
 		</view>
 		<view class="line"></view>
 		<view class="cen">
-			<view class="stadium"><image :src="orderdetail.StoreLogo"></image></view>
+			<view class="stadium"><image :src="orderdetail.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
 			<view class="stadium_1">
 				<view class="stadium_1_1">{{ orderdetail.StoreName }}</view>
 				<view class="stadium_1_2">{{ orderdetail.StoreAddress }}</view>

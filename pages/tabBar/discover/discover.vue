@@ -29,7 +29,7 @@
 							<text class="txt uni-ellipsis">{{ item.StoreNick }}</text>
 							<text class="uni-icon uni-icon-arrowright fz14"></text>
 						</view>
-						<view class="fz12 c_999" v-if="item.IsShowDistance">距离您{{ item.Distance }}km</view>
+						<view class="fz12 c_999" v-if="item.IsShowDistance">距离您{{ item.Distance }}</view>
 					</view>
 				</view>
 				<view class="bd">
@@ -59,7 +59,7 @@ export default {
 			userId: '',
 			token: '',
 			barHeight: 0,
-			tabNav: 2,
+			tabNav: 4,
 			datalist: [],
 			page: 1,
 			pageSize: 8,
@@ -281,9 +281,12 @@ export default {
 }
 .list-2 {
 	background-color: white;
-	image {
+	.b_radius {
 		padding: 20upx;
 		border-radius: 80upx;
+	}
+	image {
+		border-radius: 50%;
 	}
 }
 .uploadbtn {

@@ -8,7 +8,7 @@
 			<view class="title">教练信息</view>
 			<view class="userinfo">
 				<view style="display: flex; align-items: center;">
-					<view class="header"><image :src="regclasslistcoachdetail.CoachAvatar"></image></view>
+					<view class="header"><image :src="regclasslistcoachdetail.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
 					<view class="caochinfo">
 						<view class="name">{{ regclasslistcoachdetail.CoachNick }}</view>
 						<view class="contentname">{{ regclasslistcoachdetail.CoachType }}</view>
@@ -21,7 +21,7 @@
 			</view>
 		</view>
 		<view class="studio">
-			<view class="header"><image :src="regclasslistcoachdetail.StoreLogo"></image></view>
+			<view class="header"><image :src="regclasslistcoachdetail.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
 			<view class="company">
 				<view class="studioName">{{ regclasslistcoachdetail.StoreName }}</view>
 				<view class="address">{{ regclasslistcoachdetail.StoreAddress }}</view>

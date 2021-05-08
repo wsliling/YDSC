@@ -276,7 +276,6 @@ export default {
 		getLocationInfo() {
 			uni.chooseLocation({
 				success: res => {
-					console.log(res)
 					(this.hasLocation = true), (this.location = formatLocation(res.longitude, res.latitude)), (this.locationAddress = res.address);
 				}
 			});

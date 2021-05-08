@@ -40,9 +40,9 @@ export default {
 	},
 	methods: {
 		scoreList() {
-			uni.navigateTo({
-				url: '/pages/member/scoreList/scoreList'
-			});
+			// uni.navigateTo({
+			// 	url: '/pages/member/scoreList/scoreList'
+			// });
 		},
 		scoreArea() {
 			uni.navigateTo({

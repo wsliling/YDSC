@@ -20,6 +20,7 @@
 		<view class="itembox">
 			<view class="flex-center"><canvas canvas-id="canvasRing" id="canvasRing" class="charts" @touchstart="touchPie($event, 'canvasRing')"></canvas></view>
 		</view>
+
 		<view class="itemlist_1">
 			<view class="itemlist">
 				<view class="itembox">
@@ -87,11 +88,11 @@ export default {
 		},
 		fillData(data) {
 			//自定义文案示例，需设置format字段
-			for (let i = 0; i < data.length; i++) {
-				data[i].format = () => {
-					return data[i].data;
-				};
-			}
+			// for (let i = 0; i < data.length; i++) {
+			// 	data[i].format = () => {
+			// 		return data[i].data;
+			// 	};
+			// }
 			this.showRing('canvasRing');
 		},
 		showRing(canvasId) {

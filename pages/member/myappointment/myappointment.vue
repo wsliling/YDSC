@@ -12,7 +12,7 @@
 					<view class="time">{{ item.CourseDate }} {{ item.DayWeek }} {{ item.CourseTimeSpan }}</view>
 					<view class="userinfo">
 						<view class="user">
-							<view class="header"><image class="headerImg" :src="item.CoachAvatar"></image></view>
+							<view class="header"><image class="headerImg" :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
 							<view class="name">{{ item.CoachNick }}</view>
 						</view>
 					</view>
@@ -21,10 +21,10 @@
 		</block>
 		<block v-if="btnnum == 1">
 			<view class="list" v-for="(item, index) in regclasslistcoach" :key="index" @click="tolink(btnnum, item.OrderNo)">
-				<view class="jl-leftImg"><image class="img" :src="item.CoachAvatar"></image></view>
+				<view class="jl-leftImg"><image class="img" :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
 				<view class="rightContent">
-					<view class="titledetail">{{item.CoachNick}}</view>
-					<view class="time">{{item.CourseDate}} {{item.DayWeek}} {{item.ApplyTimeSpan}}</view>
+					<view class="titledetail">{{ item.CoachNick }}</view>
+					<view class="time">{{ item.CourseDate }} {{ item.DayWeek }} {{ item.ApplyTimeSpan }}</view>
 				</view>
 			</view>
 		</block>
@@ -128,7 +128,7 @@ page {
 	}
 	.leftImg {
 		width: 246upx;
-		height: 152upx;
+		height: 182upx;
 		border-radius: 8upx;
 		overflow: hidden;
 		margin-right: 10upx;
@@ -159,12 +159,11 @@ page {
 			.user {
 				display: flex;
 				.header {
-					width: 40upx;
-					height: 40upx;
-					border-radius: 50%;
-					overflow: hidden;
+					width: 50upx;
+					height: 50upx;
 					margin-right: 18upx;
 					.headerImg {
+						border-radius: 50%;
 						width: 100%;
 						height: 100%;
 					}

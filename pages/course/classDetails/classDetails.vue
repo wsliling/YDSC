@@ -11,7 +11,7 @@
 			</view>
 			<view class="info1">
 				<view class="info1_3" @click="tolink('/pages/personal/VenueDetail/VenueDetail?gymId=' + classdetail.StoreId)">
-					<image :src="classdetail.StoreLogo || '/static/default.png'"></image>
+					<image :src="classdetail.StoreLogo  || 'http://yd.wtanvxin.com/static/default.png'"></image>
 				</view>
 				<view class="info1_4">{{ classdetail.StoreNick }}</view>
 				<view class="info1_2">关注</view>

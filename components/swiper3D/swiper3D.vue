@@ -1,5 +1,5 @@
 <template>
-	<view style="width: 100%;">
+	<view>
 		<view class="swiperbox" @touchstart="start" @touchend="end">
 			<view
 				class="swiperitem"

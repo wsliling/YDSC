@@ -1,7 +1,7 @@
 <template>
 	<view class="scoreList">
 		<view class="sec" v-for="(item, index) in time" :key="index">
-			<block v-if="(time.IsSign = 1)">
+			<block v-if="(item.IsSign = 1)">
 				<view class="sec_2">
 					<view class="title">每日签到</view>
 					<view class="title_2">{{ item.SignTime }}</view>

@@ -5,14 +5,15 @@
 			<swiper class="swiper" :indicator-dots="false" autoplay :interval="5000" :duration="500" @change="changeSwiper">
 				<swiper-item v-for="(item, index) in bannerList" :key="index">
 					<!-- <view class="swiper-item swiperTop" @click="tolink(item.Url)"><image class="img" :src="item.Pic" mode="aspectFill"></image></view> -->
-					<view class="swiper-item swiperTop" @click="bannerlink(item.Url, index)"><image class="img" :src="item.Pic" mode="aspectFill"></image></view>
+					<!-- <view class="swiper-item swiperTop" @click="bannerlink(item.Url, index)"><image class="img" :src="item.Pic" mode="aspectFill"></image></view> -->
+					<view class="swiper-item swiperTop"><image class="img" :src="item.Pic" mode="aspectFill"></image></view>
 				</swiper-item>
 			</swiper>
 			<view class="dots" style="bottom: 10upx;">
 				<view v-for="(item, index) in bannerList.length" :key="index" :class="['dot', currentSwiper == index ? 'active' : '']"></view>
 			</view>
 		</view>
-		<view class="cen" @click="tolink('/pages/ems/healthLife/healthLife')">
+		<!-- <view class="cen" @click="tolink('/pages/ems/healthLife/healthLife')">
 			<view class="cardTitle">健康生活</view>
 			<view class="cardAll">
 				<view class="card_1">
@@ -25,7 +26,7 @@
 				</view>
 				<view class="card_2_2">目标达成</view>
 			</view>
-		</view>
+		</view> -->
 		<view class="cen" @click="tolink('/pages/ems/ExeRecord/ExeRecord')">
 			<view class="cardTitle">运动记录</view>
 			<view class="cardAll">
@@ -67,7 +68,8 @@
 				<view class="card_2">正常</view>
 			</view>
 		</view>
-		<view class="swiper uni-mb10" v-if="devicelist.length"><swiper3D :imgList="devicelist" :currentIndexParameter="currentpic" wx:key="index"></swiper3D></view>
+		<!-- <view class="swiper uni-mb10" v-if="devicelist.length"><swiper3D :imgList="devicelist" :currentIndexParameter="currentpic" wx:key="index"></swiper3D></view> -->
+		<swipeList :list="devicelist"></swipeList>
 	</view>
 </template>
 
@@ -76,6 +78,7 @@ import { post, toLogin, navigate } from '@/common/util.js';
 import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
 import noData from '@/components/noData.vue'; //暂无数据
 import swiper3D from '@/components/swiper3D/swiper3D.vue';
+import swipeList from '@/components/swipe-3d/swipe-3d.vue';
 export default {
 	data() {
 		return {
@@ -97,7 +100,8 @@ export default {
 	components: {
 		uniLoadMore,
 		noData,
-		swiper3D
+		swiper3D,
+		swipeList
 	},
 	onLoad(e) {
 		this.userId = uni.getStorageSync('userId');
@@ -124,17 +128,6 @@ export default {
 				});
 			}
 		},
-		// tolink(url) {
-		// 	if (this.userId && this.token) {
-		// 		uni.navigateTo({
-		// 			url: url
-		// 		});
-		// 	} else {
-		// 		uni.navigateTo({
-		// 			url: '/pages/login/login'
-		// 		});
-		// 	}
-		// },
 		// 获取banner图
 		async getBanner(type) {
 			let result = await post('Banner/BannerList', {
