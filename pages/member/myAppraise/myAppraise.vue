@@ -234,7 +234,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../../common/dd_style.css';
+ @import '../../../common/dd_style.css';
 .commet button {
 	background: none;
 	border: none;
@@ -244,6 +244,7 @@ export default {
 .commet .time {
 	float: right;
 	margin-top: -47px;
+	font-size: 24upx;
 }
 .commet .line {
 	background-color: #f5f5f5;

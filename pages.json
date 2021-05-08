@@ -12,7 +12,7 @@
 				"app-plus": {
 					"pullToRefresh": {
 						"support": true,
-						"color": "#FF3737", //小圈圈的颜色
+						"color": "#fa6008", //小圈圈的颜色
 						"style": "circle" //小圈圈的样式
 					},
 					"titleNView": false, //首页去除原生导航
@@ -28,7 +28,7 @@
 				"app-plus": {
 					"pullToRefresh": {
 						"support": true,
-						"color": "#FF3737", //小圈圈的颜色
+						"color": "#fa6008", //小圈圈的颜色
 						"style": "circle" //小圈圈的样式
 					},
 					"titleNView": false, //首页去除原生导航
@@ -44,7 +44,7 @@
 				"app-plus": {
 					"pullToRefresh": {
 						"support": true,
-						"color": "#FF3737", //小圈圈的颜色
+						"color": "#fa6008", //小圈圈的颜色
 						"style": "circle" //小圈圈的样式
 					},
 					"bounce": "none",
@@ -59,7 +59,7 @@
 				"app-plus": {
 					"pullToRefresh": {
 						"support": true,
-						"color": "#FF3737", //小圈圈的颜色
+						"color": "#fa6008", //小圈圈的颜色
 						"style": "circle" //小圈圈的样式
 					},
 					"titleNView": false, //首页去除原生导航
@@ -81,7 +81,7 @@
 				"app-plus": {
 					"pullToRefresh": {
 						"support": true,
-						"color": "#FF3737", //小圈圈的颜色
+						"color": "#fa6008", //小圈圈的颜色
 						"style": "circle" //小圈圈的样式
 					},
 					"titleNView": {
@@ -196,7 +196,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#FF3737", //小圈圈的颜色
+								"color": "#fa6008", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							}
 						}
@@ -211,7 +211,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#FF3737", //小圈圈的颜色
+								"color": "#fa6008", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							}
 						}
@@ -227,7 +227,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#FF3737", //小圈圈的颜色
+								"color": "#fa6008", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							}
 						}
@@ -241,7 +241,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#FF3737", //小圈圈的颜色
+								"color": "#fa6008", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							}
 						}
@@ -253,7 +253,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#FF3737", //小圈圈的颜色
+								"color": "#fa6008", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							},
 							"titleNView": false,
@@ -268,7 +268,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#FF3737", //小圈圈的颜色
+								"color": "#fa6008", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							},
 							"titleNView": false,
@@ -284,7 +284,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#FF3737", //小圈圈的颜色
+								"color": "#fa6008", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							}
 						}
@@ -297,7 +297,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#FF3737", //小圈圈的颜色
+								"color": "#fa6008", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							},
 							"titleNView": false,
@@ -313,7 +313,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#FF3737", //小圈圈的颜色
+								"color": "#fa6008", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							},
 							"titleNView": false,
@@ -329,7 +329,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#FF3737", //小圈圈的颜色
+								"color": "#fa6008", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							},
 							"titleNView": false,
@@ -345,7 +345,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#FF3737", //小圈圈的颜色
+								"color": "#fa6008", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							},
 							"titleNView": false,
@@ -361,7 +361,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#FF3737", //小圈圈的颜色
+								"color": "#fa6008", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							},
 							"titleNView": false,
@@ -377,7 +377,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#FF3737", //小圈圈的颜色
+								"color": "#fa6008", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							},
 							"titleNView": false,
@@ -393,7 +393,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#FF3737", //小圈圈的颜色
+								"color": "#fa6008", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							},
 							"titleNView": {
@@ -603,7 +603,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#FF3737", //小圈圈的颜色
+								"color": "#fa6008", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							}
 						}
@@ -969,7 +969,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#FF3737", //小圈圈的颜色
+								"color": "#fa6008", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							},
 							"scrollIndicator": "none" //不显示滚动条
