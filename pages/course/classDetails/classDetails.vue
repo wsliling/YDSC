@@ -11,7 +11,7 @@
 			</view>
 			<view class="info1">
 				<view class="info1_3" @click="tolink('/pages/personal/VenueDetail/VenueDetail?gymId=' + classdetail.StoreId)">
-					<image :src="classdetail.StoreLogo  || 'http://yd.wtanvxin.com/static/default.png'"></image>
+					<image :src="classdetail.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'"></image>
 				</view>
 				<view class="info1_4">{{ classdetail.StoreNick }}</view>
 				<view class="info1_2">关注</view>
@@ -20,7 +20,7 @@
 		<view class="line"></view>
 		<view class="con">
 			<view class="title">课程简介</view>
-			<view class="con1_1">{{ classdetail.Intro }}</view>
+			<view class="con1_1"><uParse :content="classdetail.Intro" /></view>
 		</view>
 		<view class="line"></view>
 		<view class="con">
@@ -62,8 +62,11 @@
 
 <script>
 import { post } from '@/common/util.js';
+import uParse from '@/components/uParse/src/wxParse.vue';
 export default {
-	components: {},
+	components: {
+		uParse
+	},
 	data() {
 		return {
 			userId: '',
