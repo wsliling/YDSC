@@ -17,7 +17,7 @@
 			</view>
 			<view class="price_2">
 				<view class="price_1_1">需要积分</view>
-				<view class="price_1_2">{{ classdetail.Score }}Y币</view>
+				<view class="price_1_2">{{ classdetail.Score }}积分</view>
 			</view>
 		</view>
 		<view class="mask" v-if="showMask"></view>
@@ -30,7 +30,7 @@
 		</view>
 		<pay v-on:hidePay="hidePay" v-on:getPassword="getPassword" v-if="showPay" :allprice="allprice"></pay>
 		<view class="foot">
-			<view class="score">{{ classdetail.Score }}Y币</view>
+			<view class="score">{{ classdetail.Score }}积分</view>
 			<view class="exchange" @click="submitBtn">兑换</view>
 		</view>
 	</view>

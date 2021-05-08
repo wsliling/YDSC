@@ -4,7 +4,7 @@
 			<view class="sec_1"><image :src="item.PicImg"></image></view>
 			<view class="sec_2">
 				<view class="title">{{ item.Name }}</view>
-				<view class="title_1">1瓶 500ml</view>
+				<!-- <view class="title_1">1瓶 500ml</view> -->
 				<view class="title_2">
 					<text class="text_1">{{ item.Score }}</text>
 					<text class="text_2">积分</text>

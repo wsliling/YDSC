@@ -8,23 +8,37 @@
 						<view class="tit uni-ellipsis2">{{ item.DeviceName }}</view>
 						<view class="num">{{ item.Number }}次</view>
 					</view>
-					<view class="price">￥{{ item.UnitPrice*item.Number }}</view>
+					<view class="price">￥{{ item.UnitPrice * item.Number }}</view>
 					<view class="time">租赁日期：{{ item.AddTime }}</view>
 				</view>
 			</view>
 		</view>
+		<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
+		<noData :isShow="noDataIsShow"></noData>
 	</view>
 </template>
 
 <script>
 import { post, toLogin } from '@/common/util.js';
+import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
+import noData from '@/components/noData.vue'; //暂无数据
 export default {
 	data() {
 		return {
 			userId: '',
 			token: '',
+			PageSize: 10,
+			Page: 1,
 			mylease: {},
+			loadingType: 0, //0加载前，1加载中，2没有更多了
+			isLoad: false,
+			hasData: false,
+			noDataIsShow: false
 		};
+	},
+	components: {
+		uniLoadMore,
+		noData
 	},
 	onShow() {
 		this.userId = uni.getStorageSync('userId');
@@ -44,9 +58,46 @@ export default {
 				UserId: this.userId,
 				Token: this.token
 			});
-			if (result.code == 0) {
+			if (result.data.length > 0) {
+				this.hasData = true;
+				this.noDataIsShow = false;
+			}
+			if (result.data.length == 0 && this.Page == 1) {
+				this.noDataIsShow = true;
+				this.hasData = false;
+			}
+			if (this.Page === 1) {
 				this.mylease = result.data;
 			}
+			if (this.Page > 1) {
+				this.mylease = this.mylease.concat(result.data);
+			}
+			if (result.data.length < this.PageSize) {
+				this.isLoad = false;
+				this.loadingType = 2;
+			} else {
+				this.isLoad = true;
+				this.loadingType = 0;
+			}
+		}
+	},
+	// 下拉刷新
+	onPullDownRefresh() {
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
+		this.Page = 1;
+		this.RechargeList = [];
+		this.init();
+		uni.stopPullDownRefresh();
+	},
+	// 上拉加载
+	onReachBottom() {
+		if (this.isLoad) {
+			this.loadingType = 1;
+			this.Page++;
+			this.init();
+		} else {
+			this.loadingType = 2;
 		}
 	}
 };

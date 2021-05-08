@@ -28,13 +28,13 @@
         </view>
         <view class="or_item uni-mb10">
 			<view class="bg_fff b_radius">
-				<view class="flex-between pp2">
+				<!-- <view class="flex-between pp2">
 					<view class="shopbox flex flex-start" @click="goUrl('/pages/goods/storeIndex/storeIndex?id='+info.ShopId)">
 						<view class="iconfont icon-shop mr1"></view>
 						<text class="shopName uni-ellipsis">{{info.ShopName}}</text>
 						<view class="iconfont icon-arrow_r fz12"></view>
 					</view>
-				</view>
+				</view> -->
 				<view class="pp3 flex" v-for="(item, index) in info.OrderDetails" :key="index" @click="goUrl('/pages/goods/productDetail/productDetail?proId='+item.ProductId)">
 				    <image mode="aspectFit" :src="item.PicNo" alt="" class="shop mr2"></iamge>
 				    <view class="flex1 flex">

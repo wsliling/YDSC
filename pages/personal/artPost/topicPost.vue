@@ -36,7 +36,9 @@
 					添加话题
 				</view>
 				<view class="topicTitle c_theme">
-					<text class="uni-ellipsis">{{ topic }}</text>
+					<text class="uni-ellipsis">
+						{{ topic }}
+					</text>
 				</view>
 				<text class="uni-icon uni-icon-arrowright fz14"></text>
 			</view>
@@ -69,7 +71,8 @@ export default {
 			roletxt: ['公开', '好友', '私密'],
 			title: '',
 			ContentAbstract: '',
-			ContentDetails: ''
+			ContentDetails: '',
+			topic: ''
 		};
 	},
 	onLoad(e) {
@@ -370,8 +373,7 @@ export default {
 		//清除数据
 		clearData() {
 			(this.imageList = []), (this.base64Arr = []), (this.title = ''), (this.isShowBtnUpload = true), (this.inputTxtLength = 0), this.clearlocation();
-			this.topic = uni.setStorageSync('topic', '');
-		}
+		this.topic = uni.setStorageSync('topic', '');}
 	}
 };
 </script>

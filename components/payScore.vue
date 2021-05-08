@@ -7,7 +7,7 @@
 			</view>
 			<view class="pay-money">
 				{{ allprice }}
-				<text class="font26">Y币</text>
+				<text class="font26">积分</text>
 			</view>
 			<view class="pay-password">
 				<input type="number" maxlength="6" class="real-ipt" v-model="Password" :focus="true" />

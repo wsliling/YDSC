@@ -54,7 +54,7 @@
 				<view class="iconfont icon-share"></view>
 				分享
 			</view>
-			<view class="foot_3" @click="tolink('/pages/course/scoreExchange/scoreExchange?classId=' + classdetail.Id)">{{ classdetail.Score }}Y币兑换</view>
+			<view class="foot_3" @click="tolink('/pages/course/scoreExchange/scoreExchange?classId=' + classdetail.Id)">{{ classdetail.Score }}积分兑换</view>
 			<view class="foot_4" @click="tolink('/pages/course/buyClass/buyClass?classId=' + classdetail.Id)">￥{{ classdetail.Price }}购买</view>
 		</view>
 	</view>

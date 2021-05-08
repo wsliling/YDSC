@@ -38,10 +38,10 @@ export default {
 	methods: {
 		checkStore(id) {
 			this.checkId = id;
-			this.storeId = uni.setStorageSync('storeId', this.gymlist[id].Id);
-			this.storeNick = uni.setStorageSync('storeNick', this.gymlist[id].StoreNick);
-			this.storeMobile = uni.setStorageSync('storeMobile', this.gymlist[id].Mobile);
 			setTimeout(() => {
+				this.storeId = uni.setStorageSync('storeId', this.gymlist[id].Id);
+				this.storeNick = uni.setStorageSync('storeNick', this.gymlist[id].StoreNick);
+				this.storeMobile = uni.setStorageSync('storeMobile', this.gymlist[id].Mobile);
 				uni.navigateBack();
 			}, 500);
 		},

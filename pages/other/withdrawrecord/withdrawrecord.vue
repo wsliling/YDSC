@@ -71,7 +71,6 @@
 				this.init()
 			},
 			async init(){
-				
 				let res = await post('Recharge/GetRechargeList',{
 					UserId:this.userId,
 					Token:this.token,

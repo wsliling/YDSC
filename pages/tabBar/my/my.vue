@@ -81,7 +81,7 @@
 						</view>
 						<view class="item" @click="golink('/pages/member/score/score')">
 							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_3.png" mode="widthFix"></image></view>
-							<view class="txt">Y币</view>
+							<view class="txt">积分</view>
 						</view>
 						<view class="item">
 							<!-- <view class="item" @click="golink('/pages/member/applyShop/applyShop')"> -->
@@ -178,28 +178,28 @@ export default {
 	},
 	methods: {
 		// 店铺申请
-		async getAttest() {
-			if (toLogin()) {
-				if (this.memberInfo.IsBusiness) {
-					uni.navigateTo({
-						url: '/pages/goods/storeIndex/storeIndex?id=' + this.memberInfo.ShopId
-					});
-				} else {
-					let r = await post('User/ShopAuthInfo', {
-						UserId: this.userId,
-						Token: this.token,
-						IsBusiness: 1
-					});
-					if (r.code == 0) {
-						uni.navigateTo({
-							url: '/pages/other/attest/attest'
-						});
-					} else {
-						return;
-					}
-				}
-			}
-		},
+		// async getAttest() {
+		// 	if (toLogin()) {
+		// 		if (this.memberInfo.IsBusiness) {
+		// 			uni.navigateTo({
+		// 				url: '/pages/goods/storeIndex/storeIndex?id=' + this.memberInfo.ShopId
+		// 			});
+		// 		} else {
+		// 			let r = await post('User/ShopAuthInfo', {
+		// 				UserId: this.userId,
+		// 				Token: this.token,
+		// 				IsBusiness: 1
+		// 			});
+		// 			if (r.code == 0) {
+		// 				uni.navigateTo({
+		// 					url: '/pages/other/attest/attest'
+		// 				});
+		// 			} else {
+		// 				return;
+		// 			}
+		// 		}
+		// 	}
+		// },
 		// 跳转
 		golink(url) {
 			if (this.userId && this.token) {

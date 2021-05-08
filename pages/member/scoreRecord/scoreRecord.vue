@@ -9,6 +9,8 @@
 			</view>
 			<view class="sec_3">×{{ item.CashNum }}</view>
 		</view>
+		<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
+		<noData :isShow="noDataIsShow"></noData>
 	</view>
 </template>
 
@@ -25,6 +27,8 @@ export default {
 		return {
 			userId: '',
 			token: '',
+			PageSize: 10,
+			Page: 1,
 			loadingType: 0, //0加载前，1加载中，2没有更多了
 			isLoad: false,
 			hasData: false,
@@ -47,9 +51,46 @@ export default {
 				Token: this.token,
 				Pro_Id: this.Id
 			});
-			if (result.code == 0) {
+			if (result.data.length > 0) {
+				this.hasData = true;
+				this.noDataIsShow = false;
+			}
+			if (result.data.length == 0 && this.Page == 1) {
+				this.noDataIsShow = true;
+				this.hasData = false;
+			}
+			if (this.Page === 1) {
 				this.changelist = result.data;
 			}
+			if (this.Page > 1) {
+				this.changelist = this.changelist.concat(result.data);
+			}
+			if (result.data.length < this.PageSize) {
+				this.isLoad = false;
+				this.loadingType = 2;
+			} else {
+				this.isLoad = true;
+				this.loadingType = 0;
+			}
+		}
+	},
+	// 下拉刷新
+	onPullDownRefresh() {
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
+		this.Page = 1;
+		this.RechargeList = [];
+		this.getChangeList();
+		uni.stopPullDownRefresh();
+	},
+	// 上拉加载
+	onReachBottom() {
+		if (this.isLoad) {
+			this.loadingType = 1;
+			this.Page++;
+			this.getChangeList();
+		} else {
+			this.loadingType = 2;
 		}
 	}
 };

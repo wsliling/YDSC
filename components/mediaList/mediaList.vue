@@ -189,12 +189,12 @@ export default {
 					url: '/pages/homepage/homepage?id=' + this.dataitem.MemberId
 				});
 			}
-			if (this.dataitem.FindType == 1) {
-				//指定店铺主页
-				uni.navigateTo({
-					url: '/pages/goods/storeIndex/storeIndex?id=' + this.dataitem.ShopId
-				});
-			}
+			// if (this.dataitem.FindType == 1) {
+			// 	//指定店铺主页
+			// 	uni.navigateTo({
+			// 		url: '/pages/goods/storeIndex/storeIndex?id=' + this.dataitem.ShopId
+			// 	});
+			// }
 		},
 		//全部评论
 		gotocommentlist() {

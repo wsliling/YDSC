@@ -8,14 +8,12 @@
 			<view class="status">{{orderDetail.StatusName}}</view>
 		</view>
 		<view class="order_item bg_fff mt2" >
-			<view class="flex justifyContentBetween flexAlignCenter">
+			<!-- <view class="flex justifyContentBetween flexAlignCenter">
 				<view class="shopbox flex flex-start" @click="tolink('/pages/goods/storeIndex/storeIndex?id='+orderDetail.ShopId)">
 					<view class="iconfont icon-shop" style="margin-right: 20rpx;"></view>
 					<text class="shopName uni-ellipsis">{{orderDetail.ShopName}}</text>
-					<!-- <view class="iconfont icon-arrow_r"></view> -->
 				</view>
-				<!-- <view class="color_red font26">燕之屋旗舰店</view> -->
-			</view>
+			</view> -->
 			<block v-for="(item,index) in orderDetail.OrderDetails" :key="index">
 			<view class="flex justifyContentBetween mt2" @click="tolink('/pages/goods/productDetail/productDetail?proId='+item.ProductId)">
 				<image :src="item.PicNo" mode="aspectFit" class="img mr2"></image>
