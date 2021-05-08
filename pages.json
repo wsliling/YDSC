@@ -12,7 +12,7 @@
 				"app-plus": {
 					"pullToRefresh": {
 						"support": true,
-						"color": "#fa6008", //小圈圈的颜色
+						"color": "#FF3737", //小圈圈的颜色
 						"style": "circle" //小圈圈的样式
 					},
 					"titleNView": false, //首页去除原生导航
@@ -28,7 +28,7 @@
 				"app-plus": {
 					"pullToRefresh": {
 						"support": true,
-						"color": "#fa6008", //小圈圈的颜色
+						"color": "#FF3737", //小圈圈的颜色
 						"style": "circle" //小圈圈的样式
 					},
 					"titleNView": false, //首页去除原生导航
@@ -44,7 +44,7 @@
 				"app-plus": {
 					"pullToRefresh": {
 						"support": true,
-						"color": "#fa6008", //小圈圈的颜色
+						"color": "#FF3737", //小圈圈的颜色
 						"style": "circle" //小圈圈的样式
 					},
 					"bounce": "none",
@@ -59,7 +59,7 @@
 				"app-plus": {
 					"pullToRefresh": {
 						"support": true,
-						"color": "#fa6008", //小圈圈的颜色
+						"color": "#FF3737", //小圈圈的颜色
 						"style": "circle" //小圈圈的样式
 					},
 					"titleNView": false, //首页去除原生导航
@@ -81,7 +81,7 @@
 				"app-plus": {
 					"pullToRefresh": {
 						"support": true,
-						"color": "#fa6008", //小圈圈的颜色
+						"color": "#FF3737", //小圈圈的颜色
 						"style": "circle" //小圈圈的样式
 					},
 					"titleNView": {
@@ -150,11 +150,6 @@
 				"navigationBarTitleText": "提现"
 			}
 		}, {
-			"path": "pages/Wallet/xiCurrency/xiCurrency",
-			"style": {
-				"navigationBarTitleText": "我的喜币"
-			}
-		}, {
 			"path": "pages/pay/pay",
 			"style": {
 				"navigationBarTitleText": "支付订单",
@@ -196,69 +191,9 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#fa6008", //小圈圈的颜色
+								"color": "#FF3737", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							}
-						}
-					}
-				}, {
-					"path": "findpro/findpro",
-					"style": {
-						"navigationBarTitleText": "发现好货",
-						"enablePullDownRefresh": true,
-						"navigationBarBackgroundColor": "#74c2dc",
-						"navigationBarTextStyle": "white",
-						"app-plus": {
-							"pullToRefresh": {
-								"support": true,
-								"color": "#fa6008", //小圈圈的颜色
-								"style": "circle" //小圈圈的样式
-							}
-						}
-					}
-				},
-				{
-					"path": "brand/brand",
-					"style": {
-						"navigationBarTitleText": "品牌闪购",
-						"enablePullDownRefresh": true,
-						"navigationBarBackgroundColor": "#4f25ab",
-						"navigationBarTextStyle": "white",
-						"app-plus": {
-							"pullToRefresh": {
-								"support": true,
-								"color": "#fa6008", //小圈圈的颜色
-								"style": "circle" //小圈圈的样式
-							}
-						}
-					}
-				},
-				{
-					"path": "brandDetail/brandDetail",
-					"style": {
-						"navigationBarTitleText": "",
-						"enablePullDownRefresh": true,
-						"app-plus": {
-							"pullToRefresh": {
-								"support": true,
-								"color": "#fa6008", //小圈圈的颜色
-								"style": "circle" //小圈圈的样式
-							}
-						}
-					}
-				}, {
-					"path": "limitpro/limitpro",
-					"style": {
-						"enablePullDownRefresh": true,
-						"app-plus": {
-							"pullToRefresh": {
-								"support": true,
-								"color": "#fa6008", //小圈圈的颜色
-								"style": "circle" //小圈圈的样式
-							},
-							"titleNView": false,
-							"bounce": "none",
-							"scrollIndicator": "none" //不显示滚动条
 						}
 					}
 				}, {
@@ -268,25 +203,12 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#fa6008", //小圈圈的颜色
+								"color": "#FF3737", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							},
 							"titleNView": false,
 							"bounce": "none",
 							"scrollIndicator": "none" //不显示滚动条
-						}
-					}
-				}, {
-					"path": "pinpro/pinpro",
-					"style": {
-						"navigationBarTitleText": "拼团",
-						"enablePullDownRefresh": true,
-						"app-plus": {
-							"pullToRefresh": {
-								"support": true,
-								"color": "#fa6008", //小圈圈的颜色
-								"style": "circle" //小圈圈的样式
-							}
 						}
 					}
 				}, {
@@ -297,7 +219,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#fa6008", //小圈圈的颜色
+								"color": "#FF3737", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							},
 							"titleNView": false,
@@ -313,7 +235,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#fa6008", //小圈圈的颜色
+								"color": "#FF3737", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							},
 							"titleNView": false,
@@ -329,7 +251,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#fa6008", //小圈圈的颜色
+								"color": "#FF3737", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							},
 							"titleNView": false,
@@ -345,7 +267,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#fa6008", //小圈圈的颜色
+								"color": "#FF3737", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							},
 							"titleNView": false,
@@ -361,7 +283,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#fa6008", //小圈圈的颜色
+								"color": "#FF3737", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							},
 							"titleNView": false,
@@ -377,7 +299,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#fa6008", //小圈圈的颜色
+								"color": "#FF3737", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							},
 							"titleNView": false,
@@ -393,7 +315,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#fa6008", //小圈圈的颜色
+								"color": "#FF3737", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							},
 							"titleNView": {
@@ -477,37 +399,7 @@
 		},
 		{
 			"root": "pages/other",
-			"pages": [{
-					"path": "set/set",
-					"style": {
-						"navigationBarTitleText": "设置"
-					}
-				}, {
-					"path": "accountSafe/accountSafe",
-					"style": {
-						"navigationBarTitleText": "账号安全"
-					}
-				}, {
-					"path": "modifyTel/modifyTel",
-					"style": {
-						"navigationBarTitleText": "修改绑定手机号"
-					}
-				}, {
-					"path": "modifyPad/modifyPad",
-					"style": {
-						"navigationBarTitleText": "修改登录密码"
-					}
-				}, {
-					"path": "ChangepayPwd/ChangepayPwd",
-					"style": {
-						"navigationBarTitleText": "修改支付密码"
-					}
-				}, {
-					"path": "about/about",
-					"style": {
-						"navigationBarTitleText": "关于我们"
-					}
-				},
+			"pages": [
 				{
 					"path": "money/money",
 					"style": {
@@ -518,19 +410,9 @@
 					"style": {
 						"navigationBarTitleText": "充值提现记录"
 					}
-				}, {
-					"path": "myguest/myguest",
-					"style": {
-						"navigationBarTitleText": "我的团队"
-					}
-				}, {
-					"path": "attest/attest",
-					"style": {
-						"navigationBarTitleText": ""
-					}
 				},
 				{
-					"path": "attest/attest2",
+					"path": "attest/attest",
 					"style": {
 						"navigationBarTitleText": "我要开店"
 					}
@@ -546,25 +428,12 @@
 					"style": {
 						"navigationBarTitleText": "收益明细"
 					}
-				},
-				{
-					"path": "kefu/kefu",
-					"style": {
-						"navigationBarTitleText": "官方客服"
-					}
-				}, {
-					"path": "accoun_Del/accoun_Del",
-					"style": {
-						"navigationBarTitleText": "账户注销",
-						"enablePullDownRefresh": false
-					}
 				}
 			]
 		},
 		{
 			"root": "pages/member",
 			"pages": [
-
 				{
 					"path": "couponCenter/couponCenter",
 					"style": {
@@ -576,6 +445,14 @@
 					"path": "order/order",
 					"style": {
 						"navigationBarTitleText": "我的订单"
+					}
+				},
+				{
+					"path": "orderDetail/orderDetail",
+					"style": {
+						"navigationBarTitleText": "订单详情",
+						"navigationBarTextStyle": "white",
+						"navigationBarBackgroundColor": "#ff3333"
 					}
 				},
 				{
@@ -595,37 +472,11 @@
 					"style": {
 						"navigationBarTitleText": "拼团详情"
 					}
-				}, {
-					"path": "dealerOrder/dealerOrder",
-					"style": {
-						"navigationBarTitleText": "自营经销商订单",
-						"enablePullDownRefresh": true,
-						"app-plus": {
-							"pullToRefresh": {
-								"support": true,
-								"color": "#fa6008", //小圈圈的颜色
-								"style": "circle" //小圈圈的样式
-							}
-						}
-					}
 				},
 				{
-
 					"path": "editinfo/editinfo",
 					"style": {
 						"navigationBarTitleText": "编辑资料"
-					}
-				},
-				{
-					"path": "invite/invite",
-					"style": {
-						"navigationBarTitleText": "推荐好友"
-					}
-				},
-				{
-					"path": "invite/invite2",
-					"style": {
-						"navigationBarTitleText": "推荐好友"
 					}
 				},
 				{
@@ -662,26 +513,9 @@
 					}
 				},
 				{
-					"path": "orderDetail/orderDetail",
-					"style": {
-						"navigationBarTitleText": "订单详情",
-						"navigationBarTextStyle": "white",
-						"navigationBarBackgroundColor": "#ff3333"
-						// "enablePullDownRefresh" : true
-					}
-				},
-				{
 					"path": "logistics/logistics",
 					"style": {
 						"navigationBarTitleText": "物流信息",
-						"navigationBarBackgroundColor": "#ffffff"
-						// "enablePullDownRefresh" : true
-					}
-				},
-				{
-					"path": "apply/apply",
-					"style": {
-						"navigationBarTitleText": "申请退款",
 						"navigationBarBackgroundColor": "#ffffff"
 						// "enablePullDownRefresh" : true
 					}
@@ -692,17 +526,6 @@
 						"navigationBarTitleText": "我的评价",
 						"navigationBarBackgroundColor": "#ffffff"
 						// "enablePullDownRefresh" : true
-					}
-				},
-				{
-					"path": "orderTui/orderTui",
-					"style": {
-						"navigationBarTitleText": "售后订单"
-					}
-				}, {
-					"path": "orderTuidetail/orderTuidetail",
-					"style": {
-						"navigationBarTitleText": "售后详情"
 					}
 				},
 				{
@@ -820,7 +643,7 @@
 				{
 					"path": "modifyTel/modifyTel",
 					"style": {
-						"navigationBarTitleText": "关于我们",
+						"navigationBarTitleText": "修改绑定手机号",
 						"enablePullDownRefresh": false
 					}
 				},
@@ -894,13 +717,6 @@
 						"navigationBarTitleText": "我的团队",
 						"enablePullDownRefresh": false
 					}
-
-				}, {
-					"path": "myTeamTwo/myTeamTwo",
-					"style": {
-						"navigationBarTitleText": "我的团队",
-						"enablePullDownRefresh": false
-					}
 				},
 				{
 					"path": "score/score",
@@ -969,7 +785,7 @@
 						"app-plus": {
 							"pullToRefresh": {
 								"support": true,
-								"color": "#fa6008", //小圈圈的颜色
+								"color": "#FF3737", //小圈圈的颜色
 								"style": "circle" //小圈圈的样式
 							},
 							"scrollIndicator": "none" //不显示滚动条
@@ -980,11 +796,6 @@
 					"path": "chat/chat",
 					"style": {
 						"navigationBarTitleText": ""
-					}
-				}, {
-					"path": "NewsDetail/NewsDetail",
-					"style": {
-						"navigationBarTitleText": "详情"
 					}
 				}, {
 					"path": "chatList/chatList",
@@ -1044,19 +855,6 @@
 		{
 			"root": "pages/message",
 			"pages": [{
-				"path": "messageClass/messageClass",
-				"style": {
-					"navigationBarTitleText": "消息中心"
-				}
-			}, {
-				"path": "messageList/messageList",
-				"style": {}
-			}, {
-				"path": "msgDetail/msgDetail",
-				"style": {
-					"navigationBarTitleText": "详情"
-				}
-			}, {
 				"path": "agreement/agreement",
 				"style": {
 					"navigationBarTitleText": "用户协议"
@@ -1303,6 +1101,16 @@
 				"iconPath": "static/f5.png",
 				"selectedIconPath": "static/f5_in.png",
 				"text": "我的"
+			}
+		]
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "", //模式名称
+				"path": "", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
 			}
 		]
 	}

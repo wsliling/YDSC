@@ -17,20 +17,10 @@
 							<text class="iconfont icon-arrow_r"></text>
 						</view>
 						<view class="reflesh"><image src="http://yd.wtanvxin.com/static/wallet/reflesh.png" mode=""></image></view>
-						<!-- <view @click="golink('/pages/Wallet/withdraw/withdraw?type=3')">提现</view> -->
 					</view>
 				</view>
 			</view>
 			<view class="wallerList">
-				<!-- 	<view class="item" @click="golink('/pages/Wallet/xiCurrency/xiCurrency')">
-					<view>我的喜币</view>
-					<view>
-						<image src="http://yd.wtanvxin.com/static/xibi.png"></image>
-						{{ Math.floor(userInfo.Wallet * 10) }}
-						<text class="iconfont icon-arrow_r"></text>
-					</view>
-				</view>
-				 -->
 				<view class="item" @click="golink('/pages/Wallet/withdraw/withdraw?type=2')">
 					<view>
 						<text class="iconfont icon-qianbao tiX"></text>

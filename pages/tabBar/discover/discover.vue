@@ -2,17 +2,22 @@
 	<view>
 		<view class="nav flex-between" :style="{ 'padding-top': barHeight + 'px' }">
 			<view class="nav-left">
-				<view :class="[tabNav == 2 ? 'active' : '']" @click="tapNav(2)">最新</view>
-				<view :class="[tabNav == 4 ? 'active' : '']" @click="tapNav(4)">推荐</view>
+				<view :class="[tabNav == 4 ? 'active' : '']" @click="tapNav(4)">最新</view>
+				<view :class="[tabNav == 2 ? 'active' : '']" @click="tapNav(2)">推荐</view>
 				<view :class="[tabNav == 1 ? 'active' : '']" @click="tapNav(1)">关注</view>
 				<view :class="[tabNav == 3 ? 'active' : '']" @click="tapNav(3)">附近</view>
 			</view>
 		</view>
 		<view :style="{ height: barHeight + 44 + 'px' }"></view>
-		<view class="f_banner uni-bg-white" v-if="tabNav == 2 && bannerList.length" @click="tolink('/pages/personal/topic/topic')">
+		<!-- <view class="f_banner uni-bg-white" v-if="tabNav == 4 && bannerList.length" @click="tolink('/pages/personal/topic/topic')">
 			<image class="b_radius" :src="bannerList[0].Pic" mode="widthFix"></image>
+			<block v-for="(item, index) in datalist" :key="index"><mediaList :datajson="item" Grid="3" @click="goDetail" @previewImg="previewImg"></mediaList></block>
+		</view> -->
+		<view class="list-2" v-if="tabNav == 4 && bannerList.length">
+			<image class="b_radius" :src="bannerList[0].Pic" mode="widthFix" @click="tolink('/pages/personal/topic/topic')"></image>
+			<block v-for="(item, index) in datalist" :key="index"><mediaList :datajson="item" Grid="3" @click="goDetail" @previewImg="previewImg"></mediaList></block>
 		</view>
-		<view class="list" v-if="hasData && tabNav != 3">
+		<view class="list" v-if="hasData && tabNav == 2">
 			<block v-for="(item, index) in datalist" :key="index"><mediaList :datajson="item" Grid="3" @click="goDetail" @previewImg="previewImg"></mediaList></block>
 		</view>
 		<view class="list-1" v-if="tabNav == 3">
@@ -24,7 +29,7 @@
 							<text class="txt uni-ellipsis">{{ item.StoreNick }}</text>
 							<text class="uni-icon uni-icon-arrowright fz14"></text>
 						</view>
-						<view class="fz12 c_999" v-if="item.IsShowDistance">距离您{{ item.Distance }}km</view>
+						<view class="fz12 c_999" v-if="item.IsShowDistance">距离您{{ item.Distance }}</view>
 					</view>
 				</view>
 				<view class="bd">
@@ -54,7 +59,7 @@ export default {
 			userId: '',
 			token: '',
 			barHeight: 0,
-			tabNav: 2,
+			tabNav: 4,
 			datalist: [],
 			page: 1,
 			pageSize: 8,
@@ -165,15 +170,9 @@ export default {
 		},
 		//链接动态详情页
 		goDetail(e) {
-			// if(e.artType==0){//用户发布详情
 			uni.navigateTo({
 				url: '/pages/personal/replylist/replylist?id=' + e.id
 			});
-			// }else{
-			// 	uni.navigateTo({
-			// 		url:'/pages/personal/NewsDetail/NewsDetail?id='+e.id
-			// 	})
-			// }
 		},
 		//场馆列表
 		async getGymList() {
@@ -280,8 +279,15 @@ export default {
 		}
 	}
 }
-.f_banner {
-	padding: 20upx;
+.list-2 {
+	background-color: white;
+	.b_radius {
+		padding: 20upx;
+		border-radius: 80upx;
+	}
+	image {
+		border-radius: 50%;
+	}
 }
 .uploadbtn {
 	position: fixed;

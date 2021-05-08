@@ -48,7 +48,7 @@
 			<view class="Yi-hd"><view class="title">课程</view></view>
 			<view class="bd course-list">
 				<view class="item flex-between" v-for="(item, index) in classlist" :key="index">
-					<view class="img"><image :src="item.PicImg" @click="classDetails(item.Id)"></image></view>
+					<view class="img"><image :src="item.PicImg" @click="courseDetails(item.Id)"></image></view>
 					<view class="item_r flex1">
 						<view class="title uni-ellipsis">{{ item.Title }}</view>
 						<view class="desc">{{ item.DifficultyName }} . {{ item.CourseDuration }}分钟</view>
@@ -121,9 +121,9 @@ export default {
 				this.gymlistImg = result.data.PicData;
 			}
 		},
-		classDetails(id) {
+		courseDetails(id) {
 			uni.navigateTo({
-				url: '/pages/course/classDetails/classDetails?detailId=' + id
+				url: '/pages/course/courseDetails/courseDetails?appointId=' + id
 			});
 		},
 		//门店设备

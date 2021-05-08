@@ -164,7 +164,8 @@
 			}
 		}
 		.comment-con{
-			line-height: 1.5;margin-left: 110upx;
+			line-height: 1.5;
+			margin-left: 110upx;
 		}
 		.comment-reply{
 			background: #f8f9fd;

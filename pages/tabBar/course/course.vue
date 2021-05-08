@@ -83,13 +83,11 @@ import { post, get, toLogin } from '@/common/util.js';
 import product from '@/components/product.vue';
 import noData from '@/components/noData.vue'; //暂无数据
 import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
-import bmSearchInput from '@/components/bm-searchInput/bm-searchInput.vue';
 export default {
 	components: {
 		noData,
 		uniLoadMore,
-		product,
-		bmSearchInput
+		product
 	},
 	data() {
 		return {

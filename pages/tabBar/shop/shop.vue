@@ -20,7 +20,8 @@
 			<view class="index_swiper uni-bg-white">
 				<swiper class="swiper" :indicator-dots="false" autoplay :interval="5000" :duration="500" @change="changeSwiper">
 					<swiper-item v-for="(banner, index) in Bannerlist" :key="index">
-						<view class="swiper-item pd15" @click="tolink(banner.Url)"><image class="img" :src="banner.Pic" mode="aspectFill"></image></view>
+						<!-- <view class="swiper-item pd15" @click="tolink(banner.Url)"><image class="img" :src="banner.Pic" mode="aspectFill"></image></view> -->
+						<view class="swiper-item pd15"><image class="img" :src="banner.Pic" mode="aspectFill"></image></view>
 					</swiper-item>
 				</swiper>
 				<view class="dots" style="bottom: 30upx;">

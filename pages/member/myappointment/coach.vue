@@ -12,12 +12,12 @@
 				<!-- <view class="gray">60分钟</view> -->
 			</view>
 			<view class="userinfo">
-				<view class="header"><image :src="regclasslistdetail.CoachAvatar"></image></view>
+				<view class="header"><image :src="regclasslistdetail.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
 				<view class="name">{{regclasslistdetail.CoachNick}}</view>
 			</view>
 		</view>
 		<view class="studio">
-			<view class="header"><image :src="regclasslistdetail.StoreLogo"></image></view>
+			<view class="header"><image :src="regclasslistdetail.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
 			<view class="company">
 				<view class="studioName">{{regclasslistdetail.StoreName}}</view>
 				<view class="address">{{regclasslistdetail.StoreAddress}}</view>

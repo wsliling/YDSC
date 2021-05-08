@@ -16,7 +16,7 @@
 				</view>
 			</view>
 			<view class="top_2" v-if="FatherData.length > 0">
-				<view class="top_2_img"><image :src="FatherData[0].Avatar"></image></view>
+				<view class="top_2_img"><image :src="FatherData[0].Avatar || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
 				<view class="top_2_right">
 					<view class="top_2_right_1">{{ FatherData[0].NickName }}</view>
 					<view class="top_2_right_2">我的邀请人</view>

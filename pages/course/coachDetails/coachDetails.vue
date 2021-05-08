@@ -17,7 +17,7 @@
 		</view>
 		<view class="line"></view>
 		<view class="cen">
-			<view class="stadium"><image :src="coachdetail.StoreLogo"></image></view>
+			<view class="stadium"><image :src="coachdetail.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
 			<view class="stadium_1">
 				<view class="stadium_1_1">{{ coachdetail.StoreNick }}</view>
 				<view class="stadium_1_2">{{ coachdetail.StoreAddress }}</view>
