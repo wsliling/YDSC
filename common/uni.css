@@ -1562,7 +1562,7 @@ uni-swiper .uni-swiper-dot{
 .IconsCK.IconsCK-radio.checked:after{
 	top: 0;
 	content: '\E442';
-	color:#ff3333;
+	color:#fa6008;
 }
 .IconsCK.IconsCK-radio.disabled:after{
 	top: 0;

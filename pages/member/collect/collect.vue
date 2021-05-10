@@ -11,8 +11,8 @@
 				<view></view>
 				<view></view>
 				<!-- #endif -->
-				<view class="redact" v-if="tabIndex == 0" @click="ShowDel">{{ isShowDel ? '完成' : '管理' }}</view>
-				<view class="redact" v-else style="width: 40px;"></view>
+				<view class="redact" @click="ShowDel">{{ isShowDel ? '完成' : '管理' }}</view>
+				<!-- <view class="redact" v-else style="width: 40px;"></view> -->
 			</view>
 			<scroll-view id="tab-bar" class="index-swiper-tab" scroll-x>
 				<view
@@ -62,9 +62,10 @@
 					</view>
 					<view :class="['flowbtn', item.IsCollect ? 'ed' : '']" @click.stop="flowFn(index, item.ShopId, item.IsCollect)">{{ item.IsCollect ? '已关注' : '关注' }}</view>
 				</view> -->
-				<view class="list" @click="tolinkClassDetails('/pages/course/classDetails/classDetails?detailId=' + item.Id)">
+				<view class="list flex-start" @click="tolinkClassDetails('/pages/course/classDetails/classDetails?detailId=' + item.Id)">
+					<view class="choose" v-if="isShowDel" @click.stop="shiftChecked(index)"><view class="IconsCK IconsCK-radio" :class="{ checked: item.checked }"></view></view>
 					<view class="leftImg"><image class="img" :src="item.PicImg"></image></view>
-					<view class="rightContent">
+					<view class="rightContent flex1">
 						<view class="titledetail">{{ item.Name }}</view>
 						<view class="time">{{ item.Difficulty }}.{{ item.Target }}</view>
 						<view class="userinfo">
@@ -149,6 +150,7 @@ export default {
 	methods: {
 		//跳转
 		tolink(url, dis) {
+			if(this.isShowDel) return;
 			if (dis != 0) {
 				uni.showToast({
 					title: '该商品或课程已失效！',
@@ -161,6 +163,7 @@ export default {
 			}
 		},
 		tolinkClassDetails(url) {
+			if(this.isShowDel) return;
 			uni.navigateTo({
 				url: url
 			});
@@ -182,6 +185,8 @@ export default {
 				this.tabIndex = index;
 				this.Type = id;
 				this.page = 1;
+				this.hasData=false;
+				this.checked=false;
 				this.datalist = [];
 				this.workeslist();
 			}
@@ -201,17 +206,16 @@ export default {
 		},
 		//选择
 		shiftChecked(key) {
-			console.log(key, 'key');
-			this.datalist[key].checked = !this.datalist[key].checked;
+			this.$set(this.datalist[key],'checked',!this.datalist[key].checked)
 			let _this = this;
 			let sum = 0;
 			_this.datalist.forEach(function(item) {
-				if (item.checked !== _this.checked) {
+				if (item.checked ==true) {
 					sum += 1;
 				}
 			});
 			if (sum == this.datalist.length) {
-				_this.checked = this.datalist[0].checked;
+				_this.checked = true;
 			} else {
 				_this.checked = false;
 			}
@@ -272,7 +276,7 @@ export default {
 				//#ifndef APP-PLUS
 				uni.showModal({
 					content: '您确定要删除所选项吗？',
-					confirmColor: '#FF3333',
+					confirmColor: '#fa6008',
 					success: function(res) {
 						if (res.confirm) {
 							_this.DeleteMyFootprint();
@@ -305,7 +309,8 @@ export default {
 			let result = await post('User/DelCollections', {
 				UserId: this.userId,
 				Token: this.token,
-				IdArr: this.Ids.join(',')
+				IdArr: this.Ids.join(','),
+				Type:this.Type
 			});
 			if (result.code === 0) {
 				let _this = this;
@@ -519,14 +524,12 @@ export default {
 	}
 	.followList {
 		background-color: #fff;
-		padding: 0 20rpx;
 		// 列表
 		.list {
 			border-bottom: solid 2upx #f5f5f5;
 			display: flex;
 			background-color: #ffffff;
-			padding: 30upx 0;
-			margin: 0 20upx;
+			padding: 30upx;
 			&:last-child {
 				border-bottom: 0;
 			}

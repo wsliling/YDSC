@@ -63,9 +63,14 @@
 				line-height: 60upx;
 				color: white;
 				font-size: 25upx;
-				background-color: #fa6008;
+				background-color: $primary;
 				border-radius: 60upx;
 				text-align: center;
+				&.ed{
+					color:$primary;
+					border: 1px solid $primary;
+					background-color: #fff;
+				}
 			}
 		}
 	}
