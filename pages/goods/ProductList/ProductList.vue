@@ -14,6 +14,15 @@
 		</uni-nav-bar>
 		<view id="filter">
 			<view :class="['filterMenu pd15', isfixed ? 'scroll' : '']">
+				<view class="history" v-if="historylist.length">
+					<view class="his_1">
+						<view class="his_left">搜索历史</view>
+						<view class="iconfont icon-del"></view>
+					</view>
+					<view class="his_2">
+						<view v-for="(item, index) in historylist" :key="index">{{ item.Name }}</view>
+					</view>
+				</view>
 				<view class="menu flex-between center">
 					<view class="item" :class="{ active: item.active }" @click="shiftFilterTab(index)" v-for="(item, index) in filterTab" :key="index">
 						{{ item.name }}
@@ -101,6 +110,7 @@ export default {
 			searchVal: '',
 			userId: '',
 			token: '',
+			historylist: [], //搜索历史
 			cid: '', //分类id
 			classlylist: [],
 			prolist: [],
@@ -173,6 +183,7 @@ export default {
 			this.couponId = e.couponId;
 			this.getprolist();
 		}
+		this.getHistory();
 		this.getBrandList();
 	},
 	methods: {
@@ -201,6 +212,16 @@ export default {
 					title: '请输入搜索内容',
 					icon: 'none'
 				});
+			}
+		},
+		//搜索历史
+		async getHistory() {
+			let result = await post('SearchHistory/GetMemberSearchList', {
+				UserId: uni.getStorageSync('userId'),
+				Token: uni.getStorageSync('token')
+			});
+			if (result.code == 0) {
+				this.historylist = result.data;
 			}
 		},
 		//获取分类
@@ -397,6 +418,33 @@ export default {
 </script>
 
 <style lang="scss">
+.history {
+	background-color: white;
+	padding: 20upx 0;
+	.his_1 {
+		display: flex;
+		.his_left {
+			flex: 1;
+			font-size: 32upx;
+			font-weight: bold;
+		}
+		.his_right {
+			flex: 1;
+		}
+	}
+	.his_2 {
+		display: flex;
+		text-align: center;
+		view {
+			padding: 0 40upx;
+			margin: 10upx 20upx 0 0;
+			background-color: #f4f4f4;
+			height: 65upx;
+			line-height: 65upx;
+			border-radius: 10upx;
+		}
+	}
+}
 /* 处理抽屉内容滚动 */
 .scroll-view-box {
 	flex: 1;

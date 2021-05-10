@@ -2,7 +2,8 @@
 	<view class="course">
 		<view class="top">
 			<view class="top_left">
-				{{ locationAddress }}
+				深圳
+				<!-- {{ locationAddress }} -->
 				<text class="iconfont icon-arrow_r"></text>
 			</view>
 			<view class="search">
@@ -28,10 +29,10 @@
 			</view>
 		</view>
 		<view class="sec" v-if="bannerListOne.length">
-			<view class="sec_1"><image :src="bannerListOne[0].Pic" mode="aspectFill" @click="appointmentCoach"></image></view>
+			<view class="sec_1"><image :src="bannerListOne[0].Pic" mode="aspectFill" @click="tolink('/pages/course/appointmentCoach/appointmentCoach')"></image></view>
 			<view class="sec_2">
-				<view><image :src="bannerListOne[1].Pic" mode="aspectFill" @click="appointmentCourse"></image></view>
-				<view><image :src="bannerListOne[2].Pic" mode="aspectFill" @click="gym"></image></view>
+				<view><image :src="bannerListOne[1].Pic" mode="aspectFill" @click="tolink('/pages/course/appointmentCourse/appointmentCourse')"></image></view>
+				<view><image :src="bannerListOne[2].Pic" mode="aspectFill" @click="tolink('/pages/course/gym/gym')"></image></view>
 			</view>
 		</view>
 		<view class="line"></view>
@@ -39,7 +40,15 @@
 			<view class="sec1_title">大家都在练</view>
 			<view class="sec1_1"><image :src="bannerListTwo[0].Pic" mode="aspectFill"></image></view>
 			<view class="sec1_2">
-				<image :src="bannerListTwo[1].Pic" mode="aspectFill" @click="newPer"></image>
+				<image
+					:src="bannerListTwo[1].Pic"
+					mode="aspectFill"
+					@click="
+						'/pages/course/newPer/newPer';
+
+
+					"
+				></image>
 				<image :src="bannerListTwo[2].Pic" mode="aspectFill"></image>
 			</view>
 		</view>
@@ -52,9 +61,11 @@
 				</view>
 				<view class="list" v-if="hasData">
 					<view class="tab1" v-for="(item, index) in classlist" :key="index">
-						<view class="sec2_1"><image :src="item.PicImg" @click="classDetails(item.Id)" mode="aspectFill"></image></view>
+						<view class="sec2_1">
+							<image :src="item.PicImg" @click="tolink('/pages/course/classDetails/classDetails?detailId=' + item.Id)" mode="aspectFill"></image>
+						</view>
 					</view>
-					<view class="more" @click="moreCourse">查看更多推荐课程</view>
+					<view class="more" @click="tolink('/pages/course/moreCourse/moreCourse')">查看更多推荐课程</view>
 				</view>
 				<noData :isShow="noDataIsShow"></noData>
 			</view>
@@ -62,7 +73,7 @@
 		<view class="line"></view>
 		<view class="sec3"><view class="sec1_title">猜你喜欢</view></view>
 		<view class="sec4" v-for="(item, index) in classlike" :key="index">
-			<view class="sec4_1" @click="courseDetails(item.Id)">
+			<view class="sec4_1" @click="tolink('/pages/course/courseDetails/courseDetails?appointId=' + item.Id)">
 				<view><image :src="item.PicImg" mode="aspectFill"></image></view>
 				<view>
 					<view class="sec4_title">{{ item.Title }}</view>
@@ -129,41 +140,6 @@ export default {
 		this.getLocationInfo();
 	},
 	methods: {
-		gym() {
-			uni.navigateTo({
-				url: '/pages/course/gym/gym'
-			});
-		},
-		moreCourse() {
-			uni.navigateTo({
-				url: '/pages/course/moreCourse/moreCourse'
-			});
-		},
-		newPer() {
-			uni.navigateTo({
-				url: '/pages/course/newPer/newPer'
-			});
-		},
-		appointmentCoach() {
-			uni.navigateTo({
-				url: '/pages/course/appointmentCoach/appointmentCoach'
-			});
-		},
-		appointmentCourse() {
-			uni.navigateTo({
-				url: '/pages/course/appointmentCourse/appointmentCourse'
-			});
-		},
-		classDetails(id) {
-			uni.navigateTo({
-				url: '/pages/course/classDetails/classDetails?detailId=' + id
-			});
-		},
-		courseDetails(id) {
-			uni.navigateTo({
-				url: '/pages/course/courseDetails/courseDetails?appointId=' + id
-			});
-		},
 		cliTab(index) {
 			this.tabIndex = index;
 			this.page = 1;

@@ -9,8 +9,6 @@
 			<view class="cen">
 				<view class="total">已累计签到</view>
 				<view class="total_1">
-					<!-- <view class="total_1_1">0</view> -->
-					<!-- <view class="total_1_1">0</view> -->
 					<view class="total_1_1">{{ score.SignDayNum }}</view>
 					<view class="total_1_2">天</view>
 				</view>
@@ -63,7 +61,9 @@ export default {
 				Token: this.token
 			});
 			if (result.code == 0) {
-				location.reload();
+				setTimeout(function() {
+					this.signIn();
+				}, 200);
 			}
 		},
 		// 签到详情
