@@ -1,42 +1,93 @@
 <template>
 	<view class="scoreList">
-		<view class="sec" v-for="(item, index) in time" :key="index">
-			<!-- <block v-if="(item.IsSign = 1)"> -->
-				<view class="sec_2">
-					<view class="title">每日签到</view>
-					<view class="title_2">{{ item.SignTime }}</view>
-				</view>
-				<view class="sec_3">+{{ item.Score }}</view>
-			<!-- </block> -->
+		<view class="sec" v-for="(item, index) in RechargeList" :key="index">
+			<view class="sec_2">
+				<view class="title">{{ item.Title }}</view>
+				<view class="title_2">{{ item.AddTime }}</view>
+			</view>
+			<view class="sec_3">{{ item.Change }}</view>
 		</view>
+		<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
+		<noData :isShow="noDataIsShow"></noData>
 	</view>
 </template>
 
 <script>
 import { post } from '@/common/util.js';
+import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
+import noData from '@/components/noData.vue'; //暂无数据
 export default {
 	data() {
 		return {
 			userId: '',
 			token: '',
-			time: []
+			PageSize: 10,
+			Page: 1,
+			loadingType: 0, //0加载前，1加载中，2没有更多了
+			isLoad: false,
+			hasData: false,
+			noDataIsShow: false,
+			RechargeList: []
 		};
+	},
+	components: {
+		uniLoadMore,
+		noData
 	},
 	onLoad() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
-		this.signIn();
+		this.init();
 	},
 	methods: {
-		// 签到详情
-		async signIn() {
-			let result = await post('User/GetSignInData', {
+		async init() {
+			let res = await post('Recharge/GetRechargeList', {
 				UserId: this.userId,
-				Token: this.token
+				Token: this.token,
+				Page: this.Page,
+				PageSize: this.PageSize,
+				Type: 5
 			});
-			if (result.code == 0) {
-				this.time = result.data.SignData;
+			if (res.data.list.length > 0) {
+				this.hasData = true;
+				this.noDataIsShow = false;
 			}
+			if (res.data.list.length == 0 && this.Page == 1) {
+				this.noDataIsShow = true;
+				this.hasData = false;
+			}
+			if (this.Page === 1) {
+				this.RechargeList = res.data.list;
+			}
+			if (this.Page > 1) {
+				this.RechargeList = this.RechargeList.concat(res.data.list);
+			}
+			if (res.data.list.length < this.PageSize) {
+				this.isLoad = false;
+				this.loadingType = 2;
+			} else {
+				this.isLoad = true;
+				this.loadingType = 0;
+			}
+		}
+	},
+	// 下拉刷新
+	onPullDownRefresh() {
+		this.userId = uni.getStorageSync('userId');
+		this.token = uni.getStorageSync('token');
+		this.Page = 1;
+		this.RechargeList = [];
+		this.init();
+		uni.stopPullDownRefresh();
+	},
+	// 上拉加载
+	onReachBottom() {
+		if (this.isLoad) {
+			this.loadingType = 1;
+			this.Page++;
+			this.init();
+		} else {
+			this.loadingType = 2;
 		}
 	}
 };

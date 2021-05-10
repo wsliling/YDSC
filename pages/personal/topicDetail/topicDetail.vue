@@ -107,6 +107,7 @@ export default {
 				Token: uni.getStorageSync('token'),
 				Page: this.page,
 				PageSize: this.pageSize,
+				myType: 4, //指定用户
 				TopicId: this.Id
 			});
 			if (result.code === 0) {

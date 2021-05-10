@@ -32,11 +32,12 @@ export default {
 			scoreAll: 0
 		};
 	},
-	onLoad() {
+	onLoad() {},
+	onShow() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
-		this.signIn();
 		this.GetMemInfo();
+		this.signIn();
 	},
 	methods: {
 		scoreList() {
@@ -54,15 +55,6 @@ export default {
 				url: '/pages/member/register/register'
 			});
 		},
-		async signIn() {
-			let result = await post('User/GetSignInData', {
-				UserId: this.userId,
-				Token: this.token
-			});
-			if (result.code == 0) {
-				this.score = result.data.SumScore;
-			}
-		},
 		//获取账户积分信息
 		async GetMemInfo() {
 			let result = await post('User/GetMemInfo', {
@@ -71,7 +63,21 @@ export default {
 			});
 			if (result.code == 0) {
 				this.Score = result.data.Score;
-				this.scoreAll = this.score + this.Score;
+				if (this.score != 0 && this.Score != 0) {
+					this.scoreAll = this.score + this.Score;
+				}
+			}
+		},
+		async signIn() {
+			let result = await post('User/GetSignInData', {
+				UserId: this.userId,
+				Token: this.token
+			});
+			if (result.code == 0) {
+				this.score = result.data.SumScore;
+				if (this.score != 0 && this.Score != 0) {
+					this.scoreAll = this.score + this.Score;
+				}
 			}
 		}
 	}

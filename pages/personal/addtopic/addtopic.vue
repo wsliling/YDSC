@@ -34,9 +34,9 @@ export default {
 	methods: {
 		checkTopic(id) {
 			this.checkId = id;
-			this.topic = uni.setStorageSync('topic', this.topiclist[id].Title);
-			this.topicId = uni.setStorageSync('topicId', this.topiclist[id].Id);
 			setTimeout(() => {
+				this.topic = uni.setStorageSync('topic', this.topiclist[id].Title);
+				this.topicId = uni.setStorageSync('topicId', this.topiclist[id].Id);
 				uni.navigateTo({
 					url: '/pages/personal/artPost/topicPost'
 				});

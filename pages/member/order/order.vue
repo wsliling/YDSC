@@ -13,14 +13,14 @@
 			-->
 			<block v-for="(item,index) in list" :key="index">
 			<view class="order_item bg_fff mt2" @click="todetail(item.OrderNumber,item.GroupRecordId)">
-				<view class="flex-between">
+				<!-- <view class="flex-between">
 					<view class="shopbox flex flex-start" @click.stop="goUrl('/pages/goods/storeIndex/storeIndex?id='+item.ShopId)">
 						<view class="iconfont icon-shop"></view>
 						<text class="shopName uni-ellipsis">{{item.ShopName}}</text>
 						<view class="iconfont icon-arrow_r"></view>
 					</view>
 					<view class="c_theme font26">{{item.StatusName}}</view>
-				</view>
+				</view> -->
 				<block v-if="item.OrderDetails.length>2">
 					<view class="flex-between mt2">
 						<image :src="ite.PicNo" mode="aspectFit" class="img mr2 b_radius" v-for="(ite, ind) in item.OrderDetails" :key="ind"></image>

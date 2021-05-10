@@ -4,20 +4,19 @@
 			<view class="nav-left">
 				<view :class="[tabNav == 4 ? 'active' : '']" @click="tapNav(4)">最新</view>
 				<view :class="[tabNav == 2 ? 'active' : '']" @click="tapNav(2)">推荐</view>
-				<view :class="[tabNav == 1 ? 'active' : '']" @click="tapNav(1)">关注</view>
+				<view :class="[tabNav == 6 ? 'active' : '']" @click="tapNav(6)">关注</view>
 				<view :class="[tabNav == 3 ? 'active' : '']" @click="tapNav(3)">附近</view>
 			</view>
 		</view>
 		<view :style="{ height: barHeight + 44 + 'px' }"></view>
-		<!-- <view class="f_banner uni-bg-white" v-if="tabNav == 4 && bannerList.length" @click="tolink('/pages/personal/topic/topic')">
-			<image class="b_radius" :src="bannerList[0].Pic" mode="widthFix"></image>
-			<block v-for="(item, index) in datalist" :key="index"><mediaList :datajson="item" Grid="3" @click="goDetail" @previewImg="previewImg"></mediaList></block>
-		</view> -->
 		<view class="list-2" v-if="tabNav == 4 && bannerList.length">
-			<image class="b_radius" :src="bannerList[0].Pic" mode="widthFix" @click="tolink('/pages/personal/topic/topic')"></image>
+			<view class="list-2-1"><image class="b_radius" :src="bannerList[0].Pic" mode="widthFix" @click="tolink('/pages/personal/topic/topic')"></image></view>
 			<block v-for="(item, index) in datalist" :key="index"><mediaList :datajson="item" Grid="3" @click="goDetail" @previewImg="previewImg"></mediaList></block>
 		</view>
 		<view class="list" v-if="hasData && tabNav == 2">
+			<block v-for="(item, index) in datalist" :key="index"><mediaList :datajson="item" Grid="3" @click="goDetail" @previewImg="previewImg"></mediaList></block>
+		</view>
+		<view class="list" v-if="hasData && tabNav == 6">
 			<block v-for="(item, index) in datalist" :key="index"><mediaList :datajson="item" Grid="3" @click="goDetail" @previewImg="previewImg"></mediaList></block>
 		</view>
 		<view class="list-1" v-if="tabNav == 3">
@@ -281,9 +280,13 @@ export default {
 }
 .list-2 {
 	background-color: white;
-	.b_radius {
-		padding: 20upx;
-		border-radius: 80upx;
+	.list-2-1 {
+		display: flex;
+		.b_radius {
+			flex: 1;
+			padding: 20upx;
+			border-radius: 80upx;
+		}
 	}
 	image {
 		border-radius: 50%;

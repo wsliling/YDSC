@@ -20,14 +20,14 @@
 			</view>
 			<view class="cartGroupList">
 				<view class="item" v-for="(item,index) in cartlist" :key="index">
-					<view class="item__hd flex-between">
+					<!-- <view class="item__hd flex-between">
 						<view :class="['IconsCK IconsCK-radio',item.select?'checked':'']" @click="shopcheck(index)"></view>
 						<view class="shop flex1 flex-start" @click="golink('/pages/goods/storeIndex/storeIndex?ShopId='+item.ShopId)">
 							<view class="shopName uni-ellipsis mr1">{{item.ShopName}}</view>
 							<view class="iconfont icon-arrow_r fz12"></view>
 						</view>
-						<!-- <view class="btn_receive" @click="showCoupon(item.ShopId)">领券</view> -->
-					</view>
+						<view class="btn_receive" @click="showCoupon(item.ShopId)">领券</view>
+					</view> -->
 					<view class="column levelPanel">
 						<view class="item" v-for="(item2,index2) in item.ProData" :key="index2">
 							<view class="outside uni-pd10 flex">

@@ -140,7 +140,7 @@ export default {
 				clearInterval(this.timeout);
 				this.timeout = setInterval(() => {
 					this.goSlide(this.currentIndex + 1);
-				}, 15000);
+				}, 5000);
 			}
 		}
 	},
@@ -162,8 +162,8 @@ export default {
 
 <style lang="scss">
 .carousel-3d-container {
-	min-height: 1rpx;	border-radius: 20rpx;
-	width: 800rpx;
+	min-height: 1rpx;
+	border-radius: 20rpx;
 	position: relative;
 	z-index: 0;
 	overflow: hidden;
@@ -174,12 +174,12 @@ export default {
 	position: relative;
 	margin: 0 auto;
 	transform-style: preserve-3d;
-	perspective:1000rpx;
-	height: 620rpx;
+	perspective: 1000rpx;
+	height: 590rpx;
 }
 .item {
 	position: absolute;
-	left: 130rpx;
+	left: 140rpx;
 	height: 180rpx;
 	opacity: 0;
 	transform: translateZ(-800rpx);
@@ -187,12 +187,12 @@ export default {
 }
 
 .prev {
-	transform: translateX(-210rpx) translateZ(-300rpx);
+	transform: translateX(-220rpx) translateZ(-300rpx);
 	opacity: 0.5;
 	visibility: visible;
 }
 .next {
-	transform: translateX(210rpx) translateZ(-300rpx);
+	transform: translateX(215rpx) translateZ(-300rpx);
 	opacity: 0.5;
 	visibility: visible;
 }
@@ -204,7 +204,7 @@ export default {
 
 .img {
 	width: 480rpx;
-	height: 600rpx;
+	height: 570rpx;
 	border-radius: 20rpx;
 	overflow: hidden;
 }

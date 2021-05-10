@@ -49,8 +49,8 @@
 				</view>
 			</view>
 		</view>
-		<view class="Yi-Userlist bg_fff" v-if="hasData && Type == 3">
-			<view class="user-item" v-for="(item, _index) in datalists" :key="_index">
+		<!-- <view class="Yi-Userlist bg_fff" v-if="hasData && Type == 3"> -->
+		<!-- <view class="user-item" v-for="(item, _index) in datalists" :key="_index">
 				<view class="flex-between">
 					<view class="author flex-start" @click="tolink('/pages/goods/storeIndex/storeIndex?id=' + item.ShopId)">
 						<view class="tx"><image :src="item.Logo || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
@@ -60,8 +60,8 @@
 						</view>
 					</view>
 				</view>
-			</view>
-		</view>
+			</view> -->
+		<!-- </view> -->
 		<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
 		<noData :isShow="noDataIsShow"></noData>
 	</view>
@@ -93,7 +93,7 @@ export default {
 				},
 				{
 					Id: 3,
-					TypeName: '店铺'
+				TypeName: '店铺'
 				}
 			],
 			page: 1,

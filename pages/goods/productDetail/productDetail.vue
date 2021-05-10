@@ -202,7 +202,7 @@
 			</view> 
 		</view>
 		<!-- 店铺 -->
-		<view class="product-shop uni-bg-white uni-mb10" v-if="proInfo.ShopData">
+		<!-- <view class="product-shop uni-bg-white uni-mb10" v-if="proInfo.ShopData">
 			<view class="flex flex-between">
 				<view class="shop-logo">
 					<image class="img" :src="proInfo.ShopData.Logo||'http://via.placeholder.com/100x100'" mode="aspectFill"></image>
@@ -218,7 +218,7 @@
 				</view>
 				<view class="btn" @click="tolink('/pages/goods/storeIndex/storeIndex?id='+proInfo.ShopData.ShopId)">进店逛逛</view>
 			</view>
-		</view>
+		</view> -->
 		<!-- 图文详情-->
 		<view class="uni-bg-white">
 			<view class="Yi-hd" style="padding: 30upx;"><text class="title">商品详情</text></view>

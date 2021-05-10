@@ -2,14 +2,12 @@
 	<view>
 		<view class="List">
 			<view class="order_item bg_fff mt2" v-for="(item,index) in groupOrder" :key="index">
-				<view class="flex justifyContentBetween flexAlignCenter">
+				<!-- <view class="flex justifyContentBetween flexAlignCenter">
 					<view class="shopbox flex flex-start" @click.stop="golink('/pages/goods/storeIndex/storeIndex?id='+item.ShopId)">
 						<view class="iconfont icon-shop" style="margin-right: 20rpx;"></view>
 						<text class="shopName uni-ellipsis">{{item.ShopName}}</text>
-						<!-- <view class="iconfont icon-arrow_r"></view> -->
 					</view>
-					<!-- <view class="color_red font26">燕之屋旗舰店</view> -->
-				</view>
+				</view> -->
 				<view class="flex justifyContentBetween mt2" v-for="(ite,i) in item.OrderDetails" :key="i" @click="golink('/pages/member/groupOrderDetail/groupOrderDetail?Id='+item.OrderNumber)">
 					<image :src="ite.PicNo" mode="aspectFit" class="img mr2"></image>
 					<view class="flex1 order_info">
