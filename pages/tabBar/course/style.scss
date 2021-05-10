@@ -35,6 +35,7 @@
 		> view {
 			flex: 1;
 			image {
+				border-radius: 20upx;
 				height: 340upx;
 			}
 		}
@@ -46,7 +47,7 @@
 				padding: 20upx 20upx 0 0;
 			}
 			image {
-				height: 162upx;
+				height: 161upx;
 			}
 		}
 	}
@@ -64,6 +65,7 @@
 		.sec1_1 {
 			padding: 10upx;
 			image {
+				border-radius: 20upx;
 				height: 250upx;
 			}
 		}
@@ -71,6 +73,7 @@
 			display: flex;
 			image {
 				flex: 1;
+				border-radius: 20upx;
 				height: 210upx;
 				padding: 10upx;
 			}
@@ -114,6 +117,7 @@
 				.sec2_1 {
 					padding: 12upx 20upx;
 					image {
+						border-radius: 20upx;
 						height: 280upx;
 					}
 				}
@@ -149,6 +153,7 @@
 				padding: 0 12upx;
 				image {
 					height: 190upx;
+					border-radius: 10upx;
 				}
 			}
 			> view:nth-of-type(2) {

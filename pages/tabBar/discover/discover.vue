@@ -106,9 +106,13 @@ export default {
 			this.hasData = false;
 			this.noDataIsShow = false;
 			this.page = 1;
-			this.datalist = [];
-			this.FindList();
-			this.getGymList();
+			if (this.tabNav == 3) {
+				this.gymlist = [];
+				this.getGymList();
+			} else {
+				this.datalist = [];
+				this.FindList();
+			}
 		},
 		// 获取banner图
 		async getBanner(type) {
@@ -128,8 +132,6 @@ export default {
 				Page: this.page,
 				PageSize: this.pageSize,
 				myType: this.tabNav
-				// "MemberId": "",
-				// "SearchKey": ""
 			});
 			if (result.code === 0) {
 				let _this = this;
@@ -212,9 +214,13 @@ export default {
 	},
 	onPullDownRefresh() {
 		this.page = 1;
-		this.datalist = [];
-		this.FindList();
-		this.getGymList();
+		if (this.tabNav == 3) {
+			this.gymlist = [];
+			this.getGymList();
+		} else {
+			this.datalist = [];
+			this.FindList();
+		}
 		uni.stopPullDownRefresh();
 	},
 	// 上拉加载
@@ -222,8 +228,11 @@ export default {
 		if (this.isLoad) {
 			this.loadingType = 1;
 			this.page++;
-			this.FindList();
-			this.getGymList();
+			if (this.tabNav == 3) {
+				this.getGymList();
+			} else {
+				this.FindList();
+			}
 		} else {
 			this.loadingType = 2;
 		}

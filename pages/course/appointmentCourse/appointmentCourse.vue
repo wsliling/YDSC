@@ -6,13 +6,13 @@
 			</view>
 			<view class="list" v-if="hasData">
 				<view class="con" v-for="(item, index) in course" :key="index">
-					<view class="con_1"><image :src="item.PicImg"></image></view>
+					<view class="con_1"><image :src="item.PicImg" mode="aspectFill"></image></view>
 					<view class="con_2">
 						<view class="title">{{ item.Title }}</view>
 						<view class="title_1">{{ item.TargetName }} | {{ item.DifficultyName }} | {{ item.CourseDuration }}分钟</view>
 						<view class="title_2">
 							<view class="title2_1">
-								<image :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'"></image>
+								<image :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
 								<text>{{ item.CoachNick }}</text>
 							</view>
 							<view class="title2_2" @click="courseDetails(item.Id)">立即预约</view>

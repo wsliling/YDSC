@@ -1,21 +1,23 @@
 <template>
 	<view class="courseDetails">
 		<view class="top">
-			<view class="photo"><image :src="appcoursedetail.PicImg"></image></view>
+			<view class="photo"><image :src="appcoursedetail.PicImg" mode="aspectFill"></image></view>
 			<view class="info">
 				<view class="name">{{ appcoursedetail.Title }}</view>
 			</view>
 			<view class="detail">{{ appcoursedetail.TargetName }} | {{ appcoursedetail.DifficultyName }}</view>
 			<view class="info1">
-				<view class="info1_3"><image :src="appcoursedetail.CoachAvatar  || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
+				<view class="info1_3"><image :src="appcoursedetail.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
 				<view class="info1_4">{{ appcoursedetail.CoachNick }}</view>
-				<view class="info1_1" v-for="(item, index) in reguser" :key="index"><image :src="item.Avatar  || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
+				<view class="info1_1" v-for="(item, index) in reguser" :key="index">
+					<image :src="item.Avatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
+				</view>
 				<view class="info1_2">{{ appcoursedetail.ApplyNum }}人已预约</view>
 			</view>
 		</view>
 		<view class="line"></view>
 		<view class="cen">
-			<view class="stadium"><image :src="appcoursedetail.StoreLogo  || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
+			<view class="stadium"><image :src="appcoursedetail.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
 			<view class="stadium_1">
 				<view class="stadium_1_1">{{ appcoursedetail.StoreName }}</view>
 				<view class="stadium_1_2">{{ appcoursedetail.StoreAddress }}</view>
@@ -27,7 +29,10 @@
 			<view class="con1_1">{{ appcoursedetail.Content }}</view>
 		</view>
 		<view class="line"></view>
-		<view class="time"><times v-if="hasDate" :reserveId="Id" :jsonData="appcoursedetail.DateList"></times></view>
+		<view class="time">
+			<times v-if="hasDate && appcoursedetail.DateList.length" :reserveId="Id" :jsonData="appcoursedetail.DateList"></times>
+			<view class="title" v-else>暂无排课时间</view>
+		</view>
 	</view>
 </template>
 

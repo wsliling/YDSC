@@ -147,7 +147,6 @@ export default {
 				// #ifndef MP-WEIXIN
 				var codeurl = this.info.InviteQRcode;
 				// #endif
-
 				var bgurl = this.bgurl;
 				var avaurl = this.avaurl;
 				// var tel=this.tel
@@ -214,20 +213,20 @@ export default {
 							}, 2000);
 						}
 					});
-					// // #ifdef APP-PLUS
-					// uni.share({
-					//     provider: "weixin",
-					//     scene: "WXSenceTimeline",
-					//     type: 2,
-					//     imageUrl: _this.saveImgurl,
-					//     success: function (res) {
-					//         console.log("success:" + JSON.stringify(res));
-					//     },
-					//     fail: function (err) {
-					//         console.log("fail:" + JSON.stringify(err));
-					//     }
-					// });
-					// // #endif
+					// #ifdef APP-PLUS
+					uni.share({
+					    provider: "weixin",
+					    scene: "WXSenceTimeline",
+					    type: 2,
+					    imageUrl: _this.saveImgurl,
+					    success: function (res) {
+					        console.log("success:" + JSON.stringify(res));
+					    },
+					    fail: function (err) {
+					        console.log("fail:" + JSON.stringify(err));
+					    }
+					});
+					// #endif
 				}
 			});
 		},
@@ -339,16 +338,15 @@ export default {
 <style scoped lang="scss">
 .invite {
 	background-color: #f5f5f5;
+	height: 100vh;
 }
 .inn_bg {
 	width: 750upx;
-	/* height:644upx; */
 	height: 1210upx;
 	position: relative;
 	.invite {
 		width: 750upx;
 		top: 0;
-		// height: auto;
 		height: 100vh;
 		position: absolute;
 		bottom: 0;

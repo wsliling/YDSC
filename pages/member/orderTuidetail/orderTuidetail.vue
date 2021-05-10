@@ -158,7 +158,7 @@
 		methods: {
 			toKefu(){
 				uni.navigateTo({
-					url:'/pages/other/kefu/kefu'
+					url:'/pages/member/kefu/kefu'
 				})
 			},
 			//打开寄回信息单号

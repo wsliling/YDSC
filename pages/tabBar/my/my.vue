@@ -19,20 +19,20 @@
 				</view>
 				<view class="u_data flex center">
 					<view class="item" @click="golink('/pages/member/follow/follow?type=0')">
-						<view class="num">{{ Info.Follow || 0 }}</view>
+						<view class="num">{{ memberInfo.Follow || 0 }}</view>
 						<view class="txt">关注</view>
 					</view>
 					<view class="item" @click="golink('/pages/member/follow/follow?type=1')">
-						<view class="num">{{ Info.Fans > 9999 ? (Info.Fans / 9999).toFixed(1) + 'W' : Info.Fans || 0 }}</view>
+						<view class="num">{{ memberInfo.Fans > 9999 ? (Info.Fans / 9999).toFixed(1) + 'W' : Info.Fans || 0 }}</view>
 						<view class="txt">粉丝</view>
 					</view>
 					<view class="item">
 						<!-- <view class="item" @click="golink('/pages/message/messageClass/messageClass?type=2')"> -->
-						<view class="num">{{ Info.TotalLikeNum || 0 }}</view>
+						<view class="num">{{ memberInfo.TotalLikeNum || 0 }}</view>
 						<view class="txt">获赞</view>
 					</view>
 					<view class="item" @click="golink('/pages/member/collect/collect?type=3')">
-						<view class="num">{{ Info.CollectionNum || 0 }}</view>
+						<view class="num">{{ memberInfo.CollectionNum || 0 }}</view>
 						<view class="txt">收藏</view>
 					</view>
 				</view>
@@ -46,10 +46,10 @@
 							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/my_data.png" mode="widthFix"></image></view>
 							<view class="txt">我的数据</view>
 						</view>
-						<view class="item" @click="golink('/pages/member/myplan/myplan')">
+						<!-- <view class="item" @click="golink('/pages/member/myplan/myplan')">
 							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/my_plan.png" mode="widthFix"></image></view>
 							<view class="txt">我的计划</view>
-						</view>
+						</view> -->
 						<view class="item" @click="golink('/pages/member/myappointment/myappointment')">
 							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/my_yuyue.png" mode="widthFix"></image></view>
 							<view class="txt">我的预约</view>
@@ -61,7 +61,7 @@
 						<view class="item" @click="golink('/pages/member/order/order')">
 							<view class="iconImg p_re">
 								<image class="icon" src="http://yd.wtanvxin.com/static/my_order.png" mode="widthFix"></image>
-								<view class="circleNum">2</view>
+								<view class="circleNum" v-if="memberInfo.OrderNum != 0">{{ memberInfo.OrderNum || 0 }}</view>
 							</view>
 							<view class="txt">我的订单</view>
 						</view>
@@ -71,10 +71,10 @@
 			<view class="memberIndex_section uni-bg-white b_radius uni-mb10">
 				<view class="section_bd">
 					<view class="li_20 center flex flexWrap">
-						<view class="item">
+						<!-- <view class="item">
 							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_1.png" mode="widthFix"></image></view>
 							<view class="txt">我的手环</view>
-						</view>
+						</view> -->
 						<view class="item" @click="golink('/pages/tabBar/my/wallet')">
 							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_2.png" mode="widthFix"></image></view>
 							<view class="txt">我的钱包</view>
@@ -83,11 +83,11 @@
 							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_3.png" mode="widthFix"></image></view>
 							<view class="txt">积分</view>
 						</view>
-						<view class="item">
-							<!-- <view class="item" @click="golink('/pages/member/applyShop/applyShop')"> -->
+						<!-- <view class="item">
+							<view class="item" @click="golink('/pages/member/applyShop/applyShop')">
 							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_4.png" mode="widthFix"></image></view>
 							<view class="txt">店铺申请</view>
-						</view>
+						</view> -->
 						<!-- <view class="item" @click="getAttest">
 							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_4.png" mode="widthFix"></image></view>
 							<view class="txt">{{ memberInfo.IsBusiness ? '我的店铺' : '店铺申请' }}</view>

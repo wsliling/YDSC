@@ -1,7 +1,7 @@
 <template>
 	<view class="classDetails">
 		<view class="top">
-			<view class="photo"><image :src="classdetail.PicImg"></image></view>
+			<view class="photo"><image :src="classdetail.PicImg" mode="aspectFill"></image></view>
 			<view class="info">
 				<view class="name">{{ classdetail.Name }}</view>
 			</view>
@@ -11,7 +11,7 @@
 			</view>
 			<view class="info1">
 				<view class="info1_3" @click="tolink('/pages/personal/VenueDetail/VenueDetail?gymId=' + classdetail.StoreId)">
-					<image :src="classdetail.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'"></image>
+					<image :src="classdetail.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
 				</view>
 				<view class="info1_4">{{ classdetail.StoreNick }}</view>
 				<view :class="['info1_2',Isfollow?'ed':'']" @click="followfun">{{Isfollow?'已关注':'关注'}}</view>
@@ -51,7 +51,7 @@
 				收藏
 			</view>
 			<view class="foot_2">
-				<view class="iconfont icon-share"></view>
+				<button class="sharebtn" open-type="share"><view class="iconfont icon-share"></view></button>
 				分享
 			</view>
 			<view class="foot_3" @click="tolink('/pages/course/scoreExchange/scoreExchange?classId=' + classdetail.Id)">{{ classdetail.Score }}积分兑换</view>
@@ -180,4 +180,13 @@ export default {
 
 <style lang="scss">
 @import './style';
+.sharebtn {
+	background-color: white;
+	line-height: 50upx;
+	margin-top: 5upx;
+	color: #7c7c8a;
+}
+.sharebtn::after {
+	border: none;
+}
 </style>

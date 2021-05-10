@@ -399,8 +399,7 @@
 		},
 		{
 			"root": "pages/other",
-			"pages": [
-				{
+			"pages": [{
 					"path": "money/money",
 					"style": {
 						"navigationBarTitleText": "收支明细"
@@ -433,8 +432,7 @@
 		},
 		{
 			"root": "pages/member",
-			"pages": [
-				{
+			"pages": [{
 					"path": "couponCenter/couponCenter",
 					"style": {
 						"navigationBarTitleText": "优惠券",
@@ -869,6 +867,22 @@
 		{
 			"root": "pages/course",
 			"pages": [{
+				"path": "classList/classList",
+				"style": {
+					"navigationBarTitleText": "产品列表",
+					"enablePullDownRefresh": true,
+					"app-plus": {
+						"pullToRefresh": {
+							"support": true,
+							"color": "#FF3737", //小圈圈的颜色
+							"style": "circle" //小圈圈的样式
+						},
+						"titleNView": false,
+						"bounce": "none",
+						"scrollIndicator": "none" //不显示滚动条
+					}
+				}
+			}, {
 				"path": "gym/gym",
 				"style": {
 					"navigationBarTitleText": "场馆详情",
@@ -1104,14 +1118,12 @@
 			}
 		]
 	},
-	"condition" : { //模式配置，仅开发期间生效
+	"condition": { //模式配置，仅开发期间生效
 		"current": 0, //当前激活的模式(list 的索引项)
-		"list": [
-			{
-				"name": "", //模式名称
-				"path": "", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			}
-		]
+		"list": [{
+			"name": "", //模式名称
+			"path": "", //启动页面，必选
+			"query": "" //启动参数，在页面的onLoad函数里面得到
+		}]
 	}
 }

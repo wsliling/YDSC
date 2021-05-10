@@ -55,7 +55,6 @@
 						</view>
 					</view>
 				</view>
-				
 			</view>
 		</form>
 		<!--底部-->
@@ -103,12 +102,12 @@
 </template>
 
 <script>
-import { host, post, get, formatLocation, formatTime, toLogin,debounce,permision } from '@/common/util.js';
-import { pathToBase64} from '@/common/image-tools.js';
+import { host, post, get, formatLocation, formatTime, toLogin, debounce, permision } from '@/common/util.js';
+import { pathToBase64 } from '@/common/image-tools.js';
 export default {
 	data() {
 		return {
-			showmsk:0,
+			showmsk: 0,
 			userId: '',
 			token: '',
 			hasLocation: false,
@@ -132,7 +131,7 @@ export default {
 		this.token = uni.getStorageSync('token');
 	},
 	onShow() {
-		this.showmsk=uni.getStorageSync("showmsk2")||1;
+		this.showmsk = uni.getStorageSync('showmsk2') || 1;
 		this.quanxian();
 	},
 	onUnload() {
@@ -141,13 +140,13 @@ export default {
 	methods: {
 		// 判断是否已开启权限
 		async quanxian() {
-			let platform = uni.getSystemInfoSync()&&uni.getSystemInfoSync().platform;
+			let platform = uni.getSystemInfoSync() && uni.getSystemInfoSync().platform;
 			switch (uni.getSystemInfoSync().platform) {
 				case 'android':
 					var res = await permision.requestAndroidPermission('android.permission.WRITE_EXTERNAL_STORAGE');
-					if(res == 1){//已经获取授权开始
-						
-					}else{
+					if (res == 1) {
+						//已经获取授权开始
+					} else {
 						uni.showToast({
 							title: '请先开启相册权限',
 							icon: 'none',
@@ -157,44 +156,44 @@ export default {
 						});
 					}
 					break;
-		
+
 				case 'ios':
 					var iosresult = await permision.judgeIosPermission('camera');
 					var iosres = await permision.judgeIosPermission('photoLibrary');
-					if(iosresult&& iosres){//已经获取授权
-						
-					}else if ((!iosres)||(!iosresult)) {
-						uni.showModal({  
-							content: '请先开启相机和相册权限！',  
-							confirmText: '设置',  
-							success: res => {  
-								if(res.confirm) {  
-									plus.runtime.openURL('app-settings://')  
-								} else {  
-									uni.navigateBack({  
-										delta: 1  
-									})  
-								}  
-							}  
-						}); 
+					if (iosresult && iosres) {
+						//已经获取授权
+					} else if (!iosres || !iosresult) {
+						uni.showModal({
+							content: '请先开启相机和相册权限！',
+							confirmText: '设置',
+							success: res => {
+								if (res.confirm) {
+									plus.runtime.openURL('app-settings://');
+								} else {
+									uni.navigateBack({
+										delta: 1
+									});
+								}
+							}
+						});
 					}
-				break;
+					break;
 			}
 		},
-		toback(){
-			uni.navigateBack()
+		toback() {
+			uni.navigateBack();
 		},
-		showmskFn(){
-			this.showmsk=2;
-			uni.setStorageSync("showmsk2",2)
+		showmskFn() {
+			this.showmsk = 2;
+			uni.setStorageSync('showmsk2', 2);
 		},
 		async chooseImage() {
-			let _this=this;
+			let _this = this;
 			uni.chooseImage({
 				count: this.imageList.length + this.count[this.countIndex] > 9 ? 9 - this.imageList.length : this.count[this.countIndex],
 				sizeType: ['compressed'],
 				sourceType: ['album', 'camera'],
-				success:async res => {
+				success: async res => {
 					// tempFilePath可以作为img标签的src属性显示图片
 					//let tempFilePaths = res.tempFilePaths[0];
 					_this.imageList = _this.imageList.concat(res.tempFilePaths);
@@ -235,15 +234,17 @@ export default {
 			//#endif
 			// #ifdef APP-PLUS
 			this.$showModal({
-				content: "已经有9张图片了,是否清空现有图片？",
-			}).then(_res=>{
-				this.imageList = [];
-				res(true);
-				//确认
-			  }).catch(_res=>{
-				//取消
-				res(false)
-			  })
+				content: '已经有9张图片了,是否清空现有图片？'
+			})
+				.then(_res => {
+					this.imageList = [];
+					res(true);
+					//确认
+				})
+				.catch(_res => {
+					//取消
+					res(false);
+				});
 			// #endif
 		},
 		previewImage: function(e) {
@@ -367,11 +368,11 @@ export default {
 		},
 		async Submit() {
 			let _this = this;
-			debounce(()=>{
-			if (_this.verifysubmint()) {
-				_this.UserPublishFind();
-			}
-			})
+			debounce(() => {
+				if (_this.verifysubmint()) {
+					_this.UserPublishFind();
+				}
+			});
 		},
 		//清除数据
 		clearData() {
@@ -382,5 +383,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  @import './style';
+@import './style';
 </style>
