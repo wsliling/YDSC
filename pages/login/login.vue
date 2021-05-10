@@ -59,7 +59,8 @@
 				</view>
 				<view class="Title">英达思创</view>
 		    </view> 
-		    <button class="login-btn btn_gree" open-type="getUserInfo" @click="oauth">微信登录</button>
+			<button v-if="isband" class="login-btn btn_gree" open-type="getPhoneNumber" @getphonenumber="getPhoneNumber">绑定手机号</button>
+		    <button v-else class="login-btn btn_gree" open-type="getUserInfo" @click="oauth">微信登录</button>
 		    <!-- <view class="c_blue uni-center" @click="loginTel">手机号登录/注册</view> -->
 		</view>
 		<!-- #endif --> 
@@ -133,10 +134,25 @@
 				isIndex:false,
 				logintype:false,//true表示密码登录，false手机验证码登录
 				isShowMolie:true,//是否显示号登录界面
-				isShowminiApp:false//是否显示小程序登录
+				isShowminiApp:false,//是否显示小程序登录
+				isband:false,//是否绑定手机号
+				jsonARR:{}
 			};
 		},
 		methods: { 
+			getPhoneNumber(e){
+				if(e.detail.errMsg=="getPhoneNumber:ok"){
+					this.jsonARR['iv']=e.detail.iv;
+					this.jsonARR['encryptedData']=e.detail.encryptedData;
+					this.bandPhoneNumber(this.jsonARR);
+				}else{
+					uni.showToast({
+					  title: "获取授权失败！",
+					  icon: "none",
+					  duration: 2000
+					});
+				}
+			},
 			golink(url){
 				uni.navigateTo({
 					url
@@ -284,13 +300,13 @@
 				}
 			},
 			// 小程序登录
-			async MPlogin(code, iv, encryptedData){
-				let result=await post("Login/SignIn_New",{
+			async MPlogin(code, iv, encryptedData,userInfo){
+				let _this = this;
+				let result=await post("Login/SignInNew",{
 					iv:iv,
 					code:code,
 					encryptedData:encryptedData
 				})
-				console.log(result)
 				uni.setStorageSync("unionid", result.data.unionid);
 				uni.setStorageSync("token", result.data.Token);
 				uni.setStorageSync("userId", result.data.UserId);
@@ -299,7 +315,6 @@
 				uni.setStorageSync('IsShop', result.data.IsShop);
 				// console.log(result.data,"mmmmmmmmmmmm")
 				if(result.code===0){
-					let _this = this;
 					uni.showToast({
 					  title: "登录成功!",
 					  icon: "none",
@@ -313,53 +328,35 @@
 							}else{
 								uni.navigateBack();
 							}
-							
-							// uni.navigateBack();
-							// if(_this.askUrl){
-							//   if(_this.askUrl.indexOf("undefined")>-1){
-							// 	uni.switchTab({
-							// 	  url: "/pages/tabBar/my/my"
-							// 	});
-							//   }
-							//   if(_this.askUrl.indexOf("cart")>-1){
-							// 	uni.switchTab({
-							// 	  url: "/pages/tabBar/cart/cart"
-							// 	});
-							//   }
-							//   if(_this.askUrl.indexOf("/my/my")>-1){
-							// 	uni.switchTab({
-							// 	  url: "/pages/tabBar/my/my"
-							// 	});
-							//   }
-							//   if(_this.askUrl.indexOf("/discover/discover")>-1){
-							// 	uni.switchTab({
-							// 	  url: "/pages/tabBar/discover/discover"
-							// 	});
-							//   }
-							//   uni.redirectTo({
-							// 	url: _this.askUrl
-							//   });
-							// }else{
-							//   uni.switchTab({
-							// 	url: "/pages/tabBar/my/my"
-							//   });
-							// }
 						 }, 1500);
 					  }
 					});
 				}else if (result.code === 2) {
+					// uni.showToast({
+					// 	title: result.msg,
+					// 	icon: 'none',
+					// 	duration: 1500,
+					// 	success: function() {
+					// 		setTimeout(function() {
+					// 			wx.redirectTo({
+					// 				url: '/pages/register/register?type=1'
+					// 			})
+					// 		}, 1500);
+					// 	}
+					// })
 					uni.showToast({
-						title: result.msg,
-						icon: 'none',
-						duration: 1500,
-						success: function() {
-							setTimeout(function() {
-								wx.redirectTo({
-									url: '/pages/register/register?type=1'
-								})
-							}, 1500);
-						}
-					})
+					  title: result.msg,
+					  icon: "none",
+					  duration: 2000
+					});
+					this.isband=true;
+					this.jsonARR={
+						openId:result.data.openId,
+						unionid:result.data.unionid,
+						userInfo:userInfo,
+						session_key:result.data.session_key,
+						InviteCode:_this.inviteCode
+					}
 				}
 				else{
 					uni.showToast({
@@ -380,7 +377,7 @@
 						         */
 								uni.setStorageSync("userInfo", infoRes.userInfo);
 								uni.setStorageSync("avatarUrl", infoRes.userInfo.avatarUrl);
-								this.MPlogin(res.code, infoRes.iv, infoRes.encryptedData);
+								this.MPlogin(res.code, infoRes.iv, infoRes.encryptedData,infoRes.userInfo);
 						    }
 						});
 					},
@@ -389,6 +386,32 @@
 					}
 				})
 			},
+			async bandPhoneNumber(json){
+				let result=await post("Login/getPhoneNumber",json)
+				if(result.code==0){
+					console.log(result)
+					uni.setStorageSync("token", result.data.Token);
+					uni.setStorageSync("userId", result.data.UserId);
+					let _this = this;
+					uni.showToast({
+					  title: "登录成功!",
+					  icon: "none",
+					  duration: 1500,
+					  success:function(){
+						setTimeout(function() {
+							if(_this.isRegister){
+								uni.switchTab({
+									url: "/pages/tabBar/my/my"
+								  });	
+							}else{
+								uni.navigateBack();
+							}
+						 }, 1500);
+					  }
+					});
+				}
+			},
+			
 			//微信跳转登录
 			loginTel(){
 				this.isShowminiApp=false;

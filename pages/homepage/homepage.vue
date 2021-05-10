@@ -160,7 +160,7 @@
 		<!-- 弹出更换封面 -->
 		<uni-popup v-if="myType == 1" ref="bannerWin" type="center">
 			<view class="uni-modal-banner" @click="hidePopup">
-				<view class="img"><image :src="HomeCover || 'http://yd.wtanvxin.com/static/homeBg.png'" mode="aspectFill"></image></view>
+				<view class="img"><image :src="HomeCover || 'http://yd.wtanvxin.com/static/topic.jpg'" mode="aspectFill"></image></view>
 				<view class="btn btn_red" @click.stop="chooseImg">更换封面</view>
 				<view class="btn" @click.stop="hidePopup">取消</view>
 			</view>
