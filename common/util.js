@@ -1,9 +1,8 @@
 
 const host = 'http://ydapi.wtanvxin.com/api/'; //测试接口地址
- const webUrl = 'http://yd.wtvxin.com';
-const wssPath = 'wss://ydapi.wtvxin.com/WebSocketServer.ashx';  //wss接口地址
-const wssHost = 'ws://ydapi.wtvxin.com';  //wss接口地址
-
+const webUrl = 'http://yd.wtanvxin.com';
+const wssPath = 'wss://ydapi.wtanvxin.com/WebSocketServer.ashx';  //wss接口地址
+const wssHost = 'ws://ydapi.wtanvxin.com';  //wss接口地址
 // const host = 'https://api.yixijiu19.com/api/';  //正试接口地址
 // const webUrl = 'http://yd.wtanvxin.com';
 // const wssPath = 'wss://api.yixijiu19.com/WebSocketServer.ashx';  //wss接口地址

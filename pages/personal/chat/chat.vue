@@ -110,7 +110,7 @@
 				})
 				// 创建连接
 				uni.connectSocket({
-					url:wssHost+'/LiveRoomServer.ashx?Type=1&Signature='+res.data.Signature,
+					url:wssHost+'/WebSocketServer.ashx?Type=1&Signature='+res.data.Signature,
 					complete(err){
 						console.log(err,res.data.Signature)
 					}
