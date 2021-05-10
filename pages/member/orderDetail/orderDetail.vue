@@ -96,7 +96,7 @@
           </view>
       </view>
 	  <!-- #ifndef MP-WEIXIN -->
-      <view class="bg_fff pp2 flex-center b_radius mt2 order_posi" @click="goUrl('/pages/other/kefu/kefu?qqnum=996889692')">
+      <view class="bg_fff pp2 flex-center b_radius mt2 order_posi" @click="goUrl('/pages/member/kefu/kefu?qqnum=996889692')">
          <text class="iconfont icon-kf mr1"></text>
           <span>联系客服</span>
       </view>

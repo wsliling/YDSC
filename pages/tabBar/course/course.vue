@@ -2,15 +2,15 @@
 	<view class="course">
 		<view class="top">
 			<view class="top_left">
-				深圳
+				{{ locationAddress }}
 				<text class="iconfont icon-arrow_r"></text>
 			</view>
 			<view class="search">
 				<uni-nav-bar color="#ffffff" background-color="#fff" :border="false">
 					<block slot="center" class="flex1">
-						<view class="input-view" style="background: #f2f2f2; border-radius: 10upx; margin-left: 30upx;">
+						<view class="input-view" style="background: #f2f2f2; border-radius: 10upx;" @click="tolink('/pages/course/classList/classList')">
 							<uni-icons class="input-uni-icon" type="search" size="22" color="#b8b8b8" />
-							<input confirm-type="search" disabled="" class="nav-bar-input" type="text" placeholder="输入搜索关键词" />
+							<input confirm-type="search" class="nav-bar-input" type="text" placeholder="输入搜索关键词" />
 						</view>
 					</block>
 				</uni-nav-bar>
@@ -28,19 +28,19 @@
 			</view>
 		</view>
 		<view class="sec" v-if="bannerListOne.length">
-			<view class="sec_1"><image :src="bannerListOne[0].Pic" @click="appointmentCoach"></image></view>
+			<view class="sec_1"><image :src="bannerListOne[0].Pic" mode="aspectFill" @click="appointmentCoach"></image></view>
 			<view class="sec_2">
-				<view><image :src="bannerListOne[1].Pic" @click="appointmentCourse"></image></view>
-				<view><image :src="bannerListOne[2].Pic" @click="gym"></image></view>
+				<view><image :src="bannerListOne[1].Pic" mode="aspectFill" @click="appointmentCourse"></image></view>
+				<view><image :src="bannerListOne[2].Pic" mode="aspectFill" @click="gym"></image></view>
 			</view>
 		</view>
 		<view class="line"></view>
 		<view class="sec1" v-if="bannerListTwo.length">
 			<view class="sec1_title">大家都在练</view>
-			<view class="sec1_1"><image :src="bannerListTwo[0].Pic"></image></view>
+			<view class="sec1_1"><image :src="bannerListTwo[0].Pic" mode="aspectFill"></image></view>
 			<view class="sec1_2">
-				<image :src="bannerListTwo[1].Pic" @click="newPer"></image>
-				<image :src="bannerListTwo[2].Pic"></image>
+				<image :src="bannerListTwo[1].Pic" mode="aspectFill" @click="newPer"></image>
+				<image :src="bannerListTwo[2].Pic" mode="aspectFill"></image>
 			</view>
 		</view>
 		<view class="line"></view>
@@ -52,7 +52,7 @@
 				</view>
 				<view class="list" v-if="hasData">
 					<view class="tab1" v-for="(item, index) in classlist" :key="index">
-						<view class="sec2_1"><image :src="item.PicImg" @click="classDetails(item.Id)"></image></view>
+						<view class="sec2_1"><image :src="item.PicImg" @click="classDetails(item.Id)" mode="aspectFill"></image></view>
 					</view>
 					<view class="more" @click="moreCourse">查看更多推荐课程</view>
 				</view>
@@ -63,12 +63,12 @@
 		<view class="sec3"><view class="sec1_title">猜你喜欢</view></view>
 		<view class="sec4" v-for="(item, index) in classlike" :key="index">
 			<view class="sec4_1" @click="courseDetails(item.Id)">
-				<view><image :src="item.PicImg"></image></view>
+				<view><image :src="item.PicImg" mode="aspectFill"></image></view>
 				<view>
 					<view class="sec4_title">{{ item.Title }}</view>
 					<view class="sec4_title1">{{ item.DifficultyName }} . {{ item.CourseDuration }}分钟</view>
 					<view class="sec4_title2">
-						<image :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'"></image>
+						<image :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
 						<text>{{ item.CoachNick }}</text>
 					</view>
 				</view>
@@ -109,7 +109,8 @@ export default {
 			currentSwiper: 0,
 			tabs: [],
 			tabIndex: 45,
-			id: 0
+			id: 0,
+			locationAddress: ''
 		};
 	},
 	onLoad() {
@@ -125,6 +126,7 @@ export default {
 	},
 	onShow() {
 		this.pageCon = uni.getStorageSync('pageCon');
+		this.getLocationInfo();
 	},
 	methods: {
 		gym() {
@@ -183,6 +185,20 @@ export default {
 					url: Url
 				});
 			}
+		},
+		getLocationInfo() {
+			// uni.chooseLocation({
+			// 	success: res => {
+			// 		(this.location = formatLocation(res.longitude, res.latitude)), (this.locationAddress = res.address);
+			// 	}
+			// });
+			uni.getLocation({
+				success: function(res) {
+					this.locationAddress = res.address;
+					console.log('当前位置的经度：' + res.longitude);
+					console.log('当前位置的纬度：' + res.latitude);
+				}
+			});
 		},
 		// 获取banner图
 		async getBanner(type) {

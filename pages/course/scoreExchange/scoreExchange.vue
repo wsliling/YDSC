@@ -2,7 +2,7 @@
 	<view class="scoreExchange">
 		<view class="line"></view>
 		<view class="con">
-			<view class="con_1"><image :src="classdetail.PicImg"></image></view>
+			<view class="con_1"><image :src="classdetail.PicImg" mode="aspectFill"></image></view>
 			<view class="con_2">
 				<view class="title">{{ classdetail.Name }}</view>
 				<view class="title_1">{{ classdetail.TargetName }} | {{ classdetail.DifficultyName }} | {{ classdetail.CourseDuration }}分钟</view>

@@ -6,7 +6,7 @@
 			</view>
 			<view class="list" v-if="hasData">
 				<view class="tab1" v-for="(item, index) in classlist" :key="index">
-					<view class="sec2_1"><image :src="item.PicImg" @click="classDetails(item.Id)"></image></view>
+					<view class="sec2_1"><image :src="item.PicImg" @click="classDetails(item.Id)" mode="aspectFill"></image></view>
 				</view>
 			</view>
 			<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
@@ -107,6 +107,7 @@ export default {
 	},
 	onPullDownRefresh() {
 		this.page = 1;
+		this.getCourseList();
 		uni.stopPullDownRefresh();
 	},
 	// 上拉加载
@@ -114,6 +115,7 @@ export default {
 		if (this.isLoad) {
 			this.loadingType = 1;
 			this.page++;
+			this.getCourseList();
 		} else {
 			this.loadingType = 2;
 		}

@@ -1,7 +1,7 @@
 <template>
 	<view class="newPer">
 		<view v-for="(item, index) in course" :key="index">
-			<view class="con"><image :src="item.PicImg" @click="courseDetails(item.Id)"></image></view>
+			<view class="con"><image :src="item.PicImg" @click="courseDetails(item.Id)" mode="aspectFill"></image></view>
 		</view>
 		<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
 		<noData :isShow="noDataIsShow"></noData>
@@ -97,5 +97,15 @@ export default {
 </script>
 
 <style lang="scss">
-@import './style';
+.newPer {
+	padding: 16upx;
+	.con {
+		padding: 12upx;
+		image {
+			border-radius: 10upx;
+			height: 260upx;
+			width: 100%;
+		}
+	}
+}
 </style>

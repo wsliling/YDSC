@@ -98,7 +98,6 @@
 		padding-bottom: -20upx;
 		.foot_1 {
 			flex: 1;
-			line-height: 36upx;
 			color: gray;
 			margin-left: 20upx;
 			.bd {
@@ -110,11 +109,10 @@
 		}
 		.foot_2 {
 			flex: 1;
-			line-height: 36upx;
 			color: gray;
 			margin-right: 20upx;
 			view {
-				font-size: 30upx;
+				font-size: 28upx;
 			}
 		}
 		.foot_3 {

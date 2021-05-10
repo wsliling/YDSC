@@ -1,5 +1,6 @@
 .courseDetails {
 	background-color: white;
+	height: 100vh;
 	.line {
 		height: 20upx;
 		background-color: #f3f3f3;
@@ -40,11 +41,11 @@
 			}
 			.info1_4 {
 				padding-left: 20upx;
-				flex: 1;
+				flex: 2;
 				font-weight: bold;
 			}
 			.info1_1 {
-				flex: 3;
+				flex: 2;
 				text-align: right;
 				image {
 					border-radius: 50%;
@@ -80,6 +81,13 @@
 			.stadium_1_2 {
 				font-size: 25upx;
 			}
+		}
+	}
+	.time {
+		.title {
+			font-size: 30upx;
+			font-weight: bold;
+			padding: 30upx 0 30upx 30upx;
 		}
 	}
 	.con {

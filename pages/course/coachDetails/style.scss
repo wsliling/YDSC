@@ -1,5 +1,6 @@
 .details {
 	background-color: white;
+	height: 100vh;
 	.line {
 		height: 20upx;
 		background-color: #f3f3f3;
@@ -28,7 +29,7 @@
 				flex: 1;
 				color: #adadad;
 				font-size: 25upx;
-				text{
+				text {
 					font-size: 25upx;
 					padding-left: 5upx;
 				}
@@ -74,6 +75,13 @@
 			.stadium_1_2 {
 				font-size: 28upx;
 			}
+		}
+	}
+	.time {
+		.title {
+			font-size: 30upx;
+			font-weight: bold;
+			padding: 30upx 0 30upx 30upx;
 		}
 	}
 }

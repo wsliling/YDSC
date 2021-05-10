@@ -52,7 +52,6 @@
 				<view class="userSign" v-else @click="toMylink('/pages/member/editinfo/editinfo')">
 					{{ myType ? '填写个人介绍更容易获得关注，点击此处添加' : '这个人很懒，什么都没留下~' }}
 				</view>
-
 				<!-- <view class="flex" v-if="Info.FanGroup">
 					<view class="fansCard">
 						<image :src="Info.Avatar || 'http://yd.wtanvxin.com/static/default.png'"></image>
@@ -63,7 +62,6 @@
 					</view>
 				</view> -->
 			</view>
-
 			<view class="fans">
 				<view class="fansNum">
 					<view class="item-num" @click="toMylink('/pages/member/follow/follow?type=1')">
@@ -150,9 +148,7 @@
 			</view>
 			<!-- 课程 -->
 			<view class="course" v-if="tabIndex == 3">
-				<view class="listcourse" v-for="(item, index) in datalist" :key="index" @click="classDetails(item.Id)">
-					<image :src="item.PicImg"></image>
-					</view>
+				<view class="listcourse" v-for="(item, index) in datalist" :key="index" @click="classDetails(item.Id)"><image :src="item.PicImg"></image></view>
 			</view>
 			<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
 			<noData :isShow="noDataIsShow"></noData>

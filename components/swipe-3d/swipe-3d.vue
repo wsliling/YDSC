@@ -14,7 +14,8 @@
 				:key="i"
 				@click="goActivity(item, i)"
 			>
-				<image :class="['img']" :src="item.BannerPic" @click="toLink('/pages/goods/submitLease/submitLease?deviceId=' + item.Id)" />
+				<!-- <image mode="aspectFill" :class="['img']" :src="item.BannerPic" @click="toLink('/pages/goods/submitLease/submitLease?deviceId=' + item.Id)" /> -->
+				<image mode="aspectFill" :class="['img']" :src="item.BannerPic"/>
 				<view class="name">
 					<view style="font-size: 48upx;">{{ item.DeviceName }}</view>
 					<view style="font-size: 40upx;">{{ item.Effect }}</view>
