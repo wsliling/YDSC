@@ -1,9 +1,9 @@
 <template>
 	<view class="course">
 		<view class="top">
-			<view class="top_left">
-				深圳
-				<!-- {{ locationAddress }} -->
+			<view class="top_left" @click="tolink('/pages/chooseCity/chooseCity')">
+				<!-- 深圳 -->
+				{{ cityname }}
 				<text class="iconfont icon-arrow_r"></text>
 			</view>
 			<view class="search">
@@ -40,15 +40,7 @@
 			<view class="sec1_title">大家都在练</view>
 			<view class="sec1_1"><image :src="bannerListTwo[0].Pic" mode="aspectFill"></image></view>
 			<view class="sec1_2">
-				<image
-					:src="bannerListTwo[1].Pic"
-					mode="aspectFill"
-					@click="
-						'/pages/course/newPer/newPer';
-
-
-					"
-				></image>
+				<image :src="bannerListTwo[1].Pic" mode="aspectFill" @click="tolink('/pages/course/newPer/newPer')"></image>
 				<image :src="bannerListTwo[2].Pic" mode="aspectFill"></image>
 			</view>
 		</view>
@@ -92,6 +84,7 @@
 <script>
 import { post, get, toLogin } from '@/common/util.js';
 import product from '@/components/product.vue';
+import { MP } from '@/common/map.js'; //h5百度定位
 import noData from '@/components/noData.vue'; //暂无数据
 import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
 export default {
@@ -121,7 +114,11 @@ export default {
 			tabs: [],
 			tabIndex: 45,
 			id: 0,
-			locationAddress: ''
+			locationAddress: '',
+			nowCity: '', //当前城市
+			cityname: '', //定位城市
+			AreaCode: '', //区域国家码
+			AreaType: 0 //1不限市，区
 		};
 	},
 	onLoad() {
@@ -134,10 +131,47 @@ export default {
 		this.getBanner(6);
 		this.getBannerOne(7);
 		this.getBannerTwo(10);
+		var _this = this;
+		// #ifdef APP-PLUS||MP-WEIXIN
+		uni.getLocation({
+			type: 'wgs84',
+			geocode: true,
+			success: function(res) {
+				console.log(res);
+				// #ifdef APP-PLUS
+				var city = res.address.city.replace(/市/, '');
+				uni.setStorageSync('cityname', city);
+				_this.cityname = city;
+				_this.nowCity = city;
+				_this.getAreaCode(city);
+
+				// #endif
+				// #ifdef MP-WEIXIN
+				_this.wxGetCity(res.longitude, res.latitude);
+				// #endif
+				console.log(res);
+			}
+		});
+		// #endif
+		//百度定位
+		// #ifdef H5
+		MP(0).then(BMap => {
+			var _this = this;
+			let myCity = new BMap.LocalCity();
+			myCity.get(function(res) {
+				var city = res.name.replace(/市/, '');
+				uni.setStorageSync('cityname', city);
+				_this.cityname = city;
+				_this.nowCity = city;
+				_this.getAreaCode(city);
+			});
+		});
+		// #endif
 	},
 	onShow() {
 		this.pageCon = uni.getStorageSync('pageCon');
-		this.getLocationInfo();
+		this.cityname = uni.getStorageSync('cityname');
+		this.getAreaCode(this.cityname);
 	},
 	methods: {
 		cliTab(index) {
@@ -162,19 +196,49 @@ export default {
 				});
 			}
 		},
-		getLocationInfo() {
-			// uni.chooseLocation({
-			// 	success: res => {
-			// 		(this.location = formatLocation(res.longitude, res.latitude)), (this.locationAddress = res.address);
-			// 	}
-			// });
-			uni.getLocation({
-				success: function(res) {
-					this.locationAddress = res.address;
-					console.log('当前位置的经度：' + res.longitude);
-					console.log('当前位置的纬度：' + res.latitude);
+		// 定位当前城市
+		getlocationNow() {
+			this.cityname = this.nowCity;
+			this.getAreaCode(this.nowCity);
+		},
+		//小程序解析经纬度获取城市
+		// #ifdef MP-WEIXIN
+		wxGetCity(lon, lat) {
+			var _this = this;
+			wx.request({
+				url: 'https://api.map.baidu.com/reverse_geocoding/v3/?ak=3wwDKCk09o6hU0PK1605QUXOCBqGVHGx&location=' + lat + ',' + lon + '&output=json&coordtype=wgs84ll',
+				data: {},
+				header: {
+					'content-type': 'application/json' // 默认值
+				},
+				success(res) {
+					console.log('res');
+					console.log(res);
+					var cityname = res.data.result.addressComponent.city.replace(/市/, '');
+					uni.setStorageSync('cityname', cityname);
+					_this.cityname = cityname;
+					_this.getAreaCode(cityname);
 				}
 			});
+		},
+		// #endif
+		async getAreaCode(name) {
+			if (name && name != '全国') {
+				let result = await post('Area/GetCityCode', {
+					Name: name
+				});
+				if (result.code === 0) {
+					this.AreaCode = result.data.Code;
+					this.AreaType = 1;
+				}
+			} else if (name == '全国') {
+				this.AreaCode = '';
+				this.AreaType = 0;
+			} else {
+				this.AreaCode = '';
+				this.AreaType = 0;
+			}
+			uni.setStorageSync('AreaCode', this.AreaCode);
 		},
 		// 获取banner图
 		async getBanner(type) {

@@ -61,7 +61,7 @@ export default {
 				Token: this.token
 			});
 			if (result.code == 0) {
-				setTimeout(function() {
+				setTimeout(() => {
 					this.signIn();
 				}, 200);
 			}
