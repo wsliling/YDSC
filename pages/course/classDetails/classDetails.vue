@@ -14,7 +14,7 @@
 					<image :src="classdetail.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
 				</view>
 				<view class="info1_4">{{ classdetail.StoreNick }}</view>
-				<view class="info1_2">关注</view>
+				<view :class="['info1_2',Isfollow?'ed':'']" @click="followfun">{{Isfollow?'已关注':'关注'}}</view>
 			</view>
 		</view>
 		<view class="line"></view>
@@ -74,7 +74,9 @@ export default {
 			Id: 0,
 			classdetail: {}, // 课程详情
 			classdetails: [], //训练部位
-			IsCollect: false //是否收藏
+			IsCollect: false ,//是否收藏
+			Isfollow:false,//是否关注
+			StoreId:'',//门店加密id
 		};
 	},
 	onLoad(e) {
@@ -109,6 +111,8 @@ export default {
 				this.classdetail = result.data;
 				this.classdetails = result.data.TrainingSiteInfo;
 				this.IsCollect = result.data.IsCollect;
+				this.Isfollow=result.data.IsFollow;
+				this.StoreId=result.data.StoreId;
 			}
 		},
 		//添加取消收藏
@@ -133,6 +137,36 @@ export default {
 						duration: 1500
 					});
 					this.IsCollect = true;
+				}
+			}
+			if (result.code == 2) {
+				uni.hideToast();
+				toLogin();
+			}
+		},
+		async followfun(){
+			let url=this.Isfollow?'User/ReCollections':'User/AddCollections'
+			let result = await post(url, {
+				StoreId: this.StoreId,
+				userId: this.userId,
+				token: this.token,
+				Type:2
+			});
+			if (result.code == 0) {
+				if (this.Isfollow) {
+					uni.showToast({
+						title: '已取消关注！',
+						icon: 'none',
+						duration: 1500
+					});
+					this.Isfollow = false;
+				} else {
+					uni.showToast({
+						title: '关注成功！',
+						icon: 'none',
+						duration: 1500
+					});
+					this.Isfollow = true;
 				}
 			}
 			if (result.code == 2) {
