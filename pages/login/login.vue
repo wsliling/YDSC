@@ -369,7 +369,9 @@
 			oauth(){
 				uni.login({
 					success:(res)=>{
-						 uni.getUserInfo({
+						console.log("登录信息",res)
+						 uni.getUserProfile({
+							desc:"用于显示用户头像，昵称等信息",
 						    success: (infoRes) => {
 						        /**
 						         * 实际开发中，获取用户信息后，需要将信息上报至服务端。
