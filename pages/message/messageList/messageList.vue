@@ -37,8 +37,8 @@
 							{{item.title}}
 						</view>
 						<view class="uni-list-cell-navigate uni-navigate-right">
-							<view class="desc text-line2">
-								<uParse :content="item.Memo" />
+							<view class="desc text-line2" style="font-size: 30upx;">
+								<uParse :content="item.Memo"/>
 							</view>
 						</view>
 					</view>
@@ -199,7 +199,7 @@
 	}
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 	.tabList .swiper-tab-list{ width: 50%;}
 	.uni-swiper-tab .active .s{ display: inline-block;}
 	.list-item{margin: 20upx 20upx 0;}
