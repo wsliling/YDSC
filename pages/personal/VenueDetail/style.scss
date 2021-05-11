@@ -18,6 +18,21 @@
 		font-size: 32upx;
 		font-weight: bold;
 	}
+	.btn{
+		color: #fff;
+		width: 150upx;
+		height: 60upx;
+		background: $primary;
+		border-radius: 100px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		&.ed{
+			background: #fff;
+			color: $primary;
+			border: 1px solid $primary;
+		}
+	}
 }
 .line-list{
 	.iconfont{font-size: 44upx; line-height: 1; color: #666;}

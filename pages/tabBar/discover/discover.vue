@@ -73,9 +73,11 @@ export default {
 	onShow() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
-		this.FindList();
-		this.getGymList();
-		this.getBanner(11);
+		if (this.tabNav == 3){
+			this.getGymList();
+		}else{
+			this.FindList();
+		}
 	},
 	onLoad() {
 		// #ifdef APP-PLUS
@@ -85,6 +87,7 @@ export default {
 		// #ifdef H5
 		this.barHeight = 0;
 		// #endif
+		this.getBanner(11);
 	},
 	methods: {
 		//跳转
