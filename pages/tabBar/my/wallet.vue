@@ -2,13 +2,11 @@
 	<view>
 		<view class="walletBox">
 			<view class="bg">
-				<!-- <image class="bgImg" src="http://yd.wtanvxin.com/static/wallet.png"></image> -->
 				<view class="bgImg"></view>
 				<view class="wallet">
 					<view class="reveal">
 						<view class="revealTitle">账户余额 (元)</view>
 						<view class="allMoney">{{ userInfo.Wallet }}</view>
-						<!-- <text>可提现：¥{{ userInfo.Wallet }}</text> -->
 					</view>
 					<view class="present">
 						<view class="present_1" @click="golink('/pages/tabBar/my/topup')">
@@ -16,7 +14,7 @@
 							充值
 							<text class="iconfont icon-arrow_r"></text>
 						</view>
-						<view class="reflesh"><image src="http://yd.wtanvxin.com/static/wallet/reflesh.png" mode=""></image></view>
+						<view class="reflesh" @click="reflesh"><image src="http://yd.wtanvxin.com/static/wallet/reflesh.png" mode=""></image></view>
 					</view>
 				</view>
 			</view>
@@ -74,6 +72,9 @@ export default {
 			uni.navigateTo({
 				url: url
 			});
+		},
+		reflesh() {
+			this.getUserInfo();
 		},
 		async getUserInfo() {
 			let res = await post('User/GetMemInfo', {

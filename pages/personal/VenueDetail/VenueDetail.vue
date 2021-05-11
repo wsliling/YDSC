@@ -39,7 +39,7 @@
 					<view class="img"><image :src="item.DevicePic" mode="aspectFill"></image></view>
 					<view class="item_r flex-between flex1">
 						<view class="name uni-ellipsis flex1">{{ item.DeviceName }}</view>
-						<view class="btn" @click="toLink('/pages/goods/submitLease/submitLease?deviceId=' + item.Id)">租赁</view>
+						<!-- <view class="btn" @click="toLink('/pages/goods/submitLease/submitLease?deviceId=' + item.Id)">租赁</view> -->
 					</view>
 				</view>
 			</view>

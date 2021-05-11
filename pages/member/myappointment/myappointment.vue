@@ -4,30 +4,30 @@
 			<view class="item" @click="change(0)" :class="{ active: btnnum == 0 }">课程</view>
 			<view class="item" @click="change(1)" :class="{ active: btnnum == 1 }">教练</view>
 		</view>
-		<block v-if="btnnum == 0">
+		<view class="tab_1" v-if="btnnum == 0">
 			<view class="list" v-for="(item, index) in regclasslist" :key="index" @click="tolink(btnnum, item.OrderNo)">
-				<view class="leftImg"><image class="img" :src="item.PicImg"></image></view>
+				<view class="leftImg"><image class="img" :src="item.PicImg" mode="aspectFill"></image></view>
 				<view class="rightContent">
 					<view class="titledetail">{{ item.Title }}</view>
 					<view class="time">{{ item.CourseDate }} {{ item.DayWeek }} {{ item.CourseTimeSpan }}</view>
 					<view class="userinfo">
 						<view class="user">
-							<view class="header"><image class="headerImg" :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
+							<view class="header"><image class="headerImg" :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
 							<view class="name">{{ item.CoachNick }}</view>
 						</view>
 					</view>
 				</view>
 			</view>
-		</block>
-		<block v-if="btnnum == 1">
+		</view>
+		<view class="tab_1" v-if="btnnum == 1">
 			<view class="list" v-for="(item, index) in regclasslistcoach" :key="index" @click="tolink(btnnum, item.OrderNo)">
-				<view class="jl-leftImg"><image class="img" :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
+				<view class="jl-leftImg"><image class="img" :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
 				<view class="rightContent">
 					<view class="titledetail">{{ item.CoachNick }}</view>
 					<view class="time">{{ item.CourseDate }} {{ item.DayWeek }} {{ item.ApplyTimeSpan }}</view>
 				</view>
 			</view>
-		</block>
+		</view>
 	</view>
 </template>
 
@@ -39,6 +39,8 @@ export default {
 			btnnum: 0,
 			userId: '',
 			token: '',
+			page: 1,
+			pageSize: 8,
 			regclasslist: [],
 			regclasslistcoach: []
 		};
@@ -68,21 +70,82 @@ export default {
 		async getRegClassList() {
 			let result = await post('Course/MyRegCourseOfflineList', {
 				UserId: this.userId,
-				Token: this.token
+				Token: this.token,
+				page: this.page,
+				pageSize: this.pageSize
 			});
 			if (result.code == 0) {
+				if (result.data.length > 0) {
+					this.hasData = true;
+					this.noDataIsShow = false;
+				}
+			}
+			if (result.data.length == 0 && this.page == 1) {
+				this.noDataIsShow = true;
+				this.hasData = false;
+			}
+			if (this.page === 1) {
 				this.regclasslist = result.data;
+			}
+			if (this.page > 1) {
+				this.regclasslist = this.regclasslist.concat(result.data);
+			}
+			if (result.data.length < this.pageSize) {
+				this.isLoad = false;
+				this.loadingType = 2;
+			} else {
+				this.isLoad = true;
+				this.loadingType = 0;
 			}
 		},
 		//预约教练列表
 		async getRegClassListCoach() {
 			let result = await post('Course/MyRegCoachList', {
 				UserId: this.userId,
-				Token: this.token
+				Token: this.token,
+				page: this.page,
+				pageSize: this.pageSize
 			});
 			if (result.code == 0) {
+				if (result.data.length > 0) {
+					this.hasData = true;
+					this.noDataIsShow = false;
+				}
+			}
+			if (result.data.length == 0 && this.page == 1) {
+				this.noDataIsShow = true;
+				this.hasData = false;
+			}
+			if (this.page === 1) {
 				this.regclasslistcoach = result.data;
 			}
+			if (this.page > 1) {
+				this.regclasslistcoach = this.regclasslistcoach.concat(result.data);
+			}
+			if (result.data.length < this.pageSize) {
+				this.isLoad = false;
+				this.loadingType = 2;
+			} else {
+				this.isLoad = true;
+				this.loadingType = 0;
+			}
+		}
+	},
+	onPullDownRefresh() {
+		this.page = 1;
+		this.getRegClassList();
+		this.getRegClassListCoach();
+		uni.stopPullDownRefresh();
+	},
+	// 上拉加载
+	onReachBottom: function() {
+		if (this.isLoad) {
+			this.loadingType = 1;
+			this.page++;
+			this.getRegClassList();
+			this.getRegClassListCoach();
+		} else {
+			this.loadingType = 2;
 		}
 	}
 };
@@ -94,6 +157,9 @@ page {
 }
 .titleTab {
 	display: flex;
+	position: fixed;
+	width: 100%;
+	z-index: 9;
 	line-height: 80upx;
 	background-color: #ffffff;
 	justify-content: space-around;
@@ -115,6 +181,9 @@ page {
 	background-color: #000000;
 	margin-right: 20upx;
 }
+.tab_1 {
+	padding-top: 110upx;
+}
 // 列表
 .list {
 	border-bottom: solid 2upx #f5f5f5;
@@ -122,7 +191,7 @@ page {
 	align-items: center;
 	background-color: #ffffff;
 	padding: 30upx 0;
-	margin: 0 20upx;
+	margin: 0 30upx;
 	&:last-child {
 		border-bottom: 0;
 	}
@@ -133,6 +202,7 @@ page {
 		overflow: hidden;
 		margin-right: 10upx;
 		.img {
+			border-radius: 10upx;
 			width: 100%;
 			height: 100%;
 		}
