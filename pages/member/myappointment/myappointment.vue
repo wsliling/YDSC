@@ -4,7 +4,7 @@
 			<view class="item" @click="change(0)" :class="{ active: btnnum == 0 }">课程</view>
 			<view class="item" @click="change(1)" :class="{ active: btnnum == 1 }">教练</view>
 		</view>
-		<view class="tab_1" v-if="btnnum == 0">
+		<view class="tab_1" v-if="btnnum == 0 && hasData">
 			<view class="list" v-for="(item, index) in regclasslist" :key="index" @click="tolink(btnnum, item.OrderNo)">
 				<view class="leftImg"><image class="img" :src="item.PicImg" mode="aspectFill"></image></view>
 				<view class="rightContent">
@@ -19,7 +19,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="tab_1" v-if="btnnum == 1">
+		<view class="tab_1" v-if="btnnum == 1 && hasData">
 			<view class="list" v-for="(item, index) in regclasslistcoach" :key="index" @click="tolink(btnnum, item.OrderNo)">
 				<view class="jl-leftImg"><image class="img" :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
 				<view class="rightContent">
@@ -28,12 +28,20 @@
 				</view>
 			</view>
 		</view>
+		<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
+		<noData :isShow="noDataIsShow"></noData>
 	</view>
 </template>
 
 <script>
 import { post } from '@/common/util.js';
+import noData from '@/components/noData.vue'; //暂无数据
+import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
 export default {
+	components: {
+		noData,
+		uniLoadMore
+	},
 	data() {
 		return {
 			btnnum: 0,
@@ -41,6 +49,10 @@ export default {
 			token: '',
 			page: 1,
 			pageSize: 8,
+			loadingType: 0, //0加载前，1加载中，2没有更多了
+			isLoad: false,
+			hasData: false,
+			noDataIsShow: false,
 			regclasslist: [],
 			regclasslistcoach: []
 		};
@@ -48,12 +60,27 @@ export default {
 	onLoad() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
-		this.getRegClassList();
-		this.getRegClassListCoach();
+		if (this.btnnum == 0) {
+			this.regclasslist = [];
+			this.getRegClassList();
+		} else {
+			this.regclasslistcoach = [];
+			this.getRegClassListCoach();
+		}
 	},
 	methods: {
 		change(e) {
 			this.btnnum = e;
+			this.hasData = false;
+			this.noDataIsShow = false;
+			this.page = 1;
+			if (this.btnnum == 0) {
+				this.regclasslist = [];
+				this.getRegClassList();
+			} else {
+				this.regclasslistcoach = [];
+				this.getRegClassListCoach();
+			}
 		},
 		tolink(e, id) {
 			if (e == 0) {
@@ -133,8 +160,13 @@ export default {
 	},
 	onPullDownRefresh() {
 		this.page = 1;
-		this.getRegClassList();
-		this.getRegClassListCoach();
+		if (this.btnnum == 0) {
+			this.regclasslist = [];
+			this.getRegClassList();
+		} else {
+			this.regclasslistcoach = [];
+			this.getRegClassListCoach();
+		}
 		uni.stopPullDownRefresh();
 	},
 	// 上拉加载
@@ -142,8 +174,11 @@ export default {
 		if (this.isLoad) {
 			this.loadingType = 1;
 			this.page++;
-			this.getRegClassList();
-			this.getRegClassListCoach();
+			if (this.btnnum == 0) {
+				this.getRegClassList();
+			} else {
+				this.getRegClassListCoach();
+			}
 		} else {
 			this.loadingType = 2;
 		}

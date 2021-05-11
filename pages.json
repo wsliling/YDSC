@@ -865,6 +865,19 @@
 		{
 			"root": "pages/message",
 			"pages": [{
+				"path": "messageClass/messageClass",
+				"style": {
+					"navigationBarTitleText": "消息中心"
+				}
+			}, {
+				"path": "messageList/messageList",
+				"style": {}
+			}, {
+				"path": "msgDetail/msgDetail",
+				"style": {
+					"navigationBarTitleText": "详情"
+				}
+			}, {
 				"path": "agreement/agreement",
 				"style": {
 					"navigationBarTitleText": "用户协议"

@@ -20,7 +20,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="tab_1" v-if="btnnum == 1">
+		<view class="tab_1" v-if="btnnum == 1 && hasData">
 			<view class="list" v-for="(item, index) in buyclasslist" :key="index" @click="classDetails(item.Id)">
 				<view class="leftImg"><image class="img" :src="item.PicImg" mode="aspectFill"></image></view>
 				<view class="rightContent">
@@ -36,6 +36,8 @@
 				</view>
 			</view>
 		</view>
+		<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
+		<noData :isShow="noDataIsShow"></noData>
 	</view>
 </template>
 
@@ -67,12 +69,27 @@ export default {
 	onLoad() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
-		this.getCourseList();
-		this.getBuyClassList();
+		if (this.btnnum == 0) {
+			this.classlist = [];
+			this.getCourseList();
+		} else {
+			this.buyclasslist = [];
+			this.getBuyClassList();
+		}
 	},
 	methods: {
 		change(e) {
 			this.btnnum = e;
+			this.hasData = false;
+			this.noDataIsShow = false;
+			this.page = 1;
+			if (this.btnnum == 0) {
+				this.classlist = [];
+				this.getCourseList();
+			} else {
+				this.buyclasslist = [];
+				this.getBuyClassList();
+			}
 		},
 		classDetails(id) {
 			uni.navigateTo({
@@ -146,8 +163,13 @@ export default {
 	},
 	onPullDownRefresh() {
 		this.page = 1;
-		this.getCourseList();
-		this.getBuyClassList();
+		if (this.btnnum == 0) {
+			this.classlist = [];
+			this.getCourseList();
+		} else {
+			this.buyclasslist = [];
+			this.getBuyClassList();
+		}
 		uni.stopPullDownRefresh();
 	},
 	// 上拉加载
@@ -155,8 +177,11 @@ export default {
 		if (this.isLoad) {
 			this.loadingType = 1;
 			this.page++;
-			this.getCourseList();
-			this.getBuyClassList();
+			if (this.btnnum == 0) {
+				this.getCourseList();
+			} else {
+				this.getBuyClassList();
+			}
 		} else {
 			this.loadingType = 2;
 		}
