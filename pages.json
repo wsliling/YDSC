@@ -427,6 +427,13 @@
 					"style": {
 						"navigationBarTitleText": "收益明细"
 					}
+				},
+				{
+					"path": "ChangepayPwd/ChangepayPwd",
+					"style": {
+						"navigationBarTitleText": "修改支付密码",
+						"enablePullDownRefresh": false
+					}
 				}
 			]
 		},
@@ -649,13 +656,6 @@
 					"path": "modifyPad/modifyPad",
 					"style": {
 						"navigationBarTitleText": "修改登录密码",
-						"enablePullDownRefresh": false
-					}
-				},
-				{
-					"path": "ChangepayPwd/ChangepayPwd",
-					"style": {
-						"navigationBarTitleText": "修改支付密码",
 						"enablePullDownRefresh": false
 					}
 				},

@@ -17,10 +17,17 @@
 				<view class="history" v-if="historylist.length">
 					<view class="his_1">
 						<view class="his_left">搜索历史</view>
-						<view class="iconfont icon-del"></view>
+						<view class="iconfont icon-del" @click="deHis"></view>
+						<uni-popup ref="popup" type="center">
+							<view class="uni-bg-white pop">
+								<view class="tipstxt">您确定删除最近搜索记录吗？</view>
+								<view class="btn_y" @click="deHis_y">确定</view>
+								<view class="btn_n" @click="deHis_n">取消</view>
+							</view>
+						</uni-popup>
 					</view>
-					<view class="his_2">
-						<view v-for="(item, index) in historylist" :key="index">{{ item.Name }}</view>
+					<view class="his_2" v-if="historylist.length">
+						<text v-for="(item, index) in historylist" :key="index" @click="seaHis(item.Id)">{{ item.Name }}</text>
 					</view>
 				</view>
 				<view class="menu flex-between center">
@@ -156,7 +163,8 @@ export default {
 			BrandList: [], //品牌
 			brandId: 0, //选中品牌id
 			couponId: '',
-			tipstxt: ''
+			tipstxt: '',
+			dindex: 0
 		};
 	},
 	watch: {
@@ -206,6 +214,9 @@ export default {
 			// #endif
 			if (this.searchVal) {
 				this.page = 1;
+				setTimeout(() => {
+					this.getHistory();
+				}, 200);
 				this.getprolist();
 			} else {
 				uni.showToast({
@@ -222,6 +233,35 @@ export default {
 			});
 			if (result.code == 0) {
 				this.historylist = result.data;
+			}
+		},
+		seaHis(index) {
+			this.dindex = this.historylist.length - index;
+			this.searchVal = this.historylist[this.dindex].Name;
+		},
+		//删除搜索历史
+		deHis() {
+			this.$refs.popup.open(); // 显示弹窗
+		},
+		deHis_y() {
+			this.deleteHis();
+		},
+		deHis_n() {
+			this.$refs.popup.close(); // 关闭弹窗
+		},
+		async deleteHis() {
+			let result = await post('SearchHistory/Delete', {
+				UserId: uni.getStorageSync('userId'),
+				Token: uni.getStorageSync('token')
+			});
+			if (result.code == 0) {
+				setTimeout(() => {
+					uni.showToast({
+						title: '删除成功',
+						icon: 'none'
+					});
+				}, 500);
+				this.getHistory();
 			}
 		},
 		//获取分类
@@ -386,13 +426,8 @@ export default {
 	},
 	onPullDownRefresh() {
 		this.page = 1;
-		// this.searchVal = "";
-		// this.cid='';
-		// this.brandId='';
-		// this.Sorttype=0;
-		// this.SortOrder='';
-		// this.tipstxt="";
 		if (this.searchVal || this.cid || this.couponId || this.brandId || this.minPrice || this.maxPrice || this.SortOrder) {
+			this.getHistory();
 			this.getprolist();
 		}
 		uni.stopPullDownRefresh();
@@ -420,8 +455,8 @@ export default {
 <style lang="scss">
 .history {
 	background-color: white;
-	padding: 20upx 0;
 	.his_1 {
+		padding: 20upx 0;
 		display: flex;
 		.his_left {
 			flex: 1;
@@ -431,11 +466,31 @@ export default {
 		.his_right {
 			flex: 1;
 		}
+		.pop {
+			padding: 20upx 0 0 0;
+			border-radius: 20upx;
+			.tipstxt {
+				font-size: 30upx;
+				padding: 10upx 0 30upx 0;
+			}
+			.btn_y {
+				display: inline-block;
+				padding: 16upx 100upx;
+				border-top: 1upx solid #c3c3c3;
+				color: #ff8b51;
+			}
+			.btn_n {
+				display: inline-block;
+				padding: 16upx 100upx;
+				border-top: 1upx solid #c3c3c3;
+				border-left: 1upx solid #c3c3c3;
+				color: #919191;
+			}
+		}
 	}
 	.his_2 {
-		display: flex;
-		text-align: center;
-		view {
+		text {
+			display: inline-block;
 			padding: 0 40upx;
 			margin: 10upx 20upx 0 0;
 			background-color: #f4f4f4;

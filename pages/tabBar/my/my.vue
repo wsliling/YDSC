@@ -32,7 +32,7 @@
 						<view class="txt">获赞</view>
 					</view>
 					<view class="item" @click="golink('/pages/member/collect/collect?type=3')">
-						<view class="num">{{ memberInfo.CollectionNum || 0 }}</view>
+						<view class="num">{{ memberInfo.CollectNum || 0 }}</view>
 						<view class="txt">收藏</view>
 					</view>
 				</view>
@@ -174,7 +174,6 @@ export default {
 		if (toLogin()) {
 			this.getMemberInfo();
 		}
-		this.UserHomePageInfo();
 	},
 	methods: {
 		// 店铺申请
@@ -210,24 +209,6 @@ export default {
 				uni.navigateTo({
 					url: '/pages/login/login'
 				});
-			}
-		},
-		//获取个人主页信息
-		async UserHomePageInfo() {
-			let result = await post('User/OtherHomePage', {
-				UserId: this.userId,
-				Token: this.token,
-				MemberId: this.memberId
-			});
-			if (result.code === 0) {
-				this.Info = result.data;
-				this.myType = result.data.IsMy;
-				this.HomeCover = result.data.HomeCover;
-				uni.setNavigationBarTitle({
-					title: this.myType ? '我的主页' : 'TA的主页'
-				});
-			} else if (result.code == 2) {
-				uni.hideToast();
 			}
 		},
 		async getMemberInfo() {
