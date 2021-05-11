@@ -114,13 +114,14 @@ export default {
 		// #ifdef  MP-WEIXIN
 		this.getcode();
 		// #endif
+		
 		// #ifdef H5
 		this.WxOpenid = uni.getStorageSync('openId');
-		// #endif
-		this.showMask = false;
 		if (isWeixin()) {
 			this.payway.splice(1, 1);
 		}
+		// #endif
+		this.showMask = false;
 	},
 	methods: {
 		//跳转
@@ -130,6 +131,7 @@ export default {
 			});
 		},
 		// 判断浏览器环境
+		// #ifdef  H5
 		isWeixin() {
 			var ua = navigator.userAgent.toLowerCase();
 			if (ua.match(/MicroMessenger/i) == 'micromessenger') {
@@ -138,6 +140,7 @@ export default {
 				return false;
 			}
 		},
+		//#endif
 		//获取账户信息
 		async GetMemInfo() {
 			let result = await post('User/GetMemInfo', {

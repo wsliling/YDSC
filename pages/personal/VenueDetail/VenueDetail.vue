@@ -3,7 +3,8 @@
 		<view class="itembox pp3">
 			<view class="userbox flex-between">
 				<view class="author"><image :src="gymlistdetail.Logo"></image></view>
-				<view class="name flex1">{{ gymlistdetail.StoreNick }}</view>
+				<view class="name flex1 uni-ellipsis">{{ gymlistdetail.StoreNick }}</view>
+				<view :class="['btn',Isfollow?'ed':'']" @click="followfun">{{Isfollow?'已关注':'关注'}}</view>
 			</view>
 		</view>
 		<view class="itembox line-list">
@@ -88,7 +89,8 @@ export default {
 			gymlistdetail: {},
 			gymlistImg: [],
 			devicelist: [],
-			classlist: []
+			classlist: [],
+			Isfollow:false
 		};
 	},
 	onShow() {},
@@ -119,6 +121,7 @@ export default {
 			if (result.code == 0) {
 				this.gymlistdetail = result.data;
 				this.gymlistImg = result.data.PicData;
+				this.Isfollow = result.data.IsCollection.Value>0?true:false;
 			}
 		},
 		courseDetails(id) {
@@ -132,7 +135,7 @@ export default {
 				UserId: this.userId,
 				Token: this.token,
 				page: this.page,
-				pageSize: this.pageSize,
+				pageSize: 20,
 				StoreId: this.Id
 			});
 			if (result.code == 0) {
@@ -175,10 +178,40 @@ export default {
 				this.isLoad = true;
 				this.loadingType = 0;
 			}
+		},
+		async followfun(){
+			let url=this.Isfollow?'User/ReCollections':'User/AddCollections'
+			let result = await post(url, {
+				StoreId: this.Id,
+				userId: this.userId,
+				token: this.token,
+				Type:2
+			});
+			if (result.code == 0) {
+				if (this.Isfollow) {
+					uni.showToast({
+						title: '已取消关注！',
+						icon: 'none',
+						duration: 1500
+					});
+					this.Isfollow = false;
+				} else {
+					uni.showToast({
+						title: '关注成功！',
+						icon: 'none',
+						duration: 1500
+					});
+					this.Isfollow = true;
+				}
+			}
 		}
 	},
 	onPullDownRefresh() {
 		this.page = 1;
+		this.classlist=[];
+		this.getGymListDetail();
+		this.getDeviceListDetail();
+		this.getCourseList();
 		uni.stopPullDownRefresh();
 	},
 	// 上拉加载

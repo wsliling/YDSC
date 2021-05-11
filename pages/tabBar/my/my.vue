@@ -41,7 +41,7 @@
 		<view class="pd15">
 			<view class="memberIndex_section uni-bg-white b_radius uni-mb10">
 				<view class="section_bd">
-					<view class="li_20 center flex flexWrap">
+					<view class="li_25 center flex flexWrap">
 						<view class="item" @click="golink('/pages/member/information/information')">
 							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/my_data.png" mode="widthFix"></image></view>
 							<view class="txt">我的数据</view>
@@ -70,7 +70,7 @@
 			</view>
 			<view class="memberIndex_section uni-bg-white b_radius uni-mb10">
 				<view class="section_bd">
-					<view class="li_20 center flex flexWrap">
+					<view class="li_25 center flex flexWrap">
 						<!-- <view class="item">
 							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_1.png" mode="widthFix"></image></view>
 							<view class="txt">我的手环</view>
@@ -100,6 +100,14 @@
 				</view>
 			</view>
 			<view class="memberIndex_list line-list b_radius uni-mb10">
+				<view class="line-item" @click="golink('/pages/message/messageClass/messageClass')">
+					<view class="item-left flex1">
+						<text class="iconfont icon-pinglun"></text>
+						<view class="flex1">我的消息</view>
+						<text class="tag" style="border-radius: 100px;" v-if="memberInfo.NewsRedDot">{{memberInfo.NewsRedDot}}</text>
+					</view>
+					<view class="arrowr uni-icon uni-icon-arrowright"></view>
+				</view>
 				<view class="line-item" @click="golink('/pages/member/coupon/coupon')">
 					<view class="item-left">
 						<image src="http://yd.wtanvxin.com/static/u_6.png" mode="widthFix"></image>
