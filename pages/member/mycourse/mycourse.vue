@@ -256,14 +256,12 @@ page {
 			.user {
 				display: flex;
 				.header {
-					width: 50upx;
-					height: 50upx;
-					border-radius: 50%;
 					overflow: hidden;
 					margin-right: 18upx;
 					.headerImg {
-						width: 100%;
-						height: 100%;
+						border-radius: 50%;
+						width: 50upx;
+						height: 50upx;
 					}
 				}
 				.name {

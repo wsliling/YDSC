@@ -22,7 +22,7 @@
 		<view class="list-1" v-if="tabNav == 3">
 			<view class="list-cell" v-for="(item, index) in gymlist" :key="index">
 				<view class="hd flex-start" @click="tolink('/pages/personal/VenueDetail/VenueDetail?gymId=' + item.Id)">
-					<view class="author"><image :src="item.Logo"></image></view>
+					<view class="author"><image :src="item.Logo" mode="aspectFill"></image></view>
 					<view class="flex1">
 						<view class="name flex-start">
 							<text class="txt uni-ellipsis">{{ item.StoreNick }}</text>
@@ -33,7 +33,7 @@
 				</view>
 				<view class="bd">
 					<scroll-view class="image-list" scroll-x="true">
-						<view class="img" v-for="(items, index) in item.PicData" :key="index"><image :src="items.PicUrl"></image></view>
+						<view class="img" v-for="(items, index) in item.PicData" :key="index"><image :src="items.PicUrl" mode="aspectFill"></image></view>
 					</scroll-view>
 				</view>
 			</view>
