@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<scroll-view id="tab-bar" class="index-swiper-tab" scroll-x>
+		<view id="tab-bar" class="index-swiper-tab">
 			<view
 				:style="'width:' +100/tabnav.length+'%;'"
 				v-for="(tab, index) in tabnav"
@@ -13,7 +13,7 @@
 				{{ tab.TypeName }}
 			</view>
 			<view class="bb_line" :style="'left:' + tabStyle + 'rpx'"></view>
-		</scroll-view>
+		</view>
 		<view style="height:45px"></view>
 		<view class="Yi-Userlist bg_fff" v-if="hasData">
 			<view class="user-item" v-for="(item, index) in datalist" :key="index">

@@ -589,6 +589,7 @@
 				}, {
 					"path": "myappointment/coachinfo",
 					"style": {
+						"navigationBarTitleText": "预约详情",
 						"app-plus": {
 							"titleNView": {
 								"type": "transparent",
@@ -933,7 +934,16 @@
 				"style": {
 					"navigationBarTitleText": "预约教练",
 					"navigationBarBackgroundColor": "#FFFFFF",
-					"navigationBarTextStyle": "black"
+					"navigationBarTextStyle": "black",
+					"enablePullDownRefresh": true,
+					"app-plus": {
+						"pullToRefresh": {
+							"support": true,
+							"color": "#fa6008", //小圈圈的颜色
+							"style": "circle" //小圈圈的样式
+						},
+						"scrollIndicator": "none" //不显示滚动条
+					}
 				}
 			}, {
 				"path": "coachDetails/coachDetails",
