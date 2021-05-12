@@ -61,10 +61,9 @@
 		    </view> 
 			<button v-if="isband" class="login-btn btn_gree" open-type="getPhoneNumber" @getphonenumber="getPhoneNumber">绑定手机号</button>
 		    <button v-else class="login-btn btn_gree" open-type="getUserInfo" @click="oauth">微信登录</button>
-		    <!-- <view class="c_blue uni-center" @click="loginTel">手机号登录/注册</view> -->
+		    <view class="c_blue uni-center" @click="loginTel">手机号登录/注册</view>
 		</view>
 		<!-- #endif --> 
-		
 	</view>
 </template>
 
@@ -172,6 +171,8 @@
 					});
 					// #endif
 				}else{
+					this.isShowMolie=true;
+					this.isShowminiApp=false;
 					this.logintype=!this.logintype;
 					if(!this.logintype){
 						this.pwd=""

@@ -95,7 +95,7 @@
 	position: absolute;
 	right: 0;
 	top: 0;
-	background: #FF3333;
+	background: #fa6008;
 	color: #fff;
 	padding: 0 20upx;
 	border-radius: 0 200upx 200upx 0;
@@ -108,11 +108,11 @@
 }
 
 .from .from-txt .link {
-	color: #FF3333;
+	color: #fa6008;
 }
 
 .ftbtn .btn{
-	background: #FF3333;
+	background: #fa6008;
 	color:#fff;
 	border-radius: 200upx;
 }
@@ -131,8 +131,8 @@
 .waylist{ justify-content: center;}
 .waylist .flex-item{ margin: 0 20upx;}
 .waylist .flex-item .iconfont{ height: 80upx; width: 80upx; line-height: 80upx; border-radius: 50upx; background: #e6e6e6; color: #fff; font-size: 40upx;}
-.waylist .iconfont.icon-shouji{ background: #FF3333;}
-.waylist .iconfont.icon-iconzh1{ background: #FF3333;}
+.waylist .iconfont.icon-shouji{ background: #fa6008;}
+.waylist .iconfont.icon-iconzh1{ background: #fa6008;}
 .waylist .name{ color: #333;}
 /* 小程序特有样式 */
 /* #ifdef  MP-WEIXIN */
