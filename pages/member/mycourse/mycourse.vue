@@ -7,13 +7,13 @@
 		<view class="tab_1" v-if="btnnum == 0">
 			<view class="list" v-for="(item, index) in classlist" :key="index" @click="classDetails(item.Id)">
 				<view class="leftImg"><image class="img" :src="item.PicImg" mode="aspectFill"></image></view>
-				<view class="rightContent">
-					<view class="titledetail">{{ item.Name }}</view>
+				<view class="rightContent flex1">
+					<view class="titledetail uni-ellipsis">{{ item.Name }}</view>
 					<view class="time">极速燃脂.10分钟</view>
 					<view class="userinfo">
-						<view class="user">
+						<view class="user flex-start flex1">
 							<view class="header"><image class="headerImg" :src="item.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
-							<view class="name">{{ item.StoreNick }}</view>
+							<view class="name uni-ellipsis flex1">{{ item.StoreNick }}</view>
 						</view>
 						<view class="price">￥{{ item.Price }}</view>
 					</view>
@@ -23,13 +23,13 @@
 		<view class="tab_1" v-if="btnnum == 1 && hasData">
 			<view class="list" v-for="(item, index) in buyclasslist" :key="index" @click="classDetails(item.Id)">
 				<view class="leftImg"><image class="img" :src="item.PicImg" mode="aspectFill"></image></view>
-				<view class="rightContent">
-					<view class="titledetail">{{ item.Name }}</view>
+				<view class="rightContent flex1">
+					<view class="titledetail uni-ellipsis">{{ item.Name }}</view>
 					<view class="time">{{ item.Difficulty }}.{{ item.Target }}</view>
 					<view class="userinfo">
-						<view class="user">
-							<view class="header"><image class="headerImg" :src="item.StoreLogo" mode="aspectFill"></image></view>
-							<view class="name">{{ item.StoreNick }}</view>
+						<view class="user flex-start flex1">
+							<view class="header"><image class="headerImg" :src="item.StoreLogo||'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
+							<view class="name uni-ellipsis flex1">{{ item.StoreNick }}</view>
 						</view>
 						<view class="price">￥{{ item.Price }}</view>
 					</view>
@@ -52,7 +52,7 @@ export default {
 	},
 	data() {
 		return {
-			btnnum: 1,
+			btnnum: 0,
 			userId: '',
 			token: '',
 			page: 1,
@@ -190,9 +190,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-page {
-	background-color: #ffffff;
-}
 .titleTab {
 	display: flex;
 	position: fixed;
@@ -201,7 +198,6 @@ page {
 	line-height: 80upx;
 	background-color: #ffffff;
 	justify-content: space-around;
-	border-bottom: solid 20upx #f5f5f5;
 	.item {
 		font-size: 28upx;
 		position: relative;
@@ -212,15 +208,14 @@ page {
 	}
 }
 .tab_1 {
-	padding-top: 110upx;
+	padding-top: 100upx;
 }
 // 列表
 .list {
-	border-bottom: solid 2upx #f5f5f5;
+	border-bottom: solid 1px #f5f5f5;
 	display: flex;
 	background-color: #ffffff;
-	padding: 30upx 0upx;
-	margin: 0 30upx;
+	padding: 30upx;
 	&:last-child {
 		border-bottom: 0;
 	}
@@ -241,10 +236,6 @@ page {
 		.titledetail {
 			font-size: 30upx;
 			color: #333333;
-			width: 444upx;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
 		}
 		.time {
 			font-size: 26upx;

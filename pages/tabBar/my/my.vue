@@ -129,6 +129,13 @@
 					</view>
 					<view class="arrowr uni-icon uni-icon-arrowright"></view>
 				</view>
+				<view class="line-item" @click="golink('/pages/member/orderTui/orderTui')">
+					<view class="item-left">
+						<text class="iconfont icon-tksh"></text>
+						<view>退款/售后</view>
+					</view>
+					<view class="arrowr uni-icon uni-icon-arrowright"></view>
+				</view>
 				<view class="line-item" @click="golink('/pages/member/inviteTwo/inviteTwo')">
 					<view class="item-left">
 						<text class="iconfont icon-fenxiang"></text>

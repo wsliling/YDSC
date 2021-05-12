@@ -3,7 +3,7 @@
 		<view class="regLoginBox" v-if="isShowMolie">
 			<view class="logo">
 				<view class="img">
-					<image class="logoimg" src="http://yd.wtanvxin.com/static/logo.png" mode="widthFix"></image>
+					<image class="logoimg" src="/static/logo.png" mode="widthFix"></image>
 					<view class="Title">英达思创</view>
 				</view>
 			</view>
@@ -55,7 +55,7 @@
 		<view class="MP-login" v-if="isShowminiApp">
 		    <view class="logo">
 				<view class="logoimg">
-					<image class="img_bb" src="http://yd.wtanvxin.com/static/logo.png" mode="widthFix"></image>
+					<image class="img_bb" src="/static/logo.png" mode="widthFix"></image>
 				</view>
 				<view class="Title">英达思创</view>
 		    </view> 
@@ -368,26 +368,28 @@
 				}
 			},
 			oauth(){
+				let loginCode='';
 				uni.login({
 					success:(res)=>{
-						console.log("登录信息",res)
-						 uni.getUserProfile({
-							desc:"用于显示用户头像，昵称等信息",
-						    success: (infoRes) => {
-						        /**
-						         * 实际开发中，获取用户信息后，需要将信息上报至服务端。
-						         * 服务端可以用 userInfo.openId 作为用户的唯一标识新增或绑定用户信息。
-						         */
-								uni.setStorageSync("userInfo", infoRes.userInfo);
-								uni.setStorageSync("avatarUrl", infoRes.userInfo.avatarUrl);
-								this.MPlogin(res.code, infoRes.iv, infoRes.encryptedData,infoRes.userInfo);
-						    }
-						});
+						loginCode=res.code;
 					},
 					fail: (err) => {
 					    console.error('授权登录失败：' + JSON.stringify(err));
 					}
 				})
+				uni.getUserProfile({
+					desc:"用于显示用户头像，昵称等信息",
+				    success: (infoRes) => {
+				        /**
+				         * 实际开发中，获取用户信息后，需要将信息上报至服务端。
+				         * 服务端可以用 userInfo.openId 作为用户的唯一标识新增或绑定用户信息。
+				         */
+						uni.setStorageSync("userInfo", infoRes.userInfo);
+						uni.setStorageSync("avatarUrl", infoRes.userInfo.avatarUrl);
+						
+						this.MPlogin(loginCode, infoRes.iv, infoRes.encryptedData,infoRes.userInfo);
+				    }
+				});
 			},
 			async bandPhoneNumber(json){
 				let result=await post("Login/getPhoneNumber",json)
