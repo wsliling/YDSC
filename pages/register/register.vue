@@ -41,7 +41,7 @@
 					<button type="primary" class="btn" @click="btnSubmit">{{type==1?'确认绑定':'确认注册'}}</button>
 				</view>
 				<!-- #ifndef APP-PLUS -->
-				<view class="downapp" @click="golink('/pages/dowmApp/dowmApp')">下载英达思创app</view>
+				<!-- <view class="downapp" @click="golink('/pages/dowmApp/dowmApp')">下载英达思创app</view> -->
 				<!-- #endif -->
 			</view>
 		</view>
@@ -284,7 +284,7 @@
 	}
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 	@import '@/common/login.css';
 	.logo {
 		padding: 100upx 0 80upx;
@@ -311,7 +311,7 @@
 		width: 100%;
 		text-align: center;
 		margin-top: 60upx;
-		color: #FF3333;
+		color: $primary;
 		text-decoration:underline
 	}
 </style>

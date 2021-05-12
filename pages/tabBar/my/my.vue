@@ -104,7 +104,7 @@
 					<view class="item-left flex1">
 						<text class="iconfont icon-pinglun"></text>
 						<view class="flex1">我的消息</view>
-						<text class="tag" style="border-radius: 100px;" v-if="memberInfo.NewsRedDot">{{memberInfo.NewsRedDot}}</text>
+						<text class="tag" style="border-radius: 100px;" v-if="newscount">{{newscount}}</text>
 					</view>
 					<view class="arrowr uni-icon uni-icon-arrowright"></view>
 				</view>

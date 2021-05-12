@@ -1,7 +1,9 @@
 <template>
 	<view>
+		<!-- #ifndef MP-WEIXIN -->
 		<uni-nav-bar fixed="true" color="#333333" background-color="#ffffff" title="下载APP" :border="false">
 		</uni-nav-bar>
+		<!-- #endif -->
 		<!-- #ifdef H5 -->
 		<a v-if="!iswx" class="alink flex-center" :href="urlstr">
 			<span>已安装，请点击此处打开App</span><span class="btn">点击</span>

@@ -206,18 +206,20 @@ export default {
 		wxGetCity(lon, lat) {
 			var _this = this;
 			wx.request({
-				url: 'https://api.map.baidu.com/reverse_geocoding/v3/?ak=3wwDKCk09o6hU0PK1605QUXOCBqGVHGx&location=' + lat + ',' + lon + '&output=json&coordtype=wgs84ll',
-				data: {},
+				url:'https://restapi.amap.com/v3/geocode/regeo?output=JSON&location='+lon+','+lat+'&key=280802ed0116fef931dbcf5e7e9278d7&radius=1000&extensions=all',
 				header: {
 					'content-type': 'application/json' // 默认值
 				},
 				success(res) {
-					console.log('res');
-					console.log(res);
-					var cityname = res.data.result.addressComponent.city.replace(/市/, '');
-					uni.setStorageSync('cityname', cityname);
-					_this.cityname = cityname;
-					_this.getAreaCode(cityname);
+					if(res.statusCode===200){
+						var cityname = res.data.regeocode.addressComponent.city.replace(/市/, '');
+						uni.setStorageSync('cityname', cityname);
+						_this.cityname = cityname;
+						_this.getAreaCode(cityname);
+					}else{
+						console.log("获取信息失败，请重试！")
+					}
+					
 				}
 			});
 		},
