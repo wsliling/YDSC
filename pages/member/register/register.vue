@@ -61,9 +61,15 @@ export default {
 				Token: this.token
 			});
 			if (result.code == 0) {
-				setTimeout(() => {
-					this.signIn();
-				}, 200);
+				// setTimeout(() => {
+				// 	this.signIn();
+				// 	console.log(this.sign);
+				// }, 200);
+				success: () => {
+					setTimeout(() => {
+						this.signIn();
+					}, 500);
+				};
 			}
 		},
 		// 签到详情

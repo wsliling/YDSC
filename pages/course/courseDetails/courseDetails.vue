@@ -26,7 +26,7 @@
 		<view class="line"></view>
 		<view class="con">
 			<view class="title">课程简介</view>
-			<view class="con1_1">{{ appcoursedetail.Content }}</view>
+			<view class="con1_1"><uParse :content="appcoursedetail.Content" /></view>
 		</view>
 		<view class="line"></view>
 		<view class="time">
@@ -39,9 +39,11 @@
 <script>
 import { post } from '@/common/util.js';
 import times from '@/components/pretty-timespicker2/pretty-timespicker2.vue';
+import uParse from '@/components/uParse/src/wxParse.vue';
 export default {
 	components: {
-		times
+		times,
+		uParse
 	},
 	data() {
 		return {
