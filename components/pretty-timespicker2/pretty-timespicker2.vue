@@ -23,12 +23,11 @@
 						<view class="item">
 							<view
 								class="item-box"
-								:class="{ disable: item.IsFull == 1, active: _index == timeActive }"
+								:class="{ disable: item.IsFull == 1, active: _index == timeActive && item.IsFull == 0 }"
 								:style="{ color: _index == timeActive ? selectedItemColor : '#333' }"
 								@click="selectTimeEvent(_index, item)"
 							>
 								<text>{{ item.TimeSpan }}</text>
-								<text class="all"></text>
 								<view class="full" v-show="item.IsFull == 1"><image src="http://yd.wtanvxin.com/static/course/course5_8.png"></image></view>
 							</view>
 						</view>
@@ -89,6 +88,7 @@ export default {
 			timeActive: 0, //选中的时间索引
 			selectDate: '', //选择的日期
 			selectTime: '', //选择的时间
+			selectFull: 0,
 			selectDateId: 0,
 			selectTimeId: 0,
 			name: '',
@@ -100,13 +100,22 @@ export default {
 		this.timeArr = this.dateArr[0].TimeList;
 		this.selectDate = this.dateArr[0]; //默认选中的日期
 		this.selectTime = this.timeArr[0].TimeSpan; //默认选中的时间
+		this.selectFull = this.timeArr[0].IsFull; //选中的时间是否排满
 		this.selectDateId = this.dateArr[0].Id;
 		this.selectTimeId = this.timeArr[0].Id;
 	},
 	onShow() {},
 	methods: {
 		pop() {
-			this.$refs.popup.open(); // 显示弹窗
+			if (this.selectFull == 1) {
+				uni.showToast({
+					title: '请选择可以预约的时间',
+					duration: 1000,
+					icon: 'none'
+				});
+			} else {
+				this.$refs.popup.open(); // 显示弹窗
+			}
 		},
 		hidePopup() {
 			this.$refs.popup.close(); // 关闭弹窗
@@ -149,7 +158,6 @@ export default {
 					});
 				}, 2000);
 			}
-			// if(result.data.DayWeek)
 		},
 		selectDateEvent(index, item) {
 			this.dateActive = index;
@@ -158,9 +166,14 @@ export default {
 			this.selectDateId = item.Id;
 			// 选出默认值
 			this.timeArr.some((item, index) => {
-				this.selectTime = this.timeArr[index].TimeSpan; //默认选中的时间  15:00
+				this.selectTime = this.timeArr[index].TimeSpan; //默认选中的时间
+				this.selectFull = this.timeArr[index].IsFull; //选中的时间是否排满
 				this.timeActive = index; //选中的时间索引
-				return !item.disable;
+				if (this.selectFull == 1) {
+					return item.disable;
+				} else {
+					return !item.disable;
+				}
 			});
 		},
 		selectTimeEvent(index, item) {

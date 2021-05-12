@@ -70,7 +70,7 @@ export default {
 				_this.here = '定位失败';
 				// #ifdef APP-PLUS
 				uni.showModal({
-					content: '定位失败，请在设置中打开星球客的位置权限',
+					content: '定位失败，请在设置中打开位置权限',
 					showCancel: false,
 					success: function(res) {
 						if (res.confirm) {
@@ -107,7 +107,7 @@ export default {
 				_this.here = '定位失败';
 				// #ifdef APP-PLUS
 				uni.showModal({
-					content: '定位失败，请在设置中打开星球客的位置权限',
+					content: '定位失败，请在设置中打开位置权限',
 					showCancel: false,
 					success: function(res) {
 						if (res.confirm) {
@@ -154,7 +154,7 @@ export default {
 				success: res => {
 					if (!res.authSetting['scope.userLocation'])
 						wx.showModal({
-							content: '检测到您没打开星球客的定位权限，是否去设置打开？',
+							content: '检测到您没打开定位权限，是否去设置打开？',
 							confirmText: '确认',
 							cancelText: '取消',
 							success: function(res) {
@@ -199,7 +199,7 @@ export default {
 			}
 			if (name == '定位失败') {
 				uni.showToast({
-					title: '定位失败，请在设置中打开星球客的位置权限',
+					title: '定位失败，请在设置中打开位置权限',
 					icon: 'none'
 				});
 				return;
