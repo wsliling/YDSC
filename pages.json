@@ -519,6 +519,17 @@
 						"navigationBarBackgroundColor": "#ffffff"
 						// "enablePullDownRefresh" : true
 					}
+				},{
+					"path" : "orderTui/orderTui",
+					"style" : {
+						"navigationBarTitleText": "售后订单"
+					}
+				},
+				{
+					"path" : "orderTuidetail/orderTuidetail",
+					"style" : {
+						"navigationBarTitleText": "售后详情"
+					}
 				},
 				{
 					"path": "logistics/logistics",
@@ -600,6 +611,7 @@
 				}, {
 					"path": "information/information",
 					"style": {
+						"navigationBarTitleText": "我的数据",
 						"app-plus": {
 							"titleNView": {
 								"type": "transparent",

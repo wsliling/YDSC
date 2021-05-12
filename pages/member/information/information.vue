@@ -79,7 +79,9 @@ page{
 	justify-content: space-around;
 	.exercise {
 		font-size: 32upx;
+		/* #ifndef MP-WEIXIN */
 		margin-top: 70upx;
+		/* #endif */
 		font-weight: bold;
 		color: #ffffff;
 	}
