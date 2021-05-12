@@ -2,31 +2,31 @@
 	<view>
 		<view class="topbox">
 			<view class="icon"><image src="http://yd.wtanvxin.com/static/time.png"></image></view>
-			<view class="time">{{regclasslistdetail.CourseDate}} {{regclasslistdetail.DayWeek}} {{regclasslistdetail.CourseTimeSpan}}</view>
+			<view class="time">{{info.CourseDate}} {{info.DayWeek}} {{info.CourseTimeSpan}}</view>
 		</view>
 		<view class="introduct">
-			<view class="title">{{regclasslistdetail.Title}}</view>
+			<view class="title">{{info.Title}}</view>
 			<view class="txtcolor">
-				<view class="gray">{{regclasslistdetail.TargetName}}</view>
-				<view class="gray">{{regclasslistdetail.DifficultyName}}</view>
+				<view class="gray">{{info.TargetName}}</view>
+				<view class="gray">{{info.DifficultyName}}</view>
 				<!-- <view class="gray">60分钟</view> -->
 			</view>
-			<view class="userinfo">
-				<view class="header"><image :src="regclasslistdetail.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
-				<view class="name">{{regclasslistdetail.CoachNick}}</view>
+			<view class="userinfo" @click="tolink('/pages/homepage/homepage?id='+info.MemberId)">
+				<view class="header"><image :src="info.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
+				<view class="name">{{info.CoachNick}}</view>
 			</view>
 		</view>
-		<view class="studio">
-			<view class="header"><image :src="regclasslistdetail.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
-			<view class="company">
-				<view class="studioName">{{regclasslistdetail.StoreName}}</view>
-				<view class="address">{{regclasslistdetail.StoreAddress}}</view>
+		<view class="studio flex-between" @click="tolink('/pages/personal/VenueDetail/VenueDetail?gymId='+info.StoreId)">
+			<view class="header"><image :src="info.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
+			<view class="company flex1">
+				<view class="studioName">{{info.StoreName}}</view>
+				<view class="address">{{info.StoreAddress}}</view>
 			</view>
-			<view class="trangle"></view>
+			<view class="iconfont icon-arrow_r fz14 c_999"></view>
 		</view>
 		<view class="classIntroduct">
 			<view class="titlename">课程简介</view>
-			<view class="content">{{regclasslistdetail.Content}}
+			<view class="content" v-html="info.Content">
 			</view>
 		</view>
 	</view>
@@ -39,7 +39,7 @@ export default {
 		return {
 			userId: '',
 			token: '',
-			regclasslistdetail: {},
+			info: {},
 			Id: 0
 		};
 	},
@@ -50,6 +50,11 @@ export default {
 		this.getRegClassListDetail();
 	},
 	methods: {
+		tolink(url) {
+			uni.navigateTo({
+				url: url
+			});
+		},
 		//预约课程详情
 		async getRegClassListDetail() {
 			let result = await post('Course/GetRegCourseOffline_xq', {
@@ -58,7 +63,7 @@ export default {
 				OrderNo: this.Id
 			});
 			if (result.code == 0) {
-				this.regclasslistdetail = result.data;
+				this.info = result.data;
 			}
 		}
 	}
@@ -138,12 +143,10 @@ export default {
 	}
 }
 .studio {
-	display: flex;
-	align-items: center;
 	height: 184upx;
 	background: #ffffff;
-	padding: 0 26upx;
-	margin-top: 26upx;
+	padding: 0 20upx;
+	margin-top: 20upx;
 	.header {
 		width: 104upx;
 		height: 104upx;
@@ -167,13 +170,6 @@ export default {
 			font-weight: 500;
 			color: #404040;
 		}
-	}
-	.trangle {
-		width: 20upx;
-		height: 20upx;
-		border-top: solid 4upx #999;
-		border-left: solid 4upx #999;
-		transform: rotate(130deg);
 	}
 }
 .classIntroduct {

@@ -187,9 +187,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-page {
-	background-color: #ffffff;
-}
 .titleTab {
 	display: flex;
 	position: fixed;
@@ -198,7 +195,6 @@ page {
 	line-height: 80upx;
 	background-color: #ffffff;
 	justify-content: space-around;
-	border-bottom: solid 20upx #f5f5f5;
 	.item {
 		font-size: 28upx;
 		position: relative;
@@ -214,19 +210,23 @@ page {
 	overflow: hidden;
 	border-radius: 50%;
 	background-color: #000000;
+	background-color: #ffffff;
 	margin-right: 20upx;
+	image{
+		width: 100%;
+		height: 100%;
+	}
 }
 .tab_1 {
-	padding-top: 110upx;
+	padding-top: 100upx;
 }
 // 列表
 .list {
-	border-bottom: solid 2upx #f5f5f5;
+	border-bottom: solid 1px #f5f5f5;
 	display: flex;
 	align-items: center;
 	background-color: #ffffff;
-	padding: 30upx 0;
-	margin: 0 30upx;
+	padding: 30upx;
 	&:last-child {
 		border-bottom: 0;
 	}

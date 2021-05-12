@@ -2,31 +2,31 @@
 	<view>
 		<view class="topbox">
 			<view class="icon"><image src="http://yd.wtanvxin.com/static/time.png"></image></view>
-			<view class="time">{{ regclasslistcoachdetail.ApplyDate }} {{ regclasslistcoachdetail.DayWeek }} {{ regclasslistcoachdetail.ApplyTimeSpan }}</view>
+			<view class="time">{{ info.ApplyDate }} {{ info.DayWeek }} {{ info.ApplyTimeSpan }}</view>
 		</view>
 		<view class="introduct">
 			<view class="title">教练信息</view>
 			<view class="userinfo">
 				<view style="display: flex; align-items: center;">
-					<view class="header"><image :src="regclasslistcoachdetail.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
+					<view class="header"><image :src="info.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
 					<view class="caochinfo">
-						<view class="name">{{ regclasslistcoachdetail.CoachNick }}</view>
-						<view class="contentname">{{ regclasslistcoachdetail.CoachType }}</view>
+						<view class="name">{{ info.CoachNick }}</view>
+						<view class="contentname">{{ info.CoachType }}</view>
 					</view>
 				</view>
-				<view class="homepage" @click="tolink">
+				<view class="homepage" @click="tolink('/pages/homepage/homepage?id='+info.MemberId)">
 					<view class="txt">个人主页</view>
-					<view class="trangle"></view>
+					<view class="iconfont icon-arrow_r"></view>
 				</view>
 			</view>
 		</view>
-		<view class="studio">
-			<view class="header"><image :src="regclasslistcoachdetail.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
+		<view class="studio" @click="tolink('/pages/personal/VenueDetail/VenueDetail?gymId='+info.StoreId)">
+			<view class="header"><image :src="info.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
 			<view class="company">
-				<view class="studioName">{{ regclasslistcoachdetail.StoreName }}</view>
-				<view class="address">{{ regclasslistcoachdetail.StoreAddress }}</view>
+				<view class="studioName">{{ info.StoreName }}</view>
+				<view class="address">{{ info.StoreAddress }}</view>
 			</view>
-			<view class="trangle"></view>
+			<view class="iconfont icon-arrow_r"></view>
 		</view>
 	</view>
 </template>
@@ -38,7 +38,7 @@ export default {
 		return {
 			userId: '',
 			token: '',
-			regclasslistcoachdetail: {},
+			info: {},
 			Id: 0
 		};
 	},
@@ -49,9 +49,9 @@ export default {
 		this.getRegClassListCoachDetail();
 	},
 	methods: {
-		tolink() {
+		tolink(url) {
 			uni.navigateTo({
-				url: '/pages/homepage/homepage'
+				url: url
 			});
 		},
 		//预约教练详情
@@ -62,7 +62,7 @@ export default {
 				OrderNo: this.Id
 			});
 			if (result.code == 0) {
-				this.regclasslistcoachdetail = result.data;
+				this.info = result.data;
 			}
 		}
 	}
@@ -190,11 +190,8 @@ export default {
 		margin: 10upx;
 	}
 }
-.trangle {
-	width: 20upx;
-	height: 20upx;
-	border-top: solid 4upx #999;
-	border-left: solid 4upx #999;
-	transform: rotate(130deg);
+.icon-arrow_r {
+	color: #999;
+	font-size: 28upx;
 }
 </style>
