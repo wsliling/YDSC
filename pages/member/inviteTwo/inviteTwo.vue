@@ -40,7 +40,6 @@
 					<image src="http://jyy.wtvxin.com/static/images/icons/quan.png" alt="" class="circle_img"></image>
 					<view class="mt1 flex1 font18">分享到朋友圈</view>
 				</view>
-			 
 		  </view>
 		<!-- 保存海报 -->
 		<view class="mask" v-if="showImg" @catchtouchmove="true"></view>
@@ -109,8 +108,8 @@ export default {
 				scene: 'WXSceneSession',
 				type: 0,
 				href: 'http://shop.dadanyipin.com/#/pages/tabBar/index/index?inviteCode=' + this.info.ReferralCode,
-				title: '大单易拼等你来！',
-				summary: '我正在使用大单易拼，赶紧跟我一起来体验！',
+				title: '英达思创等你来！',
+				summary: '我正在使用英达思创，赶紧跟我一起来体验！',
 				imageUrl: this.codeurl,
 				success: function(res) {
 					console.log('success:' + JSON.stringify(res));
@@ -199,7 +198,6 @@ export default {
 		},
 		Wxshare() {
 			var _this = this;
-			console.log(321);
 			uni.saveImageToPhotosAlbum({
 				//保存图片到相册
 				filePath: _this.saveImgurl,
@@ -320,7 +318,7 @@ export default {
 	// onShareAppMessage: function() {
 	//  console.log(this.info.ReferralCode,"this.info.ReferralCode")
 	//   return {
-	//     title: "大单易拼", //转发页面的标题
+	//     title: "英达思创", //转发页面的标题
 	//     path: '/pages/tabBar/index/index?inviteCode='+this.info.ReferralCode
 	//   }
 	// },

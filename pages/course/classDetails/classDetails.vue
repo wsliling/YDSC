@@ -14,7 +14,7 @@
 					<image :src="classdetail.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
 				</view>
 				<view class="info1_4">{{ classdetail.StoreNick }}</view>
-				<view :class="['info1_2',Isfollow?'ed':'']" @click="followfun">{{Isfollow?'已关注':'关注'}}</view>
+				<view :class="['info1_2', Isfollow ? 'ed' : '']" @click="followfun">{{ Isfollow ? '已关注' : '关注' }}</view>
 			</view>
 		</view>
 		<view class="line"></view>
@@ -50,10 +50,18 @@
 				<view class="iconfont" :class="[IsCollect ? 'icon-collect bd' : 'icon-collect1']" @click="collect"></view>
 				收藏
 			</view>
-			<view class="foot_2">
+			<view class="foot_2" @click="share">
 				<button class="sharebtn" open-type="share"><view class="iconfont icon-share"></view></button>
 				分享
 			</view>
+			<!-- 弹出分享 -->
+			<uni-popup ref="popupShare" type="bottom">
+				<nvue-share
+					:title="classdetail.Name"
+					:imageUrl="classdetail.PicImg"
+					:url="'/pages/course/classDetails/classDetails?detailId=' + this.Id + '&inCode=' + this.ReferralCode"
+				></nvue-share>
+			</uni-popup>
 			<view class="foot_3" @click="tolink('/pages/course/scoreExchange/scoreExchange?classId=' + classdetail.Id)">{{ classdetail.Score }}积分兑换</view>
 			<view class="foot_4" @click="tolink('/pages/course/buyClass/buyClass?classId=' + classdetail.Id)">￥{{ classdetail.Price }}购买</view>
 		</view>
@@ -63,26 +71,39 @@
 <script>
 import { post } from '@/common/util.js';
 import uParse from '@/components/uParse/src/wxParse.vue';
+import nvueShare from '@/components/uni-popup/nvue-share.vue';
+import h5Copy from '@/common/junyi-h5-copy';
 export default {
 	components: {
-		uParse
+		uParse,nvueShare
 	},
 	data() {
 		return {
 			userId: '',
 			token: '',
+			ReferralCode: '', //自己的邀请码
+			inviteCode: '', //他人的邀请码
 			Id: 0,
 			classdetail: {}, // 课程详情
 			classdetails: [], //训练部位
-			IsCollect: false ,//是否收藏
-			Isfollow:false,//是否关注
-			StoreId:'',//门店加密id
+			IsCollect: false, //是否收藏
+			Isfollow: false, //是否关注
+			StoreId: '' //门店加密id
 		};
 	},
 	onLoad(e) {
+		this.Id = e.detailId;
+		if (e.inCode) {
+			this.inviteCode = e.inCode;
+			// #ifdef MP-WEIXIN
+			uni.setStorageSync('inviteCode', e.inCode);
+			// #endif
+		}
+	},
+	onShow() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
-		this.Id = e.detailId;
+		this.ReferralCode = uni.getStorageSync('ReferralCode'); //自己的邀请码
 		this.getClassDetail();
 	},
 	methods: {
@@ -111,9 +132,23 @@ export default {
 				this.classdetail = result.data;
 				this.classdetails = result.data.TrainingSiteInfo;
 				this.IsCollect = result.data.IsCollect;
-				this.Isfollow=result.data.IsFollow;
-				this.StoreId=result.data.StoreId;
+				this.Isfollow = result.data.IsFollow;
+				this.StoreId = result.data.StoreId;
 			}
+		},
+		//分享
+		share() {
+			//#ifdef APP-PLUS
+			this.$refs.popupShare.open();
+			//#endif
+			//#ifdef H5
+			const status = h5Copy(window.location.origin + '/#' + '/pages/course/classDetails/classDetails?detailId=' + this.Id + '&inCode=' + this.ReferralCode);
+			if (status) {
+				uni.showToast({ title: '链接复制成功，快去分享给好友吧~', icon: 'none' });
+			} else {
+				uni.showToast({ title: '分享失败', icon: 'none' });
+			}
+			//#endif
 		},
 		//添加取消收藏
 		async collect() {
@@ -144,13 +179,13 @@ export default {
 				toLogin();
 			}
 		},
-		async followfun(){
-			let url=this.Isfollow?'User/ReCollections':'User/AddCollections'
+		async followfun() {
+			let url = this.Isfollow ? 'User/ReCollections' : 'User/AddCollections';
 			let result = await post(url, {
 				StoreId: this.StoreId,
 				userId: this.userId,
 				token: this.token,
-				Type:2
+				Type: 2
 			});
 			if (result.code == 0) {
 				if (this.Isfollow) {
@@ -174,7 +209,36 @@ export default {
 				toLogin();
 			}
 		}
+	},
+	// #ifdef MP-WEIXIN
+	onShareAppMessage: function(e) {
+		// 设置菜单中的转发按钮触发转发事件时的转发内容
+		var shareObj = {
+			title: this.classdetail.Name, // 默认是小程序的名称(可以写slogan等)
+			path: '/pages/course/classDetails/classDetails?detailId=' + this.Id + '&inCode=' + this.ReferralCode, // 默认是当前页面，必须是以‘/’开头的完整路径
+			imageUrl: this.classdetail.PicImg,
+			success: function(res) {
+				// 转发成功之后的回调
+				if (res.errMsg == 'shareAppMessage:ok') {
+					console.log('1111111111111111');
+				}
+			},
+			fail: function() {
+				console.log('22222222222'); // 转发失败之后的回调
+				if (res.errMsg == 'shareAppMessage:fail cancel') {
+					// 用户取消转发
+				} else if (res.errMsg == 'shareAppMessage:fail') {
+					// 转发失败，其中 detail message 为详细失败信息
+				}
+			},
+			complete: function() {
+				// 转发结束之后的回调（转发成不成功都会执行）
+				console.log('33333333333333');
+			}
+		};
+		return shareObj;
 	}
+	// #endif
 };
 </script>
 
@@ -182,8 +246,8 @@ export default {
 @import './style';
 .sharebtn {
 	background-color: white;
-	line-height: 50upx;
-	margin-top: 5upx;
+	line-height: 66upx;
+	margin-top: 8upx;
 	color: #7c7c8a;
 }
 .sharebtn::after {

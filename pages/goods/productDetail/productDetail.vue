@@ -580,7 +580,7 @@ export default {
 				window.location.origin + '/#' + '/pages/goods/productDetail/productDetail?proId=' + this.proId + '&inCode=' + this.ReferralCode + '&isLimint=' + this.isLimint
 			);
 			if (status) {
-				uni.showToast({ title: '链接复制成功，快去分享给好友吧~' });
+				uni.showToast({ title: '链接复制成功，快去分享给好友吧~',icon:'none' });
 			} else {
 				uni.showToast({ title: '分享失败', icon: 'none' });
 			}
