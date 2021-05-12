@@ -13,8 +13,21 @@
 			</block>
 		</uni-nav-bar>
 		<view class="list" v-if="hasData">
-			<view class="tab1" v-for="(item, index) in classlist" :key="index">
-				<view class="sec2_1"><image :src="item.PicImg" @click="classDetails(item.Id)" mode="aspectFill"></image></view>
+			<!-- <view class="tab1" v-for="(item, index) in classlist" :key="index"> -->
+			<!-- <view class="sec2_1"><image :src="item.PicImg" @click="classDetails(item.Id)" mode="aspectFill"></image></view> -->
+			<!-- </view> -->
+			<view v-for="(item, index) in classlist" :key="index">
+				<view class="sec4_1" @click="classDetails(item.Id)">
+					<view><image :src="item.PicImg" mode="aspectFill"></image></view>
+					<view>
+						<view class="sec4_title">{{ item.Title }}</view>
+						<view class="sec4_title1">{{ item.DifficultyName }} . {{ item.CourseDuration }}分钟</view>
+						<!-- <view class="sec4_title2">
+							<image :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
+							<text>{{ item.CoachNick }}</text>
+						</view> -->
+					</view>
+				</view>
 			</view>
 		</view>
 		<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
@@ -45,10 +58,6 @@ export default {
 			noDataIsShow: false,
 			classlist: [],
 			id: 0,
-			// isfixed: false, //筛选是否定位
-			filtertop: 0,
-			// brandShow: false,
-			// couponId: '',
 			tipstxt: ''
 		};
 	},
@@ -86,7 +95,6 @@ export default {
 				Token: this.token,
 				SearchKey: this.searchVal,
 				IsNewPeopleVip: 0,
-				Ctype: this.tabIndex,
 				IsLike: 0,
 				IsRic: 0
 			});
@@ -140,12 +148,10 @@ export default {
 					icon: 'none'
 				});
 			}
-		},
+		}
 	},
 	onPullDownRefresh() {
 		this.page = 1;
-		// this.searchVal = "";
-		// this.tipstxt="";
 		if (this.searchVal) {
 			this.getCourseList();
 		}
@@ -172,13 +178,49 @@ export default {
 </script>
 
 <style lang="scss">
+page {
+	background-color: white;
+}
 .list {
-	padding: 12upx 0;
-	.sec2_1 {
-		padding: 12upx 20upx;
-		image {
-			border-radius: 10upx;
-			height: 280upx;
+	padding: 10upx 20upx;
+	border-top: 20upx solid #f5f5f5;
+	.sec4_1 {
+		display: flex;
+		height: 220upx;
+		line-height: 220upx;
+		align-items: center;
+		> view:nth-of-type(1) {
+			flex: 1;
+			padding: 0 12upx;
+			image {
+				height: 190upx;
+				border-radius: 10upx;
+			}
+		}
+		> view:nth-of-type(2) {
+			flex: 1.8;
+			height: 200upx;
+			line-height: 60upx;
+			.sec4_title {
+				font-size: 33upx;
+			}
+			.sec4_title1 {
+				color: gray;
+				font-size: 22upx;
+			}
+			// .sec4_title2 {
+			// 	color: #c5c5c5;
+			// 	transform: scale(0.9);
+			// 	margin-left: -25upx;
+			// 	image {
+			// 		border-radius: 50%;
+			// 		width: 56upx;
+			// 		height: 56upx;
+			// 	}
+			// 	text {
+			// 		padding-left: 10upx;
+			// 	}
+			// }
 		}
 	}
 }

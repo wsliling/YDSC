@@ -70,7 +70,7 @@ export default {
 				_this.here = '定位失败';
 				// #ifdef APP-PLUS
 				uni.showModal({
-					content: '定位失败，请在设置中打开星球客的位置权限',
+					content: '定位失败，请在设置中打开位置权限',
 					showCancel: false,
 					success: function(res) {
 						if (res.confirm) {
@@ -107,7 +107,7 @@ export default {
 				_this.here = '定位失败';
 				// #ifdef APP-PLUS
 				uni.showModal({
-					content: '定位失败，请在设置中打开星球客的位置权限',
+					content: '定位失败，请在设置中打开位置权限',
 					showCancel: false,
 					success: function(res) {
 						if (res.confirm) {
@@ -137,14 +137,13 @@ export default {
 		wxGetCity(lon, lat) {
 			var _this = this;
 			wx.request({
-				url: 'https://api.map.baidu.com/reverse_geocoding/v3/?ak=3wwDKCk09o6hU0PK1605QUXOCBqGVHGx&location=' + lat + ',' + lon + '&output=json&coordtype=wgs84ll',
+				url:'https://restapi.amap.com/v3/geocode/regeo?output=JSON&location='+lon+','+lat+'&key=280802ed0116fef931dbcf5e7e9278d7&radius=1000&extensions=all',
 				data: {},
 				header: {
 					'content-type': 'application/json' // 默认值
 				},
 				success(res) {
-					console.log(res);
-					var cityname = res.data.result.addressComponent.city.replace(/市/, '');
+					var cityname = res.data.regeocode.addressComponent.city.replace(/市/, '');
 					_this.here = cityname;
 				}
 			});
@@ -154,7 +153,7 @@ export default {
 				success: res => {
 					if (!res.authSetting['scope.userLocation'])
 						wx.showModal({
-							content: '检测到您没打开星球客的定位权限，是否去设置打开？',
+							content: '检测到您没打开定位权限，是否去设置打开？',
 							confirmText: '确认',
 							cancelText: '取消',
 							success: function(res) {
@@ -199,7 +198,7 @@ export default {
 			}
 			if (name == '定位失败') {
 				uni.showToast({
-					title: '定位失败，请在设置中打开星球客的位置权限',
+					title: '定位失败，请在设置中打开位置权限',
 					icon: 'none'
 				});
 				return;
