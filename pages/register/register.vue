@@ -6,7 +6,7 @@
 		<view class="regLoginBox">
 			<view class="logo">
 				<view class="img">
-					<image src="http://yd.wtanvxin.com/static/logo.png" mode="widthFix"></image>
+					<image src="/static/logo.png" mode="widthFix"></image>
 					<view class="Title">英达思创</view>
 				</view>
 			</view>
