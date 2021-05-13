@@ -2,9 +2,9 @@
 	<view>
 		<view class="itembox pp3">
 			<view class="userbox flex-between">
-				<view class="author"><image :src="gymlistdetail.Logo"></image></view>
+				<view class="author"><image :src="gymlistdetail.Logo" mode="aspectFill"></image></view>
 				<view class="name flex1 uni-ellipsis">{{ gymlistdetail.StoreNick }}</view>
-				<view :class="['btn',Isfollow?'ed':'']" @click="followfun">{{Isfollow?'已关注':'关注'}}</view>
+				<view :class="['btn', Isfollow ? 'ed' : '']" @click="followfun">{{ Isfollow ? '已关注' : '关注' }}</view>
 			</view>
 		</view>
 		<view class="itembox line-list">
@@ -23,13 +23,15 @@
 		</view>
 		<view class="itembox pd15">
 			<view class="Yi-hd"><view class="title">机构简介</view></view>
-			<view class="desc fz14 c_666" style="padding-bottom: 20upx;">{{ gymlistdetail.Description }}</view>
+			<view><uParse :content="gymlistdetail.Description" /></view>
 		</view>
 		<view class="itembox" style="padding: 0 0 30upx 30upx;">
 			<view class="Yi-hd"><view class="title">场馆展示</view></view>
 			<view class="bd">
 				<scroll-view class="image-list" scroll-x="true">
-					<view class="img" v-for="(item, index) in gymlistImg" :key="index"><image :src="item.PicUrl"></image></view>
+					<view class="img" v-if="gymlistImg" v-for="(item, index) in gymlistImg" :key="index">
+						<image :src="item.PicUrl" mode="aspectFill" @click="previewImg(index)"></image>
+					</view>
 				</scroll-view>
 			</view>
 		</view>
@@ -49,7 +51,7 @@
 			<view class="Yi-hd"><view class="title">课程</view></view>
 			<view class="bd course-list">
 				<view class="item flex-between" v-for="(item, index) in classlist" :key="index">
-					<view class="img"><image :src="item.PicImg" @click="courseDetails(item.Id)"></image></view>
+					<view class="img"><image :src="item.PicImg" @click="courseDetails(item.Id)" mode="aspectFill"></image></view>
 					<view class="item_r flex1">
 						<view class="title uni-ellipsis">{{ item.Title }}</view>
 						<view class="desc">{{ item.DifficultyName }} . {{ item.CourseDuration }}分钟</view>
@@ -70,10 +72,12 @@
 import { post } from '@/common/util.js';
 import noData from '@/components/noData.vue'; //暂无数据
 import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
+import uParse from '@/components/uParse/src/wxParse.vue';
 export default {
 	components: {
 		noData,
-		uniLoadMore
+		uniLoadMore,
+		uParse
 	},
 	data() {
 		return {
@@ -90,7 +94,7 @@ export default {
 			gymlistImg: [],
 			devicelist: [],
 			classlist: [],
-			Isfollow:false
+			Isfollow: false
 		};
 	},
 	onShow() {},
@@ -109,6 +113,16 @@ export default {
 				url: url
 			});
 		},
+		//预览图片
+		previewImg(index) {
+			let imgs = this.gymlistImg.map(item => {
+				return item.PicUrl;
+			});
+			uni.previewImage({
+				urls: imgs,
+				current: index
+			});
+		},
 		//场馆详情
 		async getGymListDetail() {
 			let result = await post('Store/GetStoreDetail', {
@@ -121,7 +135,7 @@ export default {
 			if (result.code == 0) {
 				this.gymlistdetail = result.data;
 				this.gymlistImg = result.data.PicData;
-				this.Isfollow = result.data.IsCollection.Value>0?true:false;
+				this.Isfollow = result.data.IsCollection.Value > 0 ? true : false;
 			}
 		},
 		courseDetails(id) {
@@ -179,13 +193,13 @@ export default {
 				this.loadingType = 0;
 			}
 		},
-		async followfun(){
-			let url=this.Isfollow?'User/ReCollections':'User/AddCollections'
+		async followfun() {
+			let url = this.Isfollow ? 'User/ReCollections' : 'User/AddCollections';
 			let result = await post(url, {
 				StoreId: this.Id,
 				userId: this.userId,
 				token: this.token,
-				Type:2
+				Type: 2
 			});
 			if (result.code == 0) {
 				if (this.Isfollow) {
@@ -208,7 +222,7 @@ export default {
 	},
 	onPullDownRefresh() {
 		this.page = 1;
-		this.classlist=[];
+		this.classlist = [];
 		this.getGymListDetail();
 		this.getDeviceListDetail();
 		this.getCourseList();

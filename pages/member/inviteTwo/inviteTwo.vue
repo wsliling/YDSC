@@ -1,13 +1,13 @@
 <template>
 	<view class="invite bg_fff" style=" padding-bottom: 30upx;overflow:hidden;position: fixed;">
 		<view id="bb_canvas">
-			<view class="inn_bg "><image src="http://yd.wtanvxin.com/static/invite.png" alt="" class="invite"></image></view>
+			<view class="inn_bg "><image src="http://yd.wtanvxin.com/static/invite.png" class="invite"></image></view>
 			<view class="invite_box">
 				<view class="inn-title">邀请好友</view>
 				<view class="inn-content">
 					<image class="user-img" :src="Avatar"></image>
 					<text class="user-name">{{ NickName }}</text>
-					<view class="tel" @click="copybtn()">复制邀请码：{{ info.ReferralCode }}</view>
+					<view class="tel" @click="copybtn()">邀请码：{{ info.ReferralCode }}</view>
 					<image class="code_img" :src="info.InviteQRcode"></image>
 					<view class="tip">出示二维码，好友扫码注册时可建立邀请关系</view>
 				</view>
@@ -31,17 +31,15 @@
 		<!--分享-->
 		<view class="mask" v-if="isShowShare" @click="cancelShare" @catchtouchmove="true"></view>
 		<view class="modal_mask flex justifyContentAround pp3" v-if="isShowShare">
-			 <view class="flex flexColumn flexAlignCenter" @click="sharePlus">
-				  <image src="http://jyy.wtvxin.com/static/images/icons/vy.png" alt="" class="circle_img"></image>
-				  <view class="mt1 flex1 font18">分享微信好友</view>
-			  </view>
-			
-				<view class="flex flexColumn flexAlignCenter" @click="saveImg">
-					<image src="http://jyy.wtvxin.com/static/images/icons/quan.png" alt="" class="circle_img"></image>
-					<view class="mt1 flex1 font18">分享到朋友圈</view>
-				</view>
-			 
-		  </view>
+			<view class="flex flexColumn flexAlignCenter" @click="sharePlus">
+				<image src="http://jyy.wtvxin.com/static/images/icons/vy.png" alt="" class="circle_img"></image>
+				<view class="mt1 flex1 font18">分享微信好友</view>
+			</view>
+			<view class="flex flexColumn flexAlignCenter" @click="saveImg">
+				<image src="http://jyy.wtvxin.com/static/images/icons/quan.png" alt="" class="circle_img"></image>
+				<view class="mt1 flex1 font18">分享到朋友圈</view>
+			</view>
+		</view>
 		<!-- 保存海报 -->
 		<view class="mask" v-if="showImg" @catchtouchmove="true"></view>
 		<!-- #ifndef H5-->
@@ -103,14 +101,14 @@ export default {
 			this.isShowShare = false;
 		},
 		sharePlus() {
-			// console.log(this.codeurl, 'app分享微信好友拉！！！！！！');
+			console.log(this.codeurl, 'app分享微信好友拉！！！！！！');
 			uni.share({
 				provider: 'weixin',
 				scene: 'WXSceneSession',
 				type: 0,
 				href: 'http://shop.dadanyipin.com/#/pages/tabBar/index/index?inviteCode=' + this.info.ReferralCode,
-				title: '大单易拼等你来！',
-				summary: '我正在使用大单易拼，赶紧跟我一起来体验！',
+				title: '英达思创等你来！',
+				summary: '我正在使用英达思创，赶紧跟我一起来体验！',
 				imageUrl: this.codeurl,
 				success: function(res) {
 					console.log('success:' + JSON.stringify(res));
@@ -172,11 +170,9 @@ export default {
 				this.drawRoundedRect(ctx, '#ee9b11', '#ee9b11', 74, 435, 90, 18, 9);
 				ctx.setFillStyle('#ffffff');
 				ctx.fillText(code, 84, 447.5);
-
 				ctx.rect(200, 400, 64, 64);
 				ctx.stroke();
 				ctx.drawImage(codeurl, 200, 400, 64, 64);
-
 				ctx.draw(true, function() {
 					uni.canvasToTempFilePath({
 						canvasId: 'myCanvas',
@@ -199,7 +195,6 @@ export default {
 		},
 		Wxshare() {
 			var _this = this;
-			console.log(321);
 			uni.saveImageToPhotosAlbum({
 				//保存图片到相册
 				filePath: _this.saveImgurl,
@@ -215,16 +210,16 @@ export default {
 					});
 					// #ifdef APP-PLUS
 					uni.share({
-					    provider: "weixin",
-					    scene: "WXSenceTimeline",
-					    type: 2,
-					    imageUrl: _this.saveImgurl,
-					    success: function (res) {
-					        console.log("success:" + JSON.stringify(res));
-					    },
-					    fail: function (err) {
-					        console.log("fail:" + JSON.stringify(err));
-					    }
+						provider: 'weixin',
+						scene: 'WXSenceTimeline',
+						type: 2,
+						imageUrl: _this.saveImgurl,
+						success: function(res) {
+							console.log('success:' + JSON.stringify(res));
+						},
+						fail: function(err) {
+							console.log('fail:' + JSON.stringify(err));
+						}
 					});
 					// #endif
 				}
@@ -320,7 +315,7 @@ export default {
 	// onShareAppMessage: function() {
 	//  console.log(this.info.ReferralCode,"this.info.ReferralCode")
 	//   return {
-	//     title: "大单易拼", //转发页面的标题
+	//     title: "英达思创", //转发页面的标题
 	//     path: '/pages/tabBar/index/index?inviteCode='+this.info.ReferralCode
 	//   }
 	// },

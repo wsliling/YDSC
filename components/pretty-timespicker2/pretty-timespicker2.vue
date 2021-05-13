@@ -180,6 +180,7 @@ export default {
 			if (item.IsFull == 1) return;
 			this.timeActive = index;
 			this.selectTime = this.timeArr[index].TimeSpan;
+			this.selectFull = this.timeArr[index].IsFull; //选中的时间是否排满
 			this.selectTimeId = item.Id;
 		}
 	}

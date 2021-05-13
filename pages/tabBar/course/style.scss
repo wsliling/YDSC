@@ -11,6 +11,10 @@
 	}
 	.top {
 		display: flex;
+		position: fixed;
+		width: 100%;
+		z-index: 1;
+		background-color: white;
 		align-items: center;
 		.top_left {
 			padding: 0 10upx 0 30upx;
@@ -22,7 +26,7 @@
 		}
 		.search {
 			flex: 4;
-			padding: 10upx 0upx !important;
+			padding: 5upx 0upx !important;
 			.input-view {
 				margin-left: 0 !important;
 			}
