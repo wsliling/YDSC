@@ -29,7 +29,9 @@
 			<view class="Yi-hd"><view class="title">场馆展示</view></view>
 			<view class="bd">
 				<scroll-view class="image-list" scroll-x="true">
-					<view class="img" v-for="(item, index) in gymlistImg" :key="index"><image :src="item.PicUrl" mode="aspectFill"></image></view>
+					<view class="img" v-if="gymlistImg" v-for="(item, index) in gymlistImg" :key="index">
+						<image :src="item.PicUrl" mode="aspectFill" @click="previewImg(index)"></image>
+					</view>
 				</scroll-view>
 			</view>
 		</view>
@@ -109,6 +111,16 @@ export default {
 		toLink(url) {
 			uni.navigateTo({
 				url: url
+			});
+		},
+		//预览图片
+		previewImg(index) {
+			let imgs = this.gymlistImg.map(item => {
+				return item.PicUrl;
+			});
+			uni.previewImage({
+				urls: imgs,
+				current: index
 			});
 		},
 		//场馆详情

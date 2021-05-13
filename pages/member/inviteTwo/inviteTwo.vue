@@ -1,7 +1,7 @@
 <template>
 	<view class="invite bg_fff" style=" padding-bottom: 30upx;overflow:hidden;position: fixed;">
 		<view id="bb_canvas">
-			<view class="inn_bg "><image src="http://yd.wtanvxin.com/static/invite.png" alt="" class="invite"></image></view>
+			<view class="inn_bg "><image src="http://yd.wtanvxin.com/static/invite.png" class="invite"></image></view>
 			<view class="invite_box">
 				<view class="inn-title">邀请好友</view>
 				<view class="inn-content">
