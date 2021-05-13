@@ -90,7 +90,7 @@
 					<text class="num">{{ Info.TrendsNum }}</text>
 					<text class="txt">动态</text>
 				</view>
-				<view :class="['item', tabIndex == 3 ? 'active' : '']" @click="tapTab(3)">
+				<view v-if="Info.IsCoach==1" :class="['item', tabIndex == 3 ? 'active' : '']" @click="tapTab(3)">
 					<text class="num">{{ Info.TrendsNum }}</text>
 					<text class="txt">课程</text>
 				</view>
@@ -211,7 +211,7 @@ export default {
 	methods: {
 		classDetails(id) {
 			uni.navigateTo({
-				url: '/pages/course/classDetails/classDetails?detailId=' + id
+				url: '/pages/course/courseDetails/courseDetails?appointId=' + id
 			});
 		},
 		// 判断是否已开启权限
@@ -383,7 +383,7 @@ export default {
 					MemberId: this.memberId
 				};
 			} else if (this.tabIndex == 3) {
-				url = 'Course/MemberViewCourseList';
+				url = 'Course/GetCourseOfflineList';
 				json = {
 					UserId: this.userId,
 					Token: this.token,

@@ -195,6 +195,8 @@ export default {
 					this.bmiLeft=(bmi-30)/7.5*100;
 					this.bmiLeft=this.bmiLeft>100?100:this.bmiLeft
 				}
+			}else if(result.code==2){
+				uni.hideToast()
 			}
 		},
 		// 设备列表

@@ -8,16 +8,15 @@
 		.photo {
 			image {
 				height: 600upx;
+				background:#eee;
 			}
 		}
 		.info {
-			display: flex;
-			align-items: center;
 			padding: 20upx 30upx;
 			.name {
-				flex: 1;
 				font-weight: bolder;
 				font-size: 36upx;
+				margin-right: 20upx;
 			}
 			.detail {
 				flex: 2.5;
@@ -25,7 +24,6 @@
 				font-size: 28upx;
 			}
 			.person {
-				flex: 1;
 				color: #adadad;
 				font-size: 25upx;
 				text {
@@ -35,20 +33,17 @@
 			}
 		}
 		.info1 {
-			display: flex;
-			align-items: center;
 			padding: 10upx 20upx 30upx 30upx;
 			.info1_1 {
-				flex: 0.9;
+				flex: 1;
+				margin-right: 50upx;
 				image {
 					height: 70upx;
 					width: 300upx;
 				}
 			}
 			.info1_2 {
-				flex: 1;
 				text-align: right;
-				margin-right: 50upx;
 				color: #adadad;
 				font-size: 25upx;
 			}
@@ -59,7 +54,7 @@
 		display: flex;
 		align-items: center;
 		.stadium {
-			flex: 1;
+			margin-right: 20upx;
 			image {
 				border-radius: 50%;
 				width: 120upx;
@@ -67,7 +62,6 @@
 			}
 		}
 		.stadium_1 {
-			flex: 3.5;
 			.stadium_1_1 {
 				font-weight: bold;
 				font-size: 28upx;

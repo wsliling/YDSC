@@ -1,16 +1,16 @@
 <template>
 	<view class="details">
 		<view class="top">
-			<view class="photo"><image :src="coachdetail.HomeCover" mode="aspectFill"></image></view>
-			<view class="info">
+			<view class="photo"><image :src="coachdetail.HomeCover||'http://yd.wtanvxin.com/static/topic.jpg'" mode="aspectFill"></image></view>
+			<view class="info flex-between">
 				<view class="name">{{ coachdetail.UserNick }}</view>
 				<view class="detail">{{ coachdetail.CoachTypeName }}</view>
-				<view class="person">
+				<view class="person" @click="tolink('/pages/homepage/homepage?id='+coachdetail.MemberId)">
 					个人主页
 					<text class="iconfont icon-arrow_r"></text>
 				</view>
 			</view>
-			<view class="info1">
+			<view class="info1 flex-between">
 				<view class="info1_1" v-for="(item, index) in reguser" :key="index">
 					<image :src="item.Avatar || 'http://yd.wtanvxin.com/static/static/default.png'" mode="aspectFill"></image>
 				</view>
@@ -18,12 +18,13 @@
 			</view>
 		</view>
 		<view class="line"></view>
-		<view class="cen">
+		<view class="cen" @click="tolink('/pages/personal/VenueDetail/VenueDetail?gymId='+coachdetail.StoreId)">
 			<view class="stadium"><image :src="coachdetail.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
-			<view class="stadium_1">
+			<view class="stadium_1 flex1">
 				<view class="stadium_1_1">{{ coachdetail.StoreNick }}</view>
 				<view class="stadium_1_2">{{ coachdetail.StoreAddress }}</view>
 			</view>
+			<view class="iconfont icon-arrow_r c_999"></view>
 		</view>
 		<view class="line"></view>
 		<view class="time">
@@ -57,6 +58,11 @@ export default {
 		this.getcoachDetails();
 	},
 	methods: {
+		tolink(url){
+			uni.navigateTo({
+				url:url
+			})
+		},
 		async getcoachDetails() {
 			let result = await post('Course/GetCoach_xq', {
 				MemberId: this.Id,
