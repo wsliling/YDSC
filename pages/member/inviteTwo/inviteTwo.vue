@@ -17,14 +17,14 @@
 			<!-- <view class=" flex bg_fff pp3 flexAlignCenter">
 				  <view class=" flex flexColumn flex1 justifyContentStart">
 					  <view class=" flex flexAlignCenter">
-						  <image :src="Avatar" alt="" class="ava mr2"></image>
+						  <image :src="Avatar"   class="ava mr2"></image>
 						  <view class="mr2" style="margin-left:20upx;">
 							  <view>{{tel}}</view>
 							  <view class="font20 yy_ma mt1" @click="">邀请码：{{info.ReferralCode}}</view>
 						  </view>
 					  </view>
 				  </view>
-				  <image :src="info.InviteQRcode" alt="" class="code_img"></image>
+				  <image :src="info.InviteQRcode"   class="code_img"></image>
 			  </view> -->
 		</view>
 		<!-- <view class="yy_scan font30 " @click="showShare" >点击分享</view> -->
@@ -32,11 +32,11 @@
 		<view class="mask" v-if="isShowShare" @click="cancelShare" @catchtouchmove="true"></view>
 		<view class="modal_mask flex justifyContentAround pp3" v-if="isShowShare">
 			<view class="flex flexColumn flexAlignCenter" @click="sharePlus">
-				<image src="http://jyy.wtvxin.com/static/images/icons/vy.png" alt="" class="circle_img"></image>
+				<image src="http://jyy.wtvxin.com/static/images/icons/vy.png" class="circle_img"></image>
 				<view class="mt1 flex1 font18">分享微信好友</view>
 			</view>
 			<view class="flex flexColumn flexAlignCenter" @click="saveImg">
-				<image src="http://jyy.wtvxin.com/static/images/icons/quan.png" alt="" class="circle_img"></image>
+				<image src="http://jyy.wtvxin.com/static/images/icons/quan.png" class="circle_img"></image>
 				<view class="mt1 flex1 font18">分享到朋友圈</view>
 			</view>
 		</view>
@@ -45,7 +45,7 @@
 		<!-- #ifndef H5-->
 		<view class="imgbox" v-if="showImg">
 			<canvas canvas-id="myCanvas" disable-scroll="true" @touchmove="touchMove" class="share-canvas" style="width:100%;height:100%;" v-if="!hasimg"></canvas>
-			<image :src="saveImgurl" alt="" v-else style="width:100%;height:100%;"></image>
+			<image :src="saveImgurl" v-else style="width:100%;height:100%;"></image>
 		</view>
 		<view class="saveBtn" v-if="showImg" @click="Wxshare">保存至相册</view>
 		<!-- #endif -->
