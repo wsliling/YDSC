@@ -309,6 +309,9 @@ export default {
 	padding: 20upx;
 	border-bottom: 1px solid #f2f2f2;
 }
+.commentList {
+	background-color: white;
+}
 .commentList > .item {
 	padding: 10upx 20upx 0;
 	background-color: #fff;
@@ -380,7 +383,6 @@ export default {
 	margin-top: 22upx;
 }
 .comment-content {
-	background-color: white;
 	margin-top: -20upx;
 }
 .comment-head {

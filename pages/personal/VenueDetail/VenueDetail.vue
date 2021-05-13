@@ -23,7 +23,7 @@
 		</view>
 		<view class="itembox pd15">
 			<view class="Yi-hd"><view class="title">机构简介</view></view>
-			<view class="desc fz14 c_666" style="padding-bottom: 20upx;">{{ gymlistdetail.Description }}</view>
+			<view><uParse :content="gymlistdetail.Description" /></view>
 		</view>
 		<view class="itembox" style="padding: 0 0 30upx 30upx;">
 			<view class="Yi-hd"><view class="title">场馆展示</view></view>
@@ -70,10 +70,12 @@
 import { post } from '@/common/util.js';
 import noData from '@/components/noData.vue'; //暂无数据
 import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
+import uParse from '@/components/uParse/src/wxParse.vue';
 export default {
 	components: {
 		noData,
-		uniLoadMore
+		uniLoadMore,
+		uParse
 	},
 	data() {
 		return {

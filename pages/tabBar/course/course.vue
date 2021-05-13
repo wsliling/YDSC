@@ -18,7 +18,7 @@
 			</view>
 		</view>
 		<!-- 轮播 -->
-		<view class="index_swiper">
+		<view class="index_swiper" style="padding-top: 100upx;">
 			<swiper class="swiper" :indicator-dots="false" autoplay :interval="5000" :duration="500" @change="changeSwiper">
 				<swiper-item v-for="(item, index) in bannerList" :key="index">
 					<view class="swiper-item swiperTop" @click="tolink(item.Url)"><image class="img" :src="item.Pic" mode="aspectFill"></image></view>
@@ -206,20 +206,19 @@ export default {
 		wxGetCity(lon, lat) {
 			var _this = this;
 			wx.request({
-				url:'https://restapi.amap.com/v3/geocode/regeo?output=JSON&location='+lon+','+lat+'&key=280802ed0116fef931dbcf5e7e9278d7&radius=1000&extensions=all',
+				url: 'https://restapi.amap.com/v3/geocode/regeo?output=JSON&location=' + lon + ',' + lat + '&key=280802ed0116fef931dbcf5e7e9278d7&radius=1000&extensions=all',
 				header: {
 					'content-type': 'application/json' // 默认值
 				},
 				success(res) {
-					if(res.statusCode===200){
+					if (res.statusCode === 200) {
 						var cityname = res.data.regeocode.addressComponent.city.replace(/市/, '');
 						uni.setStorageSync('cityname', cityname);
 						_this.cityname = cityname;
 						_this.getAreaCode(cityname);
-					}else{
-						console.log("获取信息失败，请重试！")
+					} else {
+						console.log('获取信息失败，请重试！');
 					}
-					
 				}
 			});
 		},
