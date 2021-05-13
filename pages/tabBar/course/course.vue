@@ -1,6 +1,6 @@
 <template>
 	<view class="course">
-		<view class="top">
+		<view class="top uni-bg-white">
 			<view class="top_left" @click="tolink('/pages/chooseCity/chooseCity')">
 				<!-- 深圳 -->
 				{{ cityname }}
@@ -18,7 +18,7 @@
 			</view>
 		</view>
 		<!-- 轮播 -->
-		<view class="index_swiper">
+		<view class="index_swiper uni-bg-white">
 			<swiper class="swiper" :indicator-dots="false" autoplay :interval="5000" :duration="500" @change="changeSwiper">
 				<swiper-item v-for="(item, index) in bannerList" :key="index">
 					<view class="swiper-item swiperTop" @click="tolink(item.Url)"><image class="img" :src="item.Pic" mode="aspectFill"></image></view>
@@ -28,51 +28,50 @@
 				<view v-for="(item, index) in bannerList.length" :key="index" :class="['dot', currentSwiper == index ? 'active' : '']"></view>
 			</view>
 		</view>
-		<view class="sec" v-if="bannerListOne.length">
+		<view class="sec uni-bg-white uni-mb10" v-if="bannerListOne.length">
 			<view class="sec_1"><image :src="bannerListOne[0].Pic" mode="aspectFill" @click="tolink('/pages/course/appointmentCoach/appointmentCoach')"></image></view>
 			<view class="sec_2">
 				<view><image :src="bannerListOne[1].Pic" mode="aspectFill" @click="tolink('/pages/course/appointmentCourse/appointmentCourse')"></image></view>
 				<view><image :src="bannerListOne[2].Pic" mode="aspectFill" @click="tolink('/pages/course/gym/gym')"></image></view>
 			</view>
 		</view>
-		<view class="line"></view>
-		<view class="sec1" v-if="bannerListTwo.length">
+		<view class="sec1 uni-bg-white uni-mb10" v-if="bannerListTwo.length">
 			<view class="sec1_title">大家都在练</view>
 			<view class="sec1_1"><image :src="bannerListTwo[0].Pic" mode="aspectFill"></image></view>
-			<view class="sec1_2">
+			<view class="sec1_2 flex-between">
 				<image :src="bannerListTwo[1].Pic" mode="aspectFill" @click="tolink('/pages/course/newPer/newPer')"></image>
 				<image :src="bannerListTwo[2].Pic" mode="aspectFill"></image>
 			</view>
 		</view>
-		<view class="line"></view>
-		<view class="sec2">
+		<view class="sec2 uni-bg-white uni-mb10">
 			<view class="sec1_title">推荐课程</view>
 			<view class="sec2_tab">
-				<view class="bg_fff tabList flex">
+				<view class="tabList flex flexWrap">
 					<view class="item" v-for="(item, index) in tabs" :key="index" :class="{ active: item.Id == tabIndex }" @click="cliTab(item.Id)">{{ item.Name }}</view>
 				</view>
 				<view class="list" v-if="hasData">
-					<view class="tab1" v-for="(item, index) in classlist" :key="index">
-						<view class="sec2_1">
-							<image :src="item.PicImg" @click="tolink('/pages/course/classDetails/classDetails?detailId=' + item.Id)" mode="aspectFill"></image>
+					<block v-for="(item, index) in classlist" :key="index">
+						<view class="sec2_1" @click="tolink('/pages/course/classDetails/classDetails?detailId=' + item.Id)">
+							<image :src="item.PicImg" mode="aspectFill"></image>
 						</view>
-					</view>
+					</block>
 					<view class="more" @click="tolink('/pages/course/moreCourse/moreCourse')">查看更多推荐课程</view>
 				</view>
 				<noData :isShow="noDataIsShow"></noData>
 			</view>
 		</view>
-		<view class="line"></view>
-		<view class="sec3"><view class="sec1_title">猜你喜欢</view></view>
-		<view class="sec4" v-for="(item, index) in classlike" :key="index">
-			<view class="sec4_1" @click="tolink('/pages/course/courseDetails/courseDetails?appointId=' + item.Id)">
-				<view><image :src="item.PicImg" mode="aspectFill"></image></view>
-				<view>
-					<view class="sec4_title">{{ item.Title }}</view>
-					<view class="sec4_title1">{{ item.DifficultyName }} . {{ item.CourseDuration }}分钟</view>
-					<view class="sec4_title2">
-						<image :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
-						<text>{{ item.CoachNick }}</text>
+		<view class="sec3 uni-bg-white">
+			<view class="sec1_title">猜你喜欢</view>
+			<view class="sec4" v-for="(item, index) in classlike" :key="index">
+				<view class="sec4_1" @click="tolink('/pages/course/courseDetails/courseDetails?appointId=' + item.Id)">
+					<view><image :src="item.PicImg" mode="aspectFill"></image></view>
+					<view>
+						<view class="sec4_title">{{ item.Title }}</view>
+						<view class="sec4_title1">{{ item.DifficultyName }} . {{ item.CourseDuration }}分钟</view>
+						<view class="sec4_title2">
+							<image :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
+							<text>{{ item.CoachNick}}</text>
+						</view>
 					</view>
 				</view>
 			</view>

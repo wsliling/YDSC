@@ -81,3 +81,65 @@
 		}
 	}
 }
+.bodydata{
+	text-align: center;
+	padding: 30upx;
+	.lab{
+		color: #999;
+	}
+	.weight{
+		font-size: 88upx;
+		color: $primary;
+		line-height: 1.5;
+	}
+	.nums{
+		text{
+			width: 20%;
+			color: #999;
+		}
+	}
+	.rate{
+		width: 100%;
+		height: 20upx;
+		border-radius: 100px;
+		margin: 20upx 0;
+		>view{
+			width: 20%;
+			height: 100%;
+			border-right: 1px solid #fff;
+			position: relative;
+		}
+		.rate0{background: #00aaff; border-radius: 100px 0 0 100px;}
+		.rate1{background: #30e607;}
+		.rate2{background: #ffaa00;}
+		.rate3{background: #ff5500;}
+		.rate4{background: #ff0000; border-radius: 0 100px 100px 0; border-right: none;}
+		.active{
+			height: 36upx;width: 36upx;
+			border-radius: 50%;
+			position: absolute;
+			left: 0;
+			top: -8upx;
+			background: #fff;
+			border: 1px solid #eee;
+			z-index: 2;
+			margin-left: -18upx;
+		}
+	}
+	.txts{
+		margin-bottom: 20upx;
+		text{
+			width: 20%;
+			color: #999;
+		}
+	}
+	.btns{
+		.btn{
+			margin: 0 30upx;
+			padding: 10upx 30upx;
+			background: $primary;
+			color: #fff;
+			border-radius: 100px;
+		}
+	}
+}

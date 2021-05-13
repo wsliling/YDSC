@@ -2,7 +2,7 @@
 	<view>
 		<view class="topbox">
 			<view class="icon"><image src="http://yd.wtanvxin.com/static/time.png"></image></view>
-			<view class="time">{{ info.ApplyDate }} {{ info.DayWeek }} {{ info.ApplyTimeSpan }}</view>
+			<view class="time">{{ info.ApplyDate }} {{ info.DayWeek }} {{ info.CourseTimeSpan }}</view>
 		</view>
 		<view class="introduct">
 			<view class="title">教练信息</view>
