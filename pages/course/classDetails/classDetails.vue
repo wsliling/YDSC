@@ -5,15 +5,15 @@
 			<view class="info">
 				<view class="name">{{ classdetail.Name }}</view>
 			</view>
-			<view class="detail">
-				<view class="detail_1">{{ classdetail.TargetName }} | {{ classdetail.DifficultyName }} | {{ classdetail.CourseDuration }}分钟</view>
+			<view class="detail flex-between">
+				<view class="detail_1 flex1">{{ classdetail.TargetName }} | {{ classdetail.DifficultyName }} | {{ classdetail.CourseDuration }}分钟</view>
 				<view class="detail_2">{{ classdetail.Hits }}人看过</view>
 			</view>
-			<view class="info1">
+			<view class="info1 flex-between">
 				<view class="info1_3" @click="tolink('/pages/personal/VenueDetail/VenueDetail?gymId=' + classdetail.StoreId)">
 					<image :src="classdetail.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
 				</view>
-				<view class="info1_4">{{ classdetail.StoreNick }}</view>
+				<view class="info1_4 flex1">{{ classdetail.StoreNick }}</view>
 				<view :class="['info1_2', Isfollow ? 'ed' : '']" @click="followfun">{{ Isfollow ? '已关注' : '关注' }}</view>
 			</view>
 		</view>
@@ -45,7 +45,7 @@
 			<view class="con1_1">购买此课程后，可观看视频教程进行训练</view>
 		</view>
 		<view class="line last_line"></view>
-		<view class="foot">
+		<view class="foot flex-between">
 			<view class="foot_1">
 				<view class="iconfont" :class="[IsCollect ? 'icon-collect bd' : 'icon-collect1']" @click="collect"></view>
 				收藏
@@ -247,7 +247,6 @@ export default {
 .sharebtn {
 	background-color: white;
 	line-height: 66upx;
-	margin-top: 8upx;
 	color: #7c7c8a;
 }
 .sharebtn::after {

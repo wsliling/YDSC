@@ -24,7 +24,7 @@
 				<view class="jl-leftImg"><image class="img" :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
 				<view class="rightContent">
 					<view class="titledetail">{{ item.CoachNick }}</view>
-					<view class="time">{{ item.CourseDate }} {{ item.DayWeek }} {{ item.ApplyTimeSpan }}</view>
+					<view class="time">{{ item.CourseDate }} {{ item.DayWeek }} {{ item.CourseTimeSpan }}</view>
 				</view>
 			</view>
 		</view>

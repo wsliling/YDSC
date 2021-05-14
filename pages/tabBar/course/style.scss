@@ -1,12 +1,11 @@
 .course {
-	background-color: white;
 	height: 100%;
 	.index_swiper .swiper {
-		height: 300upx;
+		height: 330upx;
 		.swiperTop {
-			padding: 0 22upx;
+			padding: 0 30upx;
 			.img {
-				height: 300upx;
+				height: 330upx;
 			}
 		}
 	}
@@ -35,91 +34,79 @@
 	}
 	.sec {
 		display: flex;
-		padding-bottom: 20upx;
+		padding: 20upx 30upx 10upx;
 		> view {
-			flex: 1;
+			width: 50%;
 			image {
 				border-radius: 20upx;
 				height: 340upx;
 			}
 		}
 		.sec_1 {
-			padding: 20upx 20upx 0 20upx;
+			padding-right: 10upx;
 		}
 		.sec_2 {
-			view {
-				padding: 20upx 20upx 0 0;
-			}
-			image {
-				height: 161upx;
+			padding-left: 10upx;
+			view{
+				margin-bottom: 20upx;
+				image {
+					height: 160upx;
+				}
 			}
 		}
 	}
-	.line {
-		height: 20upx;
-		background-color: #f3f3f3;
+	.sec1_title {
+		font-size: 36upx;
+		font-weight: bold;
+		margin-bottom: 10upx;
 	}
 	.sec1 {
-		margin: 12upx 12upx 22upx;
-		.sec1_title {
-			font-size: 36upx;
-			font-weight: bold;
-			margin: 0 0 22upx 22upx;
-		}
+		padding:20upx 30upx 30upx;
 		.sec1_1 {
-			padding: 10upx;
+			margin-bottom: 16upx;
 			image {
 				border-radius: 20upx;
-				height: 250upx;
+				height: 200upx;
 			}
 		}
 		.sec1_2 {
-			display: flex;
 			image {
-				flex: 1;
+				width: 49%;
 				border-radius: 20upx;
-				height: 210upx;
-				padding: 10upx;
+				height: 188upx;
 			}
 		}
 	}
 	.sec2 {
-		height: 100% !important;
-		margin-top: 12upx;
-		.sec1_title {
-			font-size: 36upx;
-			font-weight: bold;
-			margin-left: 38upx;
-		}
+		padding:20upx 30upx 30upx;
 		.sec2_tab {
-			background-color: white;
 			left: 0;
 			height: 100%;
 			.tabList {
-				width: 96%;
-				display: flex;
+				width: 100%;
 				.item {
-					flex: 1;
-					text-align: center;
+					display: flex;
+					align-items: center;
+					justify-content: center;
 					color: grey;
 					background: #f3f3f3;
-					border-radius: 30px;
-					margin: 6px -5px 6px 10px;
-					line-height: 230%;
-					height: 80%;
+					border-radius: 100px;
+					height: 60upx;
+					padding: 0 20upx;
+					margin-right: 20upx;
+					margin-bottom: 20upx;
 					box-sizing: border-box;
+					font-size: 26upx;
 					&.active {
 						color: #f57609;
 						background: #f17e083d;
-						border-radius: 30px;
 					}
 				}
 			}
 
 			.list {
-				padding: 12upx 0;
 				.sec2_1 {
-					padding: 12upx 20upx;
+					margin-bottom: 20upx;
 					image {
 						border-radius: 20upx;
 						height: 280upx;
@@ -128,8 +115,8 @@
 				.more {
 					text-align: center;
 					background: #f3f3f3;
-					border-radius: 62upx;
-					margin: 22upx auto;
+					border-radius: 100px;
+					margin: 30upx auto 0;
 					height: 76upx;
 					line-height: 76upx;
 					width: 50%;
@@ -138,15 +125,9 @@
 		}
 	}
 	.sec3 {
-		margin: 20upx;
-		.sec1_title {
-			font-size: 36upx;
-			font-weight: bold;
-			margin-left: 22upx;
-		}
+		padding:20upx 30upx 30upx;
 	}
 	.sec4 {
-		margin: 10upx;
 		.sec4_1 {
 			display: flex;
 			height: 220upx;
@@ -154,7 +135,7 @@
 			align-items: center;
 			> view:nth-of-type(1) {
 				flex: 1;
-				padding: 0 12upx;
+				margin-right: 20upx;
 				image {
 					height: 190upx;
 					border-radius: 10upx;

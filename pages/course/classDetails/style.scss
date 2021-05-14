@@ -2,7 +2,7 @@
 	background-color: white;
 	.line {
 		height: 20upx;
-		background-color: #f3f3f3;
+		background-color: #F5F5F5;
 	}
 	.last_line {
 		padding-bottom: 126upx;
@@ -24,29 +24,19 @@
 			}
 		}
 		.detail {
-			display: flex;
-			align-items: center;
+			padding: 20upx 30upx;
 			.detail_1 {
-				flex: 3;
 				color: #8f8f8f;
 				font-size: 26upx;
-				padding: 20upx 30upx;
 			}
 			.detail_2 {
-				flex: 1;
-				float: right;
 				color: #8f8f8f;
-				font-size: 25upx;
-				padding: 20upx 0 0 30upx;
-				transform: scale(0.9);
+				font-size: 24upx;
 			}
 		}
 		.info1 {
-			display: flex;
-			align-items: center;
 			padding: 10upx 30upx 30upx 30upx;
 			.info1_3 {
-				flex: 1;
 				image {
 					border-radius: 50%;
 					height: 75upx;
@@ -54,12 +44,12 @@
 				}
 			}
 			.info1_4 {
-				flex: 5;
 				font-weight: bold;
+				padding: 0 20upx;
 			}
 			.info1_2 {
-				flex: 1.5;
 				height: 60upx;
+				width: 140upx;
 				line-height: 60upx;
 				color: white;
 				font-size: 25upx;
@@ -93,54 +83,51 @@
 		}
 	}
 	.foot {
-		display: flex;
-		align-items: center;
-		text-align: center;
 		position: fixed;
 		width: 100%;
 		bottom: 0;
 		background-color: white;
-		padding-bottom: -20upx;
+		text-align: center;
+		padding: 16upx 0;
+		border-top: 1upx solid #eee;
 		.foot_1 {
-			flex: 1;
 			color: gray;
-			margin-left: 20upx;
+			width: 100upx;
+			font-size: 26upx;
+			line-height: 1;
 			.bd {
 				color: #f0370b;
 			}
-			view {
-				font-size: 40upx;
-			}
 		}
 		.foot_2 {
-			flex: 1;
+			line-height: 1;
 			color: gray;
-			margin-right: 20upx;
-			view {
-				font-size: 38upx;
-			}
+			width: 100upx;
+			font-size: 26upx;
+		}
+		.iconfont {
+			font-size: 40upx;
+			line-height: 1.4;
 		}
 		.foot_3 {
-			width: 100%;
-			flex: 2;
 			background-color: #fa6611;
 			border-radius: 60upx;
 			font-size: 26upx;
 			color: white;
 			height: 70upx;
 			line-height: 70upx;
-			margin: 20upx;
+			flex: 1;
+			margin: 0 20upx;
 		}
 		.foot_4 {
-			width: 100%;
-			flex: 2;
 			background-color: #ff3333;
 			border-radius: 60upx;
 			font-size: 26upx;
 			color: white;
 			height: 70upx;
 			line-height: 70upx;
-			margin: 20upx;
+			flex: 1;
+			margin-right: 20upx;
 		}
 	}
 }

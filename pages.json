@@ -590,6 +590,7 @@
 				}, {
 					"path": "myappointment/coach",
 					"style": {
+						"navigationBarTitleText": "预约课程详情",
 						"app-plus": {
 							"titleNView": {
 								"type": "transparent",
@@ -600,7 +601,7 @@
 				}, {
 					"path": "myappointment/coachinfo",
 					"style": {
-						"navigationBarTitleText": "预约详情",
+						"navigationBarTitleText": "预约教练详情",
 						"app-plus": {
 							"titleNView": {
 								"type": "transparent",
@@ -1119,7 +1120,25 @@
 					"enablePullDownRefresh": false
 				}
 
-			}]
+			}    ,{
+                    "path" : "bodyInfo/bodyInfo",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "身体详情报告",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "emsInfo/emsInfo",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "训练报告",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
 		}
 	],
 	"globalStyle": {

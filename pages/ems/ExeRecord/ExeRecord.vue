@@ -19,7 +19,7 @@
 							</view>
 						</view>
 						<uni-collapse accordion="true">
-							<uni-collapse-item title="超强下腹燃脂,7分钟躺练版" thumb="/static/index6.png" lititle="true" lititle1="00:09:23" lititle2="85千卡">
+							<uni-collapse-item title="超强下腹燃脂,7分钟躺练版" thumb="http://yd.wtanvxin.com/static/index6.png" lititle="true" lititle1="00:09:23" lititle2="85千卡">
 								<view class="con_1">
 									<view class="course">
 										<view class="cou_1">
@@ -39,7 +39,7 @@
 							</uni-collapse-item>
 						</uni-collapse>
 						<uni-collapse accordion="true">
-							<uni-collapse-item title="360°全身激活" thumb="/static/index7.png" lititle="true" lititle1="00:09:23" lititle2="85千卡">
+							<uni-collapse-item title="360°全身激活" thumb="http://yd.wtanvxin.com/static/index7.png" lititle="true" lititle1="00:09:23" lititle2="85千卡">
 								<view class="con_1">
 									<view class="course">
 										<view class="cou_1">

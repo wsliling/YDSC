@@ -88,13 +88,16 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .content {
 	padding-top: 20upx;
 }
 .uni-media-list-logo {
 	width: 100upx;
 	height: 100upx;
+	.img{
+		background: none;
+	}
 }
 .uni-media-list-body {
 	padding: 8upx 0;

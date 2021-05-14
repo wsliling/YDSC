@@ -154,6 +154,8 @@ export default {
 			});
 			if (result.code == 0) {
 				this.devicelist = result.data;
+			}else if(result.code==2){
+				uni.hideToast()
 			}
 		},
 		// 猜你喜欢

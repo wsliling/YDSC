@@ -25,42 +25,60 @@
 			<view class="tiptitle">身体数据</view>
 			<view class="listRow">
 				<view class="flex-text left">体重</view>
-				<view class="flex-text">52.0kg</view>
+				<view class="flex-text">{{Info.Weight}}kg</view>
 			</view>
 			<view class="listRow">
 				<view class="flex-text left">胸围</view>
-				<input class="flex-text" placeholder="请输入" />
+				<view class="flex-text">{{Info.Bust}}cm</view>
+				<!-- <input class="flex-text" placeholder="请输入" /> -->
 			</view>
 			<view class="listRow">
 				<view class="flex-text left">腰围</view>
-				<view class="flex-text">12.0cm</view>
+				<view class="flex-text">{{Info.Waist}}cm</view>
 			</view>
 			<view class="listRow">
 				<view class="flex-text left">臂围</view>
-				<input class="flex-text" placeholder="请输入" />
+				<view class="flex-text">{{Info.Hipline}}cm</view>
+				<!-- <input class="flex-text" placeholder="请输入" /> -->
 			</view>
 			<view class="listRow">
 				<view class="flex-text left">身高</view>
-				<view class="flex-text">160.0</view>
+				<view class="flex-text">{{Info.Height}}cm</view>
 			</view>
 			<view class="listRow">
 				<view class="flex-text left">BIM</view>
-				<view class="flex-text">21.6</view>
+				<view class="flex-text">{{Info.BMI}}</view>
 			</view>
-			<view class="listRow">
+			<!-- <view class="listRow">
 				<view class="flex-text left">静息心律</view>
 				<view class="flex-text">70bpm</view>
-			</view>
+			</view> -->
 		</view>
 	</view>
 </template>
 
 <script>
+import { post, get, toLogin } from '@/common/util.js';
 export default {
 	data() {
-		return {};
+		return {
+			Info:{}
+		};
 	},
-	methods: {}
+	onShow() {
+		this.GetUserData()
+	},
+	methods: {
+		async GetUserData() {
+			let result = await post('Device/GetUserData', {
+				UserId: uni.getStorageSync('userId'),
+				Token: uni.getStorageSync('token')
+			});
+			if (result.code === 0) {
+				this.Info = result.data;
+			}
+		},
+	}
 };
 </script>
 
@@ -114,7 +132,6 @@ page{
 	}
 }
 .listBox {
-	border-top: solid 30upx #f5f5f5;
 	padding: 0 30upx;
 	.tiptitle {
 		font-size: 32upx;
@@ -124,10 +141,9 @@ page{
 		display: flex;
 		height: 100upx;
 		font-size: 30upx;
-		color: #333333;
 		align-items: center;
 		justify-content: space-between;
-		border-bottom: solid 2upx #f5f5f5;
+		border-bottom: solid 1px #f5f5f5;
 	}
 	
 	.flex-text{
