@@ -37,8 +37,8 @@
 				</view>
 			</view>
 		</view>
-		<view class="bottom" @click="pop">
-			<button form-type="submit" type="default" size="mini" class="buybtn">预约</button>
+		<view class="bottom">
+			<button form-type="submit" type="default" size="mini" class="buybtn" @click="pop">预约</button>
 			<uni-popup ref="popup" type="center">
 				<view class="popup-content">
 					<view class="closebtn uni-icon uni-icon-close" @click="hidePopup"></view>
