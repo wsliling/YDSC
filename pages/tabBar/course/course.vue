@@ -37,10 +37,10 @@
 		</view>
 		<view class="sec1 uni-bg-white uni-mb10" v-if="bannerListTwo.length">
 			<view class="sec1_title">大家都在练</view>
-			<view class="sec1_1"><image :src="bannerListTwo[0].Pic" mode="aspectFill"></image></view>
+			<view class="sec1_1"><image :src="bannerListTwo[0].Pic" mode="aspectFill" @click="tolink(bannerListTwo[0].Url)"></image></view>
 			<view class="sec1_2 flex-between">
 				<image :src="bannerListTwo[1].Pic" mode="aspectFill" @click="tolink('/pages/course/newPer/newPer')"></image>
-				<image :src="bannerListTwo[2].Pic" mode="aspectFill"></image>
+				<image :src="bannerListTwo[2].Pic" mode="aspectFill" @click="tolink(bannerListTwo[2].Url)"></image>
 			</view>
 		</view>
 		<view class="sec2 uni-bg-white uni-mb10">
