@@ -61,12 +61,7 @@ export default {
 				Token: this.token
 			});
 			if (result.code == 0) {
-				// setTimeout(() => {
-				// 	this.signIn();
-				// 	console.log(this.sign);
-				// }, 200);
 				setTimeout(() => {
-					// this.signIn();
 					uni.redirectTo({
 						url: '/pages/member/register/register'
 					});

@@ -67,7 +67,6 @@
 						this.$set(value,"isShow",false)
 					}
 				})
-				// this.getDetail(item)
 			},
 			async HelpList() {
 				let result = await post("Help/HelpList", {

@@ -407,7 +407,7 @@ export default {
 					}
 					if (this.tabIndex == 2) {
 						result.data.forEach(function(item) {
-							item.Title = decodeURIComponent(item.Title);
+							item.Title = item.Title;
 							let date = new Date(item.Addtime);
 							let day = date.getDate();
 							let month = date.getMonth() + 1;

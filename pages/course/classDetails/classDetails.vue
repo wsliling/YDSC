@@ -20,7 +20,7 @@
 		<view class="line"></view>
 		<view class="con">
 			<view class="title">课程简介</view>
-			<view class="con1_1"><uParse :content="classdetail.Intro" /></view>
+			<view class="con1_1"><uParse v-if="appcoursedetail.Content" :content="classdetail.Intro" /></view>
 		</view>
 		<view class="line"></view>
 		<view class="con">
