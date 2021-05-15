@@ -267,6 +267,11 @@ export default {
 		line-height: 88upx;
 		font-size: 32upx;
 	}
+	button{
+		background-color: #ec022d;
+		color: #fff;
+		border-radius: 40upx;
+	}
 }
 .ava {
 	width: 100upx;

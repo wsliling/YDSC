@@ -48,7 +48,7 @@
 				</view>	
 			</view>
 			<!-- #ifdef H5 -->
-			<view class="downapp" @click="golink('/pages/dowmApp/dowmApp')">下载英达思创app</view>
+			<!-- <view class="downapp" @click="golink('/pages/dowmApp/dowmApp')">下载英达思创app</view> -->
 			<!-- #endif -->
 		</view>
 		<!-- #ifdef MP-WEIXIN -->  
@@ -314,7 +314,7 @@
 				uni.setStorageSync("openId", result.data.openId);
 				uni.setStorageSync('ReferralCode', result.data.ReferralCode);
 				uni.setStorageSync('IsShop', result.data.IsShop);
-				// console.log(result.data,"mmmmmmmmmmmm")
+				console.log(result.data,"mmmmmmmmmmmm")
 				if(result.code===0){
 					uni.showToast({
 					  title: "登录成功!",

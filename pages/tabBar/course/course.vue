@@ -3,7 +3,7 @@
 		<view class="top uni-bg-white">
 			<view class="top_left" @click="tolink('/pages/chooseCity/chooseCity')">
 				<!-- 深圳 -->
-				{{ cityname }}
+				{{ cityname||'定位' }}
 				<text class="iconfont icon-arrow_r"></text>
 			</view>
 			<view class="search">
@@ -115,7 +115,7 @@ export default {
 			id: 0,
 			locationAddress: '',
 			nowCity: '', //当前城市
-			cityname: '', //定位城市
+			cityname: '全国', //定位城市
 			AreaCode: '', //区域国家码
 			AreaType: 0 //1不限市，区
 		};

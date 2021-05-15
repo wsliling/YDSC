@@ -1,7 +1,16 @@
 <template>
 	<view class="classDetails">
 		<view class="top">
-			<view class="photo"><image :src="classdetail.PicImg" mode="aspectFill"></image></view>
+			<view class="videobox">
+				<video v-if="classdetail.IsShowBuy==0" :src="classdetail.Video" :poster="classdetail.PicImg" controls object-fit="cover" id="video" @play="playVideo" @pause="pauseVideo"></video>
+				<view class="tipbox" v-if="classdetail.IsShowBuy==1">
+					<image :src="classdetail.PicImg" mode="aspectFill"></image>
+					<view class="txt flex-column">
+						该视频为付费视频，请点击下方购买按钮进行购买，谢谢合作！
+					</view>
+				</view>
+			</view>
+			<!-- <view class="photo"><image :src="classdetail.PicImg" mode="aspectFill"></image></view> -->
 			<view class="info">
 				<view class="name">{{ classdetail.Name }}</view>
 			</view>
@@ -54,22 +63,28 @@
 				<button class="sharebtn" open-type="share"><view class="iconfont icon-share"></view></button>
 				分享
 			</view>
-			<!-- 弹出分享 -->
-			<uni-popup ref="popupShare" type="bottom">
-				<nvue-share
-					:title="classdetail.Name"
-					:imageUrl="classdetail.PicImg"
-					:url="'/pages/course/classDetails/classDetails?detailId=' + this.Id + '&inCode=' + this.ReferralCode"
-				></nvue-share>
-			</uni-popup>
-			<view class="foot_3" @click="tolink('/pages/course/scoreExchange/scoreExchange?classId=' + classdetail.Id)">{{ classdetail.Score }}积分兑换</view>
-			<view class="foot_4" @click="tolink('/pages/course/buyClass/buyClass?classId=' + classdetail.Id)">￥{{ classdetail.Price }}购买</view>
+			
+			<block v-if="classdetail.IsShowBuy==1">
+			<view class="foot_3" @click="tolink('/pages/course/scoreExchange/scoreExchange?classId=' + classdetail.Id,'login')">{{ classdetail.Score }}积分兑换</view>
+			<view class="foot_4" @click="tolink('/pages/course/buyClass/buyClass?classId=' + classdetail.Id+'&inCode='+inviteCode,'login')">￥{{ classdetail.Price }}购买</view>
+			</block>
+			<block v-else>
+				<view class="foot_3" style="opacity: .5;">已购买</view>
+			</block>
 		</view>
+		<!-- 弹出分享 -->
+		<uni-popup ref="popupShare" type="bottom">
+			<nvue-share
+				:title="classdetail.Name"
+				:imageUrl="classdetail.PicImg"
+				:url="'/pages/course/classDetails/classDetails?detailId=' + this.Id + '&inCode=' + this.ReferralCode"
+			></nvue-share>
+		</uni-popup>
 	</view>
 </template>
 
 <script>
-import { post } from '@/common/util.js';
+import { post,toLogin } from '@/common/util.js';
 import uParse from '@/components/uParse/src/wxParse.vue';
 import nvueShare from '@/components/uni-popup/nvue-share.vue';
 import h5Copy from '@/common/junyi-h5-copy';
@@ -88,7 +103,10 @@ export default {
 			classdetails: [], //训练部位
 			IsCollect: false, //是否收藏
 			Isfollow: false, //是否关注
-			StoreId: '' //门店加密id
+			StoreId: '' ,//门店加密id
+			onHidePage:false,
+			videoContext:null,
+			playnow:false
 		};
 	},
 	onLoad(e) {
@@ -106,7 +124,19 @@ export default {
 		this.ReferralCode = uni.getStorageSync('ReferralCode'); //自己的邀请码
 		this.getClassDetail();
 	},
+	onHide() {
+		if(this.playnow){
+			this.videoContext=uni.createVideoContext('video');
+			this.videoContext.pause();
+		}
+	},
 	methods: {
+		playVideo(){
+			this.playnow=true;
+		},
+		pauseVideo(){
+			this.playnow=false;
+		},
 		//跳转
 		tolink(Url, islogin) {
 			if (islogin == 'login') {
