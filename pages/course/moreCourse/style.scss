@@ -24,22 +24,29 @@
 	}
 
 	.list {
-		padding: 12upx 0;
+		margin: 20upx;
+		position: relative;
 		.sec2_1 {
-			padding: 12upx 20upx;
+			margin-bottom: 20upx;
 			image {
-				border-radius: 10upx;
+				border-radius: 20upx;
 				height: 280upx;
 			}
 		}
-		.more {
-			text-align: center;
-			background: #f3f3f3;
-			border-radius: 62upx;
-			margin: 22upx auto;
-			height: 76upx;
-			line-height: 76upx;
-			width: 50%;
+		.detail {
+			background: rgba(0, 0, 0, 0.1);
+			border-radius: 20upx;
+			height: 280upx;
+			width: 100%;
+			z-index: 1;
+			position: absolute;
+			padding-left: 30upx;
+			padding-top: 100upx;
+			margin-top: -300upx;
+			color: white;
+			.title {
+				font-size: 40upx;
+			}
 		}
 	}
 }

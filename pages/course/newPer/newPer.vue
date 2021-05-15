@@ -1,7 +1,13 @@
 <template>
 	<view class="newPer">
-		<view v-for="(item, index) in course" :key="index">
-			<view class="con"><image :src="item.PicImg" @click="courseDetails(item.Id)" mode="aspectFill"></image></view>
+		<view class="list" v-if="hasData">
+			<block v-for="(item, index) in course" :key="index">
+				<view class="sec2_1"><image :src="item.PicImg" mode="aspectFill"></image></view>
+				<view class="detail" @click="courseDetails(item.Id)">
+					<view class="title">{{ item.Title }}</view>
+					<view class="title_1">{{ item.CourseDuration }}分钟 · {{ item.DifficultyName }} · {{ item.TargetName }}</view>
+				</view>
+			</block>
 		</view>
 		<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
 		<noData :isShow="noDataIsShow"></noData>
@@ -97,15 +103,39 @@ export default {
 </script>
 
 <style lang="scss">
-.newPer {
-	padding: 16upx;
-	.con {
-		padding: 12upx;
+.list {
+	margin: 20upx;
+	position: relative;
+	.sec2_1 {
+		margin-bottom: 20upx;
 		image {
-			border-radius: 10upx;
-			height: 260upx;
-			width: 100%;
+			border-radius: 20upx;
+			height: 280upx;
 		}
+	}
+	.detail {
+		background: rgba(0, 0, 0, 0.2);
+		border-radius: 20upx;
+		height: 280upx;
+		width: 100%;
+		z-index: 1;
+		position: absolute;
+		padding-left: 30upx;
+		padding-top: 100upx;
+		margin-top: -300upx;
+		color: white;
+		.title {
+			font-size: 40upx;
+		}
+	}
+	.more {
+		text-align: center;
+		background: #f3f3f3;
+		border-radius: 100px;
+		margin: 30upx auto 0;
+		height: 76upx;
+		line-height: 76upx;
+		width: 50%;
 	}
 }
 </style>

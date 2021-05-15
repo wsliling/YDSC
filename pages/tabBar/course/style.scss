@@ -47,7 +47,7 @@
 		}
 		.sec_2 {
 			padding-left: 10upx;
-			view{
+			view {
 				margin-bottom: 20upx;
 				image {
 					height: 160upx;
@@ -61,7 +61,7 @@
 		margin-bottom: 10upx;
 	}
 	.sec1 {
-		padding:20upx 30upx 30upx;
+		padding: 20upx 30upx 30upx;
 		.sec1_1 {
 			margin-bottom: 16upx;
 			image {
@@ -78,7 +78,7 @@
 		}
 	}
 	.sec2 {
-		padding:20upx 30upx 30upx;
+		padding: 20upx 30upx 30upx;
 		.sec2_tab {
 			left: 0;
 			height: 100%;
@@ -92,6 +92,7 @@
 					background: #f3f3f3;
 					border-radius: 100px;
 					height: 60upx;
+					line-height: 60upx;
 					padding: 0 20upx;
 					margin-right: 20upx;
 					margin-bottom: 20upx;
@@ -105,11 +106,27 @@
 			}
 
 			.list {
+				position: relative;
 				.sec2_1 {
 					margin-bottom: 20upx;
 					image {
 						border-radius: 20upx;
 						height: 280upx;
+					}
+				}
+				.detail {
+					background: rgba(0, 0, 0, 0.1);
+					border-radius: 20upx;
+					height: 280upx;
+					width: 100%;
+					z-index: 1;
+					position: absolute;
+					padding-left: 30upx;
+					padding-top: 100upx;
+					margin-top: -300upx;
+					color: white;
+					.title {
+						font-size: 40upx;
 					}
 				}
 				.more {
@@ -125,7 +142,7 @@
 		}
 	}
 	.sec3 {
-		padding:20upx 30upx 30upx;
+		padding: 20upx 30upx 30upx;
 	}
 	.sec4 {
 		.sec4_1 {

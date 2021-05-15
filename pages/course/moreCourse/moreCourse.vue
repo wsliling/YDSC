@@ -5,9 +5,13 @@
 				<view class="item" v-for="(item, index) in tabs" :key="index" :class="{ active: item.Id == tabIndex }" @click="cliTab(item.Id)">{{ item.Name }}</view>
 			</view>
 			<view class="list" v-if="hasData">
-				<view class="tab1" v-for="(item, index) in classlist" :key="index">
-					<view class="sec2_1"><image :src="item.PicImg" @click="classDetails(item.Id)" mode="aspectFill"></image></view>
-				</view>
+				<block v-for="(item, index) in classlist" :key="index">
+					<view class="sec2_1"><image :src="item.PicImg" mode="aspectFill"></image></view>
+					<view class="detail" @click="tolink('/pages/course/classDetails/classDetails?detailId=' + item.Id)">
+						<view class="title">{{ item.Title }}</view>
+						<view class="title_1">{{ item.CourseDuration }}分钟 · {{ item.DifficultyName }} · {{ item.TargetName }}</view>
+					</view>
+				</block>
 			</view>
 			<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
 			<noData :isShow="noDataIsShow"></noData>

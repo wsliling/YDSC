@@ -91,7 +91,6 @@ export default {
 			selectDate: '', //选择的日期
 			selectTime: '', //选择的时间
 			selectFull: 0,
-			selectDateId: 0,
 			selectTimeId: 0,
 			name: '',
 			tel: ''
@@ -103,7 +102,6 @@ export default {
 		this.selectDate = this.dateArr[0]; //默认选中的日期
 		this.selectTime = this.timeArr[0].TimeSpan; //默认选中的时间
 		this.selectFull = this.timeArr[0].IsFull; //选中的时间是否排满
-		this.selectDateId = this.dateArr[0].Id;
 		this.selectTimeId = this.timeArr[0].Id;
 	},
 	onShow() {},
@@ -148,7 +146,6 @@ export default {
 				CoachId: this.CoachId,
 				UserId: uni.getStorageSync('userId'),
 				Token: uni.getStorageSync('token'),
-				DateId: this.selectDateId,
 				HourId: this.selectTimeId,
 				FullName: this.name,
 				Mobile: this.tel
@@ -158,6 +155,8 @@ export default {
 					uni.navigateTo({
 						url: '/pages/course/appCoachSuc/appCoachSuc?fullDate=' + this.selectDate.FullDate + '&dayWeek=' + this.selectDate.DayWeek + '&timeSpan=' + this.selectTime
 					});
+					this.name = '';
+					this.tel = '';
 				}, 2000);
 			}
 		},
@@ -165,12 +164,12 @@ export default {
 			this.dateActive = index;
 			this.timeArr = item.TimeList;
 			this.selectDate = this.dateArr[index];
-			this.selectDateId = item.Id;
 			// 选出默认值
 			this.timeArr.some((item, index) => {
-				this.selectTime = this.timeArr[index].TimeSpan; //默认选中的时间  15:00
-				this.selectFull = this.timeArr[index].IsFull; //选中的时间是否排满
 				this.timeActive = index; //选中的时间索引
+				this.selectTime = this.timeArr[index].TimeSpan; //默认选中的时间
+				this.selectFull = this.timeArr[index].IsFull; //选中的时间是否排满
+				this.selectTimeId = this.timeArr[index].Id;
 				if (this.selectFull == 1) {
 					return item.disable;
 				} else {

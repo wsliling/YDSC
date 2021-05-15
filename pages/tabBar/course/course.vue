@@ -3,7 +3,7 @@
 		<view class="top uni-bg-white">
 			<view class="top_left" @click="tolink('/pages/chooseCity/chooseCity')">
 				<!-- 深圳 -->
-				{{ cityname||'定位' }}
+				{{ cityname || '定位' }}
 				<text class="iconfont icon-arrow_r"></text>
 			</view>
 			<view class="search">
@@ -51,8 +51,12 @@
 				</view>
 				<view class="list" v-if="hasData">
 					<block v-for="(item, index) in classlist" :key="index">
-						<view class="sec2_1" @click="tolink('/pages/course/classDetails/classDetails?detailId=' + item.Id)">
+						<view class="sec2_1">
 							<image :src="item.PicImg" mode="aspectFill"></image>
+						</view>
+						<view class="detail" @click="tolink('/pages/course/classDetails/classDetails?detailId=' + item.Id)">
+							<view class="title">{{ item.Title }}</view>
+							<view class="title_1">{{ item.CourseDuration }}分钟 · {{ item.DifficultyName }} · {{ item.TargetName }}</view>
 						</view>
 					</block>
 					<view class="more" @click="tolink('/pages/course/moreCourse/moreCourse')">查看更多推荐课程</view>
@@ -70,7 +74,7 @@
 						<view class="sec4_title1">{{ item.DifficultyName }} . {{ item.CourseDuration }}分钟</view>
 						<view class="sec4_title2">
 							<image :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
-							<text>{{ item.CoachNick}}</text>
+							<text>{{ item.CoachNick }}</text>
 						</view>
 					</view>
 				</view>
