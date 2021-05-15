@@ -12,7 +12,7 @@
 				<view>登录密码</view>
 				<text class="iconfont icon-arrow_r"></text>
 			</view>
-			<view class="set-item" @click="goLink('/pages/member/ChangepayPwd/ChangepayPwd')">
+			<view class="set-item" @click="goLink('/pages/other/ChangepayPwd/ChangepayPwd')">
 				<view>支付密码</view>
 				<text class="iconfont icon-arrow_r"></text>
 			</view>

@@ -8,6 +8,10 @@
 						<text class="title uni-ellipsis flex1">{{ item.Title }}</text>
 						<view class="check iconfont icon-check" v-if="checkId == index"></view>
 					</view>
+					<view class="info">
+						<text>{{ item.PartNum > 9999 ? (item.PartNum / 9999).toFixed(1) + '万' : item.PartNum }}人参与</text>
+						<text>{{ item.CommentNum > 9999 ? (item.CommentNum / 9999).toFixed(1) + '万' : item.CommentNum }}人讨论</text>
+					</view>
 				</view>
 			</block>
 		</view>
