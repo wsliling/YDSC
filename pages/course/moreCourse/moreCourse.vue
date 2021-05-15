@@ -51,10 +51,19 @@ export default {
 		this.getCourseType();
 	},
 	methods: {
-		classDetails(id) {
-			uni.navigateTo({
-				url: '/pages/course/classDetails/classDetails?detailId=' + id
-			});
+		//跳转
+		tolink(Url, islogin) {
+			if (islogin == 'login') {
+				if (toLogin()) {
+					uni.navigateTo({
+						url: Url
+					});
+				}
+			} else {
+				uni.navigateTo({
+					url: Url
+				});
+			}
 		},
 		cliTab(index) {
 			this.tabIndex = index;
