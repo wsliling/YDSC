@@ -46,7 +46,7 @@
 					<block v-for="(item, index) in prolist" :key="index"><product :datajson="item" v-on:goDetail="goDetail"></product></block>
 				</view>
 				<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
-				<!-- <noData :isShow="noDataIsShow" :tips="tipstxt || '暂无搜索数据'"></noData> -->
+				<noData :isShow="noDataIsShow" :tips="tipstxt || '暂无搜索数据'"></noData>
 			</view>
 		</view>
 		<!-- 筛选 -->
