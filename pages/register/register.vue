@@ -1,7 +1,8 @@
 <template>
 	<view class="content">
 		<!-- #ifdef H5 -->
-		<uni-nav-bar fixed="true" color="#333333" background-color="#ffffff" title="注册" :border="false"></uni-nav-bar>
+		<uni-nav-bar fixed="true" color="#333333" background-color="#ffffff" title="注册" :border="false" leftIcon="''">
+		</uni-nav-bar>
 		<!-- #endif -->
 		<view class="regLoginBox">
 			<view class="logo">

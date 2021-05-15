@@ -71,6 +71,13 @@
 	import {host,post,get,valPhone} from '@/common/util.js';
 	export default {
 		onLoad(e){
+			if(e.inviteCode){
+				this.inviteCode=e.inviteCode;
+				uni.setStorageSync('inviteCode',e.inviteCode)
+			}
+			if(uni.getStorageSync('inviteCode')){
+				this.inviteCode=uni.getStorageSync('inviteCode')
+			}
 			// #ifdef APP-PLUS
 			if((e.askUrl!=undefined )&& (e.askUrl!="")&& (e.askUrl!=null)){
 				this.askUrl=e.askUrl.toString().replace(/\%3F/g, '?').replace(/\%3D/g, '=').replace(/\%26/g, '&')
@@ -92,6 +99,9 @@
 			// #ifdef H5
 			this.barHeight = 0;
 			// #endif
+			const pages = getCurrentPages();
+			this.pagesLen=pages.length;
+			console.log("this.pagesLen",this.pagesLen)
 		},
 		onShow(){ 
 			// console.log(this.$root.$mp,111) 
@@ -120,6 +130,7 @@
 		},
 		data() {
 			return {
+				pagesLen:0,
 				barHeight:0,//app端增加状态栏高度
 				tel:"",
 				pwd:"",
@@ -134,6 +145,7 @@
 				logintype:false,//true表示密码登录，false手机验证码登录
 				isShowMolie:true,//是否显示号登录界面
 				isShowminiApp:false,//是否显示小程序登录
+				inviteCode:'',
 				isband:false,//是否绑定手机号
 				jsonARR:{}
 			};
@@ -276,22 +288,31 @@
 					uni.setStorageSync('IsShop', result.data.IsShop);
 					// console.log(result.data,"mmmmmmmmmmmm")
 					let _this = this;
+					
 					uni.showToast({
 					     title: "登录成功",
-					     duration: 1800,
-						 success:function(){
-							setTimeout(function() {
-								if(_this.isRegister){
-									uni.switchTab({
-										url: "/pages/tabBar/my/my"
-									  });	
-								}else{
-									uni.navigateBack();
-								}
-								
-							 }, 1800);
-						 }
+					     duration: 1800
 					});
+					setTimeout(function() {
+						// if(_this.isRegister){
+						// 	uni.switchTab({
+						// 		url: "/pages/tabBar/my/my"
+						// 	  });	
+						// }else{
+						// 	uni.navigateBack();
+						// }
+						
+					     if (_this.pagesLen === 1) {
+							uni.switchTab({
+								url: '/pages/tabBar/index/index',
+							})
+						} else {
+							uni.navigateBack({
+								delta: 1
+							});
+						}
+						
+					 }, 1800);
 				}else{
 					uni.showToast({
 					  title: result.msg,
@@ -322,12 +343,21 @@
 					  duration: 1500,
 					  success:function(){
 						setTimeout(function() {
-							if(_this.isRegister){
+							// if(_this.isRegister){
+							// 	uni.switchTab({
+							// 		url: "/pages/tabBar/my/my"
+							// 	  });	
+							// }else{
+							// 	uni.navigateBack();
+							// }
+							if (_this.pagesLen === 1) {
 								uni.switchTab({
-									url: "/pages/tabBar/my/my"
-								  });	
-							}else{
-								uni.navigateBack();
+									url: '/pages/tabBar/index/index',
+								})
+							} else {
+								uni.navigateBack({
+									delta: 1
+								});
 							}
 						 }, 1500);
 					  }
