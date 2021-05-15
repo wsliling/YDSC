@@ -138,12 +138,12 @@ export default {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
 		this.getBanner(1);
-		this.GetUserBodyData();
 		this.getDeviceList();
 	},
 	onShow() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
+		this.GetUserBodyData();
 	},
 	methods: {
 		//跳转
