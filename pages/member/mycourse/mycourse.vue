@@ -9,7 +9,7 @@
 				<view class="leftImg"><image class="img" :src="item.PicImg" mode="aspectFill"></image></view>
 				<view class="rightContent flex1">
 					<view class="titledetail uni-ellipsis">{{ item.Name }}</view>
-					<view class="time">极速燃脂.10分钟</view>
+					<view class="time">{{ item.Difficulty }} · {{ item.Target }}</view>
 					<view class="userinfo">
 						<view class="user flex-start flex1">
 							<view class="header"><image class="headerImg" :src="item.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
@@ -25,10 +25,10 @@
 				<view class="leftImg"><image class="img" :src="item.PicImg" mode="aspectFill"></image></view>
 				<view class="rightContent flex1">
 					<view class="titledetail uni-ellipsis">{{ item.Name }}</view>
-					<view class="time">{{ item.Difficulty }}.{{ item.Target }}</view>
+					<view class="time">{{ item.Difficulty }} · {{ item.Target }}</view>
 					<view class="userinfo">
 						<view class="user flex-start flex1">
-							<view class="header"><image class="headerImg" :src="item.StoreLogo||'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
+							<view class="header"><image class="headerImg" :src="item.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
 							<view class="name uni-ellipsis flex1">{{ item.StoreNick }}</view>
 						</view>
 						<view class="price">￥{{ item.Price }}</view>

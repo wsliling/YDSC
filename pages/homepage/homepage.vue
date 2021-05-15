@@ -79,7 +79,6 @@
 				</view>
 			</view>
 		</view>
-
 		<view style="overflow-x: hidden;">
 			<view class="tabdiv" v-if="pageCon == 1">
 				<view :class="['item', tabIndex == 1 ? 'active' : '']" @click="tapTab(1)" v-show="false">

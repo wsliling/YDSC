@@ -249,7 +249,7 @@
 					"FkId":this.Findid,
 					"TypeInt":0,
 					"ParentCommentId":this.PCommentId,
-					"Comment":encodeURIComponent(this.Comment)
+					"Comment":this.Comment
 				});
 				if(result.code===0){
 					uni.showToast({
