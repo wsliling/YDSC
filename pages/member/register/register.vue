@@ -19,7 +19,7 @@
 					<view class="one_2">+{{ item.Score }}</view>
 				</view>
 			</view>
-			<view class="rig" @click="rig">签到</view>
+			<view class="rig" @click="getsignIn">签到</view>
 		</view>
 	</view>
 </template>
@@ -51,9 +51,6 @@ export default {
 				url: '/pages/member/rule/rule'
 			});
 		},
-		rig() {
-			this.getsignIn();
-		},
 		// 签到
 		async getsignIn() {
 			let result = await post('User/CreateSign', {
@@ -61,16 +58,10 @@ export default {
 				Token: this.token
 			});
 			if (result.code == 0) {
-				// setTimeout(() => {
-				// 	this.signIn();
-				// 	console.log(this.sign);
-				// }, 200);
 				setTimeout(() => {
-					// this.signIn();
-					uni.redirectTo({
-						url: '/pages/member/register/register'
-					});
-				}, 500);
+					this.sign = 0;
+					this.signIn();
+				}, 200);
 			}
 		},
 		// 签到详情

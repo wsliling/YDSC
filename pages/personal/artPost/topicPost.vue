@@ -275,50 +275,15 @@ export default {
 			this.inputTxtLength = this.title.length;
 		},
 		//发布
-		// async UserPublishFind() {
-		// 	let result = await post('Topic/UserPublishTopicDynamic', {
-		// 		UserId: this.userId,
-		// 		Token: this.token,
-		// 		TopicId: this.topicId,
-		// 		Title: encodeURIComponent(this.title),
-		// 		PicList: JSON.stringify(this.base64Arr)
-		// 	});
-		// 	if (result.code === 0) {
-		// 		let _this = this;
-		// 		uni.showToast({
-		// 			title: result.msg,
-		// 			icon: 'none',
-		// 			duration: 1500
-		// 		});
-		// 		setTimeout(function() {
-		// 			_this.clearData();
-		// 			uni.navigateTo({
-		// 				url: '/pages/personal/topic/topic'
-		// 			});
-		// 		}, 2000);
-		// 	} else if (result.code === 2) {
-		// 		uni.showToast({
-		// 			title: result.msg,
-		// 			icon: 'none',
-		// 			duration: 2000
-		// 		});
-		// 	} else {
-		// 		uni.showToast({
-		// 			title: result.msg,
-		// 			icon: 'none',
-		// 			duration: 2000
-		// 		});
-		// 	}
-		// },
 		async UserPublishFind() {
 			let result = await post('Find/UserPublishFind', {
 				UserId: this.userId,
 				Token: this.token,
 				ShowRole: this.role,
-				Title: encodeURIComponent(this.title),
+				Title: this.title,
 				Location: this.locationAddress,
 				ContentAbstract: this.ContentAbstract,
-				ContentDetails: encodeURIComponent(this.ContentDetails),
+				ContentDetails: this.ContentDetails,
 				PicList: JSON.stringify(this.base64Arr),
 				TopicId: this.topicId
 			});

@@ -323,10 +323,10 @@ export default {
 				UserId: this.userId,
 				Token: this.token,
 				ShowRole: this.role,
-				Title: encodeURIComponent(this.title),
+				Title: this.title,
 				Location: this.locationAddress,
 				ContentAbstract: this.ContentAbstract,
-				ContentDetails: encodeURIComponent(this.ContentDetails),
+				ContentDetails: this.ContentDetails,
 				PicList: JSON.stringify(this.base64Arr)
 			});
 			if (result.code === 0) {

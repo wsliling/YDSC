@@ -238,7 +238,6 @@ export default {
 				});
 			}
 		},
-		
 		//支付前提交订单
 		async CourseBuy(){
 			let result = await post('Course/CourseBuy', {
@@ -298,7 +297,6 @@ export default {
 				});
 			}
 		},
-	
 	}
 };
 </script>

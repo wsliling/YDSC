@@ -3,7 +3,7 @@
 		<view class="sec">
 			<view class="sec1">
 				<view class="sec_1">积分</view>
-				<view class="sec_2">{{ scoreAll }}</view>
+				<view class="sec_2">{{ Score }}</view>
 			</view>
 			<view class="sec2" @click="register">每日签到</view>
 		</view>
@@ -27,9 +27,7 @@ export default {
 		return {
 			userId: '',
 			token: '',
-			score: 0,
-			Score: 0, //会员积分
-			scoreAll: 0
+			Score: 0 //会员积分
 		};
 	},
 	onLoad() {},
@@ -37,7 +35,6 @@ export default {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
 		this.GetMemInfo();
-		this.signIn();
 	},
 	methods: {
 		scoreList() {
@@ -63,21 +60,6 @@ export default {
 			});
 			if (result.code == 0) {
 				this.Score = result.data.Score;
-				if (this.score != 0 && this.Score != 0) {
-					this.scoreAll = this.score + this.Score;
-				}
-			}
-		},
-		async signIn() {
-			let result = await post('User/GetSignInData', {
-				UserId: this.userId,
-				Token: this.token
-			});
-			if (result.code == 0) {
-				this.score = result.data.SumScore;
-				if (this.score != 0 && this.Score != 0) {
-					this.scoreAll = this.score + this.Score;
-				}
 			}
 		}
 	}

@@ -2,12 +2,19 @@
 	<view class="classDetails">
 		<view class="top">
 			<view class="videobox">
-				<video v-if="classdetail.IsShowBuy==0" :src="classdetail.Video" :poster="classdetail.PicImg" controls object-fit="cover" id="video" @play="playVideo" @pause="pauseVideo"></video>
-				<view class="tipbox" v-if="classdetail.IsShowBuy==1">
+				<video
+					v-if="classdetail.IsShowBuy == 0"
+					:src="classdetail.Video"
+					:poster="classdetail.PicImg"
+					controls
+					object-fit="cover"
+					id="video"
+					@play="playVideo"
+					@pause="pauseVideo"
+				></video>
+				<view class="tipbox" v-if="classdetail.IsShowBuy == 1">
 					<image :src="classdetail.PicImg" mode="aspectFill"></image>
-					<view class="txt flex-column">
-						该视频为付费视频，请点击下方购买按钮进行购买，谢谢合作！
-					</view>
+					<view class="txt flex-column">该视频为付费视频，请点击下方购买按钮进行购买，谢谢合作！</view>
 				</view>
 			</view>
 			<!-- <view class="photo"><image :src="classdetail.PicImg" mode="aspectFill"></image></view> -->
@@ -29,7 +36,7 @@
 		<view class="line"></view>
 		<view class="con">
 			<view class="title">课程简介</view>
-			<view class="con1_1"><uParse :content="classdetail.Intro" /></view>
+			<view class="con1_1"><uParse v-if="classdetail.Content" :content="classdetail.Intro" /></view>
 		</view>
 		<view class="line"></view>
 		<view class="con">
@@ -63,14 +70,13 @@
 				<button class="sharebtn" open-type="share"><view class="iconfont icon-share"></view></button>
 				分享
 			</view>
-			
-			<block v-if="classdetail.IsShowBuy==1">
-			<view class="foot_3" @click="tolink('/pages/course/scoreExchange/scoreExchange?classId=' + classdetail.Id,'login')">{{ classdetail.Score }}积分兑换</view>
-			<view class="foot_4" @click="tolink('/pages/course/buyClass/buyClass?classId=' + classdetail.Id+'&inCode='+inviteCode,'login')">￥{{ classdetail.Price }}购买</view>
+			<block v-if="classdetail.IsShowBuy == 1">
+				<view class="foot_3" @click="tolink('/pages/course/scoreExchange/scoreExchange?classId=' + classdetail.Id, 'login')">{{ classdetail.Score }}积分兑换</view>
+				<view class="foot_4" @click="tolink('/pages/course/buyClass/buyClass?classId=' + classdetail.Id + '&inCode=' + inviteCode, 'login')">
+					￥{{ classdetail.Price }}购买
+				</view>
 			</block>
-			<block v-else>
-				<view class="foot_3" style="opacity: .5;">已购买</view>
-			</block>
+			<block v-else><view class="foot_3" style="opacity: .5;">已购买</view></block>
 		</view>
 		<!-- 弹出分享 -->
 		<uni-popup ref="popupShare" type="bottom">
@@ -84,13 +90,14 @@
 </template>
 
 <script>
-import { post,toLogin } from '@/common/util.js';
+import { post, toLogin } from '@/common/util.js';
 import uParse from '@/components/uParse/src/wxParse.vue';
 import nvueShare from '@/components/uni-popup/nvue-share.vue';
 import h5Copy from '@/common/junyi-h5-copy';
 export default {
 	components: {
-		uParse,nvueShare
+		uParse,
+		nvueShare
 	},
 	data() {
 		return {
@@ -103,10 +110,10 @@ export default {
 			classdetails: [], //训练部位
 			IsCollect: false, //是否收藏
 			Isfollow: false, //是否关注
-			StoreId: '' ,//门店加密id
-			onHidePage:false,
-			videoContext:null,
-			playnow:false
+			StoreId: '', //门店加密id
+			onHidePage: false,
+			videoContext: null,
+			playnow: false
 		};
 	},
 	onLoad(e) {
@@ -125,17 +132,17 @@ export default {
 		this.getClassDetail();
 	},
 	onHide() {
-		if(this.playnow){
-			this.videoContext=uni.createVideoContext('video');
+		if (this.playnow) {
+			this.videoContext = uni.createVideoContext('video');
 			this.videoContext.pause();
 		}
 	},
 	methods: {
-		playVideo(){
-			this.playnow=true;
+		playVideo() {
+			this.playnow = true;
 		},
-		pauseVideo(){
-			this.playnow=false;
+		pauseVideo() {
+			this.playnow = false;
 		},
 		//跳转
 		tolink(Url, islogin) {

@@ -23,7 +23,7 @@
 		</view>
 		<view class="itembox pd15">
 			<view class="Yi-hd"><view class="title">机构简介</view></view>
-			<view><uParse :content="gymlistdetail.Description" /></view>
+			<view><uParse v-if="gymlistdetail.Description" :content="gymlistdetail.Description" /></view>
 		</view>
 		<view class="itembox" style="padding: 0 0 30upx 30upx;">
 			<view class="Yi-hd"><view class="title">场馆展示</view></view>
@@ -154,8 +154,8 @@ export default {
 			});
 			if (result.code == 0) {
 				this.devicelist = result.data;
-			}else if(result.code==2){
-				uni.hideToast()
+			} else if (result.code == 2) {
+				uni.hideToast();
 			}
 		},
 		// 猜你喜欢
