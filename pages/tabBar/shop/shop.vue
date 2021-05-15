@@ -28,7 +28,6 @@
 					<view v-for="(item, index) in Bannerlist.length" :key="index" :class="['dot', currentSwiper == index ? 'active' : '']"></view>
 				</view>
 			</view>
-
 			<view class="icon-menu li_20 uni-bg-white pd15 uni-mb10">
 				<scroll-view class="scroll-view_H" scroll-x="true" scroll-left="0">
 					<block v-for="(item, index) in categoryList" :key="index">
@@ -74,7 +73,6 @@
 					</scroll-view>
 				</view>
 			</view>
-
 			<!-- 猜你喜欢 -->
 			<view class="areapro pd15">
 				<view class="Yi-hd flex-between">
@@ -218,7 +216,6 @@ export default {
 				}
 			}
 		},
-
 		goDetail(id) {
 			uni.navigateTo({
 				url: '/pages/goods/productDetail/productDetail?proId=' + id

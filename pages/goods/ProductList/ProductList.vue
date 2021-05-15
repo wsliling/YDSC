@@ -14,7 +14,7 @@
 		</uni-nav-bar>
 		<view id="filter">
 			<view :class="['filterMenu pd15', isfixed ? 'scroll' : '']">
-				<view class="history" v-if="historylist.length">
+				<view class="history" v-if="historylist.length && hisLength">
 					<view class="his_1">
 						<view class="his_left">搜索历史</view>
 						<view class="iconfont icon-del" @click="deHis"></view>
@@ -26,11 +26,11 @@
 							</view>
 						</uni-popup>
 					</view>
-					<view class="his_2" v-if="historylist.length">
-						<text v-for="(item, index) in historylist" :key="index" @click="seaHis(item.Id)">{{ item.Name }}</text>
+					<view class="his_2" v-if="historylist.length && hisLength">
+						<text v-for="(item, index) in historylist" :key="index" @click="seaHis(index)">{{ item.Name }}</text>
 					</view>
 				</view>
-				<view class="menu flex-between center">
+				<view class="menu flex-between center" v-else>
 					<view class="item" :class="{ active: item.active }" @click="shiftFilterTab(index)" v-for="(item, index) in filterTab" :key="index">
 						{{ item.name }}
 						<text v-if="item.isSortorder" class="filterBtn" :class="{ upBtn: item.sortorder == '0', downBtn: item.sortorder == '1' }"></text>
@@ -75,7 +75,7 @@
 								</view>
 							</view>
 						</view>
-						<view class="filterTypeList" v-if="pageCon == 1">
+						<!-- <view class="filterTypeList" v-if="pageCon == 1">
 							<view class="uni-list-cell flex-column" @click="shiftbrandDown('品牌')">
 								<view class="uni-list-cell-navigate uni-navigate-bottom" :class="[brandShow ? 'active' : '']">
 									<view class="title">品牌</view>
@@ -87,7 +87,7 @@
 									</view>
 								</view>
 							</view>
-						</view>
+						</view> -->
 					</view>
 					<view class="filter_ft flex center">
 						<view class="btn" style="background: #ededed;" @click="resetFilter">重置</view>
@@ -118,6 +118,7 @@ export default {
 			userId: '',
 			token: '',
 			historylist: [], //搜索历史
+			hisLength: true,
 			cid: '', //分类id
 			classlylist: [],
 			prolist: [],
@@ -129,6 +130,7 @@ export default {
 			noDataIsShow: true,
 			isfixed: false, //筛选是否定位
 			filtertop: 0,
+			filtertop_1: 0,
 			filterTab: [
 				{
 					name: '综合',
@@ -163,8 +165,7 @@ export default {
 			BrandList: [], //品牌
 			brandId: 0, //选中品牌id
 			couponId: '',
-			tipstxt: '',
-			dindex: 0
+			tipstxt: ''
 		};
 	},
 	watch: {
@@ -202,7 +203,7 @@ export default {
 		},
 		clear() {
 			this.searchVal = '';
-			this.getprolist();
+			// this.getprolist();
 		},
 		confirm() {
 			this.couponId = '';
@@ -214,9 +215,7 @@ export default {
 			// #endif
 			if (this.searchVal) {
 				this.page = 1;
-				setTimeout(() => {
-					this.getHistory();
-				}, 200);
+				this.hisLength = false;
 				this.getprolist();
 			} else {
 				uni.showToast({
@@ -236,8 +235,7 @@ export default {
 			}
 		},
 		seaHis(index) {
-			this.dindex = this.historylist.length - index;
-			this.searchVal = this.historylist[this.dindex].Name;
+			this.searchVal = this.historylist[index].Name;
 		},
 		//删除搜索历史
 		deHis() {
@@ -455,6 +453,7 @@ export default {
 <style lang="scss">
 .history {
 	background-color: white;
+	padding-bottom: 30upx;
 	.his_1 {
 		padding: 20upx 0;
 		display: flex;

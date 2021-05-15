@@ -4,6 +4,9 @@
 	.tabList {
 		width: 100%;
 		display: flex;
+		position: fixed;
+		background-color: white;
+		z-index: 9;
 		.item {
 			flex: 1;
 			text-align: center;
@@ -24,8 +27,9 @@
 	}
 
 	.list {
-		margin: 20upx;
+		margin: 0 20upx 20upx 20upx;
 		position: relative;
+		padding-top: 100upx;
 		.sec2_1 {
 			margin-bottom: 20upx;
 			image {
