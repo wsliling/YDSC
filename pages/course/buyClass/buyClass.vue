@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { post } from '@/common/util.js';
+import { post,debounce } from '@/common/util.js';
 import pay from '@/components/pay.vue';
 export default {
 	components: { pay },
@@ -87,18 +87,29 @@ export default {
 			Score: 0, //会员积分
 			hasPayPassword: 0, //是否设置支付密码
 			allprice: '0',
-			showMask: false
+			showMask: false,
+			inCode:0,
+			orderNo:'',
+			WxOpenid: '',
+			WxCode: '',
 		};
 	},
 	onLoad(e) {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
 		this.Id = e.classId;
+		if(e.inCode){
+			this.inCode = e.inCode
+		}
 		this.getClassDetail();
 	},
 	onShow() {
 		this.GetMemInfo();
 		this.showMask = false;
+		this.WxOpenid = uni.getStorageSync('openId');
+		// #ifdef  MP-WEIXIN
+		this.getcode();
+		// #endif
 	},
 	methods: {
 		//跳转
@@ -143,11 +154,10 @@ export default {
 		//立即支付
 		submitBtn() {
 			if (this.payType == 0) {
-				uni.showToast({
-					title: '暂不支持微信支付！',
-					icon: 'none',
-					duration: 2500
-				});
+				debounce(()=>{
+					this.CourseBuy();
+				})
+				
 			} else if (this.payType == 1) {
 				uni.showToast({
 					title: '暂不支持支付宝支付！',
@@ -183,7 +193,8 @@ export default {
 				OutlineId: this.Id,
 				IsPayWallet: 1,
 				IsPayScore: 0,
-				Password: Password
+				Password: Password,
+				ShareId:this.inCode
 			});
 			if (result.code === 200) {
 				this.showPay = false;
@@ -226,7 +237,68 @@ export default {
 					duration: 1500
 				});
 			}
-		}
+		},
+		
+		//支付前提交订单
+		async CourseBuy(){
+			let result = await post('Course/CourseBuy', {
+				UserId: this.userId,
+				Token: this.token,
+				OutlineId: this.Id,
+				IsPayWallet: 0,
+				IsPayScore: 0,
+				ShareId:this.inCode
+			});
+			if(result.code==0){
+				this.orderNo=result.data
+				setTimeout(()=>{
+					this.ConfirmWeiXinSmallPay()
+				},1000)
+			}
+		},
+		getcode() {
+			let _this = this;
+			uni.login({
+				success: function(res) {
+					if (res.code) {
+						_this.WxCode = res.code;
+					} else {
+						console.log('登录失败！' + res.errMsg);
+					}
+				}
+			});
+		},
+		//小程序支付
+		async ConfirmWeiXinSmallPay() {
+			let result = await post('Order/WechatPayCourse', {
+				WxCode: this.WxCode,
+				UserId: this.userId,
+				Token: this.token,
+				OrderNo: this.orderNo,
+				WxOpenid: this.WxOpenid,
+				paytype: 4
+			});
+			var payData = JSON.parse(result.data.JsParam);
+			if (result.code === 0) {
+				let _this = this;
+				uni.requestPayment({
+					timeStamp: payData.timeStamp,
+					nonceStr: payData.nonceStr,
+					package: payData.package,
+					signType: payData.signType,
+					paySign: payData.paySign,
+					success(res) {
+						_this.type = '';
+						_this.showPay = false;
+						uni.redirectTo({
+							url: '/pages/payresult/payresult?allprice=' + _this.orderInfo.TotalPrice + '&orderNo=' + _this.orderNo
+						});
+					},
+					fail(res) {}
+				});
+			}
+		},
+	
 	}
 };
 </script>
