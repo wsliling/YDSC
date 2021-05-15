@@ -65,11 +65,12 @@ export default {
 				// 	this.signIn();
 				// 	console.log(this.sign);
 				// }, 200);
-				success: () => {
-					setTimeout(() => {
-						this.signIn();
-					}, 500);
-				};
+				setTimeout(() => {
+					// this.signIn();
+					uni.redirectTo({
+						url: '/pages/member/register/register'
+					});
+				}, 500);
 			}
 		},
 		// 签到详情
