@@ -442,14 +442,7 @@
 		},
 		{
 			"root": "pages/member",
-			"pages": [
-				{
-					"path": "ChangepayPwd/ChangepayPwd",
-					"style": {
-						"navigationBarTitleText": "修改支付密码",
-						"enablePullDownRefresh": false
-					}
-				},{
+			"pages": [{
 					"path": "couponCenter/couponCenter",
 					"style": {
 						"navigationBarTitleText": "优惠券",
