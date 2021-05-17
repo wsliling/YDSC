@@ -15,7 +15,7 @@
 				<view class="price_1_1">课程原价</view>
 				<view class="price_1_2">￥{{ classdetail.Price }}</view>
 			</view>
-			<view class="price_2">
+			<view class="price_2" v-if="false">
 				<view class="price_1_1">优惠券</view>
 				<view class="price_1_2">暂无可用</view>
 			</view>

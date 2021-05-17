@@ -8,7 +8,7 @@
 				<block v-for="(item, index) in classlist" :key="index">
 					<view class="sec2_1"><image :src="item.PicImg" mode="aspectFill"></image></view>
 					<view class="detail" @click="tolink('/pages/course/classDetails/classDetails?detailId=' + item.Id)">
-						<view class="title">{{ item.Title }}</view>
+						<view class="title uni-ellipsis">{{ item.Title }}</view>
 						<view class="title_1">{{ item.CourseDuration }}分钟 · {{ item.DifficultyName }} · {{ item.TargetName }}</view>
 					</view>
 				</block>
