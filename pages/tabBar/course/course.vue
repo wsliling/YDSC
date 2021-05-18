@@ -35,6 +35,7 @@
 				<view><image :src="bannerListOne[2].Pic" mode="aspectFill" @click="tolink('/pages/course/gym/gym')"></image></view>
 			</view>
 		</view>
+		<block v-if="pageCon==1">
 		<view class="sec1 uni-bg-white uni-mb10" v-if="bannerListTwo.length">
 			<view class="sec1_title">大家都在练</view>
 			<view class="sec1_1"><image :src="bannerListTwo[0].Pic" mode="aspectFill" @click="tolink(bannerListTwo[0].Url)"></image></view>
@@ -47,7 +48,7 @@
 			<view class="sec1_title">推荐课程</view>
 			<view class="sec2_tab">
 				<view class="tabList flex flexWrap">
-					<view class="item" v-for="(item, index) in tabs" :key="index" :class="{ active: item.Id == tabIndex }" @click="cliTab(item.Id)">{{ item.Name }}</view>
+					<view class="item" v-for="(item, index) in tabs" :key="index" :class="{ active: index == tabIndex }" @click="cliTab(index,item.Id)">{{ item.Name }}</view>
 				</view>
 				<view class="list" v-if="hasData">
 					<block v-for="(item, index) in classlist" :key="index">
@@ -64,6 +65,7 @@
 				<noData :isShow="noDataIsShow"></noData>
 			</view>
 		</view>
+		</block>
 		<view class="sec3 uni-bg-white">
 			<view class="sec1_title">猜你喜欢</view>
 			<view class="sec4" v-for="(item, index) in classlike" :key="index">
@@ -98,6 +100,7 @@ export default {
 	},
 	data() {
 		return {
+			pageCon:0,
 			userId: '',
 			token: '',
 			datalist: [],
@@ -107,7 +110,6 @@ export default {
 			isLoad: false,
 			hasData: false,
 			noDataIsShow: false,
-			pageCon: 0,
 			classlist: [],
 			classlike: [],
 			bannerList: [],
@@ -115,8 +117,8 @@ export default {
 			bannerListTwo: [],
 			currentSwiper: 0,
 			tabs: [],
-			tabIndex: 45,
-			id: 0,
+			tabIndex: 0,
+			tabid: 0,
 			locationAddress: '',
 			nowCity: '', //当前城市
 			cityname: '全国', //定位城市
@@ -125,10 +127,9 @@ export default {
 		};
 	},
 	onLoad() {
+		this.pageCon=uni.getStorageSync("pageCon");
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
-		this.pageCon = uni.getStorageSync('pageCon');
-		this.getCourseList();
 		this.getCourseType();
 		this.getCourseLike();
 		this.getBanner(6);
@@ -172,13 +173,13 @@ export default {
 		// #endif
 	},
 	onShow() {
-		this.pageCon = uni.getStorageSync('pageCon');
 		this.cityname = uni.getStorageSync('cityname');
 		this.getAreaCode(this.cityname);
 	},
 	methods: {
-		cliTab(index) {
+		cliTab(index,id) {
 			this.tabIndex = index;
+			this.tabid=id;
 			this.page = 1;
 			this.classlist = [];
 			this.noDataIsShow = false;
@@ -278,6 +279,8 @@ export default {
 			let result = await post('Course/GetCourseTypeList', {});
 			if (result.code == 0) {
 				this.tabs = result.data;
+				this.tabid=this.tabs[0].Id;
+				this.getCourseList();
 			}
 		},
 		// 课程列表
@@ -289,7 +292,7 @@ export default {
 				Token: this.token,
 				SearchKey: '',
 				IsNewPeopleVip: 0,
-				Ctype: this.tabIndex,
+				Ctype: this.tabid,
 				IsLike: 0,
 				IsRic: 0
 			});

@@ -98,7 +98,7 @@ export default {
 			}
 		},
 		async EditUserData(){
-			if(!this.valOther()) return;
+			//if(!this.valOther()) return;
 			let result = await post('Device/EditUserData', {
 				UserId: uni.getStorageSync('userId'),
 				Token: uni.getStorageSync('token'),

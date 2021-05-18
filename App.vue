@@ -1,5 +1,5 @@
 <script>
-	import {host,dowmappURLios} from '@/common/util.js';
+	import {host,post,dowmappURLios} from '@/common/util.js';
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
@@ -36,13 +36,16 @@
 				})
 			}
 			// #endif
-			// #ifdef H5
-			//const s2 = document.createElement('script');
-			//s2.type = 'text/javascript';
-			//s2.src = "https://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.3.3.js";
-			//s2.src ='http://yd.wtanvxin.com/static/TcPlayer-2.3.2.js';
-			//document.body.appendChild(s2);
-			// #endif
+			//判断是否开启审核内容
+			post("System/GetOpen",{},1).then(res=>{
+				if(res.code==0){
+					if(res.data==1){
+						uni.setStorageSync("pageCon",1)
+					}else{
+						uni.setStorageSync("pageCon",2)
+					}
+				}
+			})
 		},
 		onShow: function() {
 			console.log('App Show')
