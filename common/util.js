@@ -334,19 +334,7 @@ const compareVersion = function(v1, v2) {
   return 0
 }
  //#endif
-//判断是否开启多元内容
-function GetOpen(){
-	post("System/GetOpen",{},1).then(res=>{
-		if(res.code==0){
-			if(res.data==1){
-				uni.setStorageSync("pageCon",1)
-			}else{
-				uni.setStorageSync("pageCon",2)
-			}
-		}
-	})
-}
-GetOpen();
+
 // 判断浏览器环境true:微信内置
 function isWeixin() {
 	var ua = navigator.userAgent.toLowerCase();

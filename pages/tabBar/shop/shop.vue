@@ -21,7 +21,7 @@
 				<swiper class="swiper" :indicator-dots="false" autoplay :interval="5000" :duration="500" @change="changeSwiper">
 					<swiper-item v-for="(banner, index) in Bannerlist" :key="index">
 						<!-- <view class="swiper-item pd15" @click="tolink(banner.Url)"><image class="img" :src="banner.Pic" mode="aspectFill"></image></view> -->
-						<view class="swiper-item pd15"><image class="img" :src="banner.Pic" mode="aspectFill"></image></view>
+						<view class="swiper-item pd15" @click="tolink(banner.Url)"><image class="img" :src="banner.Pic" mode="aspectFill"></image></view>
 					</swiper-item>
 				</swiper>
 				<view class="dots" style="bottom: 30upx;">
@@ -44,9 +44,9 @@
 					<view class="title"><text>今日好物推荐</text></view>
 				</view>
 				<view class="uni-bd" v-if="BannerlistTwo.length">
-					<view class="item"><image :src="BannerlistTwo[0].Pic" mode="aspectFill"></image></view>
-					<view class="item"><image :src="BannerlistTwo[1].Pic" mode="aspectFill"></image></view>
-					<view class="item"><image :src="BannerlistTwo[2].Pic" mode="aspectFill"></image></view>
+					<view class="item" @click="tolink(BannerlistTwo[0].Url)"><image :src="BannerlistTwo[0].Pic" mode="aspectFill"></image></view>
+					<view class="item" @click="tolink(BannerlistTwo[1].Url)"><image :src="BannerlistTwo[1].Pic" mode="aspectFill"></image></view>
+					<view class="item" @click="tolink(BannerlistTwo[2].Url)"><image :src="BannerlistTwo[2].Pic" mode="aspectFill"></image></view>
 				</view>
 			</view>
 			<!-- 小banner -->

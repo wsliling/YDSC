@@ -278,7 +278,8 @@
 				}else{
 					result = await post("Login/MemberLoginByCode",{
 						"Mobile": this.tel,
-					    "VerifyCode": this.code
+					    "VerifyCode": this.code,
+						"InviteCode":this.inviteCode
 					})
 				}
 				if(result.code===0){
