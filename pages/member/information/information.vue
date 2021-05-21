@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view class="m-topbox">
+		<view class="m-topbox" v-if="false">
 			<view class="exercise">总运动</view>
 			<view class="minute">
 				86
@@ -58,7 +58,7 @@
 				<text class="uidt">bpm</text>
 			</view> -->
 		</view>
-		<view class="ftbtn">
+		<view class="ftbtn" v-if="false">
 			<view class="btn" @click="EditUserData">
 				保存
 			</view>

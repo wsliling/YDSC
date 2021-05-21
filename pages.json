@@ -612,13 +612,13 @@
 				}, {
 					"path": "information/information",
 					"style": {
-						"navigationBarTitleText": "我的数据",
-						"app-plus": {
-							"titleNView": {
-								"type": "transparent",
-								"autoBackButton": true
-							}
-						}
+						"navigationBarTitleText": "我的数据"
+						// "app-plus": {
+						// 	"titleNView": {
+						// 		"type": "transparent",
+						// 		"autoBackButton": true
+						// 	}
+						// }
 					}
 				}, {
 					"path": "myplan/myplan",

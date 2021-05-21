@@ -301,7 +301,6 @@
 				<view class="bottom-title">优惠</view>
 				<view class="bottom-content">
 					<view class="fz12 c_999 uni-mb5">领券</view>
-					<view class="couponlist">
 						<view class="coupon-item uni-mb10" v-for="(item, index) in CouponList" :key="index">
 							<view class="flex-between">
 								<view class="couponleft flex1">
@@ -326,7 +325,7 @@
 								</view>
 							</view>
 						</view>
-					</view>
+					</scroll-view>
 				</view>
 				<view class="bottom-btn" @click="hidePopup">完成</view>
 			</view>
@@ -336,14 +335,14 @@
 			<view class="uni-modal-Attr">
 				<view class="bottom-title">产品参数</view>
 				<view class="bottom-content">
-					<view class="attrlist uni-mb10">
+					<scroll-view scroll-y="true" class="attrlist uni-mb10">
 						<view class="uni-list-cell" v-for="(item, index) in attrArr" :key="index">
 							<view class="uni-list-cell-navigate">
 								{{ index }}
 								<text class="list-cell-r">{{ item }}</text>
 							</view>
 						</view>
-					</view>
+					</scroll-view>
 				</view>
 				<view class="bottom-btn" @click="hidePopup">完成</view>
 			</view>
@@ -353,7 +352,7 @@
 			<view class="uni-modal-Attr">
 				<view class="bottom-title">服务</view>
 				<view class="bottom-content">
-					<view class="attrlist uni-mb10">
+					<scroll-view scroll-y="true" class="attrlist uni-mb10">
 						<view class="uni-list-cell" v-for="(item, index) in proInfo.ServiceInfo" :key="index">
 							<view class="uni-list-cell-navigate flexWrap">
 								<view>
@@ -363,7 +362,7 @@
 								<view class="desc c_999" style="width: 100%;">{{ item.Info }}</view>
 							</view>
 						</view>
-					</view>
+					</scroll-view>
 				</view>
 				<view class="bottom-btn" @click="hidePopup">完成</view>
 			</view>
@@ -580,7 +579,7 @@ export default {
 				window.location.origin + '/#' + '/pages/goods/productDetail/productDetail?proId=' + this.proId + '&inCode=' + this.ReferralCode + '&isLimint=' + this.isLimint
 			);
 			if (status) {
-				uni.showToast({ title: '链接复制成功，快去分享给好友吧~',icon:'none' });
+				uni.showToast({ title: '链接复制成功，快去分享给好友吧~', icon: 'none' });
 			} else {
 				uni.showToast({ title: '分享失败', icon: 'none' });
 			}
