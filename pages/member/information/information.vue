@@ -58,7 +58,7 @@
 				<text class="uidt">bpm</text>
 			</view> -->
 		</view>
-		<view class="ftbtn" v-if="false">
+		<view class="ftbtn">
 			<view class="btn" @click="EditUserData">
 				保存
 			</view>
