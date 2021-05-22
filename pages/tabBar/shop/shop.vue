@@ -43,10 +43,14 @@
 				<view class="Yi-hd flex-between">
 					<view class="title"><text>今日好物推荐</text></view>
 				</view>
-				<view class="uni-bd" v-if="BannerlistTwo.length">
-					<view class="item" @click="tolink(BannerlistTwo[0].Url)"><image :src="BannerlistTwo[0].Pic" mode="aspectFill"></image></view>
+				<view class="uni-bd" v-if="BannerlistTwo.length" @click="tolink('/pages/goods/findpro/findpro')">
+					<!-- <view class="item" @click="tolink(BannerlistTwo[0].Url)"><image :src="BannerlistTwo[0].Pic" mode="aspectFill"></image></view>
 					<view class="item" @click="tolink(BannerlistTwo[1].Url)"><image :src="BannerlistTwo[1].Pic" mode="aspectFill"></image></view>
 					<view class="item" @click="tolink(BannerlistTwo[2].Url)"><image :src="BannerlistTwo[2].Pic" mode="aspectFill"></image></view>
+					 -->
+					<view class="item"><image :src="BannerlistTwo[0].Pic" mode="aspectFill"></image></view>
+					<view class="item"><image :src="BannerlistTwo[1].Pic" mode="aspectFill"></image></view>
+					<view class="item"><image :src="BannerlistTwo[2].Pic" mode="aspectFill"></image></view>
 				</view>
 			</view>
 			<!-- 小banner -->

@@ -88,10 +88,10 @@
 							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_4.png" mode="widthFix"></image></view>
 							<view class="txt">店铺申请</view>
 						</view> -->
-						<!-- <view class="item" @click="getAttest">
+						<view class="item" @click="getAttest">
 							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_4.png" mode="widthFix"></image></view>
 							<view class="txt">{{ memberInfo.IsBusiness ? '我的店铺' : '店铺申请' }}</view>
-						</view> -->
+						</view>
 						<view class="item" @click="golink('/pages/member/partner/partner')">
 							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_5.png" mode="widthFix"></image></view>
 							<view class="txt">合伙人</view>
@@ -192,28 +192,28 @@ export default {
 	},
 	methods: {
 		// 店铺申请
-		// async getAttest() {
-		// 	if (toLogin()) {
-		// 		if (this.memberInfo.IsBusiness) {
-		// 			uni.navigateTo({
-		// 				url: '/pages/goods/storeIndex/storeIndex?id=' + this.memberInfo.ShopId
-		// 			});
-		// 		} else {
-		// 			let r = await post('User/ShopAuthInfo', {
-		// 				UserId: this.userId,
-		// 				Token: this.token,
-		// 				IsBusiness: 1
-		// 			});
-		// 			if (r.code == 0) {
-		// 				uni.navigateTo({
-		// 					url: '/pages/other/attest/attest'
-		// 				});
-		// 			} else {
-		// 				return;
-		// 			}
-		// 		}
-		// 	}
-		// },
+		async getAttest() {
+			if (toLogin()) {
+				if (this.memberInfo.IsBusiness) {
+					uni.navigateTo({
+						url: '/pages/goods/storeIndex/storeIndex?id=' + this.memberInfo.ShopId
+					});
+				} else {
+					let r = await post('User/ShopAuthInfo', {
+						UserId: this.userId,
+						Token: this.token,
+						IsBusiness: 1
+					});
+					if (r.code == 0) {
+						uni.navigateTo({
+							url: '/pages/other/attest/attest'
+						});
+					} else {
+						return;
+					}
+				}
+			}
+		},
 		// 跳转
 		golink(url) {
 			if (this.userId && this.token) {

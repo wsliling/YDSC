@@ -1,7 +1,7 @@
 <template>
 	<view class="moreCourse">
 		<view class="tab">
-			<view class="bg_fff tabList flex">
+			<view class="tabList">
 				<view class="item" v-for="(item, index) in tabs" :key="index" :class="{ active: item.Id == tabIndex }" @click="cliTab(item.Id)">{{ item.Name }}</view>
 			</view>
 			<view class="list" v-if="hasData">

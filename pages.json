@@ -200,6 +200,21 @@
 						}
 					}
 				}, {
+					"path": "findpro/findpro",
+					"style": {
+						"navigationBarTitleText": "好物推荐",
+						"enablePullDownRefresh": true,
+						"navigationBarBackgroundColor": "#74c2dc",
+						"navigationBarTextStyle": "white",
+						"app-plus": {
+							"pullToRefresh": {
+								"support": true,
+								"color": "#FF3737", //小圈圈的颜色
+								"style": "circle" //小圈圈的样式
+							}
+						}
+					}
+				}, {
 					"path": "secondlist/secondlist",
 					"style": {
 						"enablePullDownRefresh": true,

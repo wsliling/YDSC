@@ -10,7 +10,18 @@
 					<text class="text_2">积分</text>
 				</view>
 			</view>
-			<view class="sec_3" @click="change(item.Id)">兑换</view>
+			<!-- @click="change(item.Id)" -->
+			<view class="sec_3" @click="pop">兑换</view>
+			<uni-popup ref="popup" type="center">
+				<view class="popup-content">					
+				<view class="closebtn uni-icon uni-icon-close" @click="hidePopup"></view>
+					<view class="title">兑换</view>
+					<view class="phone"><input type="text" v-model="name" placeholder="姓名" /></view>
+					<view class="phone"><input type="text" v-model="tel" placeholder="手机号码" /></view>
+					<view class="phone"><input type="text" v-model="address" placeholder="地址" /></view>
+					<view class="now" @click="change(item.Id)">兑换</view>
+				</view>
+			</uni-popup>
 		</view>
 		<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
 		<noData :isShow="noDataIsShow"></noData>
@@ -19,7 +30,7 @@
 </template>
 
 <script>
-import { post } from '@/common/util.js';
+import { post, valPhone } from '@/common/util.js';
 import noData from '@/components/noData.vue'; //暂无数据
 import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
 export default {
@@ -40,7 +51,10 @@ export default {
 			prolist: [],
 			Score: 0, //会员积分
 			Id: 0,
-			id: 0
+			id: 0,
+			name: '',
+			tel: '',
+			address: ''
 		};
 	},
 	onLoad() {
@@ -65,6 +79,40 @@ export default {
 					url: Url
 				});
 			}
+		},
+		pop() {
+			this.$refs.popup[0].open(); // 显示弹窗
+		},
+		hidePopup() {
+			this.$refs.popup.close(); // 关闭弹窗
+		},
+		// 兑换
+		now() {
+			if (this.valOther()) {
+				this.change();
+			}
+		},
+		valOther() {
+			if (this.name == '') {
+				uni.showToast({
+					title: '请输入姓名!',
+					icon: 'none',
+					duration: 2000
+				});
+				return false;
+			}
+			if (!valPhone(this.tel)) {
+				return false;
+			}
+			if (this.address == '') {
+				uni.showToast({
+					title: '请输入地址!',
+					icon: 'none',
+					duration: 2000
+				});
+				return false;
+			}
+			return true;
 		},
 		//商品列表
 		async getProList() {
@@ -98,7 +146,6 @@ export default {
 				this.loadingType = 0;
 			}
 		},
-
 		//获取账户积分信息
 		async GetMemInfo() {
 			let result = await post('User/GetMemInfo', {
@@ -110,8 +157,10 @@ export default {
 			}
 		},
 		change(id) {
-			this.Id = id;
-			this.getExchange();
+			if (this.valOther()) {
+				this.Id = id;
+				this.getExchange();
+			}
 		},
 		async getExchange() {
 			let result = await post('Productjf/ProductExchange', {
@@ -133,6 +182,15 @@ export default {
 						icon: 'none',
 						duration: 2000
 					});
+					setTimeout(() => {
+						uni.navigateTo({
+							url: '/pages/member/scoreRecord/scoreRecord?prosId=' + this.id
+						});
+						this.name = '';
+						this.tel = '';
+						this.address = '';
+						this.$refs.popup.close(); // 关闭弹窗
+					}, 2000);
 				}
 			}
 		}
@@ -217,6 +275,34 @@ export default {
 		width: 100%;
 		height: 90upx;
 		line-height: 90upx;
+	}
+	.popup-content {
+		background-color: white;
+		width: 600upx;
+		height: 580upx;
+		.title {
+			font-size: 30upx;
+			font-weight: bold;
+			padding: 30upx;
+		}
+		.phone {
+			margin: 40upx auto;
+			width: 80%;
+			border: 1px solid #f6f6f6;
+			border-radius: 6upx;
+			text-align: left;
+			padding: 8upx 18upx;
+		}
+		.now {
+			width: 80%;
+			height: 80upx;
+			line-height: 80upx;
+			border-radius: 70upx;
+			color: white;
+			background-color: #fa6008;
+			text-align: center;
+			margin: 0 auto 40upx;
+		}
 	}
 }
 </style>

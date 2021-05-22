@@ -222,15 +222,15 @@ page {
 	font-weight: bold;
 	font-size: 30upx;
 }
-.title {
-	font-size: 30upx;
-	font-weight: bold;
-	padding: 30upx;
-}
 .popup-content {
 	background-color: white;
 	width: 600upx;
 	height: 480upx;
+	.title {
+		font-size: 30upx;
+		font-weight: bold;
+		padding: 30upx;
+	}
 	.name {
 		margin: 0 auto;
 		width: 80%;

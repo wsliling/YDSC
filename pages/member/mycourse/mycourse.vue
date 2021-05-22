@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view class="titleTab">
-			<view class="item" @click="change(0)" :class="{ active: btnnum == 0 }">课程</view>
+			<view class="item" @click="change(0)" :class="{ active: btnnum == 0 }">已浏览</view>
 			<view class="item" @click="change(1)" :class="{ active: btnnum == 1 }">已购买</view>
 		</view>
 		<view class="tab_1" v-if="btnnum == 0">
