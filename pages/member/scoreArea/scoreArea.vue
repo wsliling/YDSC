@@ -4,13 +4,11 @@
 			<view class="sec_1"><image :src="item.PicImg"></image></view>
 			<view class="sec_2">
 				<view class="title">{{ item.Name }}</view>
-				<!-- <view class="title_1">1瓶 500ml</view> -->
 				<view class="title_2">
 					<text class="text_1">{{ item.Score }}</text>
 					<text class="text_2">积分</text>
 				</view>
 			</view>
-			<!-- @click="change(item.Id)" -->
 			<view class="sec_3" @click="pop">兑换</view>
 			<uni-popup ref="popup" type="center">
 				<view class="popup-content">					
@@ -84,7 +82,8 @@ export default {
 			this.$refs.popup[0].open(); // 显示弹窗
 		},
 		hidePopup() {
-			this.$refs.popup.close(); // 关闭弹窗
+			console.log(this.$refs.popup)
+			this.$refs.popup[1].close(); // 关闭弹窗
 		},
 		// 兑换
 		now() {
@@ -189,7 +188,7 @@ export default {
 						this.name = '';
 						this.tel = '';
 						this.address = '';
-						this.$refs.popup.close(); // 关闭弹窗
+						this.hidePopup(); // 关闭弹窗
 					}, 2000);
 				}
 			}

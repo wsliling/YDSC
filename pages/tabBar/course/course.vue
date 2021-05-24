@@ -47,9 +47,9 @@
 		<view class="sec2 uni-bg-white uni-mb10">
 			<view class="sec1_title">推荐课程</view>
 			<view class="sec2_tab">
-				<view class="tabList flex flexWrap">
-					<view class="item" v-for="(item, index) in tabs" :key="index" :class="{ active: index == tabIndex }" @click="cliTab(index,item.Id)">{{ item.Name }}</view>
-				</view>
+			<scroll-view scroll-x="true" class="tabList">
+				<view class="item" v-for="(item, index) in tabs" :key="index" :class="{ active: index == tabIndex }" @click="cliTab(index,item.Id)">{{ item.Name }}</view>
+			</scroll-view>
 				<view class="list" v-if="hasData">
 					<block v-for="(item, index) in classlist" :key="index">
 						<view class="sec2_1">

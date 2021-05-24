@@ -83,15 +83,14 @@
 							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_3.png" mode="widthFix"></image></view>
 							<view class="txt">积分</view>
 						</view>
-						<!-- <view class="item">
-							<view class="item" @click="golink('/pages/member/applyShop/applyShop')">
-							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_4.png" mode="widthFix"></image></view>
-							<view class="txt">店铺申请</view>
-						</view> -->
 						<view class="item" @click="getAttest">
 							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_4.png" mode="widthFix"></image></view>
-							<view class="txt">{{ memberInfo.IsBusiness ? '我的店铺' : '店铺申请' }}</view>
+							<view class="txt">{{ memberInfo.IsBusiness ? '我的门店' : '门店申请' }}</view>
 						</view>
+						<!-- <view class="item" @click="getAttest">
+							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_4.png" mode="widthFix"></image></view>
+							<view class="txt">{{ memberInfo.IsBusiness ? '我的店铺' : '店铺申请' }}</view>
+						</view> -->
 						<view class="item" @click="golink('/pages/member/partner/partner')">
 							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_5.png" mode="widthFix"></image></view>
 							<view class="txt">合伙人</view>
@@ -104,7 +103,7 @@
 					<view class="item-left flex1">
 						<text class="iconfont icon-pinglun"></text>
 						<view class="flex1">我的消息</view>
-						<text class="tag" style="border-radius: 100px;" v-if="newscount">{{newscount}}</text>
+						<text class="tag" style="border-radius: 100px;" v-if="newscount">{{ newscount }}</text>
 					</view>
 					<view class="arrowr uni-icon uni-icon-arrowright"></view>
 				</view>
@@ -199,14 +198,14 @@ export default {
 						url: '/pages/goods/storeIndex/storeIndex?id=' + this.memberInfo.ShopId
 					});
 				} else {
-					let r = await post('User/ShopAuthInfo', {
+					let r = await post('User/StoreAuthInfo', {
 						UserId: this.userId,
 						Token: this.token,
 						IsBusiness: 1
 					});
 					if (r.code == 0) {
 						uni.navigateTo({
-							url: '/pages/other/attest/attest'
+							url: '/pages/other/applyShop/applyShop'
 						});
 					} else {
 						return;

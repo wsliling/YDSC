@@ -43,7 +43,7 @@ export default {
 			showPicker: false,
     };
   },
-  created: function(e) {console.log('*******************')
+  created: function(e) {
 	this.provincesCode=this.province.data[0].Code,
 	this.type1=this.province.data[0].Name,
 	this.getcitys();

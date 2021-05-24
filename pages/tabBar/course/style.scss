@@ -83,11 +83,11 @@
 			left: 0;
 			height: 100%;
 			.tabList {
+				white-space: nowrap;
 				width: 100%;
 				.item {
-					display: flex;
-					align-items: center;
-					justify-content: center;
+					display: inline-block;
+					overflow: hidden;
 					color: grey;
 					background: #f3f3f3;
 					border-radius: 100px;
@@ -104,7 +104,6 @@
 					}
 				}
 			}
-
 			.list {
 				position: relative;
 				.sec2_1 {

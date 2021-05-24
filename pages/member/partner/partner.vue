@@ -45,7 +45,7 @@ export default {
 			}
 			if (this.audit == 1) {
 				uni.navigateTo({
-					url: '/pages/member/applyPartnerSuc/applyPartnerSuc'
+					url: '/pages/member/myTeam/myTeam'
 				});
 			}
 			if (this.audit == 2) {

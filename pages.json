@@ -429,9 +429,9 @@
 					}
 				},
 				{
-					"path": "attest/attest",
+					"path": "applyShop/applyShop",
 					"style": {
-						"navigationBarTitleText": "我要开店"
+						"navigationBarTitleText": "门店申请"
 					}
 				},
 				{
@@ -534,15 +534,15 @@
 						"navigationBarBackgroundColor": "#ffffff"
 						// "enablePullDownRefresh" : true
 					}
-				},{
-					"path" : "orderTui/orderTui",
-					"style" : {
+				}, {
+					"path": "orderTui/orderTui",
+					"style": {
 						"navigationBarTitleText": "售后订单"
 					}
 				},
 				{
-					"path" : "orderTuidetail/orderTuidetail",
-					"style" : {
+					"path": "orderTuidetail/orderTuidetail",
+					"style": {
 						"navigationBarTitleText": "售后详情"
 					}
 				},
@@ -713,21 +713,12 @@
 						"enablePullDownRefresh": false
 					}
 
-				},
-				{
+				}, {
 					"path": "applyPartner/applyPartner",
 					"style": {
 						"navigationBarTitleText": "申请成为合伙人",
 						"enablePullDownRefresh": false
 					}
-				},
-				{
-					"path": "applyPartnerSuc/applyPartnerSuc",
-					"style": {
-						"navigationBarTitleText": "申请",
-						"enablePullDownRefresh": false
-					}
-
 				}, {
 					"path": "applyPartnerReview/applyPartnerReview",
 					"style": {
@@ -1135,25 +1126,21 @@
 					"enablePullDownRefresh": false
 				}
 
-			}    ,{
-                    "path" : "bodyInfo/bodyInfo",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "身体详情报告",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                ,{
-                    "path" : "emsInfo/emsInfo",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "训练报告",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-            ]
+			}, {
+				"path": "bodyInfo/bodyInfo",
+				"style": {
+					"navigationBarTitleText": "身体详情报告",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "emsInfo/emsInfo",
+				"style": {
+					"navigationBarTitleText": "训练报告",
+					"enablePullDownRefresh": false
+				}
+
+			}]
 		}
 	],
 	"globalStyle": {

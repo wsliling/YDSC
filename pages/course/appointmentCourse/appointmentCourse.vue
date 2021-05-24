@@ -1,9 +1,9 @@
 <template>
 	<view class="appointmentCourse">
 		<view class="tab">
-			<view class="bg_fff tabList flex">
+			<scroll-view scroll-x="true" class="tabList">
 				<view class="item" v-for="(item, index) in tabs" :key="index" :class="{ active: item.Id == tabIndex }" @click="cliTab(item.Id)">{{ item.Name }}</view>
-			</view>
+			</scroll-view>
 			<view class="list" v-if="hasData">
 				<view class="con" v-for="(item, index) in course" :key="index">
 					<view class="con_1"><image :src="item.PicImg" mode="aspectFill"></image></view>
