@@ -129,7 +129,7 @@ export default {
 	onLoad() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
-		this.BannerList(15);
+		this.BannerList(18);
 		this.getnewpro();
 		this.getprolist();
 	},

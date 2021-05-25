@@ -87,7 +87,7 @@ export default {
 		// #ifdef H5
 		this.barHeight = 0;
 		// #endif
-		this.getBanner(11);
+		this.getBanner(14);
 	},
 	methods: {
 		//跳转

@@ -15,11 +15,7 @@
 				@click="goActivity(item, i)"
 			>
 				<!-- <image mode="aspectFill" :class="['img']" :src="item.BannerPic" @click="toLink('/pages/goods/submitLease/submitLease?deviceId=' + item.Id)" /> -->
-				<image mode="aspectFill" :class="['img']" :src="item.BannerPic" />
-				<view class="name">
-					<view style="font-size: 48upx;padding-top: 180rpx;">{{ item.DeviceName }}</view>
-					<view style="font-size: 36upx;">{{ item.Effect }}</view>
-				</view>
+				<image mode="aspectFill" :class="['img']" :src="item.Pic" />
 			</view>
 		</view>
 	</view>
@@ -208,16 +204,5 @@ export default {
 	height: 570rpx;
 	border-radius: 20rpx;
 	overflow: hidden;
-}
-.name {
-	background: rgba(0, 0, 0, 0.2);
-	height: 570rpx;
-	font-weight: bold;
-	color: white;
-	position: relative;
-	margin-top: -570rpx;
-	padding-top: -180rpx;
-	border-radius: 20rpx;
-	text-align: center;
 }
 </style>

@@ -28,43 +28,41 @@
 				<view v-for="(item, index) in bannerList.length" :key="index" :class="['dot', currentSwiper == index ? 'active' : '']"></view>
 			</view>
 		</view>
-		<view class="sec uni-bg-white uni-mb10" v-if="bannerListOne.length">
+		<view class="sec uni-bg-white uni-mb10" v-if="bannerListOne.length && bannerListTwo.length && bannerListThree.length">
 			<view class="sec_1"><image :src="bannerListOne[0].Pic" mode="aspectFill" @click="tolink('/pages/course/appointmentCoach/appointmentCoach')"></image></view>
 			<view class="sec_2">
-				<view><image :src="bannerListOne[1].Pic" mode="aspectFill" @click="tolink('/pages/course/appointmentCourse/appointmentCourse')"></image></view>
-				<view><image :src="bannerListOne[2].Pic" mode="aspectFill" @click="tolink('/pages/course/gym/gym')"></image></view>
+				<view><image :src="bannerListTwo[0].Pic" mode="aspectFill" @click="tolink('/pages/course/appointmentCourse/appointmentCourse')"></image></view>
+				<view><image :src="bannerListThree[0].Pic" mode="aspectFill" @click="tolink('/pages/course/gym/gym')"></image></view>
 			</view>
 		</view>
-		<block v-if="pageCon==1">
-		<view class="sec1 uni-bg-white uni-mb10" v-if="bannerListTwo.length">
-			<view class="sec1_title">大家都在练</view>
-			<view class="sec1_1"><image :src="bannerListTwo[0].Pic" mode="aspectFill" @click="tolink(bannerListTwo[0].Url)"></image></view>
-			<view class="sec1_2 flex-between">
-				<image :src="bannerListTwo[1].Pic" mode="aspectFill" @click="tolink('/pages/course/newPer/newPer')"></image>
-				<image :src="bannerListTwo[2].Pic" mode="aspectFill" @click="tolink(bannerListTwo[2].Url)"></image>
-			</view>
-		</view>
-		<view class="sec2 uni-bg-white uni-mb10">
-			<view class="sec1_title">推荐课程</view>
-			<view class="sec2_tab">
-			<scroll-view scroll-x="true" class="tabList">
-				<view class="item" v-for="(item, index) in tabs" :key="index" :class="{ active: index == tabIndex }" @click="cliTab(index,item.Id)">{{ item.Name }}</view>
-			</scroll-view>
-				<view class="list" v-if="hasData">
-					<block v-for="(item, index) in classlist" :key="index">
-						<view class="sec2_1">
-							<image :src="item.PicImg" mode="aspectFill"></image>
-						</view>
-						<view class="detail" @click="tolink('/pages/course/classDetails/classDetails?detailId=' + item.Id)">
-							<view class="title uni-ellipsis">{{ item.Title }}</view>
-							<view class="title_1">{{ item.CourseDuration }}分钟 · {{ item.DifficultyName }} · {{ item.TargetName }}</view>
-						</view>
-					</block>
-					<view class="more" @click="tolink('/pages/course/moreCourse/moreCourse')">查看更多推荐课程</view>
+		<block v-if="pageCon == 1">
+			<view class="sec1 uni-bg-white uni-mb10" v-if="bannerListFour.length && bannerListFive.length && bannerListSix.length">
+				<view class="sec1_title">大家都在练</view>
+				<view class="sec1_1"><image :src="bannerListFour[0].Pic" mode="aspectFill" @click="tolink(bannerListFour[0].Url)"></image></view>
+				<view class="sec1_2 flex-between">
+					<image :src="bannerListFive[0].Pic" mode="aspectFill" @click="tolink('/pages/course/newPer/newPer')"></image>
+					<image :src="bannerListSix[0].Pic" mode="aspectFill" @click="tolink(bannerListSix[0].Url)"></image>
 				</view>
-				<noData :isShow="noDataIsShow"></noData>
 			</view>
-		</view>
+			<view class="sec2 uni-bg-white uni-mb10">
+				<view class="sec1_title">推荐课程</view>
+				<view class="sec2_tab">
+					<scroll-view scroll-x="true" class="tabList">
+						<view class="item" v-for="(item, index) in tabs" :key="index" :class="{ active: index == tabIndex }" @click="cliTab(index, item.Id)">{{ item.Name }}</view>
+					</scroll-view>
+					<view class="list" v-if="hasData">
+						<block v-for="(item, index) in classlist" :key="index">
+							<view class="sec2_1"><image :src="item.PicImg" mode="aspectFill"></image></view>
+							<view class="detail" @click="tolink('/pages/course/classDetails/classDetails?detailId=' + item.Id)">
+								<view class="title uni-ellipsis">{{ item.Title }}</view>
+								<view class="title_1">{{ item.CourseDuration }}分钟 · {{ item.DifficultyName }} · {{ item.TargetName }}</view>
+							</view>
+						</block>
+						<view class="more" @click="tolink('/pages/course/moreCourse/moreCourse')">查看更多推荐课程</view>
+					</view>
+					<noData :isShow="noDataIsShow"></noData>
+				</view>
+			</view>
 		</block>
 		<view class="sec3 uni-bg-white">
 			<view class="sec1_title">猜你喜欢</view>
@@ -100,7 +98,7 @@ export default {
 	},
 	data() {
 		return {
-			pageCon:0,
+			pageCon: 0,
 			userId: '',
 			token: '',
 			datalist: [],
@@ -115,6 +113,10 @@ export default {
 			bannerList: [],
 			bannerListOne: [],
 			bannerListTwo: [],
+			bannerListThree: [],
+			bannerListFour: [],
+			bannerListFive: [],
+			bannerListSix: [],
 			currentSwiper: 0,
 			tabs: [],
 			tabIndex: 0,
@@ -127,14 +129,18 @@ export default {
 		};
 	},
 	onLoad() {
-		this.pageCon=uni.getStorageSync("pageCon");
+		this.pageCon = uni.getStorageSync('pageCon');
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
 		this.getCourseType();
 		this.getCourseLike();
-		this.getBanner(6);
-		this.getBannerOne(7);
-		this.getBannerTwo(10);
+		this.getBanner(7);
+		this.getBanner(8);
+		this.getBanner(9);
+		this.getBanner(10);
+		this.getBanner(11);
+		this.getBanner(12);
+		this.getBanner(13);
 		var _this = this;
 		// #ifdef APP-PLUS||MP-WEIXIN
 		uni.getLocation({
@@ -177,9 +183,9 @@ export default {
 		this.getAreaCode(this.cityname);
 	},
 	methods: {
-		cliTab(index,id) {
+		cliTab(index, id) {
 			this.tabIndex = index;
-			this.tabid=id;
+			this.tabid = id;
 			this.page = 1;
 			this.classlist = [];
 			this.noDataIsShow = false;
@@ -252,23 +258,21 @@ export default {
 				Cid: type
 			});
 			if (result.code === 0) {
-				this.bannerList = result.data;
-			}
-		},
-		async getBannerOne(type) {
-			let result = await post('Banner/BannerList', {
-				Cid: type
-			});
-			if (result.code === 0) {
-				this.bannerListOne = result.data;
-			}
-		},
-		async getBannerTwo(type) {
-			let result = await post('Banner/BannerList', {
-				Cid: type
-			});
-			if (result.code === 0) {
-				this.bannerListTwo = result.data;
+				if (type == 7) {
+					this.bannerList = result.data;
+				} else if (type == 8) {
+					this.bannerListOne = result.data;
+				} else if (type == 9) {
+					this.bannerListTwo = result.data;
+				} else if (type == 10) {
+					this.bannerListThree = result.data;
+				} else if (type == 11) {
+					this.bannerListFour = result.data;
+				} else if (type == 12) {
+					this.bannerListFive = result.data;
+				} else if (type == 13) {
+					this.bannerListSix = result.data;
+				}
 			}
 		},
 		changeSwiper(e) {
@@ -279,7 +283,7 @@ export default {
 			let result = await post('Course/GetCourseTypeList', {});
 			if (result.code == 0) {
 				this.tabs = result.data;
-				this.tabid=this.tabs[0].Id;
+				this.tabid = this.tabs[0].Id;
 				this.getCourseList();
 			}
 		},

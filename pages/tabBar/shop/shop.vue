@@ -21,7 +21,7 @@
 				<swiper class="swiper" :indicator-dots="false" autoplay :interval="5000" :duration="500" @change="changeSwiper">
 					<swiper-item v-for="(banner, index) in Bannerlist" :key="index">
 						<!-- <view class="swiper-item pd15" @click="tolink(banner.Url)"><image class="img" :src="banner.Pic" mode="aspectFill"></image></view> -->
-						<view class="swiper-item pd15" @click="tolink(banner.Url)"><image class="img" :src="banner.Pic" mode="aspectFill"></image></view>
+						<view class="swiper-item pd15"><image class="img" :src="banner.Pic" mode="aspectFill"></image></view>
 					</swiper-item>
 				</swiper>
 				<view class="dots" style="bottom: 30upx;">
@@ -43,14 +43,10 @@
 				<view class="Yi-hd flex-between">
 					<view class="title"><text>今日好物推荐</text></view>
 				</view>
-				<view class="uni-bd" v-if="BannerlistTwo.length" @click="tolink('/pages/goods/findpro/findpro')">
-					<!-- <view class="item" @click="tolink(BannerlistTwo[0].Url)"><image :src="BannerlistTwo[0].Pic" mode="aspectFill"></image></view>
-					<view class="item" @click="tolink(BannerlistTwo[1].Url)"><image :src="BannerlistTwo[1].Pic" mode="aspectFill"></image></view>
-					<view class="item" @click="tolink(BannerlistTwo[2].Url)"><image :src="BannerlistTwo[2].Pic" mode="aspectFill"></image></view>
-					 -->
+				<view class="uni-bd" v-if="BannerlistTwo.length && BannerlistThree.length" @click="tolink('/pages/goods/findpro/findpro')">
 					<view class="item"><image :src="BannerlistTwo[0].Pic" mode="aspectFill"></image></view>
-					<view class="item"><image :src="BannerlistTwo[1].Pic" mode="aspectFill"></image></view>
-					<view class="item"><image :src="BannerlistTwo[2].Pic" mode="aspectFill"></image></view>
+					<view class="item"><image :src="BannerlistThree[0].Pic" mode="aspectFill"></image></view>
+					<view class="item"><image :src="BannerlistThree[1].Pic" mode="aspectFill"></image></view>
 				</view>
 			</view>
 			<!-- 小banner -->
@@ -132,9 +128,9 @@ export default {
 		// #ifdef APP-PLUS
 		this.barHeight = plus.navigator.getStatusbarHeight();
 		// #endif
-		this.BannerList(2);
-		this.BannerListTwo(12);
-		this.BannerListThree(13);
+		this.BannerList(15);
+		this.BannerList(16);
+		this.BannerList(17);
 		this.getTypeList();
 		this.getnewpro();
 		this.getprolist();
@@ -165,23 +161,13 @@ export default {
 				Cid: type
 			});
 			if (result.code === 0) {
-				this.Bannerlist = result.data;
-			}
-		},
-		async BannerListTwo(type) {
-			let result = await post('Banner/BannerList', {
-				Cid: type
-			});
-			if (result.code === 0) {
-				this.BannerlistTwo = result.data;
-			}
-		},
-		async BannerListThree(type) {
-			let result = await post('Banner/BannerList', {
-				Cid: type
-			});
-			if (result.code === 0) {
-				this.BannerlistThree = result.data;
+				if (type == 15) {
+					this.Bannerlist = result.data;
+				} else if (type == 16) {
+					this.BannerlistTwo = result.data;
+				} else if (type == 17) {
+					this.BannerlistThree = result.data;
+				}
 			}
 		},
 		changeSwiper(e) {
