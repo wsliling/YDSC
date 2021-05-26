@@ -61,7 +61,7 @@
 						<view class="item" @click="golink('/pages/member/order/order')">
 							<view class="iconImg p_re">
 								<image class="icon" src="http://yd.wtanvxin.com/static/my_order.png" mode="widthFix"></image>
-								<view class="circleNum" v-if="memberInfo.OrderNum != 0">{{ memberInfo.OrderNum || 0 }}</view>
+								<view class="circleNum" v-if="memberInfo.OrderNum">{{ memberInfo.OrderNum}}</view>
 							</view>
 							<view class="txt">我的订单</view>
 						</view>

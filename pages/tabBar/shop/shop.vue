@@ -20,8 +20,8 @@
 			<view class="index_swiper uni-bg-white">
 				<swiper class="swiper" :indicator-dots="false" autoplay :interval="5000" :duration="500" @change="changeSwiper">
 					<swiper-item v-for="(banner, index) in Bannerlist" :key="index">
-						<!-- <view class="swiper-item pd15" @click="tolink(banner.Url)"><image class="img" :src="banner.Pic" mode="aspectFill"></image></view> -->
-						<view class="swiper-item pd15"><image class="img" :src="banner.Pic" mode="aspectFill"></image></view>
+						<view class="swiper-item pd15" @click="tolink(banner.WxUrl)"><image class="img" :src="banner.Pic" mode="aspectFill"></image></view>
+						<!-- <view class="swiper-item pd15"><image class="img" :src="banner.Pic" mode="aspectFill"></image></view> -->
 					</swiper-item>
 				</swiper>
 				<view class="dots" style="bottom: 30upx;">
@@ -228,9 +228,9 @@ export default {
 				Token: uni.getStorageSync('token'),
 				page: this.page,
 				pageSize: this.pageSize,
-				TypeId: this.TypeId,
+				//TypeId: this.TypeId,
 				// IsLike:this.TypeId?0:1
-				IsLike: 0
+				IsLike: 1
 			});
 			if (result.code == 0) {
 				if (result.data.length > 0) {
