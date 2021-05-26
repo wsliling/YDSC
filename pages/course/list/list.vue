@@ -38,7 +38,8 @@ export default {
 			noDataIsShow: false,
 			classlist: [],
 			id: 0,
-			tipstxt: ''
+			tipstxt: '',
+			searchVal: ''
 		};
 	},
 	onShow() {
@@ -52,6 +53,7 @@ export default {
 		// #ifdef H5
 		this.barHeight = 0;
 		// #endif
+		this.searchVal = e.seakey;
 		this.getCourseList();
 	},
 	methods: {
@@ -66,7 +68,7 @@ export default {
 				pageSize: this.pageSize,
 				UserId: this.userId,
 				Token: this.token,
-				SearchKey: '减脂',
+				SearchKey: this.searchVal,
 				IsNewPeopleVip: 0,
 				IsLike: 0,
 				IsRic: 0

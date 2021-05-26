@@ -38,10 +38,10 @@
 		<block v-if="pageCon == 1">
 			<view class="sec1 uni-bg-white uni-mb10" v-if="bannerListFour.length && bannerListFive.length && bannerListSix.length">
 				<view class="sec1_title">大家都在练</view>
-				<view class="sec1_1"><image :src="bannerListFour[0].Pic" mode="aspectFill" @click="tolink('/pages/course/list/list')"></image></view>
+				<view class="sec1_1"><image :src="bannerListFour[0].Pic" mode="aspectFill" @click="tolink('/pages/course/list/list?seakey=' + '减脂')"></image></view>
 				<view class="sec1_2 flex-between">
 					<image :src="bannerListFive[0].Pic" mode="aspectFill" @click="tolink('/pages/course/newPer/newPer')"></image>
-					<image :src="bannerListSix[0].Pic" mode="aspectFill" @click="tolink('/pages/course/listOne/listOne')"></image>
+					<image :src="bannerListSix[0].Pic" mode="aspectFill" @click="tolink('/pages/course/list/list?seakey=' + '增肌')"></image>
 				</view>
 			</view>
 			<view class="sec2 uni-bg-white uni-mb10">
