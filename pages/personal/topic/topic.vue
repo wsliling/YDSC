@@ -29,7 +29,7 @@
 						</view>
 						<view class="img"><image :src="item.CoverLogo"></image></view>
 					</view>
-					<view class="topname flex-between" v-if="item.IsShowTopicStar">
+					<view class="topname flex-start" v-if="item.IsShowTopicStar">
 						<view class="item flex-center" v-for="(items, index) in item.UserList" :key="index">
 							<image class="icon" :src="'http://yd.wtanvxin.com/static/discover/top' + (index + 1) + '.png'" mode="aspectFill"></image>
 							<image class="tx" :src="items.Avatar || 'http://yd.wtanvxin.com/static/default.png'"></image>
