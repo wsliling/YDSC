@@ -1046,7 +1046,25 @@
 					"navigationBarBackgroundColor": "#FFFFFF",
 					"navigationBarTextStyle": "black"
 				}
-			}]
+			}    ,{
+                    "path" : "list/list",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "减脂",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "listOne/listOne",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "增肌",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
 		},
 		{
 			"root": "pages/ems",
