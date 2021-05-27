@@ -93,7 +93,11 @@ export default {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
 		this.keyword = e.keys;
-		this.getTypeList();
+		if(this.keyword){
+			this.getprolist();
+		}else{
+			this.getTypeList();
+		}
 	},
 	methods: {
 		//跳转
@@ -158,17 +162,17 @@ export default {
 		},
 		//分类商品列表
 		async getprolist() {
-			let isRec = 0;
-			if (this.typeId == 0) {
-				isRec = 1;
-			} else {
-				isRec = 0;
-			}
+			// let isRec = 0;
+			// if (this.typeId == 0) {
+			// 	isRec = 1;
+			// } else {
+			// 	isRec = 0;
+			// }
 			let result = await post('Goods/GoodsList', {
 				page: this.page,
 				pageSize: this.pageSize,
 				typeId: this.typeId,
-				recommend: isRec,
+				recommend: 1,
 				Keywords: this.keyword
 			});
 			if (result.code == 0) {
