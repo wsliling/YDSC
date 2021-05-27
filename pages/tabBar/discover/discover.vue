@@ -1,46 +1,73 @@
 <template>
 	<view>
-		<view class="nav flex-between" :style="{ 'padding-top': barHeight + 'px' }">
-			<view class="nav-left">
-				<view :class="[tabNav == 4 ? 'active' : '']" @click="tapNav(4)">最新</view>
-				<view :class="[tabNav == 2 ? 'active' : '']" @click="tapNav(2)">推荐</view>
-				<view :class="[tabNav == 6 ? 'active' : '']" @click="tapNav(6)">关注</view>
-				<view :class="[tabNav == 3 ? 'active' : '']" @click="tapNav(3)">附近</view>
+		<block v-if="pageCon == 1">
+			<view class="nav flex-between" :style="{ 'padding-top': barHeight + 'px' }">
+				<view class="nav-left">
+					<view :class="[tabNav == 4 ? 'active' : '']" @click="tapNav(4)">最新</view>
+					<view :class="[tabNav == 2 ? 'active' : '']" @click="tapNav(2)">推荐</view>
+					<view :class="[tabNav == 6 ? 'active' : '']" @click="tapNav(6)">关注</view>
+					<view :class="[tabNav == 3 ? 'active' : '']" @click="tapNav(3)">附近</view>
+				</view>
 			</view>
-		</view>
-		<view :style="{ height: barHeight + 44 + 'px' }"></view>
-		<view class="list-2" v-if="tabNav == 4 && bannerList.length">
-			<view class="list-2-1"><image class="b_radius" :src="bannerList[0].Pic" mode="widthFix" @click="tolink('/pages/personal/topic/topic')"></image></view>
-			<block v-for="(item, index) in datalist" :key="index"><mediaList :datajson="item" Grid="3" @click="goDetail" @previewImg="previewImg"></mediaList></block>
-		</view>
-		<view class="list" v-if="hasData && tabNav == 2">
-			<block v-for="(item, index) in datalist" :key="index"><mediaList :datajson="item" Grid="3" @click="goDetail" @previewImg="previewImg"></mediaList></block>
-		</view>
-		<view class="list" v-if="hasData && tabNav == 6">
-			<block v-for="(item, index) in datalist" :key="index"><mediaList :datajson="item" Grid="3" @click="goDetail" @previewImg="previewImg"></mediaList></block>
-		</view>
-		<view class="list-1" v-if="tabNav == 3">
-			<view class="list-cell" v-for="(item, index) in gymlist" :key="index">
-				<view class="hd flex-start" @click="tolink('/pages/personal/VenueDetail/VenueDetail?gymId=' + item.Id)">
-					<view class="author"><image :src="item.Logo" mode="aspectFill"></image></view>
-					<view class="flex1">
-						<view class="name flex-start">
-							<text class="txt uni-ellipsis">{{ item.StoreNick }}</text>
-							<text class="uni-icon uni-icon-arrowright fz14"></text>
+			<view :style="{ height: barHeight + 44 + 'px' }"></view>
+			<view class="list-2" v-if="tabNav == 4 && bannerList.length">
+				<view class="list-2-1"><image class="b_radius" :src="bannerList[0].Pic" mode="widthFix" @click="tolink('/pages/personal/topic/topic')"></image></view>
+				<block v-for="(item, index) in datalist" :key="index"><mediaList :datajson="item" Grid="3" @click="goDetail" @previewImg="previewImg"></mediaList></block>
+			</view>
+			<view class="list" v-if="hasData && tabNav == 2">
+				<block v-for="(item, index) in datalist" :key="index"><mediaList :datajson="item" Grid="3" @click="goDetail" @previewImg="previewImg"></mediaList></block>
+			</view>
+			<view class="list" v-if="hasData && tabNav == 6">
+				<block v-for="(item, index) in datalist" :key="index"><mediaList :datajson="item" Grid="3" @click="goDetail" @previewImg="previewImg"></mediaList></block>
+			</view>
+			<view class="list-1" v-if="tabNav == 3">
+				<view class="list-cell" v-for="(item, index) in gymlist" :key="index">
+					<view class="hd flex-start" @click="tolink('/pages/personal/VenueDetail/VenueDetail?gymId=' + item.Id)">
+						<view class="author"><image :src="item.Logo" mode="aspectFill"></image></view>
+						<view class="flex1">
+							<view class="name flex-start">
+								<text class="txt uni-ellipsis">{{ item.StoreNick }}</text>
+								<text class="uni-icon uni-icon-arrowright fz14"></text>
+							</view>
+							<view class="fz12 c_999" v-if="item.IsShowDistance">距离您{{ item.Distance }}</view>
 						</view>
-						<view class="fz12 c_999" v-if="item.IsShowDistance">距离您{{ item.Distance }}</view>
+					</view>
+					<view class="bd">
+						<scroll-view class="image-list" scroll-x="true">
+							<view class="img" v-for="(items, index) in item.PicData" :key="index"><image :src="items.PicUrl" mode="aspectFill"></image></view>
+						</scroll-view>
 					</view>
 				</view>
-				<view class="bd">
-					<scroll-view class="image-list" scroll-x="true">
-						<view class="img" v-for="(items, index) in item.PicData" :key="index"><image :src="items.PicUrl" mode="aspectFill"></image></view>
-					</scroll-view>
-				</view>
+			</view>
+			<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
+			<noData :isShow="noDataIsShow"></noData>
+			<view @click="tolink('/pages/personal/artPost/artPost', 'login')" class="uploadbtn flex-column"><text class="uni-icon uni-icon-plusempty"></text></view>
+		</block>
+
+		<view v-else class="pp3">
+			<view v-if="this.prolist.length" class="product-list-level uni-bg-white b_radius">
+				<block v-for="(item, index) in prolist" :key="index">
+					<view class="outside" @click="tolink('/pages/goods/productDetail/productDetail?proId=' + item.Id)">
+						<view class="pictrue"><image :src="item.PicNo || 'http://via.placeholder.com/800x800'" mode="aspectFill"></image></view>
+						<view class="txtBox">
+							<view>
+								<view class="title uni-ellipsis2">{{ item.Name }}</view>
+								<view class="flex"><view class="tag tag-zy">自营</view></view>
+							</view>
+							<view class="pronumber flex-between">
+								<view>
+									<text class="price">
+										<text class="fz12">￥</text>
+										{{ item.Price }}
+									</text>
+								</view>
+								<view class="opentuan">立即查看</view>
+							</view>
+						</view>
+					</view>
+				</block>
 			</view>
 		</view>
-		<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
-		<noData :isShow="noDataIsShow"></noData>
-		<view @click="tolink('/pages/personal/artPost/artPost', 'login')" class="uploadbtn flex-column"><text class="uni-icon uni-icon-plusempty"></text></view>
 	</view>
 </template>
 
@@ -55,6 +82,7 @@ export default {
 	},
 	data() {
 		return {
+			pageCon: 0,
 			userId: '',
 			token: '',
 			barHeight: 0,
@@ -67,19 +95,21 @@ export default {
 			hasData: false,
 			noDataIsShow: false,
 			gymlist: [],
-			bannerList: []
+			bannerList: [],
+			prolist: []
 		};
 	},
 	onShow() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
-		if (this.tabNav == 3){
+		if (this.tabNav == 3) {
 			this.getGymList();
-		}else{
+		} else {
 			this.FindList();
 		}
 	},
 	onLoad() {
+		this.pageCon = uni.getStorageSync('pageCon');
 		// #ifdef APP-PLUS
 		var height = plus.navigator.getStatusbarHeight();
 		this.barHeight = height;
@@ -88,6 +118,7 @@ export default {
 		this.barHeight = 0;
 		// #endif
 		this.getBanner(14);
+		this.getprolist();
 	},
 	methods: {
 		//跳转
@@ -125,6 +156,13 @@ export default {
 			});
 			if (result.code === 0) {
 				this.bannerList = result.data;
+			}
+		},
+		//商品列表
+		async getprolist() {
+			let result = await post('Goods/GoodsList', {});
+			if (result.code == 0) {
+				this.prolist = result.data;
 			}
 		},
 		/*获取动态列表*/
