@@ -192,6 +192,11 @@ export default {
 			this.couponId = e.couponId;
 			this.getprolist();
 		}
+		if (e.keyname) {
+			this.searchVal = e.keyname;
+			this.hisLength = false;
+			this.getprolist();
+		}
 		this.getHistory();
 		this.getBrandList();
 	},
