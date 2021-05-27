@@ -11,8 +11,8 @@
 			</view>
 			<view class="sec_3" @click="pop">兑换</view>
 			<uni-popup ref="popup" type="center">
-				<view class="popup-content">					
-				<view class="closebtn uni-icon uni-icon-close" @click="hidePopup"></view>
+				<view class="popup-content">
+					<view class="closebtn uni-icon uni-icon-close" @click="hidePopup"></view>
 					<view class="title">兑换</view>
 					<view class="phone"><input type="text" v-model="name" placeholder="姓名" /></view>
 					<view class="phone"><input type="text" v-model="tel" placeholder="手机号码" /></view>
@@ -82,7 +82,7 @@ export default {
 			this.$refs.popup[0].open(); // 显示弹窗
 		},
 		hidePopup() {
-			console.log(this.$refs.popup)
+			console.log(this.$refs.popup);
 			this.$refs.popup[1].close(); // 关闭弹窗
 		},
 		// 兑换
@@ -165,7 +165,10 @@ export default {
 			let result = await post('Productjf/ProductExchange', {
 				UserId: this.userId,
 				Token: this.token,
-				Pro_Id: this.Id
+				Pro_Id: this.Id,
+				FullName: this.name,
+				Mobile: this.tel,
+				Address: this.address
 			});
 			if (result.code == 0) {
 				//积分

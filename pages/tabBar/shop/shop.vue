@@ -48,9 +48,15 @@
 					</view>
 				</view>
 				<view class="uni-bd" v-if="BannerlistTwo.length && BannerlistThree.length">
-					<view class="item"><image :src="BannerlistTwo[0].Pic" mode="aspectFill" @click="tolink('/pages/goods/findpro/findpro?keys=' + '跑步机')"></image></view>
-					<view class="item"><image :src="BannerlistThree[0].Pic" mode="aspectFill" @click="tolink('/pages/goods/findpro/findpro?keys=' + '筋膜枪')"></image></view>
-					<view class="item"><image :src="BannerlistThree[1].Pic" mode="aspectFill" @click="tolink('/pages/goods/findpro/findpro?keys=' + '瑜伽垫')"></image></view>
+					<view class="item">
+						<image :src="BannerlistTwo[0].Pic" mode="aspectFill" @click="tolink('/pages/goods/findpro/findpro?keys=' + BannerlistTwo[0].Content)"></image>
+					</view>
+					<view class="item">
+						<image :src="BannerlistThree[0].Pic" mode="aspectFill" @click="tolink('/pages/goods/findpro/findpro?keys=' + BannerlistThree[0].Content)"></image>
+					</view>
+					<view class="item">
+						<image :src="BannerlistThree[1].Pic" mode="aspectFill" @click="tolink('/pages/goods/findpro/findpro?keys=' + BannerlistThree[1].Content)"></image>
+					</view>
 				</view>
 			</view>
 			<!-- 小banner -->
