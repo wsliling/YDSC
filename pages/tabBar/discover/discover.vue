@@ -43,9 +43,8 @@
 			<noData :isShow="noDataIsShow"></noData>
 			<view @click="tolink('/pages/personal/artPost/artPost', 'login')" class="uploadbtn flex-column"><text class="uni-icon uni-icon-plusempty"></text></view>
 		</block>
-
 		<view v-else class="pp3">
-			<view v-if="this.prolist.length" class="product-list-level uni-bg-white b_radius">
+			<view v-if="prolist.length" class="product-list-level uni-bg-white b_radius">
 				<block v-for="(item, index) in prolist" :key="index">
 					<view class="outside" @click="tolink('/pages/goods/productDetail/productDetail?proId=' + item.Id)">
 						<view class="pictrue"><image :src="item.PicNo || 'http://via.placeholder.com/800x800'" mode="aspectFill"></image></view>

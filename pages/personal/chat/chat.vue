@@ -67,7 +67,11 @@
 
 <script>
 	import {post,get,toLogin,playMusic,wssHost,toast } from '@/common/util.js';
+import uParse from '@/components/uParse/src/wxParse.vue';
 	export default {
+	components: {
+		uParse
+	},
 		data() {
 			return {
 				userId: "",
