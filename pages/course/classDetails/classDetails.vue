@@ -22,7 +22,10 @@
 				<view class="name">{{ classdetail.Name }}</view>
 			</view>
 			<view class="detail flex-between">
-				<view class="detail_1 flex1">{{ classdetail.TargetName }} | {{ classdetail.DifficultyName }} | {{ classdetail.CourseDuration }}分钟</view>
+				<view class="detail_1 flex1">
+					{{ classdetail.TargetName }} | {{ classdetail.DifficultyName }}
+					<text style="padding-left: 10upx;" v-if="classdetail.CourseDuration != 0">| {{ classdetail.CourseDuration }}分钟</text>
+				</view>
 				<view class="detail_2">{{ classdetail.Hits }}人看过</view>
 			</view>
 			<view class="info1 flex-between">
@@ -62,11 +65,11 @@
 		</view>
 		<view class="line last_line"></view>
 		<view class="foot flex-between">
-			<view class="foot_1">
+			<view :class="['foot_1', classdetail.IsShowBuy == 0 ? 'flex1' : '']">
 				<view class="iconfont" :class="[IsCollect ? 'icon-collect bd' : 'icon-collect1']" @click="collect"></view>
 				收藏
 			</view>
-			<view class="foot_2" @click="share">
+			<view :class="['foot_2', classdetail.IsShowBuy == 0 ? 'flex1' : '']" @click="share">
 				<button class="sharebtn" open-type="share"><view class="iconfont icon-share"></view></button>
 				分享
 			</view>
@@ -76,7 +79,7 @@
 					￥{{ classdetail.Price }}购买
 				</view>
 			</block>
-			<block v-else><view class="foot_3" style="opacity: .5;">已购买</view></block>
+			<block v-if="classdetail.IsShowBuy == 2"><view class="foot_3" style="opacity: .5;">已购买</view></block>
 		</view>
 		<!-- 弹出分享 -->
 		<uni-popup ref="popupShare" type="bottom">

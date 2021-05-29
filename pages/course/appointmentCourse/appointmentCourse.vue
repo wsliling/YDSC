@@ -9,7 +9,10 @@
 					<view class="con_1"><image :src="item.PicImg" mode="aspectFill"></image></view>
 					<view class="con_2">
 						<view class="title">{{ item.Title }}</view>
-						<view class="title_1">{{ item.TargetName }} | {{ item.DifficultyName }} | {{ item.CourseDuration }}分钟</view>
+						<view class="title_1">
+							{{ item.TargetName }} | {{ item.DifficultyName }}
+							<text style="padding-left: 10upx;" v-if="item.CourseDuration != 0">| {{ item.CourseDuration }}分钟</text>
+						</view>
 						<view class="title_2">
 							<view class="title2_1">
 								<image :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>

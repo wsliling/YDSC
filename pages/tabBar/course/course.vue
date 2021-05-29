@@ -55,7 +55,10 @@
 							<view class="sec2_1"><image :src="item.PicImg" mode="aspectFill"></image></view>
 							<view class="detail" @click="tolink('/pages/course/classDetails/classDetails?detailId=' + item.Id)">
 								<view class="title uni-ellipsis">{{ item.Title }}</view>
-								<view class="title_1">{{ item.CourseDuration }}分钟 · {{ item.DifficultyName }} · {{ item.TargetName }}</view>
+								<view class="title_1">
+									<text style="padding-right: 10upx;" v-if="item.CourseDuration != 0">{{ item.CourseDuration }}分钟 ·</text>
+									{{ item.DifficultyName }} · {{ item.TargetName }}
+								</view>
 							</view>
 						</block>
 						<view class="more" @click="tolink('/pages/course/moreCourse/moreCourse')">查看更多推荐课程</view>
@@ -71,7 +74,10 @@
 					<view><image :src="item.PicImg" mode="aspectFill"></image></view>
 					<view>
 						<view class="sec4_title">{{ item.Title }}</view>
-						<view class="sec4_title1">{{ item.DifficultyName }} . {{ item.CourseDuration }}分钟</view>
+						<view class="sec4_title1">
+							{{ item.DifficultyName }}
+							<text style="padding-left: 10upx;" v-if="item.CourseDuration != 0">· {{ item.CourseDuration }}分钟</text>
+						</view>
 						<view class="sec4_title2">
 							<image :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
 							<text>{{ item.CoachNick }}</text>
