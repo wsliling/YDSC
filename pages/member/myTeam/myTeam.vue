@@ -27,44 +27,23 @@
 			</view>
 		</view>
 		<view class="tab">
-			<aloys-tab :tabs="tabs" v-for="(item, index) in TeamList" :key="index">
-				<view slot="content0" class="xxx" v-if="item.GradeName == '普通用户'">
+			<scroll-view scroll-x="true" class="tabList">
+				<view class="item" v-for="(item, index) in tabs" :key="index" :class="{ active: item.Id == tabIndex }" @click="cliTab(item.Id)">{{ item.GradeName }}</view>
+			</scroll-view>
+			<view class="list" v-if="hasData">
+				<block v-for="(item, index) in TeamList" :key="index">
 					<view class="con">
-						<view class="con_1">
-							<image :src="item.Avatar||'http://yd.wtanvxin.com/static/default.png'"></image>
-						</view>
+						<view class="con_1"><image :src="item.Avatar || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
 						<view class="con_2">
 							<view class="title">{{ item.NickName }}</view>
 							<view class="title_1">{{ item.Mobile }}</view>
 						</view>
 						<view class="con_3">{{ item.CreateTime }}</view>
 					</view>
-				</view>
-				<view slot="content1" class="xxx" v-if="item.GradeName == '普通用户'">
-					<view class="con">
-						<view class="con_1">
-							<image :src="item.Avatar||'http://yd.wtanvxin.com/static/default.png'"></image>
-						</view>
-						<view class="con_2">
-							<view class="title">{{ item.NickName }}</view>
-							<view class="title_1">{{ item.Mobile }}</view>
-						</view>
-						<view class="con_3">{{ item.CreateTime }}</view>
-					</view>
-				</view>
-				<view slot="content2" class="xxx" v-if="item.GradeName == '普通用户'">
-					<view class="con">
-						<view class="con_1">
-							<image :src="item.Avatar||'http://yd.wtanvxin.com/static/default.png'"></image>
-						</view>
-						<view class="con_2">
-							<view class="title">{{ item.NickName }}</view>
-							<view class="title_1">{{ item.Mobile }}</view>
-						</view>
-						<view class="con_3">{{ item.CreateTime }}</view>
-					</view>
-				</view>
-			</aloys-tab>
+				</block>
+			</view>
+			<!-- <view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view> -->
+			<noData :isShow="noDataIsShow"></noData>
 		</view>
 	</view>
 </template>
@@ -73,10 +52,10 @@
 import { post } from '@/common/util.js';
 import uniLoadMore from '@/components/uni-load-more.vue'; //加载更多
 import noData from '@/components/noData.vue'; //暂无数据
-import aloysTab from '@/components/aloys-tab/aloys-tab.vue';
 export default {
 	components: {
-		aloysTab
+		noData,
+		uniLoadMore
 	},
 	data() {
 		return {
@@ -87,50 +66,71 @@ export default {
 			TeamList: [],
 			FatherData: {},
 			data: {},
-			selIndex: 1,
-			noData: false,
-			dataMore: true,
-			tabs: [
-				{
-					title: '金牌合伙人'
-				},
-				{
-					title: '银牌合伙人'
-				},
-				{
-					title: '铜牌合伙人'
-				}
-			]
+			loadingType: 0, //0加载前，1加载中，2没有更多了
+			isLoad: false,
+			hasData: false,
+			noDataIsShow: false,
+			tabs: [],
+			tabIndex: 1
 		};
 	},
-	onLoad() {
-	},
+	onLoad() {},
 	onShow() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
 		this.init();
+		this.getTab();
 	},
 	methods: {
+		cliTab(index) {
+			this.tabIndex = index;
+			this.TeamList = [];
+			this.init();
+		},
 		async init() {
 			let result = await post('User/MyCustom', {
 				UserId: this.userId,
 				Token: this.token,
 				Page: this.page,
-				PageSize:this.pageSize,
-				Type: this.selIndex
+				PageSize: this.pageSize,
+				Type: this.tabIndex
 			});
 			if (result.code == 0) {
 				this.data = result.data;
 				this.TeamList = this.data.TeamList;
 				this.FatherData = this.data.FatherData;
 				if (this.data.TeamNum == 0) {
-					this.noData = true;
-					this.dataMore = false;
+					this.noDataIsShow = true;
+					this.hasData = false;
 				} else {
-					this.noData = false;
-					this.dataMore = true;
+					this.noDataIsShow = false;
+					this.hasData = true;
 				}
 			}
+		},
+		async getTab() {
+			let result = await post('User/GetGradeList', {
+				UserId: this.userId,
+				Token: this.token
+			});
+			if (result.code == 0) {
+				this.tabs = result.data;
+			}
+		}
+	},
+	onPullDownRefresh() {
+		this.page = 1;
+		this.init();
+		uni.stopPullDownRefresh();
+	},
+	// 上拉加载
+	onReachBottom: function() {
+		if (this.isLoad) {
+			this.loadingType = 1;
+			this.page++;
+			this.init();
+		} else {
+			this.loadingType = 2;
 		}
 	}
 };
@@ -139,6 +139,7 @@ export default {
 <style lang="scss">
 .myTeam {
 	background-color: white;
+	height: 100vh;
 	padding: 20upx;
 	.top {
 		background-color: #fd4646;
@@ -200,12 +201,37 @@ export default {
 		}
 	}
 	.tab {
-		position: absolute;
+		position: relative;
 		height: 80%;
 		background-color: white;
 		margin: 0;
 		margin-top: 20upx;
 		margin-left: -20upx;
+		.tabList {
+			width: 100%;
+			white-space: nowrap;
+			padding: 0 10px;
+			background-color: white;
+			z-index: 9;
+			.item {
+				overflow: hidden;
+				display: inline-block;
+				text-align: center;
+				color: grey;
+				line-height: 73rpx;
+				font-size: 32rpx;
+				font-weight: 500;
+				height: 100%;
+				box-sizing: border-box;
+				margin: 0 12px;
+				&.active {
+					color: #f57609;
+					border-bottom: 5rpx solid #f57609;
+					font-weight: bold;
+					margin: 0 12px;
+				}
+			}
+		}
 		.con {
 			display: flex;
 			align-items: center;
