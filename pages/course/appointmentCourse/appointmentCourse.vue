@@ -48,6 +48,7 @@ export default {
 			isLoad: false,
 			hasData: false,
 			noDataIsShow: false,
+			AreaCode: '',
 			course: [],
 			tabs: [],
 			tabIndex: 45,
@@ -57,6 +58,7 @@ export default {
 	onLoad() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
+		this.AreaCode = uni.getStorageSync('AreaCode');
 		this.getCourse();
 		this.getCourseType();
 	},
@@ -92,7 +94,8 @@ export default {
 				IsNewPeopleVip: 0,
 				Ctype: this.tabIndex,
 				IsLike: 0,
-				IsRic: 0
+				IsRic: 0,
+				AreaCode: this.AreaCode
 			});
 			if (result.code == 0) {
 				if (result.data.length > 0) {

@@ -54,6 +54,7 @@ export default {
 	onLoad() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
+		this.AreaCode = uni.getStorageSync('AreaCode');
 		this.getRec();
 		this.getCoachList();
 	},
