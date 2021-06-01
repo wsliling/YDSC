@@ -40,13 +40,13 @@
 					<view class="min c_999">{{item.AddTime}}</view>
 				</view>
 				<view class="carport">{{item.ContentText}}</view>
-				<view class="reply-con" v-if="item.Reply.length>0">
-					<text style="color: #939393;">商家回复</text>：</text>{{decodeURIComponent(item.Reply)}}
-				</view>
 				<view class="commentpic" v-if="item.PicData.length">
 					<block v-for="(i,e) in item.imgArr" :key="e">
 					  <image :src="i" alt="" class="shop_pic" @click="previewImg(item.imgArr,i)" mode="aspectFill"></image>
 					</block>
+				</view>
+				<view class="reply-con" v-if="item.Reply.length>0">
+					<text style="color: #939393;">商家回复</text>：</text>{{decodeURIComponent(item.Reply)}}
 				</view>
 				<view class="figure" style="display: none;">
 					<view class="figurebox">
