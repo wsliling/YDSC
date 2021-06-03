@@ -838,6 +838,20 @@
 							"scrollIndicator": "none" //不显示滚动条
 						}
 					}
+				},{
+					"path": "VenueDetail/map",
+					"style": {
+						"navigationBarTitleText": "场馆详情",
+						"enablePullDownRefresh": true,
+						"app-plus": {
+							"pullToRefresh": {
+								"support": true,
+								"color": "#fa6008", //小圈圈的颜色
+								"style": "circle" //小圈圈的样式
+							},
+							"scrollIndicator": "none" //不显示滚动条
+						}
+					}
 				}, {
 					"path": "topic/topic",
 					"style": {

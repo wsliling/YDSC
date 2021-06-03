@@ -153,6 +153,8 @@ export default {
 			type: 'wgs84',
 			geocode: true,
 			success: function(res) {
+				uni.setStorageSync('CourseLng', res.longitude);
+				uni.setStorageSync('CourseLat', res.latitude);
 				console.log(res);
 				// #ifdef APP-PLUS
 				var city = res.address.city.replace(/市/, '');
@@ -160,7 +162,6 @@ export default {
 				_this.cityname = city;
 				_this.nowCity = city;
 				_this.getAreaCode(city);
-
 				// #endif
 				// #ifdef MP-WEIXIN
 				_this.wxGetCity(res.longitude, res.latitude);

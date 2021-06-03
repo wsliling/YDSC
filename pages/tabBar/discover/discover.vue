@@ -95,7 +95,9 @@ export default {
 			noDataIsShow: false,
 			gymlist: [],
 			bannerList: [],
-			prolist: []
+			prolist: [],
+			Lat: 0,
+			Lng: 0
 		};
 	},
 	onShow() {
@@ -118,6 +120,17 @@ export default {
 		// #endif
 		this.getBanner(14);
 		this.getprolist();
+		var _this = this;
+		// #ifdef APP-PLUS||MP-WEIXIN
+		uni.getLocation({
+			type: 'wgs84',
+			geocode: true,
+			success: function(res) {
+				_this.Lat = res.latitude;
+				_this.Lng = res.longitude;
+			}
+		});
+		// #endif
 	},
 	methods: {
 		//跳转
@@ -223,8 +236,8 @@ export default {
 				UserId: this.userId,
 				Token: this.token,
 				IsNewPeopleVip: 0,
-				Lat: 0,
-				Lng: 0,
+				Lat: this.Lat,
+				Lng: this.Lng,
 				AreaSite: ''
 			});
 			if (result.code == 0) {

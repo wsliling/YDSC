@@ -1,25 +1,27 @@
 <template>
 	<view class="appointmentCoach">
 		<block v-if="coachlist.length">
-		<view class="title">推荐教练</view>
-		<view class="tui">
-			<view class="list" v-for="(item, index) in coachlist" :key="index">
-				<view class="list1_1"><image :src="item.Avatar || 'http://yd.wtanvxin.com/static/default.png'" @click="coachDetails(item.MemberId)" mode="aspectFill"></image></view>
-				<view class="name">{{ item.UserNick }}</view>
-				<view class="num">{{ item.ApplyNum }}人预约过</view>
+			<view class="title">推荐教练</view>
+			<view class="tui">
+				<view class="list" v-for="(item, index) in coachlist" :key="index">
+					<view class="list1_1">
+						<image :src="item.Avatar || 'http://yd.wtanvxin.com/static/default.png'" @click="coachDetails(item.MemberId)" mode="aspectFill"></image>
+					</view>
+					<view class="name">{{ item.UserNick }}</view>
+					<view class="num">{{ item.ApplyNum }}人预约过</view>
+				</view>
 			</view>
-		</view>
 		</block>
 		<block v-if="hasData">
-		<view class="title">全部教练</view>
-		<view class="list1" v-for="(item, index) in coachlistOne" :key="index">
-			<view class="list1_1"><image :src="item.Avatar|| 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
-			<view class="list1_2">
-				<view class="name">{{ item.UserNick }}</view>
-				<view class="num">{{ item.ApplyNum }}人预约过</view>
+			<view class="title">全部教练</view>
+			<view class="list1" v-for="(item, index) in coachlistOne" :key="index">
+				<view class="list1_1"><image :src="item.Avatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
+				<view class="list1_2">
+					<view class="name">{{ item.UserNick }}</view>
+					<view class="num">{{ item.ApplyNum }}人预约过</view>
+				</view>
+				<view class="list1_3" @click="coachDetails(item.MemberId)">立即预约</view>
 			</view>
-			<view class="list1_3" @click="coachDetails(item.MemberId)">立即预约</view>
-		</view>
 		</block>
 		<view class="uni-tab-bar-loading" v-if="hasData"><uni-load-more :loadingType="loadingType"></uni-load-more></view>
 		<noData :isShow="noDataIsShow"></noData>
@@ -48,13 +50,18 @@ export default {
 			IsRec: 0,
 			AreaCode: '',
 			coachlist: {},
-			coachlistOne: {}
+			coachlistOne: {},
+			Lat: 0,
+			Lng: 0
 		};
 	},
+	onShow() {},
 	onLoad() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
 		this.AreaCode = uni.getStorageSync('AreaCode');
+		this.Lat = uni.getStorageSync('CourseLat');
+		this.Lng = uni.getStorageSync('CourseLng');
 		this.getRec();
 		this.getCoachList();
 	},
@@ -65,23 +72,29 @@ export default {
 			});
 		},
 		//推荐
-		async getRec(){
+		async getRec() {
 			let result = await post('Course/GetCoachList', {
-				page: 1,
-				pageSize: 20,
+				UserId: this.userId,
+				Token: this.token,
 				IsRec: 1,
-				AreaCode: this.AreaCode
+				AreaCode: this.AreaCode,
+				Lat: this.Lat,
+				Lng: this.Lng
 			});
-			if (result.code == 0){
+			if (result.code == 0) {
 				this.coachlist = result.data;
 			}
 		},
 		//教练列表
 		async getCoachList() {
 			let result = await post('Course/GetCoachList', {
+				UserId: this.userId,
+				Token: this.token,
 				page: this.page,
 				pageSize: this.pageSize,
-				AreaCode: this.AreaCode
+				AreaCode: this.AreaCode,
+				Lat: this.Lat,
+				Lng: this.Lng
 			});
 			if (result.code == 0) {
 				if (result.data.length > 0) {
@@ -110,7 +123,7 @@ export default {
 	},
 	onPullDownRefresh() {
 		this.page = 1;
-		this.coachlistOne=[];
+		this.coachlistOne = [];
 		this.getRec();
 		this.getCoachList();
 		uni.stopPullDownRefresh();
