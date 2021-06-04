@@ -2,7 +2,7 @@
 	<view class="uni-product" @click="getproid(datajson.Id)">
 		<view class="itembox">
 			<view class="image-view">
-				<image class="uni-product-image" :src="datajson.PicNo||'http://via.placeholder.com/800x800'"
+				<image class="uni-product-image" :src="datajson.PicNo||'https://via.placeholder.com/800x800'"
 				 mode="aspectFill"></image>
 			</view>
 			<view class="txtbox">
@@ -78,5 +78,5 @@
 		color: #999;
 	}
 	/* .uni-product-price-original{ font-size: 36upx;} */
-	.plus-price .icon-plusprice{ display: inline-block; vertical-align: middle; height: 28upx; width: 60upx; background: url(http://yd.wtanvxin.com/static/plus/plus_icon.png) right center no-repeat; background-size: 100%; }
+	.plus-price .icon-plusprice{ display: inline-block; vertical-align: middle; height: 28upx; width: 60upx; background: url(https://yd.wtanvxin.com/static/plus/plus_icon.png) right center no-repeat; background-size: 100%; }
 </style>

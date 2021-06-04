@@ -32,7 +32,7 @@
 				<scroll-view class="scroll-view_H" scroll-x="true" scroll-left="0">
 					<block v-for="(item, index) in categoryList" :key="index">
 						<view class="item" @click="tolink('/pages/goods/secondlist/secondlist?id=' + item.Id + '&keystr=' + item.Name)">
-							<image class="icon" :src="item.Pic || 'http://yd.wtanvxin.com/static/60x60.png'"></image>
+							<image class="icon" :src="item.Pic || 'https://yd.wtanvxin.com/static/60x60.png'"></image>
 							<text class="txt">{{ item.Name }}</text>
 						</view>
 					</block>
@@ -76,7 +76,7 @@
 					<scroll-view class="scroll-view_H Hotsell-list" scroll-x="true" scroll-left="0">
 						<view class="scroll-view-item_H" v-for="(item, index) in newprolist" :key="index">
 							<view class="itembox" @click="tolink('/pages/goods/productDetail/productDetail?proId=' + item.Id)">
-								<view class="image-view"><image class="img" :src="item.PicNo || 'http://via.placeholder.com/800x800'" mode="aspectFill"></image></view>
+								<view class="image-view"><image class="img" :src="item.PicNo || 'https://via.placeholder.com/800x800'" mode="aspectFill"></image></view>
 								<view class="porductname uni-center">{{ item.Name }}</view>
 							</view>
 						</view>

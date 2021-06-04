@@ -88,7 +88,7 @@
 					}).then(res=>{
 						//确认
 						let version=this.newversion.split('.').join('');
-						const dowmappURL='http://yd.wtanvxin.com/down/android'+version+'.apk';//app下载地址安卓
+						const dowmappURL='https://yd.wtanvxin.com/down/android'+version+'.apk';//app下载地址安卓
 						plus.runtime.openURL(system=="ios"?dowmappURLios:dowmappURL);
 											
 					  }).catch(res=>{

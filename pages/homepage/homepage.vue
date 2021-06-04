@@ -1,18 +1,18 @@
 <template>
 	<view class="pagehome">
 		<view class="homeBackground p_re">
-			<image :src="HomeCover || 'http://yd.wtanvxin.com/static/topic.jpg'" mode="aspectFill"></image>
+			<image :src="HomeCover || 'https://yd.wtanvxin.com/static/topic.jpg'" mode="aspectFill"></image>
 			<view class="btn flex-center" v-if="myType == 1" @click="changebanner" style="z-index: 2;">
 				<text class="iconfont icon-fabu fz16"></text>
 				<!-- 设置封面 -->
 			</view>
 			<!-- <view v-if="myType != 0" class="btn flex-center">
-				<image class="mesg" src="http://yd.wtanvxin.com/static/message.png"></image>
+				<image class="mesg" src="https://yd.wtanvxin.com/static/message.png"></image>
 			</view> -->
 		</view>
 		<view class="userInfo">
 			<view class="headerInfo">
-				<image @click="lookImg" class="userImg" :src="Info.Avatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
+				<image @click="lookImg" class="userImg" :src="Info.Avatar || 'https://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
 				<view class="fansBtn" v-if="myType != 0">
 					<view class="btn" @click="tolink('/pages/member/editinfo/editinfo')">
 						<!-- <text class="iconfont icon-fankui mr1"></text> -->
@@ -26,7 +26,7 @@
 					</view>
 					<view class="fansBtn" v-else>
 						<view class="position" @click="tolink('/pages/personal/chat/chat?id=' + memberId + '&nick=' + Info.NickName, 'login')">
-							<image style="width: 72upx; height: 72upx;" src="http://yd.wtanvxin.com/static/message.png"></image>
+							<image style="width: 72upx; height: 72upx;" src="https://yd.wtanvxin.com/static/message.png"></image>
 						</view>
 						<view class="btn" @click="flowbtn">取消关注</view>
 					</view>
@@ -54,7 +54,7 @@
 				</view>
 				<!-- <view class="flex" v-if="Info.FanGroup">
 					<view class="fansCard">
-						<image :src="Info.Avatar || 'http://yd.wtanvxin.com/static/default.png'"></image>
+						<image :src="Info.Avatar || 'https://yd.wtanvxin.com/static/default.png'"></image>
 						<view class="fansName">
 							<view class="p1">{{ Info.NickName }}【粉丝团】</view>
 							<view class="p2">粉丝 | {{ Info.FanGroup }}人</view>
@@ -101,7 +101,7 @@
 			<!-- <view class="tabCon tab-img flex flexWrap" v-if="tabIndex == 0">
 				<block v-for="(item, index) in datalist" :key="index">
 					<view class="item" @longtap="longtap(item, index, 0)">
-						<image :src="item.Logo || 'http://via.placeholder.com/400x400'" mode="aspectFill" @click.stop="goLivePlay(item, index)"></image>
+						<image :src="item.Logo || 'https://via.placeholder.com/400x400'" mode="aspectFill" @click.stop="goLivePlay(item, index)"></image>
 						<view class="tag">{{ item.Flag == 0 ? '预告' : item.Flag == 1 ? '直播中' : '回放' }}</view>
 						<view class="delbox flex-center" v-if="item.isDel" @click.stop="hidedel(item, index)">
 							<text class="delbtn" @click.stop="delData(item.Id, index)">删除</text>
@@ -113,7 +113,7 @@
 				<block v-for="(item, index) in datalist" :key="index">
 					<view class="item" @longtap="longtap(item, index, 1)">
 						<image
-							:src="item.Logo || 'http://via.placeholder.com/400x400'"
+							:src="item.Logo || 'https://via.placeholder.com/400x400'"
 							mode="aspectFill"
 							@click.stop="tolink('/pages/hwDetails/hwDetails?id=' + item.Id + '&MemberId=' + item.MemberId)"
 						></image>
@@ -155,7 +155,7 @@
 		<!-- 弹出更换封面 -->
 		<uni-popup v-if="myType == 1" ref="bannerWin" type="center">
 			<view class="uni-modal-banner" @click="hidePopup">
-				<view class="img"><image :src="HomeCover || 'http://yd.wtanvxin.com/static/topic.jpg'" mode="aspectFill"></image></view>
+				<view class="img"><image :src="HomeCover || 'https://yd.wtanvxin.com/static/topic.jpg'" mode="aspectFill"></image></view>
 				<view class="btn btn_red" @click.stop="chooseImg">更换封面</view>
 				<view class="btn" @click.stop="hidePopup">取消</view>
 			</view>

@@ -56,7 +56,7 @@
 						<view class="title uni-ellipsis">{{ item.Title }}</view>
 						<view class="desc">{{ item.DifficultyName }} . {{ item.CourseDuration }}分钟</view>
 						<view class="flex-start uni-mt10">
-							<image class="tx" :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
+							<image class="tx" :src="item.CoachAvatar || 'https://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
 							<text class="author">{{ item.CoachNick }}</text>
 						</view>
 					</view>

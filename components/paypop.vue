@@ -119,7 +119,7 @@ export default {
       payTypeList:[
         {
           name:'微信',
-          icon:'http://yd.wtanvxin.com/static/pay_weixin.png',
+          icon:'https://yd.wtanvxin.com/static/pay_weixin.png',
           id:0,
           code:'wx',
           status:true,
@@ -127,7 +127,7 @@ export default {
 		//#ifndef MP-WEIXIN
         {
           name:'支付宝',
-          icon:'http://yd.wtanvxin.com/static/pay_alipay.png',
+          icon:'https://yd.wtanvxin.com/static/pay_alipay.png',
           id:2,
           code:'alipay',
           status:true,
@@ -135,14 +135,14 @@ export default {
 		//#endif
         {
           name:'余额',
-          icon:'http://yd.wtanvxin.com/static/pay_yue.png',
+          icon:'https://yd.wtanvxin.com/static/pay_yue.png',
           id:1,
           code:'balance',
           status:true,
         },
         {
           name:'积分',
-          icon:'http://yd.wtanvxin.com/static/pay_jf.png',
+          icon:'https://yd.wtanvxin.com/static/pay_jf.png',
           id:3,
           code:'integral',
           status:false,

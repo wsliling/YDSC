@@ -11,15 +11,15 @@
 		   <view class="pop-hd">分享到</view>
 			<view class="sharelist flex-center-between">
 				<view class="share-item" @click.stop="appShare('WXSceneSession')">
-					<image class="imgico" src="http://yd.wtanvxin.com/static/weixin.png" mode="aspectFit"></image>
+					<image class="imgico" src="https://yd.wtanvxin.com/static/weixin.png" mode="aspectFit"></image>
 					<text class="txt">微信好友</text>
 				</view>
 				<view class="share-item" @click.stop="appShare('WXSenceTimeline')">
-					<image class="imgico" src="http://yd.wtanvxin.com/static/weixinf.png" mode="aspectFit"></image>
+					<image class="imgico" src="https://yd.wtanvxin.com/static/weixinf.png" mode="aspectFit"></image>
 					<text class="txt">微信朋友圈</text>
 				</view>
 				<view class="share-item" @click.stop="appShare()">
-					<image class="imgico" src="http://yd.wtanvxin.com/static/share_link.png" mode="aspectFit"></image>
+					<image class="imgico" src="https://yd.wtanvxin.com/static/share_link.png" mode="aspectFit"></image>
 					<text class="txt">复制链接</text>
 				</view>
 			</view>
@@ -94,7 +94,7 @@ export default {
 				// 	summary:'DanceOne',
 				// 	type:'image',
 				// 	// href:this.data.appUrl?webUrl+'/#'+this.data.appUrl:webUrl+'/#'+this.data.url,
-				// 	imageUrl:'http://yd.wtanvxin.com/static/logo.png',
+				// 	imageUrl:'https://yd.wtanvxin.com/static/logo.png',
 				// 	success(res){
 				// 	   console.log("success:" + JSON.stringify(res));
 				// 	},
@@ -133,7 +133,7 @@ export default {
 				    type: 0,
 					title:this.title,
 					summary:'我在英达思创发现了好东西，快来看看吧~',
-					imageUrl:'http://yd.wtanvxin.com/static/logo.png',
+					imageUrl:'https://yd.wtanvxin.com/static/logo.png',
 				    href: this.data.appUrl?webUrl+'/#'+this.data.appUrl:webUrl+'/#'+this.data.url,
 				    success: function (res) {
 				        console.log("success:" + JSON.stringify(res));

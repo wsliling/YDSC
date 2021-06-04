@@ -47,7 +47,7 @@
 							<image :src="item" alt="" class="pic_itim"></image>
 						</div>
 						<!-- <div class="picbox upBtnImg" @click="chooseImage()" v-if="isShowBtnUpload">
-							<img src="http://yd.wtanvxin.com/static/add2.png" alt="" class="pic_itim">
+							<img src="https://yd.wtanvxin.com/static/add2.png" alt="" class="pic_itim">
 						</div> -->
 						<view class="uni-uploader__input-box" v-if="isShowBtnUpload" @click="chooseImage"></view>
 					</div>

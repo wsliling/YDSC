@@ -20,7 +20,7 @@
 					</view>
 				</view>
 				<view class="noaddr" v-else @click="golink('/pages/member/address/address?pagetype=confirm')">
-					<view class="icon icon_addr"><image src="http://yd.wtanvxin.com/static/no_addr2.png" mode="widthFix"></image></view>
+					<view class="icon icon_addr"><image src="https://yd.wtanvxin.com/static/no_addr2.png" mode="widthFix"></image></view>
 					<view class="addtxt center">暂无收货地址，点击添加</view>
 				</view>
 			</view>
@@ -36,7 +36,7 @@
 					<view class="outside" v-for="(item2,index2) in item.ProData" :key="index2">
 						<view class="pictrueAll">
 							<view class="pictrue">
-								<image :src="item2.PicNo||'http://via.placeholder.com/800x800'" mode="aspectFill" ></image>
+								<image :src="item2.PicNo||'https://via.placeholder.com/800x800'" mode="aspectFill" ></image>
 							</view>
 						</view>
 						<view class="txtBox">
@@ -105,7 +105,7 @@
 				<view class="outside" v-for="(item2,index2) in info.ProData" :key="index2">
 					<view class="pictrueAll">
 						<view class="pictrue">
-							<image :src="item2.PicNo||'http://via.placeholder.com/800x800'" mode="aspectFill" ></image>
+							<image :src="item2.PicNo||'https://via.placeholder.com/800x800'" mode="aspectFill" ></image>
 						</view>
 					</view>
 					<view class="txtBox">
@@ -182,7 +182,7 @@
 					<view class="pictrueAll">
 						<view class="pictrue">
 							<text class="mark">拼团</text>
-							<image :src="info.ImageNo||'http://via.placeholder.com/800x800'" mode="aspectFill" ></image>
+							<image :src="info.ImageNo||'https://via.placeholder.com/800x800'" mode="aspectFill" ></image>
 						</view>
 					</view>
 					<view class="txtBox">

@@ -49,7 +49,7 @@ export default {
 		},
 		gokefu() {
 			// #ifdef H5
-			window.location.href = 'http://wpa.qq.com/msgrd?v=3&uin=' + this.qqnum + '&site=qq&menu=yes';
+			window.location.href = 'https://wpa.qq.com/msgrd?v=3&uin=' + this.qqnum + '&site=qq&menu=yes';
 			// #endif
 			// #ifdef APP-PLUS
 			plus.runtime.openURL('mqq://im/chat?chat_type=wpa&uin=' + this.qqnum + '&version=1&src_type=web');

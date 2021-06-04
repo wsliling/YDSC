@@ -12,7 +12,7 @@
 				<view class="item flex-between" @click="checkStore(index)">
 					<view :class="['check iconfont',checkId==index?'icon-check':'']"></view>
 					<view class="flex-start flex1">
-						<image class="shebei" src="http://yd.wtanvxin.com/static/shebei.png" mode="aspectFill"></image>
+						<image class="shebei" src="https://yd.wtanvxin.com/static/shebei.png" mode="aspectFill"></image>
 						<view class="name uni-ellipsis flex1">
 							YDSC00256
 						</view>
@@ -31,7 +31,7 @@
 			<view class="iconbox quan">
 				<view class="quan quan1">
 					<view class="quan quan2">
-						<image src="http://yd.wtanvxin.com/static/lanya.png" mode="aspectFill"></image>
+						<image src="https://yd.wtanvxin.com/static/lanya.png" mode="aspectFill"></image>
 					</view>
 				</view>
 			</view>

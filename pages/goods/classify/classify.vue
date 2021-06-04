@@ -10,7 +10,7 @@
 					<view class="goodsBox">
 						<block v-for="(item, index) in tab.data" :key="index">
 							<view class="goods" @click="tolink('/pages/goods/ProductList/ProductList?cid=' + item.Id + '&keyname=' + item.ClassName)">
-								<view class="icon flex-center"><image :src="item.PicUrl || 'http://via.placeholder.com/100x100'" mode="widthFix"></image></view>
+								<view class="icon flex-center"><image :src="item.PicUrl || 'https://via.placeholder.com/100x100'" mode="widthFix"></image></view>
 								<view class="uni-ellipsis">{{ item.ClassName }}</view>
 							</view>
 						</block>

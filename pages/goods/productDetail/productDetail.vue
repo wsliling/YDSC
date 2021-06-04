@@ -132,7 +132,7 @@
 						<text class="fz12 iconfont icon-arrow_r"></text>
 					</view>
 				</view>
-				<image src="http://yd.wtanvxin.com/static/rule.jpg" mode="widthFix" class="rulepic"></image>
+				<image src="https://yd.wtanvxin.com/static/rule.jpg" mode="widthFix" class="rulepic"></image>
 			</view>
 
 			<view class="swiper_bb uni-bg-white uni-mb10" v-if="recordList.length > 0">
@@ -148,7 +148,7 @@
 				>
 					<swiper-item class="swiper_item_box" v-for="(item, sindex) in recordList" :key="sindex">
 						<view class="item_box_left flex-start flex1">
-							<image :src="item.MemberHeadImg || 'http://yd.wtanvxin.com/static/default.png'"></image>
+							<image :src="item.MemberHeadImg || 'https://yd.wtanvxin.com/static/default.png'"></image>
 							<view class="time-box flex1">
 								<view class="name">{{ item.MemberHeadNick }}</view>
 								<view class="time">
@@ -186,7 +186,7 @@
 				<view class="comment-item" v-for="(item, index) in CommentList" :key="index">
 					<view class="name flex-between">
 						<view class="flex-start flex1">
-							<img class="tx" :src="item.Avatar || 'http://yd.wtanvxin.com/static/default.png'" alt="" />
+							<img class="tx" :src="item.Avatar || 'https://yd.wtanvxin.com/static/default.png'" alt="" />
 							<view>{{ item.NickName }}</view>
 						</view>
 						<view class="flex"><view class="star iconfont icon-collect" v-for="(item1, index1) in item.Rank" :key="index1"></view></view>
@@ -204,7 +204,7 @@
 		<!-- <view class="product-shop uni-bg-white uni-mb10" v-if="proInfo.ShopData">
 			<view class="flex flex-between">
 				<view class="shop-logo">
-					<image class="img" :src="proInfo.ShopData.Logo||'http://via.placeholder.com/100x100'" mode="aspectFill"></image>
+					<image class="img" :src="proInfo.ShopData.Logo||'https://via.placeholder.com/100x100'" mode="aspectFill"></image>
 				</view>
 				<view class="txtbox flex1">
 					<view class="name">{{proInfo.ShopData.ShopNick}}<text class="tag tag-zy ml5" v-if="proInfo.ShopData.IsPlatform">{{proInfo.ShopData.IsPlatform}}</text></view>
@@ -321,7 +321,7 @@
 								<view class="couponbtn">
 									<view class="btn" v-if="item.IsMyAlready == 0" @click="ReceiveCoupon(item.Id, index)">立即领取</view>
 									<view class="btn dis" v-if="item.IsMyAlready == 1">已领取</view>
-									<view class="rightimg" v-if="item.IsMyAlready == 1"><image src="http://yd.wtanvxin.com/static/ylq.png" mode=""></image></view>
+									<view class="rightimg" v-if="item.IsMyAlready == 1"><image src="https://yd.wtanvxin.com/static/ylq.png" mode=""></image></view>
 								</view>
 							</view>
 						</view>
@@ -1107,7 +1107,7 @@ export default {
 		left: 50%;
 		top: 50%;
 		margin: -44upx 0 0 -44upx;
-		background: url(http://yd.wtanvxin.com/static/play.png);
+		background: url(https://yd.wtanvxin.com/static/play.png);
 		background-size: cover;
 		z-index: 2;
 	}

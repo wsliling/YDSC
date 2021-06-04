@@ -44,7 +44,7 @@
 			<view class="cardTitle">健康生活</view>
 			<view class="cardAll">
 				<view class="card_1">
-					<view><image src="http://yd.wtanvxin.com/static/health/jian_1.png"></image></view>
+					<view><image src="https://yd.wtanvxin.com/static/health/jian_1.png"></image></view>
 					<view>
 						<text>2</text>
 						/4
@@ -58,7 +58,7 @@
 			<view class="cardTitle">运动记录</view>
 			<view class="cardAll">
 				<view class="card_1">
-					<view><image src="http://yd.wtanvxin.com/static/health/jian_2.png"></image></view>
+					<view><image src="https://yd.wtanvxin.com/static/health/jian_2.png"></image></view>
 					<view class="card_1_2">
 						<text class="card_1_1">暂无数据</text>
 						<view>生命在于运动 运动贵在坚持</view>
@@ -71,7 +71,7 @@
 			<view class="cardTitle">体脂</view>
 			<view class="cardAll">
 				<view class="card_1">
-					<view><image src="http://yd.wtanvxin.com/static/health/jian_3.png"></image></view>
+					<view><image src="https://yd.wtanvxin.com/static/health/jian_3.png"></image></view>
 					<view>
 						<text>31.4</text>
 						%
@@ -85,7 +85,7 @@
 			<view class="cardTitle">心率</view>
 			<view class="cardAll">
 				<view class="card_1">
-					<view><image src="http://yd.wtanvxin.com/static/health/jian_4.png"></image></view>
+					<view><image src="https://yd.wtanvxin.com/static/health/jian_4.png"></image></view>
 					<view>
 						<text>92次</text>
 						/min

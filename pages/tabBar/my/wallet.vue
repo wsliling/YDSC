@@ -14,7 +14,7 @@
 							充值
 							<text class="iconfont icon-arrow_r"></text>
 						</view>
-						<view class="reflesh" @click="reflesh"><image src="http://yd.wtanvxin.com/static/wallet/reflesh.png" mode=""></image></view>
+						<view class="reflesh" @click="reflesh"><image src="https://yd.wtanvxin.com/static/wallet/reflesh.png" mode=""></image></view>
 					</view>
 				</view>
 			</view>
@@ -28,14 +28,14 @@
 				</view>
 				<view class="item" @click="golink('/pages/other/withdrawrecord/withdrawrecord')">
 					<view>
-						<image src="http://yd.wtanvxin.com/static/wallet/jiL.png" class="jiL" mode=""></image>
+						<image src="https://yd.wtanvxin.com/static/wallet/jiL.png" class="jiL" mode=""></image>
 						提现充值记录
 					</view>
 					<view class="iconfont icon-arrow_r"></view>
 				</view>
 				<view class="item" @click="golink('/pages/other/money/money')">
 					<view>
-						<image src="http://yd.wtanvxin.com/static/wallet/mingX.png" class="mingX" mode=""></image>
+						<image src="https://yd.wtanvxin.com/static/wallet/mingX.png" class="mingX" mode=""></image>
 						收支明细
 					</view>
 					<view class="iconfont icon-arrow_r"></view>

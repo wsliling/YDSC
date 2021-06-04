@@ -3,7 +3,7 @@
 		<view class="memberTop uni-mb10">
 			<view class="conBox">
 				<view class="tx_info flex" @click="golink('/pages/homepage/homepage?id=' + userId)">
-					<view><image class="tx" :src="memberInfo.Avatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
+					<view><image class="tx" :src="memberInfo.Avatar || 'https://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
 					<view class="info flex flex1">
 						<view class="info-item" style="width: 100%;">
 							<view class="name">
@@ -43,24 +43,24 @@
 				<view class="section_bd">
 					<view class="li_25 center flex flexWrap">
 						<view class="item" @click="golink('/pages/member/information/information')">
-							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/my_data.png" mode="widthFix"></image></view>
+							<view class="iconImg"><image class="icon" src="https://yd.wtanvxin.com/static/my_data.png" mode="widthFix"></image></view>
 							<view class="txt">我的数据</view>
 						</view>
 						<!-- <view class="item" @click="golink('/pages/member/myplan/myplan')">
-							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/my_plan.png" mode="widthFix"></image></view>
+							<view class="iconImg"><image class="icon" src="https://yd.wtanvxin.com/static/my_plan.png" mode="widthFix"></image></view>
 							<view class="txt">我的计划</view>
 						</view> -->
 						<view class="item" @click="golink('/pages/member/myappointment/myappointment')">
-							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/my_yuyue.png" mode="widthFix"></image></view>
+							<view class="iconImg"><image class="icon" src="https://yd.wtanvxin.com/static/my_yuyue.png" mode="widthFix"></image></view>
 							<view class="txt">我的预约</view>
 						</view>
 						<view class="item" @click="golink('/pages/member/mycourse/mycourse')">
-							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/my_kc.png" mode="widthFix"></image></view>
+							<view class="iconImg"><image class="icon" src="https://yd.wtanvxin.com/static/my_kc.png" mode="widthFix"></image></view>
 							<view class="txt">我的课程</view>
 						</view>
 						<view class="item" @click="golink('/pages/member/order/order')">
 							<view class="iconImg p_re">
-								<image class="icon" src="http://yd.wtanvxin.com/static/my_order.png" mode="widthFix"></image>
+								<image class="icon" src="https://yd.wtanvxin.com/static/my_order.png" mode="widthFix"></image>
 								<view class="circleNum" v-if="memberInfo.OrderNum">{{ memberInfo.OrderNum }}</view>
 							</view>
 							<view class="txt">我的订单</view>
@@ -72,27 +72,27 @@
 				<view class="section_bd">
 					<view class="li_25 center flex flexWrap">
 						<!-- <view class="item">
-							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_1.png" mode="widthFix"></image></view>
+							<view class="iconImg"><image class="icon" src="https://yd.wtanvxin.com/static/u_1.png" mode="widthFix"></image></view>
 							<view class="txt">我的手环</view>
 						</view> -->
 						<view class="item" @click="golink('/pages/tabBar/my/wallet')">
-							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_2.png" mode="widthFix"></image></view>
+							<view class="iconImg"><image class="icon" src="https://yd.wtanvxin.com/static/u_2.png" mode="widthFix"></image></view>
 							<view class="txt">我的钱包</view>
 						</view>
 						<view class="item" @click="golink('/pages/member/score/score')">
-							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_3.png" mode="widthFix"></image></view>
+							<view class="iconImg"><image class="icon" src="https://yd.wtanvxin.com/static/u_3.png" mode="widthFix"></image></view>
 							<view class="txt">积分</view>
 						</view>
 						<view class="item" @click="getAttest">
-							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_4.png" mode="widthFix"></image></view>
+							<view class="iconImg"><image class="icon" src="https://yd.wtanvxin.com/static/u_4.png" mode="widthFix"></image></view>
 							<view class="txt">{{ memberInfo.IsBusiness ? '我的门店' : '门店申请' }}</view>
 						</view>
 						<!-- <view class="item" @click="getAttest">
-							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_4.png" mode="widthFix"></image></view>
+							<view class="iconImg"><image class="icon" src="https://yd.wtanvxin.com/static/u_4.png" mode="widthFix"></image></view>
 							<view class="txt">{{ memberInfo.IsBusiness ? '我的店铺' : '店铺申请' }}</view>
 						</view> -->
 						<view class="item" @click="golink('/pages/member/partner/partner')">
-							<view class="iconImg"><image class="icon" src="http://yd.wtanvxin.com/static/u_5.png" mode="widthFix"></image></view>
+							<view class="iconImg"><image class="icon" src="https://yd.wtanvxin.com/static/u_5.png" mode="widthFix"></image></view>
 							<view class="txt">合伙人</view>
 						</view>
 					</view>
@@ -109,7 +109,7 @@
 				</view>
 				<view class="line-item" @click="golink('/pages/member/coupon/coupon')">
 					<view class="item-left">
-						<image src="http://yd.wtanvxin.com/static/u_6.png" mode="widthFix"></image>
+						<image src="https://yd.wtanvxin.com/static/u_6.png" mode="widthFix"></image>
 						<view>优惠券</view>
 					</view>
 					<view class="arrowr uni-icon uni-icon-arrowright"></view>

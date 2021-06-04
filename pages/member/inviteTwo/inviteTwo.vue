@@ -1,7 +1,7 @@
 <template>
 	<view class="invite bg_fff" style=" padding-bottom: 30upx;overflow:hidden;position: fixed;">
 		<view id="bb_canvas">
-			<view class="inn_bg "><image src="http://yd.wtanvxin.com/static/invite.png" class="invite"></image></view>
+			<view class="inn_bg "><image src="https://yd.wtanvxin.com/static/invite.png" class="invite"></image></view>
 			<view class="invite_box">
 				<view class="inn-title">邀请好友</view>
 				<view class="inn-content">
@@ -58,7 +58,7 @@ export default {
 				provider: 'weixin',
 				scene: 'WXSceneSession',
 				type: 0,
-				href: 'http://yd.wtanvxin.com/#/pages/tabBar/index/index?inviteCode=' + this.info.ReferralCode,
+				href: 'https://yd.wtanvxin.com/#/pages/tabBar/index/index?inviteCode=' + this.info.ReferralCode,
 				title: '英达思创等你来！',
 				summary: '我正在使用英达思创，赶紧跟我一起来体验！',
 				imageUrl: this.codeurl,
@@ -124,7 +124,7 @@ export default {
 				this.NickName = res.data.NickName;
 				var _this = this;
 				uni.getImageInfo({
-					src: 'http://yd.wtanvxin.com/static/invite.png', //服务器返回的图片地址
+					src: 'https://yd.wtanvxin.com/static/invite.png', //服务器返回的图片地址
 					success: function(res) {
 						//res.path是网络图片的本地地址
 						_this.bgurl = res.path;
@@ -169,7 +169,7 @@ export default {
 		return {
 			title: '英达思创！',
 			path: '/pages/tabBar/index/index?inviteCode=' + this.info.ReferralCode,
-			imageUrl: 'http://yd.wtanvxin.com/static/logo.png'
+			imageUrl: 'https://yd.wtanvxin.com/static/logo.png'
 		};
 	},
 	onPullDownRefresh() {

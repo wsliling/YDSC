@@ -37,7 +37,7 @@
 				<view class="drawing flex with-100" @click.stop="tolink('/pages/goods/productDetail/productDetail?proId=' + item.ProId, item.Status)">
 					<view class="p_re">
 						<text class="dis" v-if="item.Status != 0">已失效</text>
-						<image class="imgs" :src="item.PicNo || 'http://via.placeholder.com/800x800'" mode="aspectFill"></image>
+						<image class="imgs" :src="item.PicNo || 'https://via.placeholder.com/800x800'" mode="aspectFill"></image>
 					</view>
 					<view class="brace">
 						<view class="being uni-ellipsis2">{{ item.Name }}</view>
@@ -70,7 +70,7 @@
 						<view class="time">{{ item.Difficulty }}.{{ item.Target }}</view>
 						<view class="userinfo">
 							<view class="user">
-								<view class="header"><image class="headerImg" :src="item.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
+								<view class="header"><image class="headerImg" :src="item.StoreLogo || 'https://yd.wtanvxin.com/static/default.png'"></image></view>
 								<view class="name">{{ item.StoreNick }}</view>
 							</view>
 							<view class="price">￥{{ item.Price }}</view>

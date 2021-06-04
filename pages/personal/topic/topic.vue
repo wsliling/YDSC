@@ -5,7 +5,7 @@
 				<view class="topic-item" @click="tolink('/pages/personal/topicDetail/topicDetail?topicId=' + item.Id)">
 					<view class="hd flex-between">
 						<view class="flex-start flex1">
-							<image class="iconimg" src="http://yd.wtanvxin.com/static/discover/topic.png" mode="aspectFill"></image>
+							<image class="iconimg" src="https://yd.wtanvxin.com/static/discover/topic.png" mode="aspectFill"></image>
 							<text class="title uni-ellipsis">{{ item.Title }}</text>
 						</view>
 						<view class="flex-end">
@@ -31,8 +31,8 @@
 					</view>
 					<view class="topname flex-start" v-if="item.IsShowTopicStar">
 						<view class="item flex-center" v-for="(items, index) in item.UserList" :key="index">
-							<image class="icon" :src="'http://yd.wtanvxin.com/static/discover/top' + (index + 1) + '.png'" mode="aspectFill"></image>
-							<image class="tx" :src="items.Avatar || 'http://yd.wtanvxin.com/static/default.png'"></image>
+							<image class="icon" :src="'https://yd.wtanvxin.com/static/discover/top' + (index + 1) + '.png'" mode="aspectFill"></image>
+							<image class="tx" :src="items.Avatar || 'https://yd.wtanvxin.com/static/default.png'"></image>
 							<text class="name uni-ellipsis">{{ items.UserNick }}</text>
 						</view>
 					</view>

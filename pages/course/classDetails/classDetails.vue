@@ -30,7 +30,7 @@
 			</view>
 			<view class="info1 flex-between">
 				<view class="info1_3" @click="tolink('/pages/personal/VenueDetail/VenueDetail?gymId=' + classdetail.StoreId)">
-					<image :src="classdetail.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
+					<image :src="classdetail.StoreLogo || 'https://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
 				</view>
 				<view class="info1_4 flex1">{{ classdetail.StoreNick }}</view>
 				<view :class="['info1_2', Isfollow ? 'ed' : '']" @click="followfun">{{ Isfollow ? '已关注' : '关注' }}</view>

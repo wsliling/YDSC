@@ -662,7 +662,7 @@
 		vertical-align: middle;
 		height: 16px;
 		width: 33px;
-		background: url(http://yd.wtanvxin.com/static/plus/plus_icon.png) right center no-repeat;
+		background: url(https://yd.wtanvxin.com/static/plus/plus_icon.png) right center no-repeat;
 		background-size: 100%;
 	}
 	.pop-product .product-stock {

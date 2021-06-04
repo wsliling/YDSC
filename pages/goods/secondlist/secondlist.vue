@@ -14,7 +14,7 @@
 		<view class="classifytab" v-if="classlylist.length">
 		 	<scroll-view id="tab-bar" class="swiper-tab" scroll-x :scroll-left="scrollLeft">
 		 		<view v-for="(item,index) in classlylist" :key="index" :class="['item',tabIndex==index ? 'active' : '']" :id="'tabNum'+index" :data-current="index" @click="tapTab(index,item.Id)" style="width: auto; padding: 0 10upx;">
-					<view class="img"><image :src="item.PicUrl||'http://via.placeholder.com/100x100'" mode="widthFix"></image></view>
+					<view class="img"><image :src="item.PicUrl||'https://via.placeholder.com/100x100'" mode="widthFix"></image></view>
 					<view class="txt">{{item.ClassName}}</view>
 				</view>
 		 	</scroll-view>

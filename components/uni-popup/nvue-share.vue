@@ -31,7 +31,7 @@
 			},
 			imageUrl:{
 				type:String,
-				default:'http://yd.wtanvxin.com/static/logo.png'
+				default:'https://yd.wtanvxin.com/static/logo.png'
 			}
 		},
 		inject: ['popup'],
@@ -40,17 +40,17 @@
 				bottomData: [
 					{
 						text: '微信好友',
-						icon: 'http://yd.wtanvxin.com/static/weixin.png',
+						icon: 'https://yd.wtanvxin.com/static/weixin.png',
 						name: 'WXSceneSession'
 					},
 					{
 						text: '微信朋友圈',
-						icon: 'http://yd.wtanvxin.com/static/weixinf.png',
+						icon: 'https://yd.wtanvxin.com/static/weixinf.png',
 						name: 'WXSenceTimeline'
 					},
 					// {
 					// 	text: '复制链接',
-					// 	icon: 'http://yd.wtanvxin.com/static/share_link.png',
+					// 	icon: 'https://yd.wtanvxin.com/static/share_link.png',
 					// 	name: ''
 					// }
 				]
@@ -84,7 +84,7 @@
 						// 	id:'gh_da1c486d94da',
 						// 	path: this.url,
 						// 	type:2,
-						// 	webUrl:"http://yd.wtanvxin.com"
+						// 	webUrl:"https://yd.wtanvxin.com"
 						// },
 					    success: function (res) {
 					        console.log("success:" + JSON.stringify(res));

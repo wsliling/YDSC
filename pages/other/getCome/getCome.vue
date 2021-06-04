@@ -9,7 +9,7 @@
 		<view v-if="hasData && activeIndex == 0">
 			<view class="list bp-box flex-between" v-for="(item, index) in datalist" :key="index">
 				<view class="flex-start flex1">
-					<image :src="item.Avatar || 'http://yd.wtanvxin.com/static/default.png'" class="ava"></image>
+					<image :src="item.Avatar || 'https://yd.wtanvxin.com/static/default.png'" class="ava"></image>
 					<view class="mr2">
 						<view>{{ item.NickName }} {{ item.Title }}</view>
 						<view class="fz12 c_999">{{ item.AddTime }}</view>

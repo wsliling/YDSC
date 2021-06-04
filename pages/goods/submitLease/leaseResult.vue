@@ -1,7 +1,7 @@
 <template>
 	<view style="padding-top: 20upx;">
 		<view class="resbox uni-bg-white">
-			<image class="simg" src="http://yd.wtanvxin.com/static/s1.png" mode="aspectFill"></image>
+			<image class="simg" src="https://yd.wtanvxin.com/static/s1.png" mode="aspectFill"></image>
 			<view class="txt">租赁成功</view>
 			<view class="tips c_999">恭喜您租赁成功，您可以在商城--租赁--设备--我的租赁页面查看</view>
 			<view class="btns flex-between">

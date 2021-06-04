@@ -19,7 +19,7 @@
 			<view class="user-item" v-for="(item, index) in datalist" :key="index">
 				<view class="flex-between" v-if="tabIndex == 0||tabIndex == 2">
 					<view class="author flex-start" @click="tolink('/pages/homepage/homepage?id=' + item.ToUserId)">
-						<view class="tx"><image :src="item.ToMemberHead || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
+						<view class="tx"><image :src="item.ToMemberHead || 'https://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
 						<view class="info">
 							<view class="name uni-ellipsis">{{ item.ToMemberName || '匿名用户' }}</view>
 							<view class="fz12 c_999 uni-ellipsis">粉丝{{ item.Fans > 9999 ? (item.Fans / 9999).toFixed(1) + 'W' : item.Fans }}</view>
@@ -29,7 +29,7 @@
 				</view>
 				<view class="flex-between" v-if="tabIndex == 1">
 					<view class="author flex-start" @click="tolink('/pages/homepage/homepage?id=' + item.UserId)">
-						<view class="tx"><image :src="item.MemberHead || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
+						<view class="tx"><image :src="item.MemberHead || 'https://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
 						<view class="info">
 							<view class="name uni-ellipsis">{{ item.MemberName || '匿名用户' }}</view>
 							<view class="fz12 c_999 uni-ellipsis">粉丝{{ item.Fans > 9999 ? (item.Fans / 9999).toFixed(1) + 'W' : item.Fans }}</view>
@@ -39,7 +39,7 @@
 				</view>
 				<view class="flex-between" v-if="tabIndex==3">
 					<view class="author flex-start" @click="tolink('/pages/personal/VenueDetail/VenueDetail?gymId=' + item.StoreId)">
-						<view class="tx"><image :src="item.Logo || 'http://yd.wtanvxin.com/static/logo.png'" mode="aspectFill"></image></view>
+						<view class="tx"><image :src="item.Logo || 'https://yd.wtanvxin.com/static/logo.png'" mode="aspectFill"></image></view>
 						<view class="info">
 							<view class="name uni-ellipsis">{{ item.Name || '匿名用户' }}</view>
 							<view class="fz12 c_999 uni-ellipsis">粉丝{{ item.FollowNum > 9999 ? (item.FollowNum / 9999).toFixed(1) + 'W' : item.FollowNum }}</view>
@@ -49,7 +49,7 @@
 				</view>
 				<view class="flex-between" v-if="tabIndex==4">
 					<view class="author flex-start" @click="tolink('/pages/goods/storeIndex/storeIndex?id=' + item.ShopId)">
-						<view class="tx"><image :src="item.Logo || 'http://yd.wtanvxin.com/static/logo.png'" mode="aspectFill"></image></view>
+						<view class="tx"><image :src="item.Logo || 'https://yd.wtanvxin.com/static/logo.png'" mode="aspectFill"></image></view>
 						<view class="info">
 							<view class="name uni-ellipsis">{{ item.Name || '匿名用户' }}</view>
 							<view class="fz12 c_999 uni-ellipsis">粉丝{{ item.FollowNum > 9999 ? (item.FollowNum / 9999).toFixed(1) + 'W' : item.FollowNum }}</view>

@@ -12,7 +12,7 @@
 					<view class="time">{{ item.Difficulty }} · {{ item.Target }}</view>
 					<view class="userinfo">
 						<view class="user flex-start flex1">
-							<view class="header"><image class="headerImg" :src="item.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
+							<view class="header"><image class="headerImg" :src="item.StoreLogo || 'https://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
 							<view class="name uni-ellipsis flex1">{{ item.StoreNick }}</view>
 						</view>
 						<view class="price">￥{{ item.Price }}</view>
@@ -28,7 +28,7 @@
 					<view class="time">{{ item.Difficulty }} · {{ item.Target }}</view>
 					<view class="userinfo">
 						<view class="user flex-start flex1">
-							<view class="header"><image class="headerImg" :src="item.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
+							<view class="header"><image class="headerImg" :src="item.StoreLogo || 'https://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
 							<view class="name uni-ellipsis flex1">{{ item.StoreNick }}</view>
 						</view>
 						<view class="price">￥{{ item.Price }}</view>

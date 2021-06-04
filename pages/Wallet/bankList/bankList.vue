@@ -34,7 +34,7 @@
 			</view>
 		</view>
 		<view class="none-bank" v-if="noneShow">
-			<image src="http://yd.wtanvxin.com/static/none-bank.png" mode=""></image>
+			<image src="https://yd.wtanvxin.com/static/none-bank.png" mode=""></image>
 			<view>您还未添加过银行卡</view>
 		</view>
 		<view class="addbank" @click="goLink('/pages/Wallet/bankAdd/bankAdd')">
