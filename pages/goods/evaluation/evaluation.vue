@@ -45,6 +45,9 @@
 					  <image :src="i" alt="" class="shop_pic" @click="previewImg(item.imgArr,i)" mode="aspectFill"></image>
 					</block>
 				</view>
+				<view class="reply-con" v-if="item.Reply.length>0">
+					<text style="color: #939393;">商家回复</text>：</text>{{decodeURIComponent(item.Reply)}}
+				</view>
 				<view class="figure" style="display: none;">
 					<view class="figurebox">
 						<text class="iconfont icon-pinglun1"></text>5786
@@ -230,6 +233,11 @@
 		font-weight:500;
 		color:rgba(51,51,51,1);
 		line-height:50upx;
+	}
+	.reply-con{
+		background: #f8f8f8;
+		padding: 5px 30px;
+		margin-top: 10px;
 	}
 	.commentpic{
 		display: flex;

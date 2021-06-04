@@ -6,7 +6,10 @@
 					<view><image :src="item.PicImg" mode="aspectFill"></image></view>
 					<view>
 						<view class="sec4_title">{{ item.Title }}</view>
-						<view class="sec4_title1">{{ item.DifficultyName }} . {{ item.CourseDuration }}分钟</view>
+						<view class="sec4_title1">
+							{{ item.DifficultyName }}
+							<text style="padding-left: 10upx;" v-if="item.CourseDuration != 0">· {{ item.CourseDuration }}分钟</text>
+						</view>
 					</view>
 				</view>
 			</view>

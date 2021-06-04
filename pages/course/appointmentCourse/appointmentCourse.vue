@@ -9,7 +9,10 @@
 					<view class="con_1"><image :src="item.PicImg" mode="aspectFill"></image></view>
 					<view class="con_2">
 						<view class="title">{{ item.Title }}</view>
-						<view class="title_1">{{ item.TargetName }} | {{ item.DifficultyName }} | {{ item.CourseDuration }}分钟</view>
+						<view class="title_1">
+							{{ item.TargetName }} | {{ item.DifficultyName }}
+							<text style="padding-left: 10upx;" v-if="item.CourseDuration != 0">| {{ item.CourseDuration }}分钟</text>
+						</view>
 						<view class="title_2">
 							<view class="title2_1">
 								<image :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
@@ -45,6 +48,7 @@ export default {
 			isLoad: false,
 			hasData: false,
 			noDataIsShow: false,
+			AreaCode: '',
 			course: [],
 			tabs: [],
 			tabIndex: 45,
@@ -54,6 +58,7 @@ export default {
 	onLoad() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
+		this.AreaCode = uni.getStorageSync('AreaCode');
 		this.getCourse();
 		this.getCourseType();
 	},
@@ -89,7 +94,8 @@ export default {
 				IsNewPeopleVip: 0,
 				Ctype: this.tabIndex,
 				IsLike: 0,
-				IsRic: 0
+				IsRic: 0,
+				AreaCode: this.AreaCode
 			});
 			if (result.code == 0) {
 				if (result.data.length > 0) {

@@ -9,7 +9,10 @@
 					<view class="sec2_1"><image :src="item.PicImg" mode="aspectFill"></image></view>
 					<view class="detail" @click="tolink('/pages/course/classDetails/classDetails?detailId=' + item.Id)">
 						<view class="title uni-ellipsis">{{ item.Title }}</view>
-						<view class="title_1">{{ item.CourseDuration }}分钟 · {{ item.DifficultyName }} · {{ item.TargetName }}</view>
+						<view class="title_1">
+							<text style="padding-right: 10upx;" v-if="item.CourseDuration != 0">{{ item.CourseDuration }}分钟 ·</text>
+							{{ item.DifficultyName }} · {{ item.TargetName }}
+						</view>
 					</view>
 				</block>
 			</view>

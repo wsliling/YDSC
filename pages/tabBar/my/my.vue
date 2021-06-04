@@ -23,7 +23,7 @@
 						<view class="txt">关注</view>
 					</view>
 					<view class="item" @click="golink('/pages/member/follow/follow?type=1')">
-						<view class="num">{{ memberInfo.Fans > 9999 ? (Info.Fans / 9999).toFixed(1) + 'W' : Info.Fans || 0 }}</view>
+						<view class="num">{{ memberInfo.Fans > 9999 ? (memberInfo.Fans / 9999).toFixed(1) + 'W' : memberInfo.Fans || 0 }}</view>
 						<view class="txt">粉丝</view>
 					</view>
 					<view class="item">
@@ -61,7 +61,7 @@
 						<view class="item" @click="golink('/pages/member/order/order')">
 							<view class="iconImg p_re">
 								<image class="icon" src="http://yd.wtanvxin.com/static/my_order.png" mode="widthFix"></image>
-								<view class="circleNum" v-if="memberInfo.OrderNum">{{ memberInfo.OrderNum}}</view>
+								<view class="circleNum" v-if="memberInfo.OrderNum">{{ memberInfo.OrderNum }}</view>
 							</view>
 							<view class="txt">我的订单</view>
 						</view>

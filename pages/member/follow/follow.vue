@@ -92,11 +92,7 @@ export default {
 				{
 					Id: 2,
 					TypeName: '门店'
-				},
-				// {
-				// 	Id: 1,
-				// 	TypeName: '店铺'
-				// }
+				}
 			],
 			page: 1,
 			pageSize: 16,
@@ -174,9 +170,9 @@ export default {
 				if (result.data.length > 0) {
 					this.hasData = true;
 					this.noDataIsShow = false;
-					result.data.forEach(function(item){
-						_this.$set(item, 'IsFollow', 1);
-					})
+					// result.data.forEach(function(item){
+					// 	_this.$set(item, 'IsFollow', 1);
+					// })
 				}
 				if (result.data.length == 0 && this.page == 1) {
 					this.noDataIsShow = true;

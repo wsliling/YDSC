@@ -8,7 +8,7 @@
 			</view>
 		</view>
 		<view class="itembox line-list">
-			<view class="line-item">
+			<view class="line-item" @click="toLink('/pages/personal/VenueDetail/map?Lng=' + gymlistdetail.Lng + '&Lat=' + gymlistdetail.Lat)">
 				<text class="iconfont icon-dizhi mr2"></text>
 				<view class="flex1">{{ gymlistdetail.Address }}</view>
 			</view>

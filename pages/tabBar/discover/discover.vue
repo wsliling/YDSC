@@ -43,9 +43,8 @@
 			<noData :isShow="noDataIsShow"></noData>
 			<view @click="tolink('/pages/personal/artPost/artPost', 'login')" class="uploadbtn flex-column"><text class="uni-icon uni-icon-plusempty"></text></view>
 		</block>
-
-		<block v-else>
-			<view v-if="prolist.length" class="product-list-level uni-bg-white uni-mt10">
+		<view v-else class="pp3">
+			<view v-if="prolist.length" class="product-list-level uni-bg-white b_radius">
 				<block v-for="(item, index) in prolist" :key="index">
 					<view class="outside" @click="tolink('/pages/goods/productDetail/productDetail?proId=' + item.Id)">
 						<view class="pictrue"><image :src="item.PicNo || 'http://via.placeholder.com/800x800'" mode="aspectFill"></image></view>
@@ -67,7 +66,7 @@
 					</view>
 				</block>
 			</view>
-		</block>
+		</view>
 	</view>
 </template>
 
@@ -96,7 +95,9 @@ export default {
 			noDataIsShow: false,
 			gymlist: [],
 			bannerList: [],
-			prolist: []
+			prolist: [],
+			Lat: 0,
+			Lng: 0
 		};
 	},
 	onShow() {
@@ -118,9 +119,18 @@ export default {
 		this.barHeight = 0;
 		// #endif
 		this.getBanner(14);
-		if(this.pageCon==2){
-			this.getprolist();
-		}
+		this.getprolist();
+		var _this = this;
+		// #ifdef APP-PLUS||MP-WEIXIN
+		uni.getLocation({
+			type: 'wgs84',
+			geocode: true,
+			success: function(res) {
+				_this.Lat = res.latitude;
+				_this.Lng = res.longitude;
+			}
+		});
+		// #endif
 	},
 	methods: {
 		//跳转
@@ -226,8 +236,8 @@ export default {
 				UserId: this.userId,
 				Token: this.token,
 				IsNewPeopleVip: 0,
-				Lat: 0,
-				Lng: 0,
+				Lat: this.Lat,
+				Lng: this.Lng,
 				AreaSite: ''
 			});
 			if (result.code == 0) {
