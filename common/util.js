@@ -1,13 +1,13 @@
 
-const host = 'http://ydapi.wtanvxin.com/api/'; //测试接口地址
-const webUrl = 'http://yd.wtanvxin.com';
+const host = 'https://ydapi.wtanvxin.com/api/'; //测试接口地址
+const webUrl = 'https://yd.wtanvxin.com';
 const wssPath = 'wss://ydapi.wtanvxin.com/WebSocketServer.ashx';  //wss接口地址
 const wssHost = 'ws://ydapi.wtanvxin.com';  //wss接口地址
 // const host = 'https://api.yixijiu19.com/api/';  //正试接口地址
 // const webUrl = 'http://yd.wtanvxin.com';
 // const wssPath = 'wss://api.yixijiu19.com/WebSocketServer.ashx';  //wss接口地址
 // const wssHost = 'ws://api.yixijiu19.com';  //wss接口地址
-const dowmappURL='http://yd.wtanvxin.com/down/android.apk';//app下载地址安卓
+const dowmappURL='https://yd.wtanvxin.com/down/android.apk';//app下载地址安卓
 const dowmappURLios='';//app下载地址ios
 function formatNumber(n) {
     const str = n.toString()
