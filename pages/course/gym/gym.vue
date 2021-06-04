@@ -43,12 +43,17 @@ export default {
 			isLoad: false,
 			hasData: false,
 			noDataIsShow: false,
-			gymlist: []
+			gymlist: [],
+			Lat: 0,
+			Lng: 0
 		};
 	},
 	onLoad() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
+		this.Lat = uni.getStorageSync('CourseLat');
+		this.Lng = uni.getStorageSync('CourseLng');
+		console.log(this.Lat);
 		this.getGymList();
 	},
 	methods: {
@@ -74,8 +79,8 @@ export default {
 				UserId: this.userId,
 				Token: this.token,
 				IsNewPeopleVip: 0,
-				Lat: 0,
-				Lng: 0,
+				Lat: this.Lat,
+				Lng: this.Lng,
 				AreaSite: ''
 			});
 			if (result.code == 0) {
