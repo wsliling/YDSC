@@ -301,7 +301,7 @@ export default {
 		}
 		return {
 			title: '英达思创！',
-			path: '/pages/tabBar/discover/discover',
+			path: '/pages/tabBar/discover/discover?inviteCode=' + uni.getStorageSync('ReferralCode'),
 			imageUrl: 'http://yd.wtanvxin.com/static/logo.png'
 		};
 	}

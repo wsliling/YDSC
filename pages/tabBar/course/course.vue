@@ -393,7 +393,7 @@ export default {
 		}
 		return {
 			title: '英达思创！',
-			path: '/pages/tabBar/course/course',
+			path: '/pages/tabBar/course/course?inviteCode=' + uni.getStorageSync('ReferralCode'),
 			imageUrl: 'http://yd.wtanvxin.com/static/logo.png'
 		};
 	}
