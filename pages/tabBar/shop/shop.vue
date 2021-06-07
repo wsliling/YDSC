@@ -144,10 +144,12 @@ export default {
 		this.getTypeList();
 		this.getnewpro();
 		this.getprolist();
+		// #ifdef MP-WEIXIN
 		wx.showShareMenu({
 			withShareTicket: true,
 			menus: ['shareAppMessage', 'shareTimeline']
 		});
+		// #endif
 	},
 	onShow() {
 		this.pageCon = uni.getStorageSync('pageCon');

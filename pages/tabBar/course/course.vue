@@ -184,10 +184,12 @@ export default {
 			});
 		});
 		// #endif
+		// #ifdef MP-WEIXIN
 		wx.showShareMenu({
 			withShareTicket: true,
 			menus: ['shareAppMessage', 'shareTimeline']
 		});
+		// #endif
 	},
 	onShow() {
 		this.cityname = uni.getStorageSync('cityname');

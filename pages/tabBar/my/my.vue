@@ -182,10 +182,12 @@ export default {
 		};
 	},
 	onLoad() {
+		// #ifdef MP-WEIXIN
 		wx.showShareMenu({
 			withShareTicket: true,
 			menus: ['shareAppMessage', 'shareTimeline']
 		});
+		// #endif
 	},
 	onShow() {
 		this.userId = uni.getStorageSync('userId');
