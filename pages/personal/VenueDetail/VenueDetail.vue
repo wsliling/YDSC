@@ -27,13 +27,11 @@
 		</view>
 		<view class="itembox" style="padding: 0 0 30upx 30upx;">
 			<view class="Yi-hd"><view class="title">场馆展示</view></view>
-			<view class="bd">
-				<scroll-view class="image-list" scroll-x="true">
-					<view class="img" v-if="gymlistImg" v-for="(item, index) in gymlistImg" :key="index">
-						<image :src="item.PicUrl" mode="aspectFill" @click="previewImg(index)"></image>
-					</view>
-				</scroll-view>
-			</view>
+			<scroll-view class="bd image-list" scroll-x="true">
+				<view class="img" v-if="gymlistImg" v-for="(item, index) in gymlistImg" :key="index">
+					<image :src="item.PicUrl" mode="aspectFill" @click="previewImg(index)"></image>
+				</view>
+			</scroll-view>
 		</view>
 		<view class="itembox pd15">
 			<view class="Yi-hd"><view class="title">设备</view></view>
@@ -128,8 +126,6 @@ export default {
 			let result = await post('Store/GetStoreDetail', {
 				UserId: this.userId,
 				Token: this.token,
-				Lat: 0,
-				Lng: 0,
 				StoreId: this.Id
 			});
 			if (result.code == 0) {

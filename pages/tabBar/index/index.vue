@@ -136,6 +136,10 @@ export default {
 		this.token = uni.getStorageSync('token');
 		this.getBanner(5);
 		this.getBanner(6);
+		wx.showShareMenu({
+			withShareTicket: true,
+			menus: ['shareAppMessage', 'shareTimeline']
+		});
 	},
 	onShow() {
 		this.userId = uni.getStorageSync('userId');
@@ -221,16 +225,16 @@ export default {
 		this.GetUserBodyData();
 		this.getDeviceList();
 		uni.stopPullDownRefresh();
+	},
+	onShareAppMessage(res) {
+		if (res.from === 'button') {
+		}
+		return {
+			title: '英达思创！',
+			path: '/pages/tabBar/index/index',
+			imageUrl: 'http://yd.wtanvxin.com/static/logo.png'
+		};
 	}
-	// 上拉加载
-	// onReachBottom() {
-	// 	if (this.isLoad) {
-	// 		this.loadingType = 1;
-	// 		this.Page++;
-	// 	} else {
-	// 		this.loadingType = 2;
-	// 	}
-	// }
 };
 </script>
 <style lang="scss" scoped>

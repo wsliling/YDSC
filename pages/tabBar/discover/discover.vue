@@ -131,6 +131,10 @@ export default {
 			}
 		});
 		// #endif
+		wx.showShareMenu({
+			withShareTicket: true,
+			menus: ['shareAppMessage', 'shareTimeline']
+		});
 	},
 	methods: {
 		//跳转
@@ -289,6 +293,15 @@ export default {
 		} else {
 			this.loadingType = 2;
 		}
+	},
+	onShareAppMessage(res) {
+		if (res.from === 'button') {
+		}
+		return {
+			title: '英达思创！',
+			path: '/pages/tabBar/discover/discover',
+			imageUrl: 'http://yd.wtanvxin.com/static/logo.png'
+		};
 	}
 };
 </script>

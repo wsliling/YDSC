@@ -43,7 +43,12 @@ export default {
 			NickName: ''
 		};
 	},
-	onLoad() {},
+	onLoad() {
+		wx.showShareMenu({
+			withShareTicket: true,
+			menus: ['shareAppMessage', 'shareTimeline']
+		});
+	},
 	onShow() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
@@ -267,7 +272,7 @@ export default {
 		line-height: 88upx;
 		font-size: 32upx;
 	}
-	button{
+	button {
 		background-color: #ec022d;
 		color: #fff;
 		border-radius: 40upx;

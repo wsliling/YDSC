@@ -181,7 +181,12 @@ export default {
 			Info: {}
 		};
 	},
-	onLoad() {},
+	onLoad() {
+		wx.showShareMenu({
+			withShareTicket: true,
+			menus: ['shareAppMessage', 'shareTimeline']
+		});
+	},
 	onShow() {
 		this.userId = uni.getStorageSync('userId');
 		this.token = uni.getStorageSync('token');
@@ -254,6 +259,15 @@ export default {
 				this.newscount = result.count;
 			}
 		}
+	},
+	onShareAppMessage(res) {
+		if (res.from === 'button') {
+		}
+		return {
+			title: '英达思创！',
+			path: '/pages/tabBar/my/my',
+			imageUrl: 'http://yd.wtanvxin.com/static/logo.png'
+		};
 	}
 };
 </script>

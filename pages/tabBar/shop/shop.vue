@@ -144,6 +144,10 @@ export default {
 		this.getTypeList();
 		this.getnewpro();
 		this.getprolist();
+		wx.showShareMenu({
+			withShareTicket: true,
+			menus: ['shareAppMessage', 'shareTimeline']
+		});
 	},
 	onShow() {
 		this.pageCon = uni.getStorageSync('pageCon');
@@ -272,6 +276,15 @@ export default {
 		} else {
 			this.loadingType = 2;
 		}
+	},
+	onShareAppMessage(res) {
+		if (res.from === 'button') {
+		}
+		return {
+			title: '英达思创！',
+			path: '/pages/tabBar/shop/shop',
+			imageUrl: 'http://yd.wtanvxin.com/static/logo.png'
+		};
 	}
 };
 </script>

@@ -159,7 +159,7 @@ export default {
 		let url = editShareUrl('/pages/buttonType/kuailelvyou/detail/detail?id='+this.id)
 		if (e.from === 'button') {}
 		return {
-			title: '聚乐旅居',
+			title: '英达思创',
 			path: url,
 			success: function(res) {}
 		}

@@ -184,6 +184,10 @@ export default {
 			});
 		});
 		// #endif
+		wx.showShareMenu({
+			withShareTicket: true,
+			menus: ['shareAppMessage', 'shareTimeline']
+		});
 	},
 	onShow() {
 		this.cityname = uni.getStorageSync('cityname');
@@ -381,6 +385,15 @@ export default {
 		} else {
 			this.loadingType = 2;
 		}
+	},
+	onShareAppMessage(res) {
+		if (res.from === 'button') {
+		}
+		return {
+			title: '英达思创！',
+			path: '/pages/tabBar/course/course',
+			imageUrl: 'http://yd.wtanvxin.com/static/logo.png'
+		};
 	}
 };
 </script>
