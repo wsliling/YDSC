@@ -12,7 +12,7 @@
 		
 		<view class="btns">
 			<view class="logo">
-				<image class="logoimg" src="http://yd.wtanvxin.com/static/logo.png" mode="widthFix"></image>
+				<image class="logoimg" src="https://yd.wtanvxin.com/static/logo.png" mode="widthFix"></image>
 			</view>
 			<view class="btn btn_1" @click="dowmapp(0)">
 				Android版下载
@@ -24,7 +24,7 @@
 		</view>
 		<view class="coverbox" v-if="iswx">
 			<view class="box">
-				<image src="http://yd.wtanvxin.com/static/jtwx.png" mode="widthFix"></image>
+				<image src="https://yd.wtanvxin.com/static/jtwx.png" mode="widthFix"></image>
 				<view class="txt">
 					点击右上角使<br>用浏览器打开
 				</view>

@@ -7,17 +7,17 @@
 			</view>
 			<view class="detail">{{ appcoursedetail.TargetName }} | {{ appcoursedetail.DifficultyName }}</view>
 			<view class="info1">
-				<view class="info1_3"><image :src="appcoursedetail.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
+				<view class="info1_3"><image :src="appcoursedetail.CoachAvatar || 'https://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
 				<view class="info1_4">{{ appcoursedetail.CoachNick }}</view>
 				<view class="info1_1" v-for="(item, index) in reguser" :key="index">
-					<image :src="item.Avatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
+					<image :src="item.Avatar || 'https://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
 				</view>
 				<view class="info1_2">{{ appcoursedetail.ApplyNum }}人已预约</view>
 			</view>
 		</view>
 		<view class="line"></view>
 		<view class="cen">
-			<view class="stadium"><image :src="appcoursedetail.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
+			<view class="stadium"><image :src="appcoursedetail.StoreLogo || 'https://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
 			<view class="stadium_1">
 				<view class="stadium_1_1">{{ appcoursedetail.StoreName }}</view>
 				<view class="stadium_1_2">{{ appcoursedetail.StoreAddress }}</view>

@@ -12,7 +12,7 @@
 					<view class="time">{{ item.CourseDate }} {{ item.DayWeek }} {{ item.CourseTimeSpan }}</view>
 					<view class="userinfo">
 						<view class="user">
-							<view class="header"><image class="headerImg" :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
+							<view class="header"><image class="headerImg" :src="item.CoachAvatar || 'https://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
 							<view class="name">{{ item.CoachNick }}</view>
 						</view>
 					</view>
@@ -21,7 +21,7 @@
 		</view>
 		<view class="tab_1" v-if="btnnum == 1 && hasData">
 			<view class="list" v-for="(item, index) in regclasslistcoach" :key="index" @click="tolink(btnnum, item.OrderNo)">
-				<view class="jl-leftImg"><image class="img" :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
+				<view class="jl-leftImg"><image class="img" :src="item.CoachAvatar || 'https://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image></view>
 				<view class="rightContent">
 					<view class="titledetail">{{ item.CoachNick }}</view>
 					<view class="time">{{ item.CourseDate }} {{ item.DayWeek }} {{ item.CourseTimeSpan }}</view>

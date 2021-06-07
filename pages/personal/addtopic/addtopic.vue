@@ -4,7 +4,7 @@
 			<block v-for="(item, index) in topiclist" :key="index">
 				<view class="line-item" @click="checkTopic(index)">
 					<view class="flex-start">
-						<image class="iconimg" src="http://yd.wtanvxin.com/static/discover/topic.png" mode="aspectFill"></image>
+						<image class="iconimg" src="https://yd.wtanvxin.com/static/discover/topic.png" mode="aspectFill"></image>
 						<text class="title uni-ellipsis flex1">{{ item.Title }}</text>
 						<view class="check iconfont icon-check" v-if="checkId == index"></view>
 					</view>

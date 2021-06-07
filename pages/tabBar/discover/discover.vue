@@ -47,7 +47,7 @@
 			<view v-if="prolist.length" class="product-list-level uni-bg-white b_radius">
 				<block v-for="(item, index) in prolist" :key="index">
 					<view class="outside" @click="tolink('/pages/goods/productDetail/productDetail?proId=' + item.Id)">
-						<view class="pictrue"><image :src="item.PicNo || 'http://via.placeholder.com/800x800'" mode="aspectFill"></image></view>
+						<view class="pictrue"><image :src="item.PicNo || 'https://via.placeholder.com/800x800'" mode="aspectFill"></image></view>
 						<view class="txtBox">
 							<view>
 								<view class="title uni-ellipsis2">{{ item.Name }}</view>

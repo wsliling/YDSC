@@ -32,7 +32,7 @@
 			</view>
 		</view>
 		<view class="win"  v-else>
-			<image src="http://yd.wtanvxin.com/static/s1.png"></image>
+			<image src="https://yd.wtanvxin.com/static/s1.png"></image>
 			<view>绑定成功</view>
 		</view>
 		<view class="bing-btn" @click="addBank">

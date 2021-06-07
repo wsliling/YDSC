@@ -9,7 +9,7 @@
 		</view>
 		<view class="fixedbtn">
 			<view class="btn_mylease flex-center" @click="toLink('/pages/goods/myLease/myLease')">
-				<image class="iconimg" src="http://yd.wtanvxin.com/static/lease.png"></image>
+				<image class="iconimg" src="https://yd.wtanvxin.com/static/lease.png"></image>
 				我的租赁
 			</view>
 		</view>

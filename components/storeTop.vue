@@ -1,6 +1,6 @@
 <template>
 	<view class="storeTop">
-		<view class="bigimg"><image :src="info.BannerPicNo||'http://via.placeholder.com/750x480'" mode="aspectFill"></image></view>
+		<view class="bigimg"><image :src="info.BannerPicNo||'https://via.placeholder.com/750x480'" mode="aspectFill"></image></view>
 		<uni-nav-bar fixed="true" :color="navcolor" :background-color="navbg" left-icon="arrowleft" @clickLeft="back" :border="false">
 			<block slot="center">
 			<view :class="['input-view',navbg!='transparent'?'bg':'']" @click="tolink('/pages/goods/ProductList/storeSearch?shopid='+ShopId)">
@@ -14,7 +14,7 @@
 		</uni-nav-bar>
 		<view class="storeinfo flex-between" :style="{paddingTop:barHeight+'px'}">
 			<view class="s_logo">
-				<image :src="info.Logo||'http://via.placeholder.com/100x100'" mode="aspectFill"></image>
+				<image :src="info.Logo||'https://via.placeholder.com/100x100'" mode="aspectFill"></image>
 			</view>
 			<view class="flex1 txtbox">
 				<view class="name flex-start flexWrap">

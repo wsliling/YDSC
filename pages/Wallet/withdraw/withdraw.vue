@@ -2,7 +2,7 @@
   <div class="page">
     <div class="weui-cells card__weui-cells">
       <div class="weui-cell"  @click.stop="showSelbankCard">
-        <img :src="bankLogo||'http://yd.wtanvxin.com/static/bankcard.png'" class="cardpic" alt>
+        <img :src="bankLogo||'https://yd.wtanvxin.com/static/bankcard.png'" class="cardpic" alt>
         <div class="weui-cell__bd" v-if="hasData">
           <p class="name">{{bankCardName}}</p>
           <p class="cardnnum">尾号{{bankCardNo}}储蓄卡</p>
@@ -45,7 +45,7 @@
 		<view class="bankCardList">
 			<view class="listItem" v-for="(item,index) in bankList" :key="index" @click="getcardId(item.Id,index)">
 				<view class="listLeft" >
-					<image :src="item.BankLogo||'http://yd.wtanvxin.com/static/bankcard.png'"></image>
+					<image :src="item.BankLogo||'https://yd.wtanvxin.com/static/bankcard.png'"></image>
 					<view>{{item.BankName}}({{item.BankCardNo.substring(item.BankCardNo.length-4)}})</view>
 				</view>
 				<view class="listRight " :class="bankCardId==item.Id?'active':''">

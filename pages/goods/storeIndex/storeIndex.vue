@@ -5,7 +5,7 @@
 		<view class="pd15 uni-mb10" style="position: relative;z-index: 4;margin-top: -220upx;">
 			<view class="livebox flex-between uni-bg-white b_radius" v-if="false">
 				<view class="imgbox">
-					<image src="http://yd.wtanvxin.com/static/video1.png" mode="aspectFill"></image>
+					<image src="https://yd.wtanvxin.com/static/video1.png" mode="aspectFill"></image>
 				</view>
 				<view class="txtbox flex1">
 					<view class="name">

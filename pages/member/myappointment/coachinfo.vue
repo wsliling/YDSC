@@ -1,14 +1,14 @@
 <template>
 	<view>
 		<view class="topbox">
-			<view class="icon"><image src="http://yd.wtanvxin.com/static/time.png"></image></view>
+			<view class="icon"><image src="https://yd.wtanvxin.com/static/time.png"></image></view>
 			<view class="time">{{ info.ApplyDate }} {{ info.DayWeek }} {{ info.CourseTimeSpan }}</view>
 		</view>
 		<view class="introduct">
 			<view class="title">教练信息</view>
 			<view class="userinfo">
 				<view style="display: flex; align-items: center;">
-					<view class="header"><image :src="info.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
+					<view class="header"><image :src="info.CoachAvatar || 'https://yd.wtanvxin.com/static/default.png'"></image></view>
 					<view class="caochinfo">
 						<view class="name">{{ info.CoachNick }}</view>
 						<view class="contentname">{{ info.CoachType }}</view>
@@ -21,7 +21,7 @@
 			</view>
 		</view>
 		<view class="studio" @click="tolink('/pages/personal/VenueDetail/VenueDetail?gymId='+info.StoreId)">
-			<view class="header"><image :src="info.StoreLogo || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
+			<view class="header"><image :src="info.StoreLogo || 'https://yd.wtanvxin.com/static/default.png'"></image></view>
 			<view class="company">
 				<view class="studioName">{{ info.StoreName }}</view>
 				<view class="address">{{ info.StoreAddress }}</view>

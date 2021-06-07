@@ -3,7 +3,7 @@
 		<view class="comment-hd flex-between">
 			<view class="flex-start">
 				<view class="tx" @click="tolink('/pages/homepage/homepage?id='+dataitem.MemberId)">
-					<image :src="dataitem.MemberHead||'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
+					<image :src="dataitem.MemberHead||'https://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
 				</view>
 				<view class="info">
 					<view class="name">{{dataitem.MemberName||'匿名用户'}}</view>
@@ -25,7 +25,7 @@
 				<view class="reply-hd flex-between" v-if="false">
 					<view class="flex-start">
 						<view class="tx" @click="tolink('/pages/homepage/homepage?id='+item.MemberId)">
-							<image :src="item.MemberHead||'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
+							<image :src="item.MemberHead||'https://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
 						</view>
 						<view class="info">
 							<view class="name">{{item.MemberName||'匿名用户'}}</view>

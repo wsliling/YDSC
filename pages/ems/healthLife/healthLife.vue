@@ -10,7 +10,7 @@
 			<!-- <view class="secAll" v-for="(item, index) in 5" :key="index"> -->
 			<view class="secAll">
 				<view class="sec">
-					<view class="sec_1"><image src="http://yd.wtanvxin.com/static/index1.png" mode=""></image></view>
+					<view class="sec_1"><image src="https://yd.wtanvxin.com/static/index1.png" mode=""></image></view>
 					<view class="sec_2">规律起床</view>
 					<view class="sec_3">
 						<text>07:00</text>
@@ -18,7 +18,7 @@
 					</view>
 				</view>
 				<view class="sec">
-					<view class="sec_1"><image src="http://yd.wtanvxin.com/static/index2.png" mode=""></image></view>
+					<view class="sec_1"><image src="https://yd.wtanvxin.com/static/index2.png" mode=""></image></view>
 					<view class="sec_2">步行</view>
 					<view class="sec_3">
 						<text>2000</text>
@@ -26,7 +26,7 @@
 					</view>
 				</view>
 				<view class="sec">
-					<view class="sec_1"><image src="http://yd.wtanvxin.com/static/index3.png" mode=""></image></view>
+					<view class="sec_1"><image src="https://yd.wtanvxin.com/static/index3.png" mode=""></image></view>
 					<view class="sec_2">呼吸训练</view>
 					<view class="sec_3">
 						<text>2</text>
@@ -34,7 +34,7 @@
 					</view>
 				</view>
 				<view class="sec">
-					<view class="sec_1"><image src="http://yd.wtanvxin.com/static/index4.png" mode=""></image></view>
+					<view class="sec_1"><image src="https://yd.wtanvxin.com/static/index4.png" mode=""></image></view>
 					<view class="sec_2">训练时长</view>
 					<view class="sec_3">
 						<text>20</text>
@@ -42,7 +42,7 @@
 					</view>
 				</view>
 				<view class="sec">
-					<view class="sec_1"><image src="http://yd.wtanvxin.com/static/index5.png" mode=""></image></view>
+					<view class="sec_1"><image src="https://yd.wtanvxin.com/static/index5.png" mode=""></image></view>
 					<view class="sec_2">早睡</view>
 					<view class="sec_3">
 						<text>22:00</text>

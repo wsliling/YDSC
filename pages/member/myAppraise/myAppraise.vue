@@ -6,7 +6,7 @@
 				<block v-for="(item, index) in Commentlist" :key="index">
 					<view class="comment-head weui-cell">
 						<image class="tx" v-if="Userinfo.Avatar" :src="Userinfo.Avatar" mode="aspectFill"></image>
-						<image class="tx" v-else src="http://yd.wtanvxin.com/static/default.png" mode="aspectFill"></image>
+						<image class="tx" v-else src="https://yd.wtanvxin.com/static/default.png" mode="aspectFill"></image>
 						<text class="name uni-ellipsis">{{ Userinfo.NickName }}</text>
 					</view>
 					<view class="item" @click="commentDetail(item.Id)">

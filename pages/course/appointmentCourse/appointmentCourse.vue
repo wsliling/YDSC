@@ -15,7 +15,7 @@
 						</view>
 						<view class="title_2">
 							<view class="title2_1">
-								<image :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
+								<image :src="item.CoachAvatar || 'https://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
 								<text>{{ item.CoachNick }}</text>
 							</view>
 							<view class="title2_2" @click="courseDetails(item.Id)">立即预约</view>

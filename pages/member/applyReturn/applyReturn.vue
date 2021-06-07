@@ -40,10 +40,10 @@
         <view>上传凭证（不超过5张）</view>
         <view class="fed_pic flex flexWrap">
           <view v-for="(item,index) in 5" :key="index" class="picbox">
-            <image src="http://yd.wtanvxin.com/static/images/icons/add3.png" alt="" class="pic_itim"></image>
+            <image src="https://yd.wtanvxin.com/static/images/icons/add3.png" alt="" class="pic_itim"></image>
           </view>
           <view class="picbox upBtnImg">
-            <image src="http://yd.wtanvxin.com/static/images/icons/add3.png" alt="" class="pic_itim"></image>
+            <image src="https://yd.wtanvxin.com/static/images/icons/add3.png" alt="" class="pic_itim"></image>
           </view>
         </view>
       </view>

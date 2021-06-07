@@ -22,7 +22,7 @@
 				<view class="product-list-level">
 					<block v-for="(item, index) in newprolist" :key="index">
 						<view class="outside uni-mb10 uni-bg-white b_radius" @click="tolink('/pages/goods/productDetail/productDetail?proId=' + item.Id)">
-							<view class="pictrue"><image :src="item.PicNo || 'http://via.placeholder.com/800x800'" mode="aspectFill"></image></view>
+							<view class="pictrue"><image :src="item.PicNo || 'https://via.placeholder.com/800x800'" mode="aspectFill"></image></view>
 							<view class="txtBox">
 								<view>
 									<view class="title uni-ellipsis2">{{ item.Name }}</view>

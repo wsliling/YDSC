@@ -26,7 +26,7 @@
 							<text style="padding-left: 10upx;" v-if="item.CourseDuration != 0">· {{ item.CourseDuration }}分钟</text>
 						</view>
 						<!-- <view class="sec4_title2">
-							<image :src="item.CoachAvatar || 'http://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
+							<image :src="item.CoachAvatar || 'https://yd.wtanvxin.com/static/default.png'" mode="aspectFill"></image>
 							<text>{{ item.CoachNick }}</text>
 						</view> -->
 					</view>

@@ -12,7 +12,7 @@
           <view class="menu_item flex justifyContentBetween flexAlignCenter" 
 		  @click="goUrl(1)">
               <view class="flex flexAlignCenter">
-                  <image src="http://yd.wtanvxin.com/static/icon_change.png" alt="" class="huan mr2"></image>
+                  <image src="https://yd.wtanvxin.com/static/icon_change.png" alt="" class="huan mr2"></image>
 				  <view>
 					   <view >申请换货</view>
 					   <view style="font-size: 24upx;" class="color_gray">已收到货，需要更换已收到的货物</view>
@@ -23,7 +23,7 @@
           <view class="menu_item flex justifyContentBetween flexAlignCenter" 
 		  @click="goUrl(2)">
               <view class="flex flexAlignCenter">
-                  <image src="http://yd.wtanvxin.com/static/icon_return.png" alt="" class="huan mr2"></image>
+                  <image src="https://yd.wtanvxin.com/static/icon_return.png" alt="" class="huan mr2"></image>
 				  <view>
 					   <view >申请退货退款</view>
 					   <view style="font-size: 24upx;" class="color_gray">已收到货，需要更换已收到的货物</view>
@@ -34,7 +34,7 @@
           <view class="menu_item flex justifyContentBetween flexAlignCenter" 
 		  @click="goUrl(3)">
               <view class="flex flexAlignCenter">
-                  <image src="http://yd.wtanvxin.com/static/icon_refund.png" alt="" class="huan mr2"></image>
+                  <image src="https://yd.wtanvxin.com/static/icon_refund.png" alt="" class="huan mr2"></image>
 				  <view>
 					   <view>仅退款（无需退货）</view>
 					   <view style="font-size: 24upx;" class="color_gray">未收到货（包含未签收）或卖家协商同意前提下</view>

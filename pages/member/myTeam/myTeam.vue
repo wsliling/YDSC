@@ -16,7 +16,7 @@
 				</view>
 			</view>
 			<view class="top_2" v-if="FatherData.length > 0">
-				<view class="top_2_img"><image :src="FatherData[0].Avatar || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
+				<view class="top_2_img"><image :src="FatherData[0].Avatar || 'https://yd.wtanvxin.com/static/default.png'"></image></view>
 				<view class="top_2_right">
 					<view class="top_2_right_1">{{ FatherData[0].NickName }}</view>
 					<view class="top_2_right_2">我的邀请人</view>
@@ -33,7 +33,7 @@
 			<view class="list" v-if="hasData">
 				<block v-for="(item, index) in TeamList" :key="index">
 					<view class="con">
-						<view class="con_1"><image :src="item.Avatar || 'http://yd.wtanvxin.com/static/default.png'"></image></view>
+						<view class="con_1"><image :src="item.Avatar || 'https://yd.wtanvxin.com/static/default.png'"></image></view>
 						<view class="con_2">
 							<view class="title">{{ item.NickName }}</view>
 							<view class="title_1">{{ item.Mobile }}</view>

@@ -226,7 +226,7 @@
 					// 	id:'gh_da1c486d94da',
 					// 	path: "/pages/goods/productDetail/productDetail?proId="+this.GroupMemberInfo.ProductId+'&GroupRecord='+this.groupId,
 					// 	type:2,
-					// 	webUrl:"http://yd.wtanvxin.com"
+					// 	webUrl:"https://yd.wtanvxin.com"
 					// },
 				    success: function (res) { 
 				        console.log("success:" + JSON.stringify(res));
