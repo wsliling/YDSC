@@ -157,7 +157,7 @@
 						<view class="orderleft">订单备注</view>
 						<input class="inputtxt" placeholder="填写内容已和商家家协商确认" type="text" v-model="remarkTxtArr[0]"/>
 					</view>
-					<view class="orderinfo" v-if="info.IsInvoice==1" @click="ChooseInvoice(0)">
+					<view class="orderinfo" @click="ChooseInvoice(0)">
 						<view class="orderleft">开具发票</view>
 						<view class="orderright">
 							<view class="infotxt flex flex-end">{{Invoicetxt[0]||'可开票'}}

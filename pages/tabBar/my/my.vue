@@ -107,6 +107,13 @@
 					</view>
 					<view class="arrowr uni-icon uni-icon-arrowright"></view>
 				</view>
+				<view class="line-item" @click="golink('/pages/member/invoiceList/invoiceList')">
+					<view class="item-left">
+						<text class="iconfont icon-fankui"></text>
+						<view>发票信息</view>
+					</view>
+					<view class="arrowr uni-icon uni-icon-arrowright"></view>
+				</view>
 				<view class="line-item" @click="golink('/pages/member/coupon/coupon')">
 					<view class="item-left">
 						<image src="https://yd.wtanvxin.com/static/u_6.png" mode="widthFix"></image>

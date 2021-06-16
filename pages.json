@@ -568,17 +568,6 @@
 						"navigationBarTitleText": "发布评价"
 					}
 				}, {
-					"path": "invoiceList/invoiceList",
-					"style": {
-						"navigationBarTitleText": "发票信息"
-					}
-				},
-				{
-					"path": "addInvoice/addInvoice",
-					"style": {
-						"navigationBarTitleText": "新增发票"
-					}
-				}, {
 					"path": "collect/collect",
 					"style": {
 						"navigationBarTitleText": "我的收藏",
@@ -789,6 +778,18 @@
 						"enablePullDownRefresh": false
 					}
 
+				}, {
+					"path": "invoiceList/invoiceList",
+					"style": {
+						"navigationBarTitleText": "发票信息",
+						"navigationBarBackgroundColor": "#ffffff"
+					}
+				}, {
+					"path": "addInvoice/addInvoice",
+					"style": {
+						"navigationBarTitleText": "新增常用发票信息",
+						"navigationBarBackgroundColor": "#ffffff"
+					}
 				}
 			]
 		},
@@ -838,7 +839,7 @@
 							"scrollIndicator": "none" //不显示滚动条
 						}
 					}
-				},{
+				}, {
 					"path": "VenueDetail/map",
 					"style": {
 						"navigationBarTitleText": "场馆详情",

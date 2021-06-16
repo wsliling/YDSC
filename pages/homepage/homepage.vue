@@ -89,7 +89,7 @@
 					<text class="num">{{ Info.TrendsNum }}</text>
 					<text class="txt">动态</text>
 				</view>
-				<view v-if="Info.IsCoach==1" :class="['item', tabIndex == 3 ? 'active' : '']" @click="tapTab(3)">
+				<view v-if="Info.IsCoach == 1" :class="['item', tabIndex == 3 ? 'active' : '']" @click="tapTab(3)">
 					<text class="num">{{ Info.TrendsNum }}</text>
 					<text class="txt">课程</text>
 				</view>
@@ -139,6 +139,7 @@
 								<view v-if="item.imgArr.length > 3" class="count">{{ item.imgArr.length }}</view>
 							</view>
 							<view class="ftbox text_right uni-mt10" v-if="item.IsMy == 1">
+								<text style="color: #949494;padding-right: 30upx;">{{ item.StatusName }}</text>
 								<text class="del iconfont icon-del c_999" @click.stop="delData(item.Id, index)"></text>
 							</view>
 						</view>

@@ -39,7 +39,7 @@
 				<text>退款/退货原因：</text><text>{{orderinfo.RefuseReason}}</text>
 			</view>
 			<view class="contentitem">
-				<text>退款金额：</text><text class="price">￥{{orderinfo.RefundMoney}}</text>
+				<text>退款金额：</text><text class="price">￥{{RefundMoney}}</text>
 			</view>
 			<view class="contentitem">
 				<text>申请件数：</text><text>{{orderinfo.Number}}</text>
@@ -115,6 +115,7 @@
 				token:"",
 				orderNo:"",
 				RefundId:"",
+				RefundMoney:0,
 				orderinfo:{},
 				proinfo:{},
 				ExpressNo:"",//退换货快递单号
@@ -146,6 +147,7 @@
 		onLoad:function(option){
 			this.orderNo=option.orderNo;
 			this.RefundId=option.RefundId;
+			this.RefundMoney=option.refundAmount
 		},
 		onShow:function(){
 			this.userId = uni.getStorageSync("userId");
