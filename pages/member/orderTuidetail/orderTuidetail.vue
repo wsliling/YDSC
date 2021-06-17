@@ -47,6 +47,9 @@
 			<view class="contentitem">
 				<text>申请时间：</text><text>{{orderinfo.TimeStr}}</text>
 			</view>
+			<view class="contentitem" v-if="orderinfo.IsShowAddress==1">
+				<text>退货地址：</text><text>{{orderinfo.RefundAddress}}</text>
+			</view>
 		</view>
 		<view class="kefubox">
 			<view class="kefuitem addrightborder" @click="phonecall"><view class="uni-icon uni-icon-phone-filled kefuicon"></view><text>拨打电话</text></view>

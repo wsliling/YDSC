@@ -181,7 +181,7 @@
 				}
 			}
 		}
-	],
+    ],
 	"subPackages": [{
 			"root": "pages/goods",
 			"pages": [{
