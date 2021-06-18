@@ -176,6 +176,7 @@ export default {
 							});
 							//uni.navigateBack();
 						}, 1500);
+						// uni.setStorageSync('refundAmount', this.amount);
 					}
 				});
 			}

@@ -28,7 +28,7 @@
 				</view>
 				<view class="btn flex-end">
 					<view class="btn_r" @click="goUrl('/pages/member/orderTuidetail/orderTuidetail?orderNo=' + item.OrderNo + '&RefundId=' + item.RefundId)">售后详情</view>
-					<view class="btn_c" v-if="channel == 1" @click="cancel(item)">取消售后</view>
+					<view class="btn_c" v-if="item.IsCancelBtn == 1" @click="cancel(item)">取消售后</view>
 				</view>
 			</view>
 			<noData :isShow="isnNoData"></noData>
@@ -49,8 +49,7 @@ export default {
 			pagesize: 3,
 			list: [],
 			isnNoData: false,
-			isOver: false,
-			channel: 0
+			isOver: false
 		};
 	},
 	onShow() {
@@ -82,7 +81,6 @@ export default {
 			}).then(res => {
 				if (res.code === 0) {
 					this.list.push(...res.data);
-					this.channel = res.data.IsCancelBtn;
 					if (res.count == 0) {
 						this.isnNoData = true;
 					}

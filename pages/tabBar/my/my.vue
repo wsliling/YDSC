@@ -13,6 +13,7 @@
 								ID:
 								<text id="MemberID">{{ memberInfo.Id || '00000' }}</text>
 							</view>
+							<span class="vip">{{ memberInfo.Grade }}</span>
 						</view>
 					</view>
 					<text class="uni-icon uni-icon-arrowright fz12"></text>
@@ -342,7 +343,13 @@ export default {
 						text-overflow: ellipsis;
 					}
 				}
-
+				.vip {
+					font-weight: bold;
+					background-image: -webkit-linear-gradient(bottom, #ffff53, #ff0000);
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+					font-size: 18px;
+				}
 				.attest1 {
 					margin-left: 10rpx;
 					height: 40rpx;
@@ -352,7 +359,6 @@ export default {
 					font-size: 20rpx;
 					border-radius: 40rpx;
 					padding-right: 10upx;
-
 					image {
 						width: 40rpx;
 						height: 40rpx;
