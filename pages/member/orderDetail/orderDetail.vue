@@ -59,7 +59,8 @@
 									v-if="item.IsRefund == 1"
 									@click.stop="navigate('member/afterSaleType/afterSaleType', { indexId: index, id: info.OrderNumber })"
 								>
-									{{ item.OrderStatusName == '已发货' ? '申请售后' : '退款' }}
+									<!-- {{ item.OrderStatusName == '已发货' ? '申请售后' : '退款' }} -->
+									{{ item.OrderStatusName == '待发货' ? '退款' : '申请售后' }}
 								</span>
 								<text
 									class="tui_pill mt2"

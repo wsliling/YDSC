@@ -19,6 +19,13 @@
 				</view>
 			</view>
 			<view class="wallerList">
+				<view class="item" @click="golink('/pages/Wallet/account/account')">
+					<view>
+						<text class="iconfont icon-qian3 act"></text>
+						余额转账
+					</view>
+					<view class="iconfont icon-arrow_r"></view>
+				</view>
 				<view class="item" @click="golink('/pages/Wallet/withdraw/withdraw?type=2')">
 					<view>
 						<text class="iconfont icon-qianbao tiX"></text>
@@ -176,6 +183,9 @@ export default {
 				font-size: 50rpx;
 				padding-right: 20rpx;
 				vertical-align: sub;
+			}
+			.act{
+				color: #ff5500;
 			}
 			.tiX {
 				color: #ffcd49;

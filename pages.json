@@ -181,6 +181,15 @@
 				}
 			}
 		}
+        ,{
+            "path" : "pages/Wallet/account/account",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "转账",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"subPackages": [{
 			"root": "pages/goods",
