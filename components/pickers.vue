@@ -33,7 +33,7 @@ export default {
 	data() {
 		return {
 			//临时改变的值
-			value: '0'
+			value: ''
 		};
 	},
 	onLoad() {

@@ -98,7 +98,7 @@ export default {
 		// if(this.type == 1){
 		// 	this.list = []
 		// }else{
-		// 	this.list = [{code:0,message:'请选择'}]
+			// this.list = [{code:0,message:'请选择'}]
 		// }
 		this.list = [];
 		this.getDetail();
@@ -113,23 +113,23 @@ export default {
 		},
 		showReason() {
 			if (this.type == 3) {
-				this.getCancelReason();
+			this.getCancelReason();
 			} else {
-				this.GetRefundReason();
+			this.GetRefundReason();
 			}
-			// this.GetRefundReason()
 			this.showEdit = true;
 		},
 		//取消订单原因
 		getCancelReason() {
 			get('Order/CancelReason', {}).then(res => {
-				this.list = res.data.splice(1);
+				this.list = res.data;
+				console.log(this.list);
 			});
 		},
 		//退换货原因
 		GetRefundReason() {
 			get('Order/GetRefundReason', {}).then(res => {
-				this.list = res.data.splice(1);
+				this.list = res.data;
 			});
 		},
 		getDetail() {
