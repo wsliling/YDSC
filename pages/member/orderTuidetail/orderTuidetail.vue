@@ -55,6 +55,10 @@
 				<text>退货地址：</text>
 				<text>{{ orderinfo.RefundAddress }}</text>
 			</view>
+			<view class="contentitem" v-if="orderinfo.ExpressId != ''">
+				<text>物流单号：</text>
+				<text>{{ orderinfo.ExpressId }}</text>
+			</view>
 		</view>
 		<view class="kefubox">
 			<view class="kefuitem addrightborder" @click="phonecall">
@@ -74,7 +78,8 @@
 			</view>
 			<!--#endif-->
 		</view>
-		<view class="submitbtn" @click="submitbtn" v-if="orderinfo.Status == 9 || orderinfo.Status == 10">请填写寄回信息单号</view>
+		<view class="submitbtn" @click="submitbtn" v-if="(orderinfo.Status == 9 || orderinfo.Status == 10) && orderinfo.ExpressId == ''">请填写寄回信息单号</view>
+		<view class="submitbtn" @click="submitbtn" v-if="(orderinfo.Status == 9 || orderinfo.Status == 10) && orderinfo.ExpressId != ''">修改寄回信息单号</view>
 		<!-- 填写寄回信息 -->
 		<view class="shadeAll" v-show="isShowShade2">
 			<view style="width: 100%;height: 100%;" @click="closeshade"></view>
